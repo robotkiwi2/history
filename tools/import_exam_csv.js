@@ -516,6 +516,35 @@ const KEYWORD_META = {
   '동지':              { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
   '추석':              { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
   '삼짇날':            { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+
+  // ===== 68회 심화 추가 키워드 =====
+  // 전쟁·사건
+  '안시성 전투':       { type: '전쟁',  era: '삼국시대', startYear: 645,   endYear: 645   },
+  '명량 해전':         { type: '전쟁',  era: '조선시대', startYear: 1597,  endYear: 1597  },
+  '나선정벌':          { type: '전쟁',  era: '조선시대', startYear: 1654,  endYear: 1658  },
+  '전태일 분신 사건':  { type: '사건',  era: '근대',     startYear: 1970,  endYear: 1970  },
+  // 왕·시대
+  '고려 문종':         { type: '왕',    era: '고려시대', startYear: 1046,  endYear: 1083  },
+  '원 간섭기':         { type: '시대',  era: '고려시대', startYear: 1270,  endYear: 1356  },
+  // 인물
+  '조식':              { type: '인물',  era: '조선시대', startYear: 1501,  endYear: 1572  },
+  '정제두':            { type: '인물',  era: '조선시대', startYear: 1649,  endYear: 1736  },
+  // 기관·제도
+  '어영청':            { type: '기관',  era: '조선시대', startYear: 1623,  endYear: 1894  },
+  '역관':              { type: '직업',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '직전법':            { type: '제도',  era: '조선시대', startYear: 1466,  endYear: 1556  },
+  '보빙사':            { type: '기관',  era: '근대',     startYear: 1883,  endYear: 1883  },
+  '국가 총동원법':     { type: '제도',  era: '근대',     startYear: 1938,  endYear: 1945  },
+  '국민대표회의':      { type: '사건',  era: '근대',     startYear: 1923,  endYear: 1923  },
+  '신한청년당':        { type: '기관',  era: '근대',     startYear: 1918,  endYear: 1922  },
+  '북로 군정서':       { type: '기관',  era: '근대',     startYear: 1919,  endYear: 1920  },
+  '한국 민주당':       { type: '기관',  era: '근대',     startYear: 1945,  endYear: 1949  },
+  // 유물·건축
+  '비격진천뢰':        { type: '유물',  era: '조선시대', startYear: 1591,  endYear: 1591  },
+  '외규장각 의궤':     { type: '유물',  era: '조선시대', startYear: 1782,  endYear: 1866  },
+  '북학의':            { type: '유물',  era: '조선시대', startYear: 1778,  endYear: 1778  },
+  '동국여지승람':      { type: '유물',  era: '조선시대', startYear: 1481,  endYear: 1481  },
+  '창경궁':            { type: '유물',  era: '조선시대', startYear: 1483,  endYear: 1483  },
 };
 
 function mapDifficulty(score) {

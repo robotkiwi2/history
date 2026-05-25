@@ -1487,6 +1487,21 @@
     </div>
   </div>
 
+  <!-- ============ ROUND COMPLETE MODAL ============ -->
+  <div class="modal-backdrop hidden" id="roundCompleteModal">
+    <div class="modal-card">
+      <div class="modal-title">라운드 완료</div>
+      <div class="modal-body" style="text-align:center;">
+        <div style="font-size:42px;font-weight:900;color:#eebbc3;line-height:1.1;margin:8px 0 4px;">
+          <span id="roundAccuracy">—%</span>
+        </div>
+        <div style="font-size:13px;color:#b8b8d4;" id="roundDetailText">—</div>
+      </div>
+      <button class="modal-close-btn" id="roundNextBtn">다음 라운드</button>
+      <button class="modal-close-btn round-secondary" id="roundHomeBtn" style="margin-top:8px;background:transparent;color:#b8b8d4;border:1px solid #393a5a;">시대 선택으로</button>
+    </div>
+  </div>
+
   <!-- ============ iOS INSTALL GUIDE MODAL ============ -->
   <div class="modal-backdrop hidden" id="iosInstallModal">
     <div class="modal-card">
@@ -2191,6 +2206,27 @@
       if (e.target === iosModal) iosModal.classList.add('hidden');
     });
 
+    // ===== 라운드 완료 모달 =====
+    function showRoundCompleteModal() {
+      const pct = l2RoundSolved === 0 ? 0 : Math.round(l2RoundCorrect / l2RoundSolved * 100);
+      document.getElementById('roundAccuracy').textContent = pct + '%';
+      document.getElementById('roundDetailText').textContent =
+        `${l2RoundSolved}문제 중 ${l2RoundCorrect}문제 정답`;
+      document.getElementById('roundCompleteModal').classList.remove('hidden');
+    }
+    document.getElementById('roundNextBtn').addEventListener('click', () => {
+      document.getElementById('roundCompleteModal').classList.add('hidden');
+      l2RoundSolved = 0;
+      l2RoundCorrect = 0;
+      pickNextDetail();
+    });
+    document.getElementById('roundHomeBtn').addEventListener('click', () => {
+      document.getElementById('roundCompleteModal').classList.add('hidden');
+      l2RoundSolved = 0;
+      l2RoundCorrect = 0;
+      showEraSelection();
+    });
+
     // ===== 첫 진입 가이드 투어 (spotlight + arrow + tooltip) =====
     const TOUR_STEPS = [
       { sel: '#detailQuestionCard', text: '여기 하단 카드에 문제(빈칸 사실)가 나옵니다', arrow: 'down', pos: 'above' },
@@ -2527,6 +2563,8 @@
     function noteL2Resolution(wasCleanCorrect) {
       l2DetailsAttempted++;
       if (wasCleanCorrect) l2DetailsCleanCorrect++;
+      l2RoundSolved++;
+      if (wasCleanCorrect) l2RoundCorrect++;
       updateL2AccuracyDisplay(wasCleanCorrect ? 'delta-up' : 'delta-down');
     }
 
@@ -3495,7 +3533,10 @@
     let l2AttemptsThisDetail = 0;
     let l2HintsThisDetail = 0;
     let l2HintList = [];         // 현재 디테일의 힌트들 (탭마다 하나씩 cycle)
-    let l2HintShownCount = 0;    // 지금까지 보여준 힌트 수
+    let l2HintShownCount = 0;    // 현재 화면에 보여진 힌트의 인덱스 (0=숨김 상태)
+    let l2HintsRevealed = 0;     // 본 적 있는 힌트의 최대치 (재탭 시 중복 차감 방지)
+    let l2RoundSolved = 0;       // 이번 라운드에서 해결한 문제 수 (정답+포기)
+    let l2RoundCorrect = 0;      // 이번 라운드 깨끗한 정답 수
     let l2MatchedCount = 0;
     let l2TotalCount = 0;
     let l2VisibleTypes = null;   // Set<string> — 현재 마스킹 태그의 type (필터)
@@ -3589,6 +3630,8 @@
         }
       }
       resetL2Accuracy();
+      l2RoundSolved = 0;
+      l2RoundCorrect = 0;
 
       showView('view-detail');
       pickNextDetail();
@@ -3650,6 +3693,11 @@
     }
 
     function pickNextDetail() {
+      // 라운드 사이즈 도달 시 라운드 완료 모달 노출 (풀이 그대로 유지)
+      if (l2RoundSolved >= currentRoundSize) {
+        showRoundCompleteModal();
+        return;
+      }
       if (l2DetailPool.length === 0) {
         // All matched — 필터 해제하고 전체 키워드 노출
         l2VisibleTypes = null;
@@ -3679,6 +3727,7 @@
       // 힌트 리스트 미리 빌드 (탭마다 cycle)
       l2HintList = buildHintList(l2CurrentDetail, l2MaskTag);
       l2HintShownCount = 0;
+      l2HintsRevealed = 0;
       renderL2Timeline();
       const typesLabel = l2VisibleTypes ? [...l2VisibleTypes].join('/') : '키워드';
       detailQuestionEl.classList.remove('hidden', 'l2-hint-shown', 'l2-gaveup-reveal');
@@ -3695,15 +3744,26 @@
       detailProgressEl.textContent = `문제 ${l2DetailsAttempted + 1}/${l2TotalCount}`;
     }
 
-    // ===== L2 카드 탭 → 힌트 cycle, 길게 누르면 포기 =====
+    // ===== L2 카드 탭 → 힌트 cycle (마지막 다음 탭은 초기 상태로), 길게 누르면 포기 =====
     function applyL2Hint() {
-      if (l2HintShownCount >= l2HintList.length) return; // 더 보여줄 힌트 없음
+      // 마지막 힌트까지 본 상태에서 다시 탭 → 초기 상태로 복귀 (점수 차감 없음)
+      if (l2HintShownCount >= l2HintList.length) {
+        l2HintShownCount = 0;
+        detailQuestionEl.classList.remove('l2-hint-shown');
+        document.getElementById('detailQHint').textContent = '';
+        detailQLabelEl.textContent = '터치하면 힌트가 제공됩니다.';
+        return;
+      }
       const hintText = l2HintList[l2HintShownCount];
       document.getElementById('detailQHint').textContent = hintText;
       detailQuestionEl.classList.add('l2-hint-shown');
       l2HintShownCount++;
-      l2HintsThisDetail++;
-      addScore(-5);
+      // 처음 본 힌트일 때만 점수 차감 (cycle 돌리며 같은 힌트 다시 봐도 추가 차감 X)
+      if (l2HintShownCount > l2HintsRevealed) {
+        l2HintsRevealed = l2HintShownCount;
+        l2HintsThisDetail++;
+        addScore(-5);
+      }
     }
     function giveUpL2() {
       if (l2Locked || !l2CurrentDetail) return;
