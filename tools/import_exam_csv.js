@@ -36,7 +36,7 @@ const KEYWORD_META = {
   '삼한':              { type: '국가',  era: '선사시대', startYear: -200,  endYear: 300   },
   '옥저':              { type: '국가',  era: '선사시대', startYear: -200,  endYear: 285   },
   '동예':              { type: '국가',  era: '선사시대', startYear: -200,  endYear: 313   },
-  '삼한/부여':         { type: '국가',  era: '선사시대', startYear: -200,  endYear: 562   },  // legacy 통합 표기
+  // ('삼한/부여' → SKIP_SUBJECTS + 디테일별로 부여/삼한 자동 재분류)
   // 삼국·가야
   '가야':              { type: '국가',  era: '삼국시대', startYear: 42,    endYear: 562   },
   '고구려':            { type: '국가',  era: '삼국시대', startYear: -37,   endYear: 668   },
@@ -604,7 +604,19 @@ const SKIP_SUBJECTS = new Set([
   '부산 지역 역사',
   '개경 지역 역사',
   '고려 의학',
+  '삼한/부여',  // legacy 통합 → 부여/삼한으로 디테일별 재분류 (실패 시 skip)
 ]);
+
+// '삼한/부여' (legacy 통합 표기) 자동 재분류 — description에 부여/삼한 특정 키워드 있는지로 판단
+const BUYEO_HINTS  = ['사출도', '영고', '1책 12법', '12배', '우제점', '마가', '우가', '저가', '구가', '송화강'];
+const SAMHAN_HINTS = ['마한', '진한', '변한', '소도', '천군', '신지', '읍차', '계절제'];
+function reclassifyBuyeoSamhan(text) {
+  const isBuyeo  = BUYEO_HINTS.some(k => text.includes(k));
+  const isSamhan = SAMHAN_HINTS.some(k => text.includes(k));
+  if (isBuyeo && !isSamhan) return '부여';
+  if (isSamhan && !isBuyeo) return '삼한';
+  return null;
+}
 
 // CSV의 디테일이 이 단어 중 하나면 (단일 단어 정답 후보), 실제 대상을 자기자신으로 retag.
 // 예: 디테일="상평통보", 실제 대상="조선 후기 경제" → 실제 대상을 "상평통보"로 교체.
@@ -660,11 +672,24 @@ function main() {
   // 1) 모든 키워드 후보 수집 (질문 대상 + 실제 대상). 분야 변형은 base로 통합. 카테고리성 묶음은 skip.
   // 단일 단어 디테일이 신규 키워드면 그것도 후보에 포함.
   const subjects = new Set();
+  // 한 row에 대한 실제 대상을 alias·재분류·skip 적용한 최종 값. null이면 skip된 케이스.
+  const resolveRowSubject = (r) => {
+    const real = r['실제 대상'];
+    if (!real) return null;
+    const dt = (r['디테일(역사적 사태)'] || '').replace(/^\([가-마]\)\s*-\s*/, '').trim();
+    let resolved = real;
+    if (real === '삼한/부여') {
+      const reclass = reclassifyBuyeoSamhan(dt);
+      if (reclass) resolved = reclass;
+    }
+    if (SKIP_SUBJECTS.has(resolved)) return null;
+    return applyAlias(resolved);
+  };
   rows.forEach(r => {
     const q = r['질문 대상'];
     if (q && !SKIP_SUBJECTS.has(q)) subjects.add(applyAlias(q));
-    const real = r['실제 대상'];
-    if (real && !SKIP_SUBJECTS.has(real)) subjects.add(applyAlias(real));
+    const resolved = resolveRowSubject(r);
+    if (resolved) subjects.add(resolved);
     const dt = (r['디테일(역사적 사태)'] || '').trim();
     if (SINGLE_WORD_KEYWORDS.has(dt)) subjects.add(applyAlias(dt));
   });
@@ -729,8 +754,14 @@ function main() {
     if (!rawSubject) return;
     const rawDetailTrim = (r['디테일(역사적 사태)'] || '').trim();
     // 단일 단어 디테일이 신규 키워드면 자기자신을 실제 대상으로 retag
-    const baseSubject = SINGLE_WORD_KEYWORDS.has(rawDetailTrim) ? rawDetailTrim : rawSubject;
-    if (SKIP_SUBJECTS.has(baseSubject)) return; // 카테고리성 묶음 — 매칭 키워드 없음
+    let baseSubject = SINGLE_WORD_KEYWORDS.has(rawDetailTrim) ? rawDetailTrim : rawSubject;
+    // '삼한/부여' 자동 재분류 — description 내용으로 부여/삼한 판단
+    if (baseSubject === '삼한/부여') {
+      const cleaned = rawDetailTrim.replace(/^\([가-마]\)\s*-\s*/, '').trim();
+      const reclass = reclassifyBuyeoSamhan(cleaned);
+      if (reclass) baseSubject = reclass;
+    }
+    if (SKIP_SUBJECTS.has(baseSubject)) return; // 카테고리성 묶음 / 모호한 삼한/부여
     const realSubject = applyAlias(baseSubject);  // 디테일의 정답 태그도 base로 통합
     const rawDetailText = r['디테일(역사적 사태)'];
     if (!rawDetailText) return;

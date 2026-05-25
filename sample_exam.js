@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 436개 / 디테일 2167개 (보기 옵션만 있던 325행 제외, 라벨 prefix 92행 정제, 중복 변형 284행 제외, 충돌 태그 398행 제외)
+// 생성: 키워드 435개 / 디테일 2167개 (보기 옵션만 있던 324행 제외, 라벨 prefix 92행 정제, 중복 변형 284행 제외, 충돌 태그 398행 제외)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
 
 const EXAM_KEYWORDS = [
@@ -61,10 +61,10 @@ const EXAM_KEYWORDS = [
   {
     "type": "국가",
     "kind": "keyword",
-    "title": "삼한/부여",
+    "title": "삼한",
     "description": "",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 300,
     "difficulty": 3,
     "era": "선사시대",
     "tags": []
@@ -2996,6 +2996,17 @@ const EXAM_KEYWORDS = [
     "tags": []
   },
   {
+    "type": "국가",
+    "kind": "keyword",
+    "title": "부여",
+    "description": "",
+    "startYear": -200,
+    "endYear": 494,
+    "difficulty": 3,
+    "era": "선사시대",
+    "tags": []
+  },
+  {
     "type": "왕",
     "kind": "keyword",
     "title": "백제 침류왕",
@@ -4536,28 +4547,6 @@ const EXAM_KEYWORDS = [
     "tags": []
   },
   {
-    "type": "국가",
-    "kind": "keyword",
-    "title": "부여",
-    "description": "",
-    "startYear": -200,
-    "endYear": 494,
-    "difficulty": 3,
-    "era": "선사시대",
-    "tags": []
-  },
-  {
-    "type": "국가",
-    "kind": "keyword",
-    "title": "삼한",
-    "description": "",
-    "startYear": -200,
-    "endYear": 300,
-    "difficulty": 3,
-    "era": "선사시대",
-    "tags": []
-  },
-  {
     "type": "전쟁",
     "kind": "keyword",
     "title": "안시성 전투",
@@ -4929,11 +4918,11 @@ const EXAM_DETAILS = [
     "title": "신성 지역인 소도가 있었다.",
     "description": "신성 지역인 소도가 있었다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 300,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "삼한"
     ],
     "_src": "78회 심화 Q3 O"
   },
@@ -9924,11 +9913,11 @@ const EXAM_DETAILS = [
     "title": "여러 가(加)들이 별도로 사출도를 주관하였다.",
     "description": "여러 가(加)들이 별도로 사출도를 주관하였다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 494,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "부여"
     ],
     "_src": "77회 심화 Q2 X"
   },
@@ -9984,11 +9973,11 @@ const EXAM_DETAILS = [
     "title": "신성 구역인 소도의 기능을 알아본다.",
     "description": "신성 구역인 소도의 기능을 알아본다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 300,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "삼한"
     ],
     "_src": "77회 심화 Q3 X"
   },
@@ -10119,11 +10108,11 @@ const EXAM_DETAILS = [
     "title": "12월에 영고라는 제천 행사를 열었다.",
     "description": "12월에 영고라는 제천 행사를 열었다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 494,
     "difficulty": 2,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "부여"
     ],
     "_src": "77회 심화 Q7 X"
   },
@@ -12924,11 +12913,11 @@ const EXAM_DETAILS = [
     "title": "신성 구역인 소도가 존재하였다.",
     "description": "신성 구역인 소도가 존재하였다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 300,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "삼한"
     ],
     "_src": "76회 심화 Q2 X"
   },
@@ -18249,11 +18238,11 @@ const EXAM_DETAILS = [
     "title": "여러 가(加)들이 사출도를 다스렸다.",
     "description": "여러 가(加)들이 사출도를 다스렸다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 494,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "부여"
     ],
     "_src": "74회 심화 Q2 X"
   },
@@ -18549,11 +18538,11 @@ const EXAM_DETAILS = [
     "title": "제사장인 천군과 신성 지역인 소도가 존재하였다.",
     "description": "제사장인 천군과 신성 지역인 소도가 존재하였다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 300,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "삼한"
     ],
     "_src": "74회 심화 Q7 X"
   },
@@ -20844,11 +20833,11 @@ const EXAM_DETAILS = [
     "title": "영고라는 제천 행사를 열었다.",
     "description": "영고라는 제천 행사를 열었다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 494,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "부여"
     ],
     "_src": "73회 심화 Q4 X"
   },
@@ -20874,11 +20863,11 @@ const EXAM_DETAILS = [
     "title": "(가) (나) - 도둑질한 자에게 12배로 배상하게 하...",
     "description": "(가) (나) - 도둑질한 자에게 12배로 배상하게 하였다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 494,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "부여"
     ],
     "_src": "73회 심화 Q4 X"
   },
@@ -28149,11 +28138,11 @@ const EXAM_DETAILS = [
     "title": "여러 가(加)들이 각각 사출도를 주관하였다.",
     "description": "여러 가(加)들이 각각 사출도를 주관하였다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 494,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "부여"
     ],
     "_src": "71회 심화 Q2 O"
   },
@@ -30234,11 +30223,11 @@ const EXAM_DETAILS = [
     "title": "마한",
     "description": "마한",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 300,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "삼한"
     ],
     "_src": "71회 기본 Q2 X"
   },
@@ -30654,11 +30643,11 @@ const EXAM_DETAILS = [
     "title": "영고",
     "description": "영고",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 494,
     "difficulty": 2,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "부여"
     ],
     "_src": "71회 기본 Q17 X"
   },
@@ -31794,11 +31783,11 @@ const EXAM_DETAILS = [
     "title": "신지 읍차 등의 지배자가 있었다.",
     "description": "신지 읍차 등의 지배자가 있었다.",
     "startYear": -200,
-    "endYear": 562,
+    "endYear": 300,
     "difficulty": 3,
     "era": "선사시대",
     "tags": [
-      "삼한/부여"
+      "삼한"
     ],
     "_src": "70회 심화 Q2 X"
   },
