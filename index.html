@@ -761,6 +761,45 @@
       padding: 40px 16px;
       line-height: 1.5;
     }
+    /* 취약 키워드 탭 시 그 키워드의 디테일 펼침 */
+    .weak-item { display: flex; flex-direction: column; }
+    .weak-row.weak-row-expanded {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-color: transparent;
+    }
+    .weak-details {
+      margin-bottom: 0;
+      padding: 8px 14px 12px;
+      background: #1a1a2e;
+      border: 1px solid #2c2f5a;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .weak-detail-row {
+      font-size: 12px;
+      line-height: 1.5;
+      color: #b8b8d4;
+      padding: 4px 0;
+      border-bottom: 1px dashed #2c2f5a;
+    }
+    .weak-detail-row:last-child { border-bottom: none; }
+    .weak-detail-highlight {
+      color: #eebbc3;
+      font-weight: 700;
+      background: rgba(238, 187, 195, 0.12);
+      padding: 0 4px;
+      border-radius: 3px;
+    }
+    .weak-detail-empty {
+      font-size: 12px;
+      color: #6c6c8a;
+      text-align: center;
+      padding: 8px 0;
+    }
 
     /* era-tab-bar: 탭바 자체에는 배경 fade 적용 안 함 (body가 그라데이션이라 깔끔하게 보이도록) */
     .era-tab-bar {
@@ -2350,6 +2389,9 @@
         return;
       }
       items.forEach((item, idx) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'weak-item';
+
         const row = document.createElement('div');
         row.className = 'weak-row';
         row.innerHTML = `
@@ -2359,10 +2401,20 @@
           <span class="weak-era">${item.card.era}</span>
           <span class="weak-count">${item.count}회</span>
         `;
-        // 길게 누르면 그 키워드의 취약 기록 삭제 (L1 stats wrong/gaveUp + L2 struggle history)
+
+        const detailsBox = document.createElement('div');
+        detailsBox.className = 'weak-details hidden';
+
+        wrapper.appendChild(row);
+        wrapper.appendChild(detailsBox);
+
+        // Tap = expand/collapse 디테일 / Long-press = 취약 기록 삭제
         let timer = null;
+        let longPressed = false;
         row.addEventListener('pointerdown', () => {
+          longPressed = false;
           timer = setTimeout(() => {
+            longPressed = true;
             timer = null;
             if (confirm(`[${item.title}]의 취약 기록을 삭제할까요?\n(오답·포기 기록만 삭제됩니다)`)) {
               deleteWeakKeywordRecord(item.title);
@@ -2375,8 +2427,40 @@
         row.addEventListener('pointercancel', cancel);
         row.addEventListener('pointerleave', cancel);
         row.addEventListener('contextmenu', e => e.preventDefault());
-        listEl.appendChild(row);
+        row.addEventListener('click', () => {
+          if (longPressed) { longPressed = false; return; }
+          toggleWeakDetails(row, detailsBox, item.title);
+        });
+
+        listEl.appendChild(wrapper);
       });
+    }
+
+    // 취약 키워드 row 탭 → 해당 키워드를 tag로 갖는 디테일 목록 펼침/접힘
+    function toggleWeakDetails(row, box, title) {
+      if (!box.classList.contains('hidden')) {
+        box.classList.add('hidden');
+        row.classList.remove('weak-row-expanded');
+        box.innerHTML = '';
+        return;
+      }
+      const details = allDetailCards()
+        .filter(d => (d.tags || []).includes(title))
+        .sort((a, b) => (a.difficulty || 3) - (b.difficulty || 3));
+      if (details.length === 0) {
+        box.innerHTML = '<div class="weak-detail-empty">관련 디테일이 없습니다</div>';
+      } else {
+        box.innerHTML = details.map(d => {
+          const desc = d.description || d.title || '';
+          // 정답 키워드를 강조 표시
+          const html = title && desc.includes(title)
+            ? desc.split(title).join(`<span class="weak-detail-highlight">${title}</span>`)
+            : desc;
+          return `<div class="weak-detail-row">${html}</div>`;
+        }).join('');
+      }
+      box.classList.remove('hidden');
+      row.classList.add('weak-row-expanded');
     }
 
     // 한 키워드의 취약 기록만 삭제 — L1 stats의 wrong/gaveUp 0으로 + L2 history의 struggle entry 제거.
@@ -3467,7 +3551,7 @@
         if (cardEl) cardEl.classList.add('l2-correct-flash');
         // 원문 reveal — 마스킹된 태그를 초록 강조로 카드 노출
         revealAnswerInCard(l2CurrentDetail, l2MaskTag, false);
-        detailHintEl.textContent = `정답! (+10)`;
+        detailHintEl.textContent = `정답!`;
         detailHintEl.className = 'hint correct';
         // Remove the matched detail from pool
         l2DetailPool = l2DetailPool.filter(d => d.id !== l2CurrentDetail.id);
@@ -3490,7 +3574,7 @@
         const cardMid = (card.startYear + card.endYear) / 2;
         const diff = Math.abs(detailMid - cardMid);
         const distHint = diff < 50 ? '비슷한 시기지만 관련 없음' : `시기 차이 약 ${Math.round(diff)}년`;
-        detailHintEl.textContent = `오답 (-10). ${distHint}. 다시 시도하세요.`;
+        detailHintEl.textContent = `오답. ${distHint}. 다시 시도하세요.`;
         detailHintEl.className = 'hint wrong';
       }
     }

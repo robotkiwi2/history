@@ -428,6 +428,11 @@ const KEYWORD_META = {
   // ===== 73회 심화 추가 키워드 =====
   '조선 철종':         { type: '왕',    era: '조선시대', startYear: 1849,  endYear: 1864  },
   '경재소':            { type: '기관',  era: '조선시대', startYear: 1392,  endYear: 1603  },
+
+  // ===== 75회 기본 추가 키워드 =====
+  '최영':              { type: '인물',  era: '고려시대', startYear: 1316,  endYear: 1388  },
+  '대한인 국민회':     { type: '기관',  era: '근대',     startYear: 1909,  endYear: 1945  },
+  '전형필':            { type: '인물',  era: '근대',     startYear: 1906,  endYear: 1962  },
 };
 
 function mapDifficulty(score) {
@@ -533,7 +538,17 @@ function main() {
     const detailText = rawDetailText.replace(LABEL_PREFIX_RE, '').trim();
     if (hadLabel) strippedLabel++;
     if (!detailText) return;
-    if (detailText === realSubject.trim()) {
+    // 공백 무시 비교 — '6월 민주 항쟁' vs '6월 민주항쟁' 같은 띄어쓰기 차이도 skip
+    const norm = s => s.replace(/\s+/g, '');
+    const dn = norm(detailText);
+    const rn = norm(realSubject);
+    if (dn === rn) {
+      skippedNoContent++;
+      return;
+    }
+    // tag로 시작 + 나머지 ≤10자면 컨텍스트 부족 (예: "발췌 개헌에 따라 이루어졌다." → "**에 따라 이루어졌다."
+    // — 마스킹 후 generic 동사만 남아 변별 불가)
+    if (dn.startsWith(rn) && dn.length - rn.length <= 10) {
       skippedNoContent++;
       return;
     }
