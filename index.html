@@ -683,7 +683,23 @@
     }
     .detail-question.l2-hint-shown .q-hint.l2-hint { display: block; }
     /* 디테일 카드는 클릭 대상이 아니지만 long-press 시각 피드백 */
-    .detail-question { cursor: pointer; -webkit-touch-callout: none; }
+    .detail-question { cursor: pointer; -webkit-touch-callout: none; isolation: isolate; }
+    /* 새 문제 노출 시 카드 테두리를 따라 흰빛이 한 바퀴 도는 효과 */
+    .detail-question.q-new::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 21px;
+      background: conic-gradient(from 0deg, transparent 0deg, transparent 270deg, rgba(255,255,255,0.95) 315deg, transparent 360deg);
+      animation: q-trace 0.9s linear;
+      z-index: -1;
+      pointer-events: none;
+    }
+    @keyframes q-trace {
+      0%   { transform: rotate(-45deg); opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: rotate(315deg); opacity: 0; }
+    }
 
     /* 포기 후 답 확인 단계 — 사용자가 직접 다음으로 이동 */
     .l2-advance-btn { margin-top: 10px; }
@@ -3506,6 +3522,10 @@
       renderL2Timeline();
       const typesLabel = l2VisibleTypes ? [...l2VisibleTypes].join('/') : '키워드';
       detailQuestionEl.classList.remove('hidden', 'l2-hint-shown', 'l2-gaveup-reveal');
+      // 새 문제 등장 효과 — 테두리를 따라 흰빛이 한 바퀴 (animation restart 위해 reflow)
+      detailQuestionEl.classList.remove('q-new');
+      void detailQuestionEl.offsetWidth;
+      detailQuestionEl.classList.add('q-new');
       detailQTextEl.textContent = maskDetailDescription(l2CurrentDetail, l2MaskTag);
       detailQLabelEl.textContent = `관련 ${typesLabel} 카드를 탭하세요`;
       document.getElementById('detailQHint').textContent = '';
