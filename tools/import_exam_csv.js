@@ -329,7 +329,6 @@ const KEYWORD_META = {
   '균역법':            { type: '제도',  era: '조선시대', startYear: 1750,  endYear: 1894  },
   '흥선대원군':        { type: '인물',  era: '조선시대', startYear: 1820,  endYear: 1898  },
   '항일 의병':         { type: '운동',  era: '근대',     startYear: 1895,  endYear: 1908  },
-  '해양 인물':         { type: '시대',  era: '조선시대', startYear: 500,   endYear: 1600  },
   '5·18 민주화 운동':  { type: '운동',  era: '근대',     startYear: 1980,  endYear: 1980  },
 
   // ===== 77회 심화 추가 키워드 =====
@@ -497,6 +496,13 @@ const KEYWORD_ALIAS_TO_BASE = {
 };
 const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
 
+// 질문 대상/실제 대상 컬럼에 등장하지만 한국사 키워드가 아닌 출제 카테고리성 묶음.
+// 키워드 카드 생성 안 함 + 해당 행도 skip (디테일의 정답을 매칭할 수 없으므로).
+// 예: 77회 기본 Q48 "해양 인물" — 보기 4개가 이순신·이사부·최무선·장보고 등 서로 다른 시대 인물
+const SKIP_SUBJECTS = new Set([
+  '해양 인물',
+]);
+
 // CSV의 디테일이 이 단어 중 하나면 (단일 단어 정답 후보), 실제 대상을 자기자신으로 retag.
 // 예: 디테일="상평통보", 실제 대상="조선 후기 경제" → 실제 대상을 "상평통보"로 교체.
 const SINGLE_WORD_KEYWORDS = new Set([
@@ -527,12 +533,14 @@ function main() {
   const text = fs.readFileSync(CSV_PATH, 'utf8');
   const rows = parseCSV(text);
 
-  // 1) 모든 키워드 후보 수집 (질문 대상 + 실제 대상). 분야 변형은 base로 통합.
+  // 1) 모든 키워드 후보 수집 (질문 대상 + 실제 대상). 분야 변형은 base로 통합. 카테고리성 묶음은 skip.
   // 단일 단어 디테일이 신규 키워드면 그것도 후보에 포함.
   const subjects = new Set();
   rows.forEach(r => {
-    if (r['질문 대상']) subjects.add(applyAlias(r['질문 대상']));
-    if (r['실제 대상']) subjects.add(applyAlias(r['실제 대상']));
+    const q = r['질문 대상'];
+    if (q && !SKIP_SUBJECTS.has(q)) subjects.add(applyAlias(q));
+    const real = r['실제 대상'];
+    if (real && !SKIP_SUBJECTS.has(real)) subjects.add(applyAlias(real));
     const dt = (r['디테일(역사적 사태)'] || '').trim();
     if (SINGLE_WORD_KEYWORDS.has(dt)) subjects.add(applyAlias(dt));
   });
@@ -585,6 +593,7 @@ function main() {
     const rawDetailTrim = (r['디테일(역사적 사태)'] || '').trim();
     // 단일 단어 디테일이 신규 키워드면 자기자신을 실제 대상으로 retag
     const baseSubject = SINGLE_WORD_KEYWORDS.has(rawDetailTrim) ? rawDetailTrim : rawSubject;
+    if (SKIP_SUBJECTS.has(baseSubject)) return; // 카테고리성 묶음 — 매칭 키워드 없음
     const realSubject = applyAlias(baseSubject);  // 디테일의 정답 태그도 base로 통합
     const rawDetailText = r['디테일(역사적 사태)'];
     if (!rawDetailText) return;

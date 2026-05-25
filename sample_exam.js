@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 384개 / 디테일 1729개 (보기 옵션만 있던 188행 제외, 라벨 prefix 60행 정제)
+// 생성: 키워드 383개 / 디테일 1729개 (보기 옵션만 있던 188행 제외, 라벨 prefix 60행 정제)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
 
 const EXAM_KEYWORDS = [
@@ -3015,17 +3015,6 @@ const EXAM_KEYWORDS = [
     "endYear": 1989,
     "difficulty": 3,
     "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "해양 인물",
-    "description": "",
-    "startYear": 500,
-    "endYear": 1600,
-    "difficulty": 3,
-    "era": "조선시대",
     "tags": []
   },
   {

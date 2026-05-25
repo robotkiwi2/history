@@ -3397,24 +3397,22 @@
       const matchedCounts = countMatchedByKeyword();
       // 현재 디테일의 정답 키워드 type과 같은 카드만 표시 (l2VisibleTypes가 null이면 전체)
       let visible;
-      if (l2VisibleTypes && l2VisibleTypes.has('시대')) {
-        // 시대 type은 한 시대에 1~2개뿐이라 변별력이 약함.
-        // 선택 시대 안의 시대 키워드가 5개 미만이면 인접 시대(디테일 startYear에서 가까운 순)로 5개까지 채움.
-        const allTimeKw = allPrimaryCards().filter(c => l2VisibleTypes.has(c.type || '사건'));
-        const inEra = allTimeKw.filter(c => c.era === l2CurrentEra);
+      if (l2VisibleTypes) {
+        // 모든 type에 동일 적용: 선택 시대 안에 같은 type 키워드가 5개 미만이면
+        // 인접 시대(디테일 startYear에서 가까운 순)로 5개까지 채움. 변별력 확보용.
+        const allOfType = allPrimaryCards().filter(c => l2VisibleTypes.has(c.type || '사건'));
+        const inEra = allOfType.filter(c => c.era === l2CurrentEra);
         if (inEra.length >= 5) {
           visible = inEra.sort((a, b) => a.startYear - b.startYear);
         } else {
           const need = 5 - inEra.length;
           const targetYear = l2CurrentDetail ? l2CurrentDetail.startYear : 0;
-          const extras = allTimeKw
+          const extras = allOfType
             .filter(c => c.era !== l2CurrentEra)
             .sort((a, b) => Math.abs(a.startYear - targetYear) - Math.abs(b.startYear - targetYear))
             .slice(0, need);
           visible = [...inEra, ...extras].sort((a, b) => a.startYear - b.startYear);
         }
-      } else if (l2VisibleTypes) {
-        visible = l2Primaries.filter(c => l2VisibleTypes.has(c.type || '사건'));
       } else {
         visible = l2Primaries;
       }
