@@ -609,6 +609,10 @@ function main() {
   const details = [];
   let skippedNoContent = 0;
   let strippedLabel = 0;
+  let skippedDup = 0;
+  // 중복 제거 — 같은 정답 태그 + description 첫 8자(공백·구두점 제거) 동일 시 첫 번째만 keep
+  const seenDedupKey = new Set();
+  const dedupKey = (text, tag) => tag + '|' + text.replace(/[\s.,!?·()\[\]"']/g, '').slice(0, 8);
   rows.forEach((r, idx) => {
     const rawSubject = r['실제 대상'] || r['질문 대상'];
     if (!rawSubject) return;
@@ -637,6 +641,13 @@ function main() {
       skippedNoContent++;
       return;
     }
+    // 8자 dedup — 같은 정답 + 앞 8자 같으면 거의 동일 변형으로 간주
+    const k = dedupKey(detailText, realSubject);
+    if (seenDedupKey.has(k)) {
+      skippedDup++;
+      return;
+    }
+    seenDedupKey.add(k);
     const meta = KEYWORD_META[realSubject] || { era: '근대', startYear: 1900, endYear: 1900 };
 
     const round = r['회차'];
@@ -660,7 +671,7 @@ function main() {
   });
 
   const out = `// 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 ${keywords.length}개 / 디테일 ${details.length}개 (보기 옵션만 있던 ${skippedNoContent}행 제외, 라벨 prefix ${strippedLabel}행 정제)
+// 생성: 키워드 ${keywords.length}개 / 디테일 ${details.length}개 (보기 옵션만 있던 ${skippedNoContent}행 제외, 라벨 prefix ${strippedLabel}행 정제, 중복 변형 ${skippedDup}행 제외)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): ${unmapped.length}개
 ${unmapped.length ? '//   ' + unmapped.join(', ') + '\n' : ''}
 const EXAM_KEYWORDS = ${JSON.stringify(keywords, null, 2)};
