@@ -2226,12 +2226,12 @@
     "_src": null
   },
   {
-    "type": "운동",
+    "type": "왕",
     "kind": "keyword",
-    "title": "이자겸/묘청",
+    "title": "고려 인종",
     "description": "",
-    "startYear": 1126,
-    "endYear": 1136,
+    "startYear": 1122,
+    "endYear": 1146,
     "era": "고려 전기",
     "eraRaw": "고려시대",
     "difficulty": 3,
@@ -2251,6 +2251,20 @@
     "difficulty": 3,
     "tags": [],
     "_source": "data",
+    "_src": null
+  },
+  {
+    "type": "운동",
+    "kind": "keyword",
+    "title": "묘청의 난",
+    "description": "",
+    "startYear": 1135,
+    "endYear": 1136,
+    "era": "고려 전기",
+    "eraRaw": "고려시대",
+    "difficulty": 3,
+    "tags": [],
+    "_source": "sample_exam",
     "_src": null
   },
   {
@@ -15496,15 +15510,32 @@
   {
     "type": "사건",
     "kind": "detail",
+    "title": "이자겸이 일으킨 난의 결과를 알아본다.",
+    "description": "이자겸이 일으킨 난의 결과를 알아본다.",
+    "startYear": 1126,
+    "endYear": 1127,
+    "era": "고려 전기",
+    "eraRaw": "고려시대",
+    "difficulty": 4,
+    "tags": [
+      "이자겸의 난"
+    ],
+    "_source": "sample_exam",
+    "_src": "75회 기본 Q7 X",
+    "id": "75회_q7_1566"
+  },
+  {
+    "type": "사건",
+    "kind": "detail",
     "title": "칭제 건원과 금국 정벌을 주장하였다.",
     "description": "칭제 건원과 금국 정벌을 주장하였다.",
-    "startYear": 1126,
+    "startYear": 1135,
     "endYear": 1136,
     "era": "고려 전기",
     "eraRaw": "고려시대",
     "difficulty": 3,
     "tags": [
-      "이자겸/묘청"
+      "묘청의 난"
     ],
     "_source": "sample_exam",
     "_src": "78회 심화 Q18 O",
@@ -15515,13 +15546,13 @@
     "kind": "detail",
     "title": "묘청이 칭제 건원을 주장하였다.",
     "description": "묘청이 칭제 건원을 주장하였다.",
-    "startYear": 1126,
+    "startYear": 1135,
     "endYear": 1136,
     "era": "고려 전기",
     "eraRaw": "고려시대",
     "difficulty": 3,
     "tags": [
-      "이자겸/묘청"
+      "묘청의 난"
     ],
     "_source": "sample_exam",
     "_src": "74회 심화 Q12 X",
@@ -15532,34 +15563,17 @@
     "kind": "detail",
     "title": "묘청 등이 서경에서 난을 일으켰다.",
     "description": "묘청 등이 서경에서 난을 일으켰다.",
-    "startYear": 1126,
+    "startYear": 1135,
     "endYear": 1136,
     "era": "고려 전기",
     "eraRaw": "고려시대",
     "difficulty": 3,
     "tags": [
-      "이자겸/묘청"
+      "묘청의 난"
     ],
     "_source": "sample_exam",
     "_src": "73회 심화 Q13 O",
     "id": "73회_q13_1368"
-  },
-  {
-    "type": "사건",
-    "kind": "detail",
-    "title": "이자겸이 일으킨 난의 결과를 알아본다.",
-    "description": "이자겸이 일으킨 난의 결과를 알아본다.",
-    "startYear": 1126,
-    "endYear": 1136,
-    "era": "고려 전기",
-    "eraRaw": "고려시대",
-    "difficulty": 4,
-    "tags": [
-      "이자겸/묘청"
-    ],
-    "_source": "sample_exam",
-    "_src": "75회 기본 Q7 X",
-    "id": "75회_q7_1566"
   },
   {
     "type": "사건",

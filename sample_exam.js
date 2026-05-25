@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 376개 / 디테일 1557개 (보기 옵션만 있던 192행 제외, 라벨 prefix 70행 정제, 중복 변형 159행 제외, 충돌 태그 212행 제외)
+// 생성: 키워드 378개 / 디테일 1557개 (보기 옵션만 있던 192행 제외, 라벨 prefix 70행 정제, 중복 변형 159행 제외, 충돌 태그 212행 제외)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
 
 const EXAM_KEYWORDS = [
@@ -556,9 +556,9 @@ const EXAM_KEYWORDS = [
   {
     "type": "운동",
     "kind": "keyword",
-    "title": "이자겸/묘청",
+    "title": "묘청의 난",
     "description": "",
-    "startYear": 1126,
+    "startYear": 1135,
     "endYear": 1136,
     "difficulty": 3,
     "era": "고려시대",
@@ -3755,6 +3755,17 @@ const EXAM_KEYWORDS = [
     "tags": []
   },
   {
+    "type": "왕",
+    "kind": "keyword",
+    "title": "고려 인종",
+    "description": "",
+    "startYear": 1122,
+    "endYear": 1146,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": []
+  },
+  {
     "type": "기관",
     "kind": "keyword",
     "title": "경재소",
@@ -3796,6 +3807,17 @@ const EXAM_KEYWORDS = [
     "endYear": 369,
     "difficulty": 3,
     "era": "삼국시대",
+    "tags": []
+  },
+  {
+    "type": "운동",
+    "kind": "keyword",
+    "title": "이자겸의 난",
+    "description": "",
+    "startYear": 1126,
+    "endYear": 1127,
+    "difficulty": 3,
+    "era": "고려시대",
     "tags": []
   },
   {
@@ -5213,12 +5235,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "칭제 건원과 금국 정벌을 주장하였다.",
     "description": "칭제 건원과 금국 정벌을 주장하였다.",
-    "startYear": 1126,
+    "startYear": 1135,
     "endYear": 1136,
     "difficulty": 3,
     "era": "고려시대",
     "tags": [
-      "이자겸/묘청"
+      "묘청의 난"
     ],
     "_src": "78회 심화 Q18 O"
   },
@@ -18218,12 +18240,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "묘청이 칭제 건원을 주장하였다.",
     "description": "묘청이 칭제 건원을 주장하였다.",
-    "startYear": 1126,
+    "startYear": 1135,
     "endYear": 1136,
     "difficulty": 3,
     "era": "고려시대",
     "tags": [
-      "이자겸/묘청"
+      "묘청의 난"
     ],
     "_src": "74회 심화 Q12 X"
   },
@@ -20573,12 +20595,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "묘청 등이 서경에서 난을 일으켰다.",
     "description": "묘청 등이 서경에서 난을 일으켰다.",
-    "startYear": 1126,
+    "startYear": 1135,
     "endYear": 1136,
     "difficulty": 3,
     "era": "고려시대",
     "tags": [
-      "이자겸/묘청"
+      "묘청의 난"
     ],
     "_src": "73회 심화 Q13 O"
   },
@@ -22599,11 +22621,11 @@ const EXAM_DETAILS = [
     "title": "이자겸이 일으킨 난의 결과를 알아본다.",
     "description": "이자겸이 일으킨 난의 결과를 알아본다.",
     "startYear": 1126,
-    "endYear": 1136,
+    "endYear": 1127,
     "difficulty": 4,
     "era": "고려시대",
     "tags": [
-      "이자겸/묘청"
+      "이자겸의 난"
     ],
     "_src": "75회 기본 Q7 X"
   },

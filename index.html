@@ -3624,14 +3624,12 @@
         const el = document.createElement('div');
         el.className = 'l2-card';
         el.dataset.title = card.title;
-        const matched = matchedCounts[card.title] || 0;
         const yearText = card.startYear === card.endYear
           ? formatYear(card.startYear)
           : `${formatYear(card.startYear)}~`;
         el.innerHTML = `
           <span class="l2-type-badge">${card.type || '사건'}</span>
           <span class="l2-title">${card.title}</span>
-          ${matched > 0 ? `<span class="l2-detail-count">+${matched}</span>` : ''}
           <span class="l2-year">${yearText}</span>
         `;
         el.addEventListener('click', () => onKeywordTap(card));
