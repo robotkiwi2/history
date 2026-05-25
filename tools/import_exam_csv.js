@@ -31,10 +31,13 @@ const KEYWORD_META = {
   '철기 시대':         { type: '시대',  era: '선사시대', startYear: -500, endYear: 0 },
   '고조선':            { type: '국가',  era: '고조선',   startYear: -2333, endYear: -108 },
   // (고조선의 변천 → 고조선으로 alias)
+  // 연맹 왕국 (철기 시대) — 선사·고조선 era에 배치
+  '부여':              { type: '국가',  era: '선사시대', startYear: -200,  endYear: 494   },
+  '삼한':              { type: '국가',  era: '선사시대', startYear: -200,  endYear: 300   },
+  '옥저':              { type: '국가',  era: '선사시대', startYear: -200,  endYear: 285   },
+  '동예':              { type: '국가',  era: '선사시대', startYear: -200,  endYear: 313   },
+  '삼한/부여':         { type: '국가',  era: '선사시대', startYear: -200,  endYear: 562   },  // legacy 통합 표기
   // 삼국·가야
-  '삼한/부여':         { type: '국가',  era: '삼국시대', startYear: -200,  endYear: 562   },
-  '옥저':              { type: '국가',  era: '삼국시대', startYear: -200,  endYear: 285   },
-  '동예':              { type: '국가',  era: '삼국시대', startYear: -200,  endYear: 313   },
   '가야':              { type: '국가',  era: '삼국시대', startYear: 42,    endYear: 562   },
   '고구려':            { type: '국가',  era: '삼국시대', startYear: -37,   endYear: 668   },
   '고구려 고국천왕':   { type: '왕',    era: '삼국시대', startYear: 179,   endYear: 197   },
@@ -437,6 +440,10 @@ const KEYWORD_META = {
   // ===== 72회 심화 추가 키워드 =====
   '집현전':            { type: '기관',  era: '조선시대', startYear: 1420,  endYear: 1456  },
 
+  // ===== 71회 심화 추가 키워드 =====
+  '이제현':            { type: '인물',  era: '고려시대', startYear: 1287,  endYear: 1367  },
+  '조선 태조':         { type: '왕',    era: '조선시대', startYear: 1392,  endYear: 1398  },
+
   // ===== 단일 단어 디테일 → 자체 키워드 등록 (보수적 일괄 추가, 33개) =====
   // 디테일이 한 단어이면서 정답 후보로 가치 있는 항목 (저서·기관·인물·유물·화폐·사건·사신)
   '9서당':             { type: '기관',  era: '신라시대', startYear: 687,   endYear: 935   },
@@ -472,6 +479,43 @@ const KEYWORD_META = {
   '칠지도':            { type: '유물',  era: '삼국시대', startYear: 369,   endYear: 369   },
   '통신사':            { type: '기관',  era: '조선시대', startYear: 1607,  endYear: 1811  },
   '훈련도감':          { type: '기관',  era: '조선시대', startYear: 1593,  endYear: 1882  },
+
+  // ===== 69회 기본 추가 키워드 =====
+  // 전쟁·사건
+  '황산대첩':          { type: '전쟁',  era: '고려시대', startYear: 1380,  endYear: 1380  },
+  '일리천 전투':       { type: '전쟁',  era: '고려시대', startYear: 936,   endYear: 936   },
+  '제너럴 셔먼호 사건': { type: '사건', era: '근대',    startYear: 1866,  endYear: 1866  },
+  '아관 파천':         { type: '사건',  era: '근대',     startYear: 1896,  endYear: 1897  },
+  '한성 조약':         { type: '조약',  era: '근대',     startYear: 1885,  endYear: 1885  },
+  // 인물
+  '자장':              { type: '인물',  era: '삼국시대', startYear: 590,   endYear: 658   },
+  '이승훈':            { type: '인물',  era: '근대',     startYear: 1864,  endYear: 1930  },
+  '강주룡':            { type: '인물',  era: '근대',     startYear: 1901,  endYear: 1932  },
+  '김규식':            { type: '인물',  era: '근대',     startYear: 1881,  endYear: 1950  },
+  '최치원':            { type: '인물',  era: '신라시대', startYear: 857,   endYear: 908   },
+  '이만손':            { type: '인물',  era: '조선시대', startYear: 1811,  endYear: 1891  },
+  // 기관·제도
+  '교정도감':          { type: '기관',  era: '고려시대', startYear: 1209,  endYear: 1270  },
+  '봉수 제도':         { type: '제도',  era: '조선시대', startYear: 1394,  endYear: 1894  },
+  '역참 제도':         { type: '제도',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '조운 제도':         { type: '제도',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '파발 제도':         { type: '제도',  era: '조선시대', startYear: 1597,  endYear: 1894  },
+  '방곡령':            { type: '제도',  era: '근대',     startYear: 1889,  endYear: 1894  },
+  '남면북양 정책':     { type: '제도',  era: '근대',     startYear: 1934,  endYear: 1945  },
+  '반민족 행위 처벌법': { type: '제도', era: '근대',    startYear: 1948,  endYear: 1949  },
+  // 유물·문헌
+  '해동통보':          { type: '유물',  era: '고려시대', startYear: 1102,  endYear: 1102  },
+  '삼강행실도':        { type: '유물',  era: '조선시대', startYear: 1434,  endYear: 1434  },
+  '동의보감':          { type: '유물',  era: '조선시대', startYear: 1610,  endYear: 1610  },
+  '조선경국전':        { type: '유물',  era: '조선시대', startYear: 1394,  endYear: 1394  },
+  '앙부일구':          { type: '유물',  era: '조선시대', startYear: 1434,  endYear: 1434  },
+  '대동여지도':        { type: '유물',  era: '조선시대', startYear: 1861,  endYear: 1861  },
+  '자격루':            { type: '유물',  era: '조선시대', startYear: 1434,  endYear: 1434  },
+  // 세시 풍속
+  '정월 대보름':       { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '동지':              { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '추석':              { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '삼짇날':            { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
 };
 
 function mapDifficulty(score) {

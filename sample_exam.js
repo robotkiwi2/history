@@ -1,6 +1,7 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 378개 / 디테일 1557개 (보기 옵션만 있던 192행 제외, 라벨 prefix 70행 정제, 중복 변형 159행 제외, 충돌 태그 212행 제외)
-// 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
+// 생성: 키워드 419개 / 디테일 2043개 (보기 옵션만 있던 304행 제외, 라벨 prefix 92행 정제, 중복 변형 263행 제외, 충돌 태그 359행 제외)
+// 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 9개
+//   광혜원, 설총, 조선 (후기), 조선, O, X, 소의 주민들이 받은 차별의 내용을 찾아본다.", 열녀의 이야기를 모아 편찬", 좌우 합작 위원회"
 
 const EXAM_KEYWORDS = [
   {
@@ -66,7 +67,7 @@ const EXAM_KEYWORDS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": []
   },
   {
@@ -77,7 +78,7 @@ const EXAM_KEYWORDS = [
     "startYear": -200,
     "endYear": 285,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": []
   },
   {
@@ -110,7 +111,7 @@ const EXAM_KEYWORDS = [
     "startYear": -200,
     "endYear": 313,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": []
   },
   {
@@ -4160,6 +4161,457 @@ const EXAM_KEYWORDS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": []
+  },
+  {
+    "type": "인물",
+    "kind": "keyword",
+    "title": "이제현",
+    "description": "",
+    "startYear": 1287,
+    "endYear": 1367,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": []
+  },
+  {
+    "type": "왕",
+    "kind": "keyword",
+    "title": "조선 태조",
+    "description": "",
+    "startYear": 1392,
+    "endYear": 1398,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "광혜원",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "설총",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "조선 (후기)",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "조선",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "전쟁",
+    "kind": "keyword",
+    "title": "황산대첩",
+    "description": "",
+    "startYear": 1380,
+    "endYear": 1380,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": []
+  },
+  {
+    "type": "전쟁",
+    "kind": "keyword",
+    "title": "일리천 전투",
+    "description": "",
+    "startYear": 936,
+    "endYear": 936,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": []
+  },
+  {
+    "type": "인물",
+    "kind": "keyword",
+    "title": "자장",
+    "description": "",
+    "startYear": 590,
+    "endYear": 658,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "O",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "X",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "유물",
+    "kind": "keyword",
+    "title": "해동통보",
+    "description": "",
+    "startYear": 1102,
+    "endYear": 1102,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": []
+  },
+  {
+    "type": "기관",
+    "kind": "keyword",
+    "title": "교정도감",
+    "description": "",
+    "startYear": 1209,
+    "endYear": 1270,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "소의 주민들이 받은 차별의 내용을 찾아본다.\"",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "제도",
+    "kind": "keyword",
+    "title": "봉수 제도",
+    "description": "",
+    "startYear": 1394,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "제도",
+    "kind": "keyword",
+    "title": "역참 제도",
+    "description": "",
+    "startYear": 1392,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "제도",
+    "kind": "keyword",
+    "title": "조운 제도",
+    "description": "",
+    "startYear": 1392,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "제도",
+    "kind": "keyword",
+    "title": "파발 제도",
+    "description": "",
+    "startYear": 1597,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "유물",
+    "kind": "keyword",
+    "title": "삼강행실도",
+    "description": "",
+    "startYear": 1434,
+    "endYear": 1434,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "유물",
+    "kind": "keyword",
+    "title": "동의보감",
+    "description": "",
+    "startYear": 1610,
+    "endYear": 1610,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "유물",
+    "kind": "keyword",
+    "title": "조선경국전",
+    "description": "",
+    "startYear": 1394,
+    "endYear": 1394,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "열녀의 이야기를 모아 편찬\"",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "조약",
+    "kind": "keyword",
+    "title": "한성 조약",
+    "description": "",
+    "startYear": 1885,
+    "endYear": 1885,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "제너럴 셔먼호 사건",
+    "description": "",
+    "startYear": 1866,
+    "endYear": 1866,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "아관 파천",
+    "description": "",
+    "startYear": 1896,
+    "endYear": 1897,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "인물",
+    "kind": "keyword",
+    "title": "이승훈",
+    "description": "",
+    "startYear": 1864,
+    "endYear": 1930,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "인물",
+    "kind": "keyword",
+    "title": "강주룡",
+    "description": "",
+    "startYear": 1901,
+    "endYear": 1932,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "인물",
+    "kind": "keyword",
+    "title": "김규식",
+    "description": "",
+    "startYear": 1881,
+    "endYear": 1950,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "사건",
+    "kind": "keyword",
+    "title": "좌우 합작 위원회\"",
+    "description": "(자동 생성 — meta 정보 누락)",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "제도",
+    "kind": "keyword",
+    "title": "방곡령",
+    "description": "",
+    "startYear": 1889,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "제도",
+    "kind": "keyword",
+    "title": "남면북양 정책",
+    "description": "",
+    "startYear": 1934,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "제도",
+    "kind": "keyword",
+    "title": "반민족 행위 처벌법",
+    "description": "",
+    "startYear": 1948,
+    "endYear": 1949,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": []
+  },
+  {
+    "type": "인물",
+    "kind": "keyword",
+    "title": "최치원",
+    "description": "",
+    "startYear": 857,
+    "endYear": 908,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": []
+  },
+  {
+    "type": "인물",
+    "kind": "keyword",
+    "title": "이만손",
+    "description": "",
+    "startYear": 1811,
+    "endYear": 1891,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "유물",
+    "kind": "keyword",
+    "title": "앙부일구",
+    "description": "",
+    "startYear": 1434,
+    "endYear": 1434,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "유물",
+    "kind": "keyword",
+    "title": "대동여지도",
+    "description": "",
+    "startYear": 1861,
+    "endYear": 1861,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "유물",
+    "kind": "keyword",
+    "title": "자격루",
+    "description": "",
+    "startYear": 1434,
+    "endYear": 1434,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "풍속",
+    "kind": "keyword",
+    "title": "정월 대보름",
+    "description": "",
+    "startYear": 1392,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "풍속",
+    "kind": "keyword",
+    "title": "동지",
+    "description": "",
+    "startYear": 1392,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "풍속",
+    "kind": "keyword",
+    "title": "추석",
+    "description": "",
+    "startYear": 1392,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
+  },
+  {
+    "type": "풍속",
+    "kind": "keyword",
+    "title": "삼짇날",
+    "description": "",
+    "startYear": 1392,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": []
   }
 ];
 
@@ -4293,7 +4745,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -4308,7 +4760,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 285,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "옥저"
     ],
@@ -4353,7 +4805,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 313,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "동예"
     ],
@@ -4473,7 +4925,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 313,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "동예"
     ],
@@ -9273,7 +9725,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 285,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "옥저"
     ],
@@ -9303,7 +9755,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -9348,7 +9800,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 313,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "동예"
     ],
@@ -9363,7 +9815,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -9498,7 +9950,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 2,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -12303,7 +12755,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -17628,7 +18080,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -17808,7 +18260,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 313,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "동예"
     ],
@@ -17928,7 +18380,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -20223,7 +20675,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -20253,7 +20705,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 562,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "삼한/부여"
     ],
@@ -23958,7 +24410,7 @@ const EXAM_DETAILS = [
     "startYear": -200,
     "endYear": 313,
     "difficulty": 3,
-    "era": "삼국시대",
+    "era": "선사시대",
     "tags": [
       "동예"
     ],
@@ -27518,5 +27970,7295 @@ const EXAM_DETAILS = [
       "노무현 정부"
     ],
     "_src": "72회 심화 Q49 X"
+  },
+  {
+    "id": "71회_q1_2122",
+    "type": "사건",
+    "kind": "detail",
+    "title": "주로 동굴이나 바위 그늘에서 살았다.",
+    "description": "주로 동굴이나 바위 그늘에서 살았다.",
+    "startYear": -700000,
+    "endYear": -8000,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "구석기 시대"
+    ],
+    "_src": "71회 심화 Q1 O"
+  },
+  {
+    "id": "71회_q1_2124",
+    "type": "사건",
+    "kind": "detail",
+    "title": "따비와 괭이로 땅을 갈아 농사를 지었다.",
+    "description": "따비와 괭이로 땅을 갈아 농사를 지었다.",
+    "startYear": -1500,
+    "endYear": -500,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "청동기 시대"
+    ],
+    "_src": "71회 심화 Q1 X"
+  },
+  {
+    "id": "71회_q1_2126",
+    "type": "사건",
+    "kind": "detail",
+    "title": "빗살무늬 토기를 만들어 식량을 저장하였다.",
+    "description": "빗살무늬 토기를 만들어 식량을 저장하였다.",
+    "startYear": -8000,
+    "endYear": -1500,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "신석기 시대"
+    ],
+    "_src": "71회 심화 Q1 X"
+  },
+  {
+    "id": "71회_q2_2130",
+    "type": "사건",
+    "kind": "detail",
+    "title": "여러 가(加)들이 각각 사출도를 주관하였다.",
+    "description": "여러 가(加)들이 각각 사출도를 주관하였다.",
+    "startYear": -200,
+    "endYear": 562,
+    "difficulty": 3,
+    "era": "선사시대",
+    "tags": [
+      "삼한/부여"
+    ],
+    "_src": "71회 심화 Q2 O"
+  },
+  {
+    "id": "71회_q3_2132",
+    "type": "사건",
+    "kind": "detail",
+    "title": "법흥왕 때 신라에 복속되었다.",
+    "description": "법흥왕 때 신라에 복속되었다.",
+    "startYear": 42,
+    "endYear": 562,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "가야"
+    ],
+    "_src": "71회 심화 Q3 O"
+  },
+  {
+    "id": "71회_q3_2134",
+    "type": "사건",
+    "kind": "detail",
+    "title": "6좌평이 중요한 국사를 논의하였다.",
+    "description": "6좌평이 중요한 국사를 논의하였다.",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "71회 심화 Q3 X"
+  },
+  {
+    "id": "71회_q3_2135",
+    "type": "사건",
+    "kind": "detail",
+    "title": "만장일치제로 운영된 화백 회의가 있었다.",
+    "description": "만장일치제로 운영된 화백 회의가 있었다.",
+    "startYear": -57,
+    "endYear": 935,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "신라"
+    ],
+    "_src": "71회 심화 Q3 X"
+  },
+  {
+    "id": "71회_q3_2136",
+    "type": "사건",
+    "kind": "detail",
+    "title": "지방에 22담로를 두어 왕족을 파견하였다.",
+    "description": "지방에 22담로를 두어 왕족을 파견하였다.",
+    "startYear": 501,
+    "endYear": 523,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "백제 무령왕"
+    ],
+    "_src": "71회 심화 Q3 X"
+  },
+  {
+    "id": "71회_q4_2139",
+    "type": "사건",
+    "kind": "detail",
+    "title": "무애가를 지어 불교 대중화에 기여하였다.",
+    "description": "무애가를 지어 불교 대중화에 기여하였다.",
+    "startYear": 617,
+    "endYear": 686,
+    "difficulty": 4,
+    "era": "신라시대",
+    "tags": [
+      "원효"
+    ],
+    "_src": "71회 심화 Q4 X"
+  },
+  {
+    "id": "71회_q4_2140",
+    "type": "사건",
+    "kind": "detail",
+    "title": "사군이충 등을 포함한 세속 5계를 제시하였다.",
+    "description": "사군이충 등을 포함한 세속 5계를 제시하였다.",
+    "startYear": 542,
+    "endYear": 640,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "원광"
+    ],
+    "_src": "71회 심화 Q4 O"
+  },
+  {
+    "id": "71회_q4_2141",
+    "type": "사건",
+    "kind": "detail",
+    "title": "풍수지리 사상이 반영된 송악명당기를 저술하였다.",
+    "description": "풍수지리 사상이 반영된 송악명당기를 저술하였다.",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 4,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "71회 심화 Q4 X"
+  },
+  {
+    "id": "71회_q6_2142",
+    "type": "사건",
+    "kind": "detail",
+    "title": "병부와 상대등을 설치하였다.",
+    "description": "병부와 상대등을 설치하였다.",
+    "startYear": 514,
+    "endYear": 540,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 법흥왕"
+    ],
+    "_src": "71회 심화 Q6 X"
+  },
+  {
+    "id": "71회_q6_2143",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백제 비유왕과 동맹을 체결하였다.",
+    "description": "백제 비유왕과 동맹을 체결하였다.",
+    "startYear": -57,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라"
+    ],
+    "_src": "71회 심화 Q6 X"
+  },
+  {
+    "id": "71회_q6_2145",
+    "type": "사건",
+    "kind": "detail",
+    "title": "매소성 전투에서 당의 군대를 격파하였다.",
+    "description": "매소성 전투에서 당의 군대를 격파하였다.",
+    "startYear": 645,
+    "endYear": 676,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "삼국 통일 과정"
+    ],
+    "_src": "71회 심화 Q6 X"
+  },
+  {
+    "id": "71회_q6_2146",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김흠돌의 난을 진압하고 귀족들을 숙청하였다.",
+    "description": "김흠돌의 난을 진압하고 귀족들을 숙청하였다.",
+    "startYear": 681,
+    "endYear": 692,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 신문왕"
+    ],
+    "_src": "71회 심화 Q6 X"
+  },
+  {
+    "id": "71회_q8_2149",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김춘추가 당과의 군사 동맹을 성사시켰다.",
+    "description": "김춘추가 당과의 군사 동맹을 성사시켰다.",
+    "startYear": 645,
+    "endYear": 676,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "삼국 통일 과정"
+    ],
+    "_src": "71회 심화 Q8 X"
+  },
+  {
+    "id": "71회_q8_2150",
+    "type": "사건",
+    "kind": "detail",
+    "title": "의자왕이 윤충을 보내 대야성을 함락하였다.",
+    "description": "의자왕이 윤충을 보내 대야성을 함락하였다.",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "71회 심화 Q8 X"
+  },
+  {
+    "id": "71회_q10_2153",
+    "type": "사건",
+    "kind": "detail",
+    "title": "감자 고구마 등의 구황 작물이 재배되었다.",
+    "description": "감자 고구마 등의 구황 작물이 재배되었다.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 심화 Q10 X"
+  },
+  {
+    "id": "71회_q11_2157",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경기에 한하여 과전법이 실시되었다.",
+    "description": "경기에 한하여 과전법이 실시되었다.",
+    "startYear": 1391,
+    "endYear": 1466,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "과전법"
+    ],
+    "_src": "71회 심화 Q11 X"
+  },
+  {
+    "id": "71회_q11_2159",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신돈이 전민변정도감의 책임자가 되었다.",
+    "description": "신돈이 전민변정도감의 책임자가 되었다.",
+    "startYear": 1351,
+    "endYear": 1374,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "고려 공민왕"
+    ],
+    "_src": "71회 심화 Q11 X"
+  },
+  {
+    "id": "71회_q12_2162",
+    "type": "사건",
+    "kind": "detail",
+    "title": "일리천 전투에서 신검의 군대를 물리쳤다.",
+    "description": "일리천 전투에서 신검의 군대를 물리쳤다.",
+    "startYear": 918,
+    "endYear": 943,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려 태조"
+    ],
+    "_src": "71회 심화 Q12 X"
+  },
+  {
+    "id": "71회_q12_2163",
+    "type": "사건",
+    "kind": "detail",
+    "title": "9산선문 중 하나인 가지산문을 개창하였다.",
+    "description": "9산선문 중 하나인 가지산문을 개창하였다.",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "71회 심화 Q12 X"
+  },
+  {
+    "id": "71회_q12_2164",
+    "type": "사건",
+    "kind": "detail",
+    "title": "문무관료전을 지급하고 녹읍을 폐지하였다.",
+    "description": "문무관료전을 지급하고 녹읍을 폐지하였다.",
+    "startYear": 681,
+    "endYear": 692,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 신문왕"
+    ],
+    "_src": "71회 심화 Q12 X"
+  },
+  {
+    "id": "71회_q13_2167",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국자감에 전문 강좌인 7재를 개설하였어.",
+    "description": "국자감에 전문 강좌인 7재를 개설하였어.",
+    "startYear": 1105,
+    "endYear": 1122,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려 예종"
+    ],
+    "_src": "71회 심화 Q13 O"
+  },
+  {
+    "id": "71회_q13_2168",
+    "type": "사건",
+    "kind": "detail",
+    "title": "사액 서원에 서적과 노비 등을 지급하였어.",
+    "description": "사액 서원에 서적과 노비 등을 지급하였어.",
+    "startYear": 1495,
+    "endYear": 1554,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "주세붕"
+    ],
+    "_src": "71회 심화 Q13 X"
+  },
+  {
+    "id": "71회_q13_2169",
+    "type": "사건",
+    "kind": "detail",
+    "title": "독서삼품과를 실시하여 인재를 등용하였어.",
+    "description": "독서삼품과를 실시하여 인재를 등용하였어.",
+    "startYear": 785,
+    "endYear": 798,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "통일신라 원성왕"
+    ],
+    "_src": "71회 심화 Q13 X"
+  },
+  {
+    "id": "71회_q13_2171",
+    "type": "사건",
+    "kind": "detail",
+    "title": "흥왕사에 교장도감을 두고 속장경을 편찬하였어.",
+    "description": "흥왕사에 교장도감을 두고 속장경을 편찬하였어.",
+    "startYear": 1055,
+    "endYear": 1101,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려 의천"
+    ],
+    "_src": "71회 심화 Q13 X"
+  },
+  {
+    "id": "71회_q14_2176",
+    "type": "사건",
+    "kind": "detail",
+    "title": "역관들이 시사(詩社)에 참여해 위항 문학 활동을 하였다...",
+    "description": "역관들이 시사(詩社)에 참여해 위항 문학 활동을 하였다.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 심화 Q14 X"
+  },
+  {
+    "id": "71회_q15_2178",
+    "type": "사건",
+    "kind": "detail",
+    "title": "광군을 창설하여 침입에 대비하였다.",
+    "description": "광군을 창설하여 침입에 대비하였다.",
+    "startYear": 993,
+    "endYear": 994,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "거란 1차 침입"
+    ],
+    "_src": "71회 심화 Q15 X"
+  },
+  {
+    "id": "71회_q15_2179",
+    "type": "사건",
+    "kind": "detail",
+    "title": "화통도감을 설치하여 군사력을 증강하였다.",
+    "description": "화통도감을 설치하여 군사력을 증강하였다.",
+    "startYear": 1377,
+    "endYear": 1389,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "화통도감"
+    ],
+    "_src": "71회 심화 Q15 X"
+  },
+  {
+    "id": "71회_q17_2183",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정혜결사를 통해 불교 개혁에 앞장섰다.",
+    "description": "정혜결사를 통해 불교 개혁에 앞장섰다.",
+    "startYear": 1158,
+    "endYear": 1210,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "지눌"
+    ],
+    "_src": "71회 심화 Q17 X"
+  },
+  {
+    "id": "71회_q17_2184",
+    "type": "사건",
+    "kind": "detail",
+    "title": "청방인문표를 지어 인질의 석방을 요구하였다.",
+    "description": "청방인문표를 지어 인질의 석방을 요구하였다.",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 4,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "71회 심화 Q17 X"
+  },
+  {
+    "id": "71회_q17_2185",
+    "type": "사건",
+    "kind": "detail",
+    "title": "고구려 계승 의식을 강조한 동명왕편을 지었다.",
+    "description": "고구려 계승 의식을 강조한 동명왕편을 지었다.",
+    "startYear": 1170,
+    "endYear": 1392,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "고려 후기"
+    ],
+    "_src": "71회 심화 Q17 X"
+  },
+  {
+    "id": "71회_q17_2186",
+    "type": "사건",
+    "kind": "detail",
+    "title": "만권당에서 조맹부 요수 등의 문인들과 교유하였다.",
+    "description": "만권당에서 조맹부 요수 등의 문인들과 교유하였다.",
+    "startYear": 1287,
+    "endYear": 1367,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "이제현"
+    ],
+    "_src": "71회 심화 Q17 O"
+  },
+  {
+    "id": "71회_q18_2187",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왕건이 고창 전투에서 견훤에게 승리하였다.",
+    "description": "왕건이 고창 전투에서 견훤에게 승리하였다.",
+    "startYear": 918,
+    "endYear": 943,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "고려 태조"
+    ],
+    "_src": "71회 심화 Q18 O"
+  },
+  {
+    "id": "71회_q18_2188",
+    "type": "사건",
+    "kind": "detail",
+    "title": "묘청이 반란을 일으키고 국호를 대위라 하였다.",
+    "description": "묘청이 반란을 일으키고 국호를 대위라 하였다.",
+    "startYear": 1135,
+    "endYear": 1136,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "묘청의 난"
+    ],
+    "_src": "71회 심화 Q18 X"
+  },
+  {
+    "id": "71회_q18_2189",
+    "type": "사건",
+    "kind": "detail",
+    "title": "흥덕사에서 금속 활자본인 직지심체요절이 간행되었다.",
+    "description": "흥덕사에서 금속 활자본인 직지심체요절이 간행되었다.",
+    "startYear": 1377,
+    "endYear": 1377,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "직지심체요절"
+    ],
+    "_src": "71회 심화 Q18 X"
+  },
+  {
+    "id": "71회_q18_2190",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정중부를 비롯한 무신들이 보현원에서 정변을 일으켰다.",
+    "description": "정중부를 비롯한 무신들이 보현원에서 정변을 일으켰다.",
+    "startYear": 1170,
+    "endYear": 1392,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "고려 후기"
+    ],
+    "_src": "71회 심화 Q18 X"
+  },
+  {
+    "id": "71회_q18_2191",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이성계를 중심으로 한 고려군이 황산에서 왜구를 격퇴하였...",
+    "description": "이성계를 중심으로 한 고려군이 황산에서 왜구를 격퇴하였다.",
+    "startYear": 1388,
+    "endYear": 1388,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "위화도 회군"
+    ],
+    "_src": "71회 심화 Q18 X"
+  },
+  {
+    "id": "71회_q19_2192",
+    "type": "사건",
+    "kind": "detail",
+    "title": "독창적 문자인 훈민정음이 반포되었다.",
+    "description": "독창적 문자인 훈민정음이 반포되었다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 심화 Q19 X"
+  },
+  {
+    "id": "71회_q19_2194",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조선의 기본 법전인 경국대전이 완성되었다.",
+    "description": "조선의 기본 법전인 경국대전이 완성되었다.",
+    "startYear": 1469,
+    "endYear": 1494,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 성종"
+    ],
+    "_src": "71회 심화 Q19 X"
+  },
+  {
+    "id": "71회_q19_2195",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왕위 계승을 둘러싸고 왕자의 난이 발생하였다.",
+    "description": "왕위 계승을 둘러싸고 왕자의 난이 발생하였다.",
+    "startYear": 1392,
+    "endYear": 1398,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 태조"
+    ],
+    "_src": "71회 심화 Q19 O"
+  },
+  {
+    "id": "71회_q19_2196",
+    "type": "사건",
+    "kind": "detail",
+    "title": "성삼문 등이 상왕의 복위를 꾀하다가 처형되었다.",
+    "description": "성삼문 등이 상왕의 복위를 꾀하다가 처형되었다.",
+    "startYear": 1455,
+    "endYear": 1468,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세조"
+    ],
+    "_src": "71회 심화 Q19 X"
+  },
+  {
+    "id": "71회_q20_2198",
+    "type": "사건",
+    "kind": "detail",
+    "title": "흥선 대원군이 집권한 시기에 혁파되었다.",
+    "description": "흥선 대원군이 집권한 시기에 혁파되었다.",
+    "startYear": 1517,
+    "endYear": 1865,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "비변사"
+    ],
+    "_src": "71회 심화 Q20 O"
+  },
+  {
+    "id": "71회_q20_2200",
+    "type": "사건",
+    "kind": "detail",
+    "title": "5품 이하의 관리 임명에 대한 서경권을 행사하였다.",
+    "description": "5품 이하의 관리 임명에 대한 서경권을 행사하였다.",
+    "startYear": 1401,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "사간원"
+    ],
+    "_src": "71회 심화 Q20 X"
+  },
+  {
+    "id": "71회_q20_2201",
+    "type": "사건",
+    "kind": "detail",
+    "title": "도승지를 수장으로 좌승지 우승지 등의 관직을 두었다.",
+    "description": "도승지를 수장으로 좌승지 우승지 등의 관직을 두었다.",
+    "startYear": 1405,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "승정원"
+    ],
+    "_src": "71회 심화 Q20 X"
+  },
+  {
+    "id": "71회_q21_2202",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김종직의 조의제문이 발단이 되었다.",
+    "description": "김종직의 조의제문이 발단이 되었다.",
+    "startYear": 1498,
+    "endYear": 1498,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "무오사화"
+    ],
+    "_src": "71회 심화 Q21 X"
+  },
+  {
+    "id": "71회_q21_2204",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왕실 외척 간의 권력 다툼으로 일어났다.",
+    "description": "왕실 외척 간의 권력 다툼으로 일어났다.",
+    "startYear": 1545,
+    "endYear": 1567,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 명종"
+    ],
+    "_src": "71회 심화 Q21 O"
+  },
+  {
+    "id": "71회_q21_2205",
+    "type": "사건",
+    "kind": "detail",
+    "title": "진성 대군이 왕으로 즉위하는 결과를 가져왔다.",
+    "description": "진성 대군이 왕으로 즉위하는 결과를 가져왔다.",
+    "startYear": 1494,
+    "endYear": 1506,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "연산군"
+    ],
+    "_src": "71회 심화 Q21 X"
+  },
+  {
+    "id": "71회_q21_2206",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조광조 등이 반정 공신의 위훈 삭제를 주장하였다.",
+    "description": "조광조 등이 반정 공신의 위훈 삭제를 주장하였다.",
+    "startYear": 1519,
+    "endYear": 1519,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "기묘사화"
+    ],
+    "_src": "71회 심화 Q21 X"
+  },
+  {
+    "id": "71회_q22_2207",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정문부가 길주에서 의병을 이끌었다.",
+    "description": "정문부가 길주에서 의병을 이끌었다.",
+    "startYear": 1592,
+    "endYear": 1598,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임진왜란"
+    ],
+    "_src": "71회 심화 Q22 X"
+  },
+  {
+    "id": "71회_q22_2209",
+    "type": "사건",
+    "kind": "detail",
+    "title": "영창 대군이 사사되고 인목 대비가 유폐되었다.",
+    "description": "영창 대군이 사사되고 인목 대비가 유폐되었다.",
+    "startYear": 1608,
+    "endYear": 1623,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "광해군"
+    ],
+    "_src": "71회 심화 Q22 X"
+  },
+  {
+    "id": "71회_q22_2210",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이덕형이 구원병 요청을 위해 명에 청원사로 파견되었다.",
+    "description": "이덕형이 구원병 요청을 위해 명에 청원사로 파견되었다.",
+    "startYear": 1592,
+    "endYear": 1598,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임진왜란"
+    ],
+    "_src": "71회 심화 Q22 X"
+  },
+  {
+    "id": "71회_q22_2211",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김상헌 등이 남한산성에서 화의에 반대하여 항전을 주장하...",
+    "description": "김상헌 등이 남한산성에서 화의에 반대하여 항전을 주장하였다.",
+    "startYear": 1636,
+    "endYear": 1637,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "병자호란"
+    ],
+    "_src": "71회 심화 Q22 O"
+  },
+  {
+    "id": "71회_q23_2212",
+    "type": "사건",
+    "kind": "detail",
+    "title": "계해약조의 체결 과정을 확인한다.",
+    "description": "계해약조의 체결 과정을 확인한다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 심화 Q23 X"
+  },
+  {
+    "id": "71회_q23_2213",
+    "type": "사건",
+    "kind": "detail",
+    "title": "오가작통법의 실시 목적을 파악한다.",
+    "description": "오가작통법의 실시 목적을 파악한다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 심화 Q23 X"
+  },
+  {
+    "id": "71회_q23_2214",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신해통공을 단행하게 된 배경을 조사한다.",
+    "description": "신해통공을 단행하게 된 배경을 조사한다.",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "71회 심화 Q23 O"
+  },
+  {
+    "id": "71회_q23_2215",
+    "type": "사건",
+    "kind": "detail",
+    "title": "토지 소유자에게 결작을 부과한 이유를 살펴본다.",
+    "description": "토지 소유자에게 결작을 부과한 이유를 살펴본다.",
+    "startYear": 1750,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "균역법"
+    ],
+    "_src": "71회 심화 Q23 X"
+  },
+  {
+    "id": "71회_q23_2216",
+    "type": "사건",
+    "kind": "detail",
+    "title": "풍흉에 따라 전세를 차등 부과하는 기준을 알아본다.",
+    "description": "풍흉에 따라 전세를 차등 부과하는 기준을 알아본다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 심화 Q23 X"
+  },
+  {
+    "id": "71회_q24_2218",
+    "type": "사건",
+    "kind": "detail",
+    "title": "변급 신류 등이 나선 정벌에 참여하였다.",
+    "description": "변급 신류 등이 나선 정벌에 참여하였다.",
+    "startYear": 1649,
+    "endYear": 1659,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 효종"
+    ],
+    "_src": "71회 심화 Q24 X"
+  },
+  {
+    "id": "71회_q25_2223",
+    "type": "사건",
+    "kind": "detail",
+    "title": "북한산비가 진흥왕 순수비임을 고증하였다.",
+    "description": "북한산비가 진흥왕 순수비임을 고증하였다.",
+    "startYear": 1786,
+    "endYear": 1856,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "김정희"
+    ],
+    "_src": "71회 심화 Q25 O"
+  },
+  {
+    "id": "71회_q25_2225",
+    "type": "사건",
+    "kind": "detail",
+    "title": "청으로부터 시헌력을 도입하자고 건의하였다.",
+    "description": "청으로부터 시헌력을 도입하자고 건의하였다.",
+    "startYear": 1649,
+    "endYear": 1659,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 효종"
+    ],
+    "_src": "71회 심화 Q25 X"
+  },
+  {
+    "id": "71회_q26_2227",
+    "type": "사건",
+    "kind": "detail",
+    "title": "담배 농사를 짓는 농민",
+    "description": "담배 농사를 짓는 농민",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 심화 Q26 X"
+  },
+  {
+    "id": "71회_q26_2228",
+    "type": "사건",
+    "kind": "detail",
+    "title": "염포 왜관에서 교역하는 상인",
+    "description": "염포 왜관에서 교역하는 상인",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 심화 Q26 O"
+  },
+  {
+    "id": "71회_q26_2230",
+    "type": "사건",
+    "kind": "detail",
+    "title": "관청에 필요한 물품을 납품하는 공인",
+    "description": "관청에 필요한 물품을 납품하는 공인",
+    "startYear": 1608,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "대동법"
+    ],
+    "_src": "71회 심화 Q26 X"
+  },
+  {
+    "id": "71회_q27_2235",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경복궁 중건 비용 마련을 위해 당백전이 발행되었다.",
+    "description": "경복궁 중건 비용 마련을 위해 당백전이 발행되었다.",
+    "startYear": 1820,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "흥선대원군"
+    ],
+    "_src": "71회 심화 Q27 X"
+  },
+  {
+    "id": "71회_q27_2236",
+    "type": "사건",
+    "kind": "detail",
+    "title": "삼정의 문란을 해결하기 위해 삼정이정청이 설치되었다.",
+    "description": "삼정의 문란을 해결하기 위해 삼정이정청이 설치되었다.",
+    "startYear": 1862,
+    "endYear": 1862,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임술농민봉기"
+    ],
+    "_src": "71회 심화 Q27 O"
+  },
+  {
+    "id": "71회_q28_2237",
+    "type": "사건",
+    "kind": "detail",
+    "title": "의궤를 비롯한 외규장각 도서가 약탈당하였다.",
+    "description": "의궤를 비롯한 외규장각 도서가 약탈당하였다.",
+    "startYear": 1866,
+    "endYear": 1866,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "병인양요"
+    ],
+    "_src": "71회 심화 Q28 X"
+  },
+  {
+    "id": "71회_q28_2238",
+    "type": "사건",
+    "kind": "detail",
+    "title": "홍경래 등이 난을 일으켜 정주성을 점령하였다.",
+    "description": "홍경래 등이 난을 일으켜 정주성을 점령하였다.",
+    "startYear": 1811,
+    "endYear": 1812,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "홍경래의 난"
+    ],
+    "_src": "71회 심화 Q28 X"
+  },
+  {
+    "id": "71회_q28_2239",
+    "type": "사건",
+    "kind": "detail",
+    "title": "종로를 비롯한 전국 각지에 척화비가 건립되었다.",
+    "description": "종로를 비롯한 전국 각지에 척화비가 건립되었다.",
+    "startYear": 1820,
+    "endYear": 1898,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "흥선대원군"
+    ],
+    "_src": "71회 심화 Q28 O"
+  },
+  {
+    "id": "71회_q28_2240",
+    "type": "사건",
+    "kind": "detail",
+    "title": "제너럴 셔먼호가 대동강 유역에서 통상을 요구하였다.",
+    "description": "제너럴 셔먼호가 대동강 유역에서 통상을 요구하였다.",
+    "startYear": 1820,
+    "endYear": 1898,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "흥선대원군"
+    ],
+    "_src": "71회 심화 Q28 X"
+  },
+  {
+    "id": "71회_q29_2242",
+    "type": "사건",
+    "kind": "detail",
+    "title": "거문도를 불법으로 점거하는 영국 군인",
+    "description": "거문도를 불법으로 점거하는 영국 군인",
+    "startYear": 1885,
+    "endYear": 1887,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "거문도 사건"
+    ],
+    "_src": "71회 심화 Q29 X"
+  },
+  {
+    "id": "71회_q29_2243",
+    "type": "사건",
+    "kind": "detail",
+    "title": "남연군 묘의 도굴을 시도하는 독일 상인",
+    "description": "남연군 묘의 도굴을 시도하는 독일 상인",
+    "startYear": 1868,
+    "endYear": 1868,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "오페르트 사건"
+    ],
+    "_src": "71회 심화 Q29 X"
+  },
+  {
+    "id": "71회_q29_2244",
+    "type": "사건",
+    "kind": "detail",
+    "title": "부산 절영도의 조차를 요구하는 러시아 공사",
+    "description": "부산 절영도의 조차를 요구하는 러시아 공사",
+    "startYear": 1897,
+    "endYear": 1910,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대한제국"
+    ],
+    "_src": "71회 심화 Q29 X"
+  },
+  {
+    "id": "71회_q29_2246",
+    "type": "사건",
+    "kind": "detail",
+    "title": "톈진 조약에 따라 조선에서 철수하는 일본 군인",
+    "description": "톈진 조약에 따라 조선에서 철수하는 일본 군인",
+    "startYear": 1884,
+    "endYear": 1884,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "갑신정변"
+    ],
+    "_src": "71회 심화 Q29 X"
+  },
+  {
+    "id": "71회_q30_2247",
+    "type": "사건",
+    "kind": "detail",
+    "title": "처용 설화를 바탕으로 하였다.",
+    "description": "처용 설화를 바탕으로 하였다.",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "71회 심화 Q30 O"
+  },
+  {
+    "id": "71회_q30_2248",
+    "type": "사건",
+    "kind": "detail",
+    "title": "종묘에서 행하는 제향 의식이다.",
+    "description": "종묘에서 행하는 제향 의식이다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 심화 Q30 X"
+  },
+  {
+    "id": "71회_q30_2249",
+    "type": "사건",
+    "kind": "detail",
+    "title": "부처의 영취산 설법 모습을 재현하였다.",
+    "description": "부처의 영취산 설법 모습을 재현하였다.",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "71회 심화 Q30 X"
+  },
+  {
+    "id": "71회_q30_2250",
+    "type": "사건",
+    "kind": "detail",
+    "title": "창과 아니리 너름새 등으로 구성되었다.",
+    "description": "창과 아니리 너름새 등으로 구성되었다.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 심화 Q30 X"
+  },
+  {
+    "id": "71회_q30_2251",
+    "type": "사건",
+    "kind": "detail",
+    "title": "양반 파계승 등을 풍자하는 내용이 담겨 있다.",
+    "description": "양반 파계승 등을 풍자하는 내용이 담겨 있다.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 심화 Q30 X"
+  },
+  {
+    "id": "71회_q31_2252",
+    "type": "사건",
+    "kind": "detail",
+    "title": "양전 사업을 실시하여 지계를 발급하였다.",
+    "description": "양전 사업을 실시하여 지계를 발급하였다.",
+    "startYear": 1897,
+    "endYear": 1904,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "광무개혁"
+    ],
+    "_src": "71회 심화 Q31 X"
+  },
+  {
+    "id": "71회_q31_2253",
+    "type": "사건",
+    "kind": "detail",
+    "title": "지방 행정 구역을 8도에서 23부로 개편하였다.",
+    "description": "지방 행정 구역을 8도에서 23부로 개편하였다.",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "71회 심화 Q31 X"
+  },
+  {
+    "id": "71회_q31_2256",
+    "type": "사건",
+    "kind": "detail",
+    "title": "교육의 기본 방향을 제시한 교육 입국 조서를 반포하였다...",
+    "description": "교육의 기본 방향을 제시한 교육 입국 조서를 반포하였다.",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "71회 심화 Q31 X"
+  },
+  {
+    "id": "71회_q32_2257",
+    "type": "사건",
+    "kind": "detail",
+    "title": "별기군을 창설하였다.",
+    "description": "별기군을 창설하였다.",
+    "startYear": 1880,
+    "endYear": 1882,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "통리기무아문"
+    ],
+    "_src": "71회 심화 Q32 O"
+  },
+  {
+    "id": "71회_q32_2258",
+    "type": "사건",
+    "kind": "detail",
+    "title": "원수부를 설치하였다.",
+    "description": "원수부를 설치하였다.",
+    "startYear": 1897,
+    "endYear": 1904,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "광무개혁"
+    ],
+    "_src": "71회 심화 Q32 X"
+  },
+  {
+    "id": "71회_q32_2259",
+    "type": "사건",
+    "kind": "detail",
+    "title": "대전통편을 편찬하였다.",
+    "description": "대전통편을 편찬하였다.",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "71회 심화 Q32 X"
+  },
+  {
+    "id": "71회_q32_2260",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신문지법을 공포하였다.",
+    "description": "신문지법을 공포하였다.",
+    "startYear": 1897,
+    "endYear": 1910,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "대한제국"
+    ],
+    "_src": "71회 심화 Q32 X"
+  },
+  {
+    "id": "71회_q32_2261",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서당 규칙을 제정하였다.",
+    "description": "서당 규칙을 제정하였다.",
+    "startYear": 1910,
+    "endYear": 1919,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "1910년대"
+    ],
+    "_src": "71회 심화 Q32 X"
+  },
+  {
+    "id": "71회_q33_2264",
+    "type": "사건",
+    "kind": "detail",
+    "title": "여권통문을 처음 게재하였다.",
+    "description": "여권통문을 처음 게재하였다.",
+    "startYear": 1896,
+    "endYear": 1898,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "독립협회"
+    ],
+    "_src": "71회 심화 Q33 X"
+  },
+  {
+    "id": "71회_q33_2265",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국채 보상 운동을 지원하였다.",
+    "description": "국채 보상 운동을 지원하였다.",
+    "startYear": 1904,
+    "endYear": 1910,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "대한매일신보"
+    ],
+    "_src": "71회 심화 Q33 O"
+  },
+  {
+    "id": "71회_q33_2266",
+    "type": "사건",
+    "kind": "detail",
+    "title": "순한글판으로 발행된 최초의 신문이었다.",
+    "description": "순한글판으로 발행된 최초의 신문이었다.",
+    "startYear": 1896,
+    "endYear": 1899,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "독립신문"
+    ],
+    "_src": "71회 심화 Q33 X"
+  },
+  {
+    "id": "71회_q34_2269",
+    "type": "사건",
+    "kind": "detail",
+    "title": "중추원 개편을 통한 의회 설립을 추진하였다.",
+    "description": "중추원 개편을 통한 의회 설립을 추진하였다.",
+    "startYear": 1896,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "독립협회"
+    ],
+    "_src": "71회 심화 Q34 O"
+  },
+  {
+    "id": "71회_q35_2272",
+    "type": "사건",
+    "kind": "detail",
+    "title": "군국기무처의 활동을 조사한다.",
+    "description": "군국기무처의 활동을 조사한다.",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "71회 심화 Q35 X"
+  },
+  {
+    "id": "71회_q35_2273",
+    "type": "사건",
+    "kind": "detail",
+    "title": "당오전이 발행된 배경을 파악한다.",
+    "description": "당오전이 발행된 배경을 파악한다.",
+    "startYear": 1883,
+    "endYear": 1888,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "박문국"
+    ],
+    "_src": "71회 심화 Q35 X"
+  },
+  {
+    "id": "71회_q35_2275",
+    "type": "사건",
+    "kind": "detail",
+    "title": "대한 광복회가 결성된 목적을 살펴본다.",
+    "description": "대한 광복회가 결성된 목적을 살펴본다.",
+    "startYear": 1915,
+    "endYear": 1918,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "대한광복회"
+    ],
+    "_src": "71회 심화 Q35 X"
+  },
+  {
+    "id": "71회_q35_2276",
+    "type": "사건",
+    "kind": "detail",
+    "title": "제1차 한일 협약 체결의 영향을 알아본다.",
+    "description": "제1차 한일 협약 체결의 영향을 알아본다.",
+    "startYear": 1905,
+    "endYear": 1909,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "화폐 정리 사업"
+    ],
+    "_src": "71회 심화 Q35 O"
+  },
+  {
+    "id": "71회_q36_2280",
+    "type": "사건",
+    "kind": "detail",
+    "title": "독립군 양성을 위해 대조선 국민 군단을 결성하였다.",
+    "description": "독립군 양성을 위해 대조선 국민 군단을 결성하였다.",
+    "startYear": 1914,
+    "endYear": 1917,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대조선 국민 군단"
+    ],
+    "_src": "71회 심화 Q36 X"
+  },
+  {
+    "id": "71회_q36_2281",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서전서숙과 명동 학교를 설립하여 민족 교육을 실시하였다...",
+    "description": "서전서숙과 명동 학교를 설립하여 민족 교육을 실시하였다.",
+    "startYear": 1897,
+    "endYear": 1910,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대한제국"
+    ],
+    "_src": "71회 심화 Q36 X"
+  },
+  {
+    "id": "71회_q37_2283",
+    "type": "사건",
+    "kind": "detail",
+    "title": "하얼빈에서 이토 히로부미를 사살하였다.",
+    "description": "하얼빈에서 이토 히로부미를 사살하였다.",
+    "startYear": 1879,
+    "endYear": 1910,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "안중근"
+    ],
+    "_src": "71회 심화 Q37 O"
+  },
+  {
+    "id": "71회_q37_2284",
+    "type": "사건",
+    "kind": "detail",
+    "title": "타이중에서 일본 육군 대장을 저격하였다.",
+    "description": "타이중에서 일본 육군 대장을 저격하였다.",
+    "startYear": 1919,
+    "endYear": 1947,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "의열단"
+    ],
+    "_src": "71회 심화 Q37 X"
+  },
+  {
+    "id": "71회_q37_2285",
+    "type": "사건",
+    "kind": "detail",
+    "title": "샌프란시스코에서 D.W.스티븐스를 처단하였다.",
+    "description": "샌프란시스코에서 D.W.스티븐스를 처단하였다.",
+    "startYear": 1897,
+    "endYear": 1910,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "대한제국"
+    ],
+    "_src": "71회 심화 Q37 X"
+  },
+  {
+    "id": "71회_q37_2286",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서울역에서 신임 총독의 마차에 폭탄을 투척하였다.",
+    "description": "서울역에서 신임 총독의 마차에 폭탄을 투척하였다.",
+    "startYear": 1919,
+    "endYear": 1948,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "대한민국 임시정부"
+    ],
+    "_src": "71회 심화 Q37 X"
+  },
+  {
+    "id": "71회_q38_2287",
+    "type": "사건",
+    "kind": "detail",
+    "title": "육영 공원에서 외국인 교사를 초빙하였다.",
+    "description": "육영 공원에서 외국인 교사를 초빙하였다.",
+    "startYear": 1886,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "육영공원"
+    ],
+    "_src": "71회 심화 Q38 X"
+  },
+  {
+    "id": "71회_q38_2288",
+    "type": "사건",
+    "kind": "detail",
+    "title": "애국반이 편성되어 일상생활이 통제되었다.",
+    "description": "애국반이 편성되어 일상생활이 통제되었다.",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 심화 Q38 X"
+  },
+  {
+    "id": "71회_q38_2289",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조선 형평사가 창립되어 형평 운동을 전개하였다.",
+    "description": "조선 형평사가 창립되어 형평 운동을 전개하였다.",
+    "startYear": 1923,
+    "endYear": 1935,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "형평 운동"
+    ],
+    "_src": "71회 심화 Q38 X"
+  },
+  {
+    "id": "71회_q38_2290",
+    "type": "사건",
+    "kind": "detail",
+    "title": "나운규가 제작한 아리랑이 단성사에서 개봉되었다.",
+    "description": "나운규가 제작한 아리랑이 단성사에서 개봉되었다.",
+    "startYear": 1926,
+    "endYear": 1926,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "영화 아리랑"
+    ],
+    "_src": "71회 심화 Q38 X"
+  },
+  {
+    "id": "71회_q38_2291",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경복궁에서 조선 물산 공진회가 최초로 개최되었다.",
+    "description": "경복궁에서 조선 물산 공진회가 최초로 개최되었다.",
+    "startYear": 1915,
+    "endYear": 1915,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "조선 물산 공진회"
+    ],
+    "_src": "71회 심화 Q38 O"
+  },
+  {
+    "id": "71회_q39_2292",
+    "type": "사건",
+    "kind": "detail",
+    "title": "함경도에서 방곡령이 선포되었다.",
+    "description": "함경도에서 방곡령이 선포되었다.",
+    "startYear": 1876,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "강화도 조약"
+    ],
+    "_src": "71회 심화 Q39 X"
+  },
+  {
+    "id": "71회_q39_2293",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조선 물산 장려회가 평양에서 창립되었다.",
+    "description": "조선 물산 장려회가 평양에서 창립되었다.",
+    "startYear": 1920,
+    "endYear": 1932,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "물산 장려 운동"
+    ],
+    "_src": "71회 심화 Q39 O"
+  },
+  {
+    "id": "71회_q39_2294",
+    "type": "사건",
+    "kind": "detail",
+    "title": "황국 중앙 총상회의 상권 수호 운동이 전개되었다.",
+    "description": "황국 중앙 총상회의 상권 수호 운동이 전개되었다.",
+    "startYear": 1898,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "황국 중앙 총상회"
+    ],
+    "_src": "71회 심화 Q39 X"
+  },
+  {
+    "id": "71회_q39_2296",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국가 총동원법을 제정하여 인력과 물자를 강제 동원하였다...",
+    "description": "국가 총동원법을 제정하여 인력과 물자를 강제 동원하였다.",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 심화 Q39 X"
+  },
+  {
+    "id": "71회_q41_2299",
+    "type": "사건",
+    "kind": "detail",
+    "title": "황실의 지원을 받아 대한 천일 은행이 창립되었다.",
+    "description": "황실의 지원을 받아 대한 천일 은행이 창립되었다.",
+    "startYear": 1897,
+    "endYear": 1910,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대한제국"
+    ],
+    "_src": "71회 심화 Q41 X"
+  },
+  {
+    "id": "71회_q41_2300",
+    "type": "사건",
+    "kind": "detail",
+    "title": "전국 단위의 조직인 조선 노농 총동맹이 조직되었다.",
+    "description": "전국 단위의 조직인 조선 노농 총동맹이 조직되었다.",
+    "startYear": 1920,
+    "endYear": 1929,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "1920년대"
+    ],
+    "_src": "71회 심화 Q41 X"
+  },
+  {
+    "id": "71회_q41_2301",
+    "type": "사건",
+    "kind": "detail",
+    "title": "고율의 소작료에 반발하여 암태도 소작 쟁의가 발생하였다...",
+    "description": "고율의 소작료에 반발하여 암태도 소작 쟁의가 발생하였다.",
+    "startYear": 1923,
+    "endYear": 1924,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "암태도 소작쟁의"
+    ],
+    "_src": "71회 심화 Q41 X"
+  },
+  {
+    "id": "71회_q42_2302",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서양식 의료의 수용 광혜원",
+    "description": "서양식 의료의 수용 광혜원",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "광혜원"
+    ],
+    "_src": "71회 심화 Q42 X"
+  },
+  {
+    "id": "71회_q42_2303",
+    "type": "사건",
+    "kind": "detail",
+    "title": "근대적 우편 제도의 시작 우정총국",
+    "description": "근대적 우편 제도의 시작 우정총국",
+    "startYear": 1884,
+    "endYear": 1884,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "갑신정변"
+    ],
+    "_src": "71회 심화 Q42 X"
+  },
+  {
+    "id": "71회_q42_2304",
+    "type": "사건",
+    "kind": "detail",
+    "title": "전시 통제 체제 속에서 강요된 여성복 몸뻬",
+    "description": "전시 통제 체제 속에서 강요된 여성복 몸뻬",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 심화 Q42 O"
+  },
+  {
+    "id": "71회_q42_2305",
+    "type": "사건",
+    "kind": "detail",
+    "title": "근면 자조 협동을 기치로 내세운 새마을 운동",
+    "description": "근면 자조 협동을 기치로 내세운 새마을 운동",
+    "startYear": 1970,
+    "endYear": 1985,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "새마을 운동"
+    ],
+    "_src": "71회 심화 Q42 X"
+  },
+  {
+    "id": "71회_q42_2306",
+    "type": "사건",
+    "kind": "detail",
+    "title": "상품 광고의 새로운 장을 연 컬러텔레비전 방송",
+    "description": "상품 광고의 새로운 장을 연 컬러텔레비전 방송",
+    "startYear": 1980,
+    "endYear": 1988,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "전두환 정부"
+    ],
+    "_src": "71회 심화 Q42 X"
+  },
+  {
+    "id": "71회_q43_2310",
+    "type": "사건",
+    "kind": "detail",
+    "title": "미군과 연계하여 국내 진공 작전을 준비하였다.",
+    "description": "미군과 연계하여 국내 진공 작전을 준비하였다.",
+    "startYear": 1940,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "광복군 창설"
+    ],
+    "_src": "71회 심화 Q43 O"
+  },
+  {
+    "id": "71회_q43_2311",
+    "type": "사건",
+    "kind": "detail",
+    "title": "쌍성보 전투에서 한중 연합 작전을 전개하였다.",
+    "description": "쌍성보 전투에서 한중 연합 작전을 전개하였다.",
+    "startYear": 1930,
+    "endYear": 1935,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "한국독립군"
+    ],
+    "_src": "71회 심화 Q43 X"
+  },
+  {
+    "id": "71회_q44_2312",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국방헌금 모금에 적극 협력하는 부호",
+    "description": "국방헌금 모금에 적극 협력하는 부호",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 심화 Q44 X"
+  },
+  {
+    "id": "71회_q44_2315",
+    "type": "사건",
+    "kind": "detail",
+    "title": "내선일체에 협력하자는 논설을 쓰는 언론인",
+    "description": "내선일체에 협력하자는 논설을 쓰는 언론인",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 심화 Q44 X"
+  },
+  {
+    "id": "71회_q44_2316",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국민 징용령에 의해 강제로 동원되는 노동자",
+    "description": "국민 징용령에 의해 강제로 동원되는 노동자",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 심화 Q44 X"
+  },
+  {
+    "id": "71회_q45_2317",
+    "type": "사건",
+    "kind": "detail",
+    "title": "수양개 유적을 조사하여 우리 고장에 살던 구석기인들이 ...",
+    "description": "수양개 유적을 조사하여 우리 고장에 살던 구석기인들이 다양한 기법으로 석기를 제작했음을 알 수 있었습니다.",
+    "startYear": -700000,
+    "endYear": -8000,
+    "difficulty": 4,
+    "era": "선사시대",
+    "tags": [
+      "구석기 시대"
+    ],
+    "_src": "71회 심화 Q45 X"
+  },
+  {
+    "id": "71회_q45_2318",
+    "type": "사건",
+    "kind": "detail",
+    "title": "송산리 고분군의 벽돌무덤을 조사하여 무령왕이 중국 남조...",
+    "description": "송산리 고분군의 벽돌무덤을 조사하여 무령왕이 중국 남조 왜 등과 활발하게 교류했음을 알 수 있었습니다.",
+    "startYear": 501,
+    "endYear": 523,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "백제 무령왕"
+    ],
+    "_src": "71회 심화 Q45 O"
+  },
+  {
+    "id": "71회_q45_2319",
+    "type": "사건",
+    "kind": "detail",
+    "title": "만인의총을 조사하여 정유재란 당시 우리 고장의 백성들이...",
+    "description": "만인의총을 조사하여 정유재란 당시 우리 고장의 백성들이 조명 연합군과 함께 결사 항전했음을 알 수 있었습니다.",
+    "startYear": 1592,
+    "endYear": 1598,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "임진왜란"
+    ],
+    "_src": "71회 심화 Q45 X"
+  },
+  {
+    "id": "71회_q45_2320",
+    "type": "사건",
+    "kind": "detail",
+    "title": "만석보 유지비를 조사하여 우리 고장 농민들이 군수 조병...",
+    "description": "만석보 유지비를 조사하여 우리 고장 농민들이 군수 조병갑의 수탈에 저항하여 봉기했음을 알 수 있었습니다.",
+    "startYear": 1894,
+    "endYear": 1895,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "동학 농민 운동"
+    ],
+    "_src": "71회 심화 Q45 X"
+  },
+  {
+    "id": "71회_q45_2321",
+    "type": "사건",
+    "kind": "detail",
+    "title": "아우내 3·1 운동 독립 사적지를 조사하여 유관순이 우...",
+    "description": "아우내 3·1 운동 독립 사적지를 조사하여 유관순이 우리 고장에서 만세 시위를 주도했음을 알 수 있었습니다.",
+    "startYear": 1919,
+    "endYear": 1919,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "3·1 운동"
+    ],
+    "_src": "71회 심화 Q45 X"
+  },
+  {
+    "id": "71회_q46_2323",
+    "type": "사건",
+    "kind": "detail",
+    "title": "한일 기본 조약이 체결되었다.",
+    "description": "한일 기본 조약이 체결되었다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "71회 심화 Q46 X"
+  },
+  {
+    "id": "71회_q46_2325",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김구 김규식 등이 남북 협상에 참여하였다.",
+    "description": "김구 김규식 등이 남북 협상에 참여하였다.",
+    "startYear": 1948,
+    "endYear": 1948,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "5·10 총선거"
+    ],
+    "_src": "71회 심화 Q46 X"
+  },
+  {
+    "id": "71회_q46_2326",
+    "type": "사건",
+    "kind": "detail",
+    "title": "비상계엄이 선포된 가운데 발췌 개헌안이 통과되었다.",
+    "description": "비상계엄이 선포된 가운데 발췌 개헌안이 통과되었다.",
+    "startYear": 1948,
+    "endYear": 1960,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "이승만 정부"
+    ],
+    "_src": "71회 심화 Q46 O"
+  },
+  {
+    "id": "71회_q47_2327",
+    "type": "사건",
+    "kind": "detail",
+    "title": "5·16 군사 정변 이후에 실시되었다.",
+    "description": "5·16 군사 정변 이후에 실시되었다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "71회 심화 Q47 X"
+  },
+  {
+    "id": "71회_q47_2328",
+    "type": "사건",
+    "kind": "detail",
+    "title": "제헌 국회의원을 선출하기 위해 시행되었다.",
+    "description": "제헌 국회의원을 선출하기 위해 시행되었다.",
+    "startYear": 1948,
+    "endYear": 1948,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "5·10 총선거"
+    ],
+    "_src": "71회 심화 Q47 O"
+  },
+  {
+    "id": "71회_q47_2331",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신한 민주당이 창당 한 달 만에 제1 야당이 되는 결과...",
+    "description": "신한 민주당이 창당 한 달 만에 제1 야당이 되는 결과를 가져왔다.",
+    "startYear": 1985,
+    "endYear": 1985,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "1985년 총선"
+    ],
+    "_src": "71회 심화 Q47 X"
+  },
+  {
+    "id": "71회_q48_2332",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국민 교육 헌장이 발표되었다.",
+    "description": "국민 교육 헌장이 발표되었다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "71회 심화 Q48 X"
+  },
+  {
+    "id": "71회_q48_2333",
+    "type": "사건",
+    "kind": "detail",
+    "title": "3당 합당으로 민주 자유당이 창당되었다.",
+    "description": "3당 합당으로 민주 자유당이 창당되었다.",
+    "startYear": 1988,
+    "endYear": 1993,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "노태우 정부"
+    ],
+    "_src": "71회 심화 Q48 O"
+  },
+  {
+    "id": "71회_q48_2334",
+    "type": "사건",
+    "kind": "detail",
+    "title": "군 내부의 사조직인 하나회가 해체되었다.",
+    "description": "군 내부의 사조직인 하나회가 해체되었다.",
+    "startYear": 1993,
+    "endYear": 1998,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "김영삼 정부"
+    ],
+    "_src": "71회 심화 Q48 X"
+  },
+  {
+    "id": "71회_q49_2339",
+    "type": "사건",
+    "kind": "detail",
+    "title": "시위 도중 김주열이 최루탄을 맞고 사망하였다.",
+    "description": "시위 도중 김주열이 최루탄을 맞고 사망하였다.",
+    "startYear": 1960,
+    "endYear": 1960,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "4·19 혁명"
+    ],
+    "_src": "71회 심화 Q49 X"
+  },
+  {
+    "id": "71회_q49_2341",
+    "type": "사건",
+    "kind": "detail",
+    "title": "대통령이 하야하여 미국으로 망명하는 결과를 가져왔다.",
+    "description": "대통령이 하야하여 미국으로 망명하는 결과를 가져왔다.",
+    "startYear": 1960,
+    "endYear": 1960,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "4·19 혁명"
+    ],
+    "_src": "71회 심화 Q49 X"
+  },
+  {
+    "id": "71회_q1_2348",
+    "type": "사건",
+    "kind": "detail",
+    "title": "철제 농기구를 만들어 농사를 지었다.",
+    "description": "철제 농기구를 만들어 농사를 지었다.",
+    "startYear": -500,
+    "endYear": 0,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "철기 시대"
+    ],
+    "_src": "71회 기본 Q1 X"
+  },
+  {
+    "id": "71회_q1_2350",
+    "type": "사건",
+    "kind": "detail",
+    "title": "거푸집을 사용하여 청동기를 제작하였다.",
+    "description": "거푸집을 사용하여 청동기를 제작하였다.",
+    "startYear": -1500,
+    "endYear": -500,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "청동기 시대"
+    ],
+    "_src": "71회 기본 Q1 X"
+  },
+  {
+    "id": "71회_q2_2352",
+    "type": "사건",
+    "kind": "detail",
+    "title": "마한",
+    "description": "마한",
+    "startYear": -200,
+    "endYear": 562,
+    "difficulty": 3,
+    "era": "선사시대",
+    "tags": [
+      "삼한/부여"
+    ],
+    "_src": "71회 기본 Q2 X"
+  },
+  {
+    "id": "71회_q2_2353",
+    "type": "사건",
+    "kind": "detail",
+    "title": "부여",
+    "description": "부여",
+    "startYear": -200,
+    "endYear": 562,
+    "difficulty": 3,
+    "era": "선사시대",
+    "tags": [
+      "삼한/부여"
+    ],
+    "_src": "71회 기본 Q2 X"
+  },
+  {
+    "id": "71회_q3_2355",
+    "type": "사건",
+    "kind": "detail",
+    "title": "주자감을 설립하였다.",
+    "description": "주자감을 설립하였다.",
+    "startYear": 698,
+    "endYear": 926,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "발해"
+    ],
+    "_src": "71회 기본 Q3 X"
+  },
+  {
+    "id": "71회_q3_2356",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왜에 칠지도를 보냈다.",
+    "description": "왜에 칠지도를 보냈다.",
+    "startYear": 346,
+    "endYear": 375,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제 근초고왕"
+    ],
+    "_src": "71회 기본 Q3 X"
+  },
+  {
+    "id": "71회_q4_2359",
+    "type": "사건",
+    "kind": "detail",
+    "title": "성왕",
+    "description": "성왕",
+    "startYear": 523,
+    "endYear": 554,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제 성왕"
+    ],
+    "_src": "71회 기본 Q4 O"
+  },
+  {
+    "id": "71회_q4_2360",
+    "type": "사건",
+    "kind": "detail",
+    "title": "무령왕",
+    "description": "무령왕",
+    "startYear": 501,
+    "endYear": 523,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제 무령왕"
+    ],
+    "_src": "71회 기본 Q4 X"
+  },
+  {
+    "id": "71회_q4_2361",
+    "type": "사건",
+    "kind": "detail",
+    "title": "근초고왕",
+    "description": "근초고왕",
+    "startYear": 346,
+    "endYear": 375,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제 근초고왕"
+    ],
+    "_src": "71회 기본 Q4 X"
+  },
+  {
+    "id": "71회_q5_2363",
+    "type": "사건",
+    "kind": "detail",
+    "title": "낙랑군 왜와 활발히 교류하였다.",
+    "description": "낙랑군 왜와 활발히 교류하였다.",
+    "startYear": 42,
+    "endYear": 562,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "가야"
+    ],
+    "_src": "71회 기본 Q5 O"
+  },
+  {
+    "id": "71회_q5_2364",
+    "type": "사건",
+    "kind": "detail",
+    "title": "중경에서 상경으로 도읍을 옮겼다.",
+    "description": "중경에서 상경으로 도읍을 옮겼다.",
+    "startYear": 698,
+    "endYear": 926,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "발해"
+    ],
+    "_src": "71회 기본 Q5 X"
+  },
+  {
+    "id": "71회_q5_2365",
+    "type": "사건",
+    "kind": "detail",
+    "title": "화백 회의라 불리는 합의 기구가 있었다.",
+    "description": "화백 회의라 불리는 합의 기구가 있었다.",
+    "startYear": -57,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라"
+    ],
+    "_src": "71회 기본 Q5 X"
+  },
+  {
+    "id": "71회_q6_2368",
+    "type": "사건",
+    "kind": "detail",
+    "title": "지배자를 마립간이라고 불렀다.",
+    "description": "지배자를 마립간이라고 불렀다.",
+    "startYear": -57,
+    "endYear": 935,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "신라"
+    ],
+    "_src": "71회 기본 Q6 X"
+  },
+  {
+    "id": "71회_q6_2369",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정사암에서 국가 중대사를 결정하였다.",
+    "description": "정사암에서 국가 중대사를 결정하였다.",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "71회 기본 Q6 X"
+  },
+  {
+    "id": "71회_q7_2371",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백제의 불교 수용",
+    "description": "백제의 불교 수용",
+    "startYear": 384,
+    "endYear": 385,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "백제 침류왕"
+    ],
+    "_src": "71회 기본 Q7 X"
+  },
+  {
+    "id": "71회_q7_2372",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신라 말의 사회 동요",
+    "description": "신라 말의 사회 동요",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 2,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "71회 기본 Q7 O"
+  },
+  {
+    "id": "71회_q7_2373",
+    "type": "사건",
+    "kind": "detail",
+    "title": "고구려 부흥 운동의 전개",
+    "description": "고구려 부흥 운동의 전개",
+    "startYear": 645,
+    "endYear": 676,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "삼국 통일 과정"
+    ],
+    "_src": "71회 기본 Q7 X"
+  },
+  {
+    "id": "71회_q7_2374",
+    "type": "사건",
+    "kind": "detail",
+    "title": "삼국과 일본의 문화 교류",
+    "description": "삼국과 일본의 문화 교류",
+    "startYear": 346,
+    "endYear": 375,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "백제 근초고왕"
+    ],
+    "_src": "71회 기본 Q7 X"
+  },
+  {
+    "id": "71회_q8_2375",
+    "type": "사건",
+    "kind": "detail",
+    "title": "강수",
+    "description": "강수",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "71회 기본 Q8 X"
+  },
+  {
+    "id": "71회_q11_2383",
+    "type": "사건",
+    "kind": "detail",
+    "title": "녹읍을 폐지함",
+    "description": "녹읍을 폐지함",
+    "startYear": 681,
+    "endYear": 692,
+    "difficulty": 2,
+    "era": "신라시대",
+    "tags": [
+      "신라 신문왕"
+    ],
+    "_src": "71회 기본 Q11 X"
+  },
+  {
+    "id": "71회_q11_2386",
+    "type": "사건",
+    "kind": "detail",
+    "title": "전민변정도감을 설치함",
+    "description": "전민변정도감을 설치함",
+    "startYear": 1351,
+    "endYear": 1374,
+    "difficulty": 2,
+    "era": "고려시대",
+    "tags": [
+      "고려 공민왕"
+    ],
+    "_src": "71회 기본 Q11 X"
+  },
+  {
+    "id": "71회_q12_2387",
+    "type": "사건",
+    "kind": "detail",
+    "title": "22담로에 왕족을 파견하였다.",
+    "description": "22담로에 왕족을 파견하였다.",
+    "startYear": 501,
+    "endYear": 523,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제 무령왕"
+    ],
+    "_src": "71회 기본 Q12 X"
+  },
+  {
+    "id": "71회_q12_2388",
+    "type": "사건",
+    "kind": "detail",
+    "title": "주요한 5곳에 소경을 설치하였다.",
+    "description": "주요한 5곳에 소경을 설치하였다.",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "71회 기본 Q12 X"
+  },
+  {
+    "id": "71회_q12_2389",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국경 지역에 동계와 북계를 두었다.",
+    "description": "국경 지역에 동계와 북계를 두었다.",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "71회 기본 Q12 O"
+  },
+  {
+    "id": "71회_q13_2391",
+    "type": "사건",
+    "kind": "detail",
+    "title": "교정도감이 설치되었다.",
+    "description": "교정도감이 설치되었다.",
+    "startYear": 1149,
+    "endYear": 1219,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "최충헌"
+    ],
+    "_src": "71회 기본 Q13 X"
+  },
+  {
+    "id": "71회_q13_2392",
+    "type": "사건",
+    "kind": "detail",
+    "title": "농사직설이 편찬되었다.",
+    "description": "농사직설이 편찬되었다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 기본 Q13 X"
+  },
+  {
+    "id": "71회_q13_2393",
+    "type": "사건",
+    "kind": "detail",
+    "title": "초조대장경이 제작되었다.",
+    "description": "초조대장경이 제작되었다.",
+    "startYear": 1010,
+    "endYear": 1011,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "거란 2차 침입"
+    ],
+    "_src": "71회 기본 Q13 O"
+  },
+  {
+    "id": "71회_q14_2395",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경주 불국사 대웅전",
+    "description": "경주 불국사 대웅전",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q14 X"
+  },
+  {
+    "id": "71회_q14_2396",
+    "type": "사건",
+    "kind": "detail",
+    "title": "영주 부석사 무량수전",
+    "description": "영주 부석사 무량수전",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "71회 기본 Q14 O"
+  },
+  {
+    "id": "71회_q14_2397",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김제 금산사 미륵전",
+    "description": "김제 금산사 미륵전",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q14 X"
+  },
+  {
+    "id": "71회_q16_2399",
+    "type": "사건",
+    "kind": "detail",
+    "title": "윤관이 동북 9성을 축조하였다.",
+    "description": "윤관이 동북 9성을 축조하였다.",
+    "startYear": 1104,
+    "endYear": 1108,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "여진 대응"
+    ],
+    "_src": "71회 기본 Q16 O"
+  },
+  {
+    "id": "71회_q16_2400",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서희가 강동 6주 지역을 확보하였다.",
+    "description": "서희가 강동 6주 지역을 확보하였다.",
+    "startYear": 942,
+    "endYear": 998,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "서희"
+    ],
+    "_src": "71회 기본 Q16 X"
+  },
+  {
+    "id": "71회_q16_2401",
+    "type": "사건",
+    "kind": "detail",
+    "title": "최무선이 진포에서 왜구를 물리쳤다.",
+    "description": "최무선이 진포에서 왜구를 물리쳤다.",
+    "startYear": 1377,
+    "endYear": 1389,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "화통도감"
+    ],
+    "_src": "71회 기본 Q16 X"
+  },
+  {
+    "id": "71회_q16_2402",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김윤후가 충주성 전투에서 승리하였다.",
+    "description": "김윤후가 충주성 전투에서 승리하였다.",
+    "startYear": 1231,
+    "endYear": 1259,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "몽골 침입"
+    ],
+    "_src": "71회 기본 Q16 X"
+  },
+  {
+    "id": "71회_q17_2403",
+    "type": "사건",
+    "kind": "detail",
+    "title": "영고",
+    "description": "영고",
+    "startYear": -200,
+    "endYear": 562,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "삼한/부여"
+    ],
+    "_src": "71회 기본 Q17 X"
+  },
+  {
+    "id": "71회_q17_2404",
+    "type": "사건",
+    "kind": "detail",
+    "title": "단오제",
+    "description": "단오제",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q17 X"
+  },
+  {
+    "id": "71회_q17_2405",
+    "type": "사건",
+    "kind": "detail",
+    "title": "팔관회",
+    "description": "팔관회",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 2,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "71회 기본 Q17 O"
+  },
+  {
+    "id": "71회_q17_2406",
+    "type": "사건",
+    "kind": "detail",
+    "title": "종묘 제례",
+    "description": "종묘 제례",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 기본 Q17 X"
+  },
+  {
+    "id": "71회_q18_2407",
+    "type": "사건",
+    "kind": "detail",
+    "title": "감자 고구마 등의 작물이 널리 재배되었어요.",
+    "description": "감자 고구마 등의 작물이 널리 재배되었어요.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q18 X"
+  },
+  {
+    "id": "71회_q18_2410",
+    "type": "사건",
+    "kind": "detail",
+    "title": "만상 내상 등이 무역을 하였어요.",
+    "description": "만상 내상 등이 무역을 하였어요.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q18 X"
+  },
+  {
+    "id": "71회_q19_2411",
+    "type": "사건",
+    "kind": "detail",
+    "title": "현량과가 실시되었다.",
+    "description": "현량과가 실시되었다.",
+    "startYear": 1519,
+    "endYear": 1519,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "기묘사화"
+    ],
+    "_src": "71회 기본 Q19 X"
+  },
+  {
+    "id": "71회_q19_2412",
+    "type": "사건",
+    "kind": "detail",
+    "title": "호패법이 시행되었다.",
+    "description": "호패법이 시행되었다.",
+    "startYear": 1400,
+    "endYear": 1418,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 태종"
+    ],
+    "_src": "71회 기본 Q19 O"
+  },
+  {
+    "id": "71회_q19_2414",
+    "type": "사건",
+    "kind": "detail",
+    "title": "5군영 체제가 완성되었다.",
+    "description": "5군영 체제가 완성되었다.",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "조선 (후기)"
+    ],
+    "_src": "71회 기본 Q19 X"
+  },
+  {
+    "id": "71회_q20_2415",
+    "type": "사건",
+    "kind": "detail",
+    "title": "청자 상감 운학문 매병",
+    "description": "청자 상감 운학문 매병",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "71회 기본 Q20 X"
+  },
+  {
+    "id": "71회_q20_2416",
+    "type": "사건",
+    "kind": "detail",
+    "title": "분청사기 음각어문 편병",
+    "description": "분청사기 음각어문 편병",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 기본 Q20 O"
+  },
+  {
+    "id": "71회_q20_2417",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백자 달항아리",
+    "description": "백자 달항아리",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q20 X"
+  },
+  {
+    "id": "71회_q20_2418",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백자 청화 운룡문호",
+    "description": "백자 청화 운룡문호",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q20 X"
+  },
+  {
+    "id": "71회_q21_2421",
+    "type": "사건",
+    "kind": "detail",
+    "title": "직전법",
+    "description": "직전법",
+    "startYear": 1455,
+    "endYear": 1468,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세조"
+    ],
+    "_src": "71회 기본 Q21 O"
+  },
+  {
+    "id": "71회_q21_2422",
+    "type": "사건",
+    "kind": "detail",
+    "title": "호포법",
+    "description": "호포법",
+    "startYear": 1820,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "흥선대원군"
+    ],
+    "_src": "71회 기본 Q21 X"
+  },
+  {
+    "id": "71회_q22_2423",
+    "type": "사건",
+    "kind": "detail",
+    "title": "공납",
+    "description": "공납",
+    "startYear": 1608,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "대동법"
+    ],
+    "_src": "71회 기본 Q22 O"
+  },
+  {
+    "id": "71회_q22_2424",
+    "type": "사건",
+    "kind": "detail",
+    "title": "군역",
+    "description": "군역",
+    "startYear": 1750,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "균역법"
+    ],
+    "_src": "71회 기본 Q22 X"
+  },
+  {
+    "id": "71회_q22_2425",
+    "type": "사건",
+    "kind": "detail",
+    "title": "전세",
+    "description": "전세",
+    "startYear": 1635,
+    "endYear": 1894,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "영정법"
+    ],
+    "_src": "71회 기본 Q22 X"
+  },
+  {
+    "id": "71회_q22_2426",
+    "type": "사건",
+    "kind": "detail",
+    "title": "환곡",
+    "description": "환곡",
+    "startYear": 1862,
+    "endYear": 1862,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임술농민봉기"
+    ],
+    "_src": "71회 기본 Q22 X"
+  },
+  {
+    "id": "71회_q23_2427",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김종서가 6진을 개척하였다.",
+    "description": "김종서가 6진을 개척하였다.",
+    "startYear": 1433,
+    "endYear": 1449,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "4군 6진"
+    ],
+    "_src": "71회 기본 Q23 X"
+  },
+  {
+    "id": "71회_q23_2428",
+    "type": "사건",
+    "kind": "detail",
+    "title": "어재연이 광성보에서 항전하였다.",
+    "description": "어재연이 광성보에서 항전하였다.",
+    "startYear": 1871,
+    "endYear": 1871,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "신미양요"
+    ],
+    "_src": "71회 기본 Q23 X"
+  },
+  {
+    "id": "71회_q23_2429",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이종무가 쓰시마섬을 정벌하였다.",
+    "description": "이종무가 쓰시마섬을 정벌하였다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 기본 Q23 X"
+  },
+  {
+    "id": "71회_q23_2430",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이순신이 명량 해전을 승리로 이끌었다.",
+    "description": "이순신이 명량 해전을 승리로 이끌었다.",
+    "startYear": 1592,
+    "endYear": 1598,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임진왜란"
+    ],
+    "_src": "71회 기본 Q23 O"
+  },
+  {
+    "id": "71회_q24_2431",
+    "type": "사건",
+    "kind": "detail",
+    "title": "삼국사기를 편찬하였다.",
+    "description": "삼국사기를 편찬하였다.",
+    "startYear": 1075,
+    "endYear": 1151,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "김부식"
+    ],
+    "_src": "71회 기본 Q24 X"
+  },
+  {
+    "id": "71회_q24_2432",
+    "type": "사건",
+    "kind": "detail",
+    "title": "훈민정음을 창제하였다.",
+    "description": "훈민정음을 창제하였다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 기본 Q24 X"
+  },
+  {
+    "id": "71회_q25_2436",
+    "type": "사건",
+    "kind": "detail",
+    "title": "아집도대련",
+    "description": "아집도대련",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "71회 기본 Q25 X"
+  },
+  {
+    "id": "71회_q25_2437",
+    "type": "사건",
+    "kind": "detail",
+    "title": "무동",
+    "description": "무동",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q25 O"
+  },
+  {
+    "id": "71회_q25_2438",
+    "type": "사건",
+    "kind": "detail",
+    "title": "월하정인",
+    "description": "월하정인",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q25 X"
+  },
+  {
+    "id": "71회_q26_2439",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정감록을 읽는 양반",
+    "description": "정감록을 읽는 양반",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q26 X"
+  },
+  {
+    "id": "71회_q26_2440",
+    "type": "사건",
+    "kind": "detail",
+    "title": "판소리 공연을 하는 소리꾼",
+    "description": "판소리 공연을 하는 소리꾼",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q26 X"
+  },
+  {
+    "id": "71회_q26_2441",
+    "type": "사건",
+    "kind": "detail",
+    "title": "삼별초의 일원으로 훈련하는 군인",
+    "description": "삼별초의 일원으로 훈련하는 군인",
+    "startYear": 1270,
+    "endYear": 1273,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "삼별초 항쟁"
+    ],
+    "_src": "71회 기본 Q26 O"
+  },
+  {
+    "id": "71회_q27_2445",
+    "type": "사건",
+    "kind": "detail",
+    "title": "을미사변",
+    "description": "을미사변",
+    "startYear": 1895,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "을미개혁"
+    ],
+    "_src": "71회 기본 Q27 X"
+  },
+  {
+    "id": "71회_q28_2447",
+    "type": "사건",
+    "kind": "detail",
+    "title": "소속 관청에 신공을 바쳤어요.",
+    "description": "소속 관청에 신공을 바쳤어요.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q28 X"
+  },
+  {
+    "id": "71회_q28_2448",
+    "type": "사건",
+    "kind": "detail",
+    "title": "매매 상속 증여의 대상이었어요.",
+    "description": "매매 상속 증여의 대상이었어요.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q28 X"
+  },
+  {
+    "id": "71회_q28_2450",
+    "type": "사건",
+    "kind": "detail",
+    "title": "차별 철폐를 위해 통청 운동을 전개하였어요.",
+    "description": "차별 철폐를 위해 통청 운동을 전개하였어요.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "71회 기본 Q28 O"
+  },
+  {
+    "id": "71회_q29_2451",
+    "type": "사건",
+    "kind": "detail",
+    "title": "척화비를 건립하였다.",
+    "description": "척화비를 건립하였다.",
+    "startYear": 1820,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "흥선대원군"
+    ],
+    "_src": "71회 기본 Q29 O"
+  },
+  {
+    "id": "71회_q29_2452",
+    "type": "사건",
+    "kind": "detail",
+    "title": "동의보감을 완성하였다.",
+    "description": "동의보감을 완성하였다.",
+    "startYear": 1608,
+    "endYear": 1623,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "광해군"
+    ],
+    "_src": "71회 기본 Q29 X"
+  },
+  {
+    "id": "71회_q29_2453",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신해통공을 실시하였다.",
+    "description": "신해통공을 실시하였다.",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "71회 기본 Q29 X"
+  },
+  {
+    "id": "71회_q29_2454",
+    "type": "사건",
+    "kind": "detail",
+    "title": "나선 정벌을 단행하였다.",
+    "description": "나선 정벌을 단행하였다.",
+    "startYear": 1649,
+    "endYear": 1659,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 효종"
+    ],
+    "_src": "71회 기본 Q29 X"
+  },
+  {
+    "id": "71회_q30_2455",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김옥균",
+    "description": "김옥균",
+    "startYear": 1884,
+    "endYear": 1884,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "갑신정변"
+    ],
+    "_src": "71회 기본 Q30 X"
+  },
+  {
+    "id": "71회_q30_2456",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김홍집",
+    "description": "김홍집",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "71회 기본 Q30 O"
+  },
+  {
+    "id": "71회_q30_2457",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서재필",
+    "description": "서재필",
+    "startYear": 1896,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "독립협회"
+    ],
+    "_src": "71회 기본 Q30 X"
+  },
+  {
+    "id": "71회_q30_2458",
+    "type": "사건",
+    "kind": "detail",
+    "title": "유인석",
+    "description": "유인석",
+    "startYear": 1895,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "을미의병"
+    ],
+    "_src": "71회 기본 Q30 X"
+  },
+  {
+    "id": "71회_q31_2459",
+    "type": "사건",
+    "kind": "detail",
+    "title": "기유약조",
+    "description": "기유약조",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "조선"
+    ],
+    "_src": "71회 기본 Q31 X"
+  },
+  {
+    "id": "71회_q31_2460",
+    "type": "사건",
+    "kind": "detail",
+    "title": "한성 조약",
+    "description": "한성 조약",
+    "startYear": 1884,
+    "endYear": 1884,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "갑신정변"
+    ],
+    "_src": "71회 기본 Q31 X"
+  },
+  {
+    "id": "71회_q33_2470",
+    "type": "사건",
+    "kind": "detail",
+    "title": "박규수가 안핵사로 파견되었다.",
+    "description": "박규수가 안핵사로 파견되었다.",
+    "startYear": 1862,
+    "endYear": 1862,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임술농민봉기"
+    ],
+    "_src": "71회 기본 Q33 X"
+  },
+  {
+    "id": "71회_q34_2471",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경인선 기차를 타고 가는 승객",
+    "description": "경인선 기차를 타고 가는 승객",
+    "startYear": 1898,
+    "endYear": 1909,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "한성 전기 회사"
+    ],
+    "_src": "71회 기본 Q34 O"
+  },
+  {
+    "id": "71회_q34_2472",
+    "type": "사건",
+    "kind": "detail",
+    "title": "텔레비전 뉴스를 보도하는 기자",
+    "description": "텔레비전 뉴스를 보도하는 기자",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "71회 기본 Q34 X"
+  },
+  {
+    "id": "71회_q34_2473",
+    "type": "사건",
+    "kind": "detail",
+    "title": "박문국에서 한성순보를 인쇄하는 기술자",
+    "description": "박문국에서 한성순보를 인쇄하는 기술자",
+    "startYear": 1883,
+    "endYear": 1888,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "박문국"
+    ],
+    "_src": "71회 기본 Q34 X"
+  },
+  {
+    "id": "71회_q34_2474",
+    "type": "사건",
+    "kind": "detail",
+    "title": "라디오 방송을 송출하는 경성 방송국 직원",
+    "description": "라디오 방송을 송출하는 경성 방송국 직원",
+    "startYear": 1920,
+    "endYear": 1929,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "1920년대"
+    ],
+    "_src": "71회 기본 Q34 X"
+  },
+  {
+    "id": "71회_q35_2476",
+    "type": "사건",
+    "kind": "detail",
+    "title": "관민 공동회가 열렸다.",
+    "description": "관민 공동회가 열렸다.",
+    "startYear": 1896,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "독립협회"
+    ],
+    "_src": "71회 기본 Q35 X"
+  },
+  {
+    "id": "71회_q35_2478",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국가 총동원법이 제정되었다.",
+    "description": "국가 총동원법이 제정되었다.",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 기본 Q35 X"
+  },
+  {
+    "id": "71회_q36_2480",
+    "type": "사건",
+    "kind": "detail",
+    "title": "쌍성보 전투",
+    "description": "쌍성보 전투",
+    "startYear": 1930,
+    "endYear": 1935,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "한국독립군"
+    ],
+    "_src": "71회 기본 Q36 X"
+  },
+  {
+    "id": "71회_q36_2481",
+    "type": "사건",
+    "kind": "detail",
+    "title": "우금치 전투",
+    "description": "우금치 전투",
+    "startYear": 1894,
+    "endYear": 1895,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "동학 농민 운동"
+    ],
+    "_src": "71회 기본 Q36 X"
+  },
+  {
+    "id": "71회_q37_2484",
+    "type": "사건",
+    "kind": "detail",
+    "title": "베를린 올림픽에 참가함",
+    "description": "베를린 올림픽에 참가함",
+    "startYear": 1910,
+    "endYear": 1945,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "일제강점기"
+    ],
+    "_src": "71회 기본 Q37 X"
+  },
+  {
+    "id": "71회_q37_2485",
+    "type": "사건",
+    "kind": "detail",
+    "title": "어린이날 제정에 기여함",
+    "description": "어린이날 제정에 기여함",
+    "startYear": 1920,
+    "endYear": 1929,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "1920년대"
+    ],
+    "_src": "71회 기본 Q37 O"
+  },
+  {
+    "id": "71회_q37_2486",
+    "type": "사건",
+    "kind": "detail",
+    "title": "헤이그에 특사로 파견됨",
+    "description": "헤이그에 특사로 파견됨",
+    "startYear": 1907,
+    "endYear": 1907,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "헤이그 특사"
+    ],
+    "_src": "71회 기본 Q37 X"
+  },
+  {
+    "id": "71회_q38_2488",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신사 참배가 강요되었다.",
+    "description": "신사 참배가 강요되었다.",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "71회 기본 Q38 O"
+  },
+  {
+    "id": "71회_q38_2489",
+    "type": "사건",
+    "kind": "detail",
+    "title": "교육 입국 조서가 발표되었다.",
+    "description": "교육 입국 조서가 발표되었다.",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "71회 기본 Q38 X"
+  },
+  {
+    "id": "71회_q39_2491",
+    "type": "사건",
+    "kind": "detail",
+    "title": "청군의 개입으로 진압되었다.",
+    "description": "청군의 개입으로 진압되었다.",
+    "startYear": 1882,
+    "endYear": 1882,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "임오군란"
+    ],
+    "_src": "71회 기본 Q39 X"
+  },
+  {
+    "id": "71회_q39_2493",
+    "type": "사건",
+    "kind": "detail",
+    "title": "황국 중앙 총상회를 중심으로 전개되었다.",
+    "description": "황국 중앙 총상회를 중심으로 전개되었다.",
+    "startYear": 1898,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "황국 중앙 총상회"
+    ],
+    "_src": "71회 기본 Q39 X"
+  },
+  {
+    "id": "71회_q41_2499",
+    "type": "사건",
+    "kind": "detail",
+    "title": "장용영에서 훈련하는 군인",
+    "description": "장용영에서 훈련하는 군인",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "71회 기본 Q41 X"
+  },
+  {
+    "id": "71회_q41_2500",
+    "type": "사건",
+    "kind": "detail",
+    "title": "군국기무처에서 회의하는 관리",
+    "description": "군국기무처에서 회의하는 관리",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "71회 기본 Q41 X"
+  },
+  {
+    "id": "71회_q43_2507",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김원봉",
+    "description": "김원봉",
+    "startYear": 1919,
+    "endYear": 1947,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "의열단"
+    ],
+    "_src": "71회 기본 Q43 X"
+  },
+  {
+    "id": "71회_q45_2512",
+    "type": "사건",
+    "kind": "detail",
+    "title": "최초로 100억 달러 수출이 달성되었다.",
+    "description": "최초로 100억 달러 수출이 달성되었다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "71회 기본 Q45 X"
+  },
+  {
+    "id": "71회_q45_2514",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국제 통화 기금(IMF)의 구제 금융 자금이 조기 상환...",
+    "description": "국제 통화 기금(IMF)의 구제 금융 자금이 조기 상환되었다.",
+    "startYear": 1998,
+    "endYear": 2003,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "김대중 정부"
+    ],
+    "_src": "71회 기본 Q45 X"
+  },
+  {
+    "id": "71회_q47_2519",
+    "type": "사건",
+    "kind": "detail",
+    "title": "금융 실명제가 전면 실시되었다.",
+    "description": "금융 실명제가 전면 실시되었다.",
+    "startYear": 1993,
+    "endYear": 1998,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "김영삼 정부"
+    ],
+    "_src": "71회 기본 Q47 X"
+  },
+  {
+    "id": "71회_q47_2520",
+    "type": "사건",
+    "kind": "detail",
+    "title": "칠레와 자유 무역 협정(FTA)이 체결되었다.",
+    "description": "칠레와 자유 무역 협정(FTA)이 체결되었다.",
+    "startYear": 2003,
+    "endYear": 2008,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "노무현 정부"
+    ],
+    "_src": "71회 기본 Q47 X"
+  },
+  {
+    "id": "71회_q47_2522",
+    "type": "사건",
+    "kind": "detail",
+    "title": "저금리·저유가·저달러의 3저 호황이 있었다.",
+    "description": "저금리·저유가·저달러의 3저 호황이 있었다.",
+    "startYear": 1980,
+    "endYear": 1988,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "전두환 정부"
+    ],
+    "_src": "71회 기본 Q47 X"
+  },
+  {
+    "id": "71회_q48_2523",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조선 총독부 건물이 철거되었다.",
+    "description": "조선 총독부 건물이 철거되었다.",
+    "startYear": 1993,
+    "endYear": 1998,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "김영삼 정부"
+    ],
+    "_src": "71회 기본 Q48 O"
+  },
+  {
+    "id": "71회_q48_2524",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서울에서 G20 정상 회의가 열렸다.",
+    "description": "서울에서 G20 정상 회의가 열렸다.",
+    "startYear": 1993,
+    "endYear": 1998,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "김영삼 정부"
+    ],
+    "_src": "71회 기본 Q48 X"
+  },
+  {
+    "id": "71회_q48_2525",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이라크에 자이툰 부대가 파병되었다.",
+    "description": "이라크에 자이툰 부대가 파병되었다.",
+    "startYear": 2003,
+    "endYear": 2008,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "노무현 정부"
+    ],
+    "_src": "71회 기본 Q48 X"
+  },
+  {
+    "id": "71회_q48_2526",
+    "type": "사건",
+    "kind": "detail",
+    "title": "한일 월드컵 축구 대회가 개최되었다.",
+    "description": "한일 월드컵 축구 대회가 개최되었다.",
+    "startYear": 1998,
+    "endYear": 2003,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "김대중 정부"
+    ],
+    "_src": "71회 기본 Q48 X"
+  },
+  {
+    "id": "71회_q49_2527",
+    "type": "사건",
+    "kind": "detail",
+    "title": "남북 기본 합의서",
+    "description": "남북 기본 합의서",
+    "startYear": 1988,
+    "endYear": 1993,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "노태우 정부"
+    ],
+    "_src": "71회 기본 Q49 X"
+  },
+  {
+    "id": "71회_q49_2529",
+    "type": "사건",
+    "kind": "detail",
+    "title": "10·4 남북 정상 선언",
+    "description": "10·4 남북 정상 선언",
+    "startYear": 2003,
+    "endYear": 2008,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "노무현 정부"
+    ],
+    "_src": "71회 기본 Q49 O"
+  },
+  {
+    "id": "70회_q1_2532",
+    "type": "사건",
+    "kind": "detail",
+    "title": "오수전 화천 등의 중국 화폐로 교역하였다.",
+    "description": "오수전 화천 등의 중국 화폐로 교역하였다.",
+    "startYear": -500,
+    "endYear": 0,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "철기 시대"
+    ],
+    "_src": "70회 심화 Q1 X"
+  },
+  {
+    "id": "70회_q2_2536",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신지 읍차 등의 지배자가 있었다.",
+    "description": "신지 읍차 등의 지배자가 있었다.",
+    "startYear": -200,
+    "endYear": 562,
+    "difficulty": 3,
+    "era": "선사시대",
+    "tags": [
+      "삼한/부여"
+    ],
+    "_src": "70회 심화 Q2 X"
+  },
+  {
+    "id": "70회_q3_2541",
+    "type": "사건",
+    "kind": "detail",
+    "title": "고구려가 평양으로 천도하였다.",
+    "description": "고구려가 평양으로 천도하였다.",
+    "startYear": 413,
+    "endYear": 491,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "고구려 장수왕"
+    ],
+    "_src": "70회 심화 Q3 X"
+  },
+  {
+    "id": "70회_q3_2542",
+    "type": "사건",
+    "kind": "detail",
+    "title": "동성왕이 나제 동맹을 강화하였다.",
+    "description": "동성왕이 나제 동맹을 강화하였다.",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "70회 심화 Q3 O"
+  },
+  {
+    "id": "70회_q3_2543",
+    "type": "사건",
+    "kind": "detail",
+    "title": "고국원왕이 근초고왕의 공격을 받아 전사하였다.",
+    "description": "고국원왕이 근초고왕의 공격을 받아 전사하였다.",
+    "startYear": 346,
+    "endYear": 375,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "백제 근초고왕"
+    ],
+    "_src": "70회 심화 Q3 X"
+  },
+  {
+    "id": "70회_q3_2544",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백제가 고구려를 견제하고자 북위에 국서를 보냈다.",
+    "description": "백제가 고구려를 견제하고자 북위에 국서를 보냈다.",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "70회 심화 Q3 X"
+  },
+  {
+    "id": "70회_q3_2545",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신라가 왜를 격퇴하기 위해 고구려에 군사를 청하였다.",
+    "description": "신라가 왜를 격퇴하기 위해 고구려에 군사를 청하였다.",
+    "startYear": 391,
+    "endYear": 413,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "광개토대왕"
+    ],
+    "_src": "70회 심화 Q3 X"
+  },
+  {
+    "id": "70회_q4_2546",
+    "type": "사건",
+    "kind": "detail",
+    "title": "승려 순도를 통해 불교를 수용하였다.",
+    "description": "승려 순도를 통해 불교를 수용하였다.",
+    "startYear": 371,
+    "endYear": 384,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "고구려 소수림왕"
+    ],
+    "_src": "70회 심화 Q4 O"
+  },
+  {
+    "id": "70회_q4_2547",
+    "type": "사건",
+    "kind": "detail",
+    "title": "낙랑군을 축출하여 영토를 확장하였다.",
+    "description": "낙랑군을 축출하여 영토를 확장하였다.",
+    "startYear": 300,
+    "endYear": 331,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "고구려 미천왕"
+    ],
+    "_src": "70회 심화 Q4 X"
+  },
+  {
+    "id": "70회_q4_2550",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이문진이 유기를 간추린 신집 5권을 편찬하였다.",
+    "description": "이문진이 유기를 간추린 신집 5권을 편찬하였다.",
+    "startYear": -37,
+    "endYear": 668,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "고구려"
+    ],
+    "_src": "70회 심화 Q4 X"
+  },
+  {
+    "id": "70회_q5_2551",
+    "type": "사건",
+    "kind": "detail",
+    "title": "간경도감에서 경전이 간행되었습니다.",
+    "description": "간경도감에서 경전이 간행되었습니다.",
+    "startYear": 1455,
+    "endYear": 1468,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세조"
+    ],
+    "_src": "70회 심화 Q5 X"
+  },
+  {
+    "id": "70회_q5_2552",
+    "type": "사건",
+    "kind": "detail",
+    "title": "연개소문이 당에 도사 파견을 요청하였습니다.",
+    "description": "연개소문이 당에 도사 파견을 요청하였습니다.",
+    "startYear": -37,
+    "endYear": 668,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "고구려"
+    ],
+    "_src": "70회 심화 Q5 O"
+  },
+  {
+    "id": "70회_q5_2553",
+    "type": "사건",
+    "kind": "detail",
+    "title": "과거 시험의 교재로 사서집주가 채택되었습니다.",
+    "description": "과거 시험의 교재로 사서집주가 채택되었습니다.",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "70회 심화 Q5 X"
+  },
+  {
+    "id": "70회_q5_2554",
+    "type": "사건",
+    "kind": "detail",
+    "title": "범일이 9산 선문 중 하나인 사굴산문을 개창하였습니다.",
+    "description": "범일이 9산 선문 중 하나인 사굴산문을 개창하였습니다.",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "70회 심화 Q5 X"
+  },
+  {
+    "id": "70회_q5_2555",
+    "type": "사건",
+    "kind": "detail",
+    "title": "주요 경전의 이름이 새겨진 임신서기석이 만들어졌습니다.",
+    "description": "주요 경전의 이름이 새겨진 임신서기석이 만들어졌습니다.",
+    "startYear": -57,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라"
+    ],
+    "_src": "70회 심화 Q5 X"
+  },
+  {
+    "id": "70회_q6_2559",
+    "type": "사건",
+    "kind": "detail",
+    "title": "화랑도의 규범으로 세속 5계를 제시하였다.",
+    "description": "화랑도의 규범으로 세속 5계를 제시하였다.",
+    "startYear": 542,
+    "endYear": 640,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "원광"
+    ],
+    "_src": "70회 심화 Q6 X"
+  },
+  {
+    "id": "70회_q7_2562",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정사암에 모여 국가 중대사를 논의하였다.",
+    "description": "정사암에 모여 국가 중대사를 논의하였다.",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 2,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "70회 심화 Q7 X"
+  },
+  {
+    "id": "70회_q7_2565",
+    "type": "사건",
+    "kind": "detail",
+    "title": "상수리 제도를 시행하여 지방 세력을 견제하였다.",
+    "description": "상수리 제도를 시행하여 지방 세력을 견제하였다.",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 2,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "70회 심화 Q7 X"
+  },
+  {
+    "id": "70회_q8_2566",
+    "type": "사건",
+    "kind": "detail",
+    "title": "향가 모음집인 삼대목을 편찬하였다.",
+    "description": "향가 모음집인 삼대목을 편찬하였다.",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "70회 심화 Q8 X"
+  },
+  {
+    "id": "70회_q8_2568",
+    "type": "사건",
+    "kind": "detail",
+    "title": "격황소서를 지어 문장가로서 이름을 떨쳤다.",
+    "description": "격황소서를 지어 문장가로서 이름을 떨쳤다.",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "70회 심화 Q8 O"
+  },
+  {
+    "id": "70회_q8_2569",
+    "type": "사건",
+    "kind": "detail",
+    "title": "유식의 교의를 담은 해심밀경소를 저술하였다.",
+    "description": "유식의 교의를 담은 해심밀경소를 저술하였다.",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "70회 심화 Q8 X"
+  },
+  {
+    "id": "70회_q8_2570",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국왕에게 조언하는 내용의 화왕계를 저술하였다.",
+    "description": "국왕에게 조언하는 내용의 화왕계를 저술하였다.",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "설총"
+    ],
+    "_src": "70회 심화 Q8 X"
+  },
+  {
+    "id": "70회_q10_2571",
+    "type": "사건",
+    "kind": "detail",
+    "title": "안승 보덕국왕으로 책봉되다",
+    "description": "안승 보덕국왕으로 책봉되다",
+    "startYear": 661,
+    "endYear": 681,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 문무왕"
+    ],
+    "_src": "70회 심화 Q10 X"
+  },
+  {
+    "id": "70회_q10_2573",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경순왕 김부 경주의 사심관이 되다",
+    "description": "경순왕 김부 경주의 사심관이 되다",
+    "startYear": 927,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 경순왕"
+    ],
+    "_src": "70회 심화 Q10 O"
+  },
+  {
+    "id": "70회_q10_2574",
+    "type": "사건",
+    "kind": "detail",
+    "title": "윤충 대야성을 공격하여 함락시키다",
+    "description": "윤충 대야성을 공격하여 함락시키다",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "70회 심화 Q10 X"
+  },
+  {
+    "id": "70회_q10_2575",
+    "type": "사건",
+    "kind": "detail",
+    "title": "흑치상지 임존성에서 부흥군을 이끌다",
+    "description": "흑치상지 임존성에서 부흥군을 이끌다",
+    "startYear": 645,
+    "endYear": 676,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "삼국 통일 과정"
+    ],
+    "_src": "70회 심화 Q10 X"
+  },
+  {
+    "id": "70회_q11_2576",
+    "type": "사건",
+    "kind": "detail",
+    "title": "특산품으로 솔빈부의 말이 유명하였다.",
+    "description": "특산품으로 솔빈부의 말이 유명하였다.",
+    "startYear": 698,
+    "endYear": 926,
+    "difficulty": 2,
+    "era": "신라시대",
+    "tags": [
+      "발해"
+    ],
+    "_src": "70회 심화 Q11 X"
+  },
+  {
+    "id": "70회_q11_2579",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경시서의 관리들이 시전의 상행위를 감독하였다.",
+    "description": "경시서의 관리들이 시전의 상행위를 감독하였다.",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 2,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "70회 심화 Q11 O"
+  },
+  {
+    "id": "70회_q12_2582",
+    "type": "사건",
+    "kind": "detail",
+    "title": "심성의 도야를 강조한 유불 일치설을 주장하다",
+    "description": "심성의 도야를 강조한 유불 일치설을 주장하다",
+    "startYear": 1178,
+    "endYear": 1234,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "혜심"
+    ],
+    "_src": "70회 심화 Q12 X"
+  },
+  {
+    "id": "70회_q12_2583",
+    "type": "사건",
+    "kind": "detail",
+    "title": "권수정혜결사문을 작성하여 정혜쌍수를 강조하다",
+    "description": "권수정혜결사문을 작성하여 정혜쌍수를 강조하다",
+    "startYear": 1158,
+    "endYear": 1210,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "지눌"
+    ],
+    "_src": "70회 심화 Q12 O"
+  },
+  {
+    "id": "70회_q13_2586",
+    "type": "사건",
+    "kind": "detail",
+    "title": "여진 정벌을 위해 별무반을 창설하였다.",
+    "description": "여진 정벌을 위해 별무반을 창설하였다.",
+    "startYear": 1104,
+    "endYear": 1108,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "여진 대응"
+    ],
+    "_src": "70회 심화 Q13 O"
+  },
+  {
+    "id": "70회_q13_2589",
+    "type": "사건",
+    "kind": "detail",
+    "title": "거란의 침입에 대비하여 개경에 나성을 축조하였다.",
+    "description": "거란의 침입에 대비하여 개경에 나성을 축조하였다.",
+    "startYear": 1010,
+    "endYear": 1011,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "거란 2차 침입"
+    ],
+    "_src": "70회 심화 Q13 X"
+  },
+  {
+    "id": "70회_q14_2591",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정동행성이 설치되는 배경을 살펴본다.",
+    "description": "정동행성이 설치되는 배경을 살펴본다.",
+    "startYear": 1274,
+    "endYear": 1308,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려 충렬왕"
+    ],
+    "_src": "70회 심화 Q14 X"
+  },
+  {
+    "id": "70회_q14_2592",
+    "type": "사건",
+    "kind": "detail",
+    "title": "철령위 설치에 대한 최영의 대응을 검색한다.",
+    "description": "철령위 설치에 대한 최영의 대응을 검색한다.",
+    "startYear": 1388,
+    "endYear": 1388,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "위화도 회군"
+    ],
+    "_src": "70회 심화 Q14 X"
+  },
+  {
+    "id": "70회_q14_2594",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서경유수 조위총이 반란을 일으킨 이유를 알아본다.",
+    "description": "서경유수 조위총이 반란을 일으킨 이유를 알아본다.",
+    "startYear": 1170,
+    "endYear": 1392,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려 후기"
+    ],
+    "_src": "70회 심화 Q14 O"
+  },
+  {
+    "id": "70회_q14_2595",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이성계 등 신흥 무인 세력이 성장하는 과정을 조사한다.",
+    "description": "이성계 등 신흥 무인 세력이 성장하는 과정을 조사한다.",
+    "startYear": 1388,
+    "endYear": 1388,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "위화도 회군"
+    ],
+    "_src": "70회 심화 Q14 X"
+  },
+  {
+    "id": "70회_q15_2599",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김윤후가 처인성에서 살리타를 사살하였다.",
+    "description": "김윤후가 처인성에서 살리타를 사살하였다.",
+    "startYear": 1231,
+    "endYear": 1259,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "몽골 침입"
+    ],
+    "_src": "70회 심화 Q15 O"
+  },
+  {
+    "id": "70회_q15_2600",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이자겸과 척준경이 반란을 일으켜 궁궐을 불태웠다.",
+    "description": "이자겸과 척준경이 반란을 일으켜 궁궐을 불태웠다.",
+    "startYear": 1126,
+    "endYear": 1127,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "이자겸의 난"
+    ],
+    "_src": "70회 심화 Q15 X"
+  },
+  {
+    "id": "70회_q16_2602",
+    "type": "사건",
+    "kind": "detail",
+    "title": "만적이 개경에서 반란을 모의하였다.",
+    "description": "만적이 개경에서 반란을 모의하였다.",
+    "startYear": 1198,
+    "endYear": 1198,
+    "difficulty": 2,
+    "era": "고려시대",
+    "tags": [
+      "만적의 난"
+    ],
+    "_src": "70회 심화 Q16 X"
+  },
+  {
+    "id": "70회_q16_2603",
+    "type": "사건",
+    "kind": "detail",
+    "title": "지배층을 중심으로 변발과 호복이 유행하였다.",
+    "description": "지배층을 중심으로 변발과 호복이 유행하였다.",
+    "startYear": 1170,
+    "endYear": 1392,
+    "difficulty": 2,
+    "era": "고려시대",
+    "tags": [
+      "고려 후기"
+    ],
+    "_src": "70회 심화 Q16 O"
+  },
+  {
+    "id": "70회_q16_2604",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국난 극복을 기원하며 초조대장경이 조판되었다.",
+    "description": "국난 극복을 기원하며 초조대장경이 조판되었다.",
+    "startYear": 1010,
+    "endYear": 1011,
+    "difficulty": 2,
+    "era": "고려시대",
+    "tags": [
+      "거란 2차 침입"
+    ],
+    "_src": "70회 심화 Q16 X"
+  },
+  {
+    "id": "70회_q16_2605",
+    "type": "사건",
+    "kind": "detail",
+    "title": "기근에 대비하기 위하여 구황촬요가 간행되었다.",
+    "description": "기근에 대비하기 위하여 구황촬요가 간행되었다.",
+    "startYear": 1545,
+    "endYear": 1567,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 명종"
+    ],
+    "_src": "70회 심화 Q16 X"
+  },
+  {
+    "id": "70회_q17_2608",
+    "type": "사건",
+    "kind": "detail",
+    "title": "길주를 근거지로 일어난 이시애의 난을 진압하였다.",
+    "description": "길주를 근거지로 일어난 이시애의 난을 진압하였다.",
+    "startYear": 1455,
+    "endYear": 1468,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세조"
+    ],
+    "_src": "70회 심화 Q17 X"
+  },
+  {
+    "id": "70회_q17_2609",
+    "type": "사건",
+    "kind": "detail",
+    "title": "문하부를 폐지하고 낭사를 사간원으로 독립시켰다.",
+    "description": "문하부를 폐지하고 낭사를 사간원으로 독립시켰다.",
+    "startYear": 1400,
+    "endYear": 1418,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 태종"
+    ],
+    "_src": "70회 심화 Q17 O"
+  },
+  {
+    "id": "70회_q18_2611",
+    "type": "사건",
+    "kind": "detail",
+    "title": "두만강 일대에 6진을 개척하였다.",
+    "description": "두만강 일대에 6진을 개척하였다.",
+    "startYear": 1433,
+    "endYear": 1449,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "4군 6진"
+    ],
+    "_src": "70회 심화 Q18 O"
+  },
+  {
+    "id": "70회_q18_2612",
+    "type": "사건",
+    "kind": "detail",
+    "title": "탄금대에서 배수의 진을 치고 싸웠다.",
+    "description": "탄금대에서 배수의 진을 치고 싸웠다.",
+    "startYear": 1592,
+    "endYear": 1598,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임진왜란"
+    ],
+    "_src": "70회 심화 Q18 X"
+  },
+  {
+    "id": "70회_q18_2613",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조총 부대를 이끌고 나선 정벌에 나섰다.",
+    "description": "조총 부대를 이끌고 나선 정벌에 나섰다.",
+    "startYear": 1649,
+    "endYear": 1659,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 효종"
+    ],
+    "_src": "70회 심화 Q18 X"
+  },
+  {
+    "id": "70회_q18_2614",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왜구의 근거지인 쓰시마섬을 정벌하였다.",
+    "description": "왜구의 근거지인 쓰시마섬을 정벌하였다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "70회 심화 Q18 X"
+  },
+  {
+    "id": "70회_q18_2615",
+    "type": "사건",
+    "kind": "detail",
+    "title": "외교 담판을 통해 강동 6주를 획득하였다.",
+    "description": "외교 담판을 통해 강동 6주를 획득하였다.",
+    "startYear": 942,
+    "endYear": 998,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "서희"
+    ],
+    "_src": "70회 심화 Q18 X"
+  },
+  {
+    "id": "70회_q19_2617",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백운동 서원이 사액을 받아 소수 서원이 되었다.",
+    "description": "백운동 서원이 사액을 받아 소수 서원이 되었다.",
+    "startYear": 1495,
+    "endYear": 1554,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "주세붕"
+    ],
+    "_src": "70회 심화 Q19 X"
+  },
+  {
+    "id": "70회_q19_2618",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국가의 의례를 정비한 국조오례의가 완성되었다.",
+    "description": "국가의 의례를 정비한 국조오례의가 완성되었다.",
+    "startYear": 1469,
+    "endYear": 1494,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 성종"
+    ],
+    "_src": "70회 심화 Q19 O"
+  },
+  {
+    "id": "70회_q19_2620",
+    "type": "사건",
+    "kind": "detail",
+    "title": "수조권이 세습되던 수신전과 휼양전이 폐지되었다.",
+    "description": "수조권이 세습되던 수신전과 휼양전이 폐지되었다.",
+    "startYear": 1455,
+    "endYear": 1468,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세조"
+    ],
+    "_src": "70회 심화 Q19 X"
+  },
+  {
+    "id": "70회_q20_2621",
+    "type": "사건",
+    "kind": "detail",
+    "title": "호포제를 실시한 배경을 조사한다.",
+    "description": "호포제를 실시한 배경을 조사한다.",
+    "startYear": 1820,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "흥선대원군"
+    ],
+    "_src": "70회 심화 Q20 X"
+  },
+  {
+    "id": "70회_q20_2622",
+    "type": "사건",
+    "kind": "detail",
+    "title": "기해 예송의 전개 과정과 결과를 파악한다.",
+    "description": "기해 예송의 전개 과정과 결과를 파악한다.",
+    "startYear": 1649,
+    "endYear": 1659,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 효종"
+    ],
+    "_src": "70회 심화 Q20 X"
+  },
+  {
+    "id": "70회_q20_2623",
+    "type": "사건",
+    "kind": "detail",
+    "title": "중종 때 사림파 언관들이 제기한 주장을 검색한다.",
+    "description": "중종 때 사림파 언관들이 제기한 주장을 검색한다.",
+    "startYear": 1519,
+    "endYear": 1519,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "기묘사화"
+    ],
+    "_src": "70회 심화 Q20 O"
+  },
+  {
+    "id": "70회_q21_2627",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왕이 도성을 떠나 남한산성으로 피란하였다.",
+    "description": "왕이 도성을 떠나 남한산성으로 피란하였다.",
+    "startYear": 1636,
+    "endYear": 1637,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "병자호란"
+    ],
+    "_src": "70회 심화 Q21 X"
+  },
+  {
+    "id": "70회_q21_2628",
+    "type": "사건",
+    "kind": "detail",
+    "title": "송시열 이완 등을 중심으로 북벌이 추진되었다.",
+    "description": "송시열 이완 등을 중심으로 북벌이 추진되었다.",
+    "startYear": 1649,
+    "endYear": 1659,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 효종"
+    ],
+    "_src": "70회 심화 Q21 X"
+  },
+  {
+    "id": "70회_q21_2630",
+    "type": "사건",
+    "kind": "detail",
+    "title": "제한된 범위의 무역을 허용한 계해약조가 체결되었다.",
+    "description": "제한된 범위의 무역을 허용한 계해약조가 체결되었다.",
+    "startYear": 1418,
+    "endYear": 1450,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 세종"
+    ],
+    "_src": "70회 심화 Q21 X"
+  },
+  {
+    "id": "70회_q22_2631",
+    "type": "사건",
+    "kind": "detail",
+    "title": "오층 목조탑 내부에 부처의 일생을 그린 팔상도가 있다.",
+    "description": "오층 목조탑 내부에 부처의 일생을 그린 팔상도가 있다.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "70회 심화 Q22 X"
+  },
+  {
+    "id": "70회_q22_2632",
+    "type": "사건",
+    "kind": "detail",
+    "title": "배흘림기둥에 주심포 양식으로 축조된 무량수전이 있다.",
+    "description": "배흘림기둥에 주심포 양식으로 축조된 무량수전이 있다.",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "70회 심화 Q22 X"
+  },
+  {
+    "id": "70회_q22_2633",
+    "type": "사건",
+    "kind": "detail",
+    "title": "현존하는 우리나라 최고(最古)의 목조 건물인 극락전이 ...",
+    "description": "현존하는 우리나라 최고(最古)의 목조 건물인 극락전이 있다.",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "70회 심화 Q22 X"
+  },
+  {
+    "id": "70회_q22_2634",
+    "type": "사건",
+    "kind": "detail",
+    "title": "팔만대장경판을 보관하고 있는 장경판전이 있다.",
+    "description": "팔만대장경판을 보관하고 있는 장경판전이 있다.",
+    "startYear": 1231,
+    "endYear": 1259,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "몽골 침입"
+    ],
+    "_src": "70회 심화 Q22 X"
+  },
+  {
+    "id": "70회_q22_2635",
+    "type": "사건",
+    "kind": "detail",
+    "title": "무구정광대다라니경이 발견된 삼층 석탑이 있다.",
+    "description": "무구정광대다라니경이 발견된 삼층 석탑이 있다.",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 4,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "70회 심화 Q22 O"
+  },
+  {
+    "id": "70회_q24_2636",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왕권 강화를 위해 6조 직계제가 시행되었다.",
+    "description": "왕권 강화를 위해 6조 직계제가 시행되었다.",
+    "startYear": 1400,
+    "endYear": 1418,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 태종"
+    ],
+    "_src": "70회 심화 Q24 X"
+  },
+  {
+    "id": "70회_q24_2637",
+    "type": "사건",
+    "kind": "detail",
+    "title": "거중기 등을 활용하여 수원 화성이 축조되었다.",
+    "description": "거중기 등을 활용하여 수원 화성이 축조되었다.",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "70회 심화 Q24 O"
+  },
+  {
+    "id": "70회_q25_2641",
+    "type": "사건",
+    "kind": "detail",
+    "title": "채굴 노동자를 고용하는 덕대",
+    "description": "채굴 노동자를 고용하는 덕대",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "70회 심화 Q25 X"
+  },
+  {
+    "id": "70회_q25_2642",
+    "type": "사건",
+    "kind": "detail",
+    "title": "벽란도에서 교역하는 송의 상인",
+    "description": "벽란도에서 교역하는 송의 상인",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 2,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "70회 심화 Q25 O"
+  },
+  {
+    "id": "70회_q25_2644",
+    "type": "사건",
+    "kind": "detail",
+    "title": "포구에서 물품의 매매를 중개하는 여각",
+    "description": "포구에서 물품의 매매를 중개하는 여각",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "70회 심화 Q25 X"
+  },
+  {
+    "id": "70회_q25_2645",
+    "type": "사건",
+    "kind": "detail",
+    "title": "담배 인삼 등 상품 작물을 재배하는 농민",
+    "description": "담배 인삼 등 상품 작물을 재배하는 농민",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "70회 심화 Q25 X"
+  },
+  {
+    "id": "70회_q26_2649",
+    "type": "사건",
+    "kind": "detail",
+    "title": "양반전을 지어 양반의 허례와 무능을 풍자하였다.",
+    "description": "양반전을 지어 양반의 허례와 무능을 풍자하였다.",
+    "startYear": 1737,
+    "endYear": 1805,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "박지원"
+    ],
+    "_src": "70회 심화 Q26 O"
+  },
+  {
+    "id": "70회_q26_2650",
+    "type": "사건",
+    "kind": "detail",
+    "title": "10리마다 눈금을 표시한 대동여지도를 완성하였다.",
+    "description": "10리마다 눈금을 표시한 대동여지도를 완성하였다.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "70회 심화 Q26 X"
+  },
+  {
+    "id": "70회_q28_2653",
+    "type": "사건",
+    "kind": "detail",
+    "title": "마젠창과 묄렌도르프가 고문으로 파견되었다.",
+    "description": "마젠창과 묄렌도르프가 고문으로 파견되었다.",
+    "startYear": 1882,
+    "endYear": 1882,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "조청상민수륙무역장정"
+    ],
+    "_src": "70회 심화 Q28 X"
+  },
+  {
+    "id": "70회_q28_2654",
+    "type": "사건",
+    "kind": "detail",
+    "title": "영국군이 러시아를 견제하기 위해 거문도를 점령하였다.",
+    "description": "영국군이 러시아를 견제하기 위해 거문도를 점령하였다.",
+    "startYear": 1885,
+    "endYear": 1887,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "거문도 사건"
+    ],
+    "_src": "70회 심화 Q28 X"
+  },
+  {
+    "id": "70회_q29_2659",
+    "type": "사건",
+    "kind": "detail",
+    "title": "재정 고문을 두도록 하는 조항을 담고 있다.",
+    "description": "재정 고문을 두도록 하는 조항을 담고 있다.",
+    "startYear": 1905,
+    "endYear": 1909,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "화폐 정리 사업"
+    ],
+    "_src": "70회 심화 Q29 X"
+  },
+  {
+    "id": "70회_q29_2660",
+    "type": "사건",
+    "kind": "detail",
+    "title": "부산 원산 인천이 개항되는 결과를 가져왔다.",
+    "description": "부산 원산 인천이 개항되는 결과를 가져왔다.",
+    "startYear": 1876,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "강화도 조약"
+    ],
+    "_src": "70회 심화 Q29 X"
+  },
+  {
+    "id": "70회_q30_2661",
+    "type": "사건",
+    "kind": "detail",
+    "title": "전개 과정에서 집강소가 설치되었다.",
+    "description": "전개 과정에서 집강소가 설치되었다.",
+    "startYear": 1894,
+    "endYear": 1895,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "동학 농민 운동"
+    ],
+    "_src": "70회 심화 Q30 X"
+  },
+  {
+    "id": "70회_q30_2662",
+    "type": "사건",
+    "kind": "detail",
+    "title": "수신사가 파견되는 데 영향을 주었다.",
+    "description": "수신사가 파견되는 데 영향을 주었다.",
+    "startYear": 1876,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "강화도 조약"
+    ],
+    "_src": "70회 심화 Q30 X"
+  },
+  {
+    "id": "70회_q30_2664",
+    "type": "사건",
+    "kind": "detail",
+    "title": "사태 수습을 위해 박규수가 안핵사로 파견되었다.",
+    "description": "사태 수습을 위해 박규수가 안핵사로 파견되었다.",
+    "startYear": 1862,
+    "endYear": 1862,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임술농민봉기"
+    ],
+    "_src": "70회 심화 Q30 X"
+  },
+  {
+    "id": "70회_q31_2666",
+    "type": "사건",
+    "kind": "detail",
+    "title": "제1차 미소 공동 위원회가 개최되었다.",
+    "description": "제1차 미소 공동 위원회가 개최되었다.",
+    "startYear": 1897,
+    "endYear": 1910,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대한제국"
+    ],
+    "_src": "70회 심화 Q31 O"
+  },
+  {
+    "id": "70회_q31_2667",
+    "type": "사건",
+    "kind": "detail",
+    "title": "도성 내 서쪽에 있어 서궐이라고 불렸다.",
+    "description": "도성 내 서쪽에 있어 서궐이라고 불렸다.",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "조선"
+    ],
+    "_src": "70회 심화 Q31 X"
+  },
+  {
+    "id": "70회_q31_2668",
+    "type": "사건",
+    "kind": "detail",
+    "title": "일제에 의해 창경원으로 격하되기도 하였다.",
+    "description": "일제에 의해 창경원으로 격하되기도 하였다.",
+    "startYear": 1910,
+    "endYear": 1919,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "1910년대"
+    ],
+    "_src": "70회 심화 Q31 X"
+  },
+  {
+    "id": "70회_q31_2669",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정도전이 궁궐과 주요 전각의 명칭을 정하였다.",
+    "description": "정도전이 궁궐과 주요 전각의 명칭을 정하였다.",
+    "startYear": 1342,
+    "endYear": 1398,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "정도전"
+    ],
+    "_src": "70회 심화 Q31 X"
+  },
+  {
+    "id": "70회_q31_2670",
+    "type": "사건",
+    "kind": "detail",
+    "title": "태종이 도읍을 한양으로 다시 옮기며 건립하였다.",
+    "description": "태종이 도읍을 한양으로 다시 옮기며 건립하였다.",
+    "startYear": 1400,
+    "endYear": 1418,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 태종"
+    ],
+    "_src": "70회 심화 Q31 X"
+  },
+  {
+    "id": "70회_q32_2673",
+    "type": "사건",
+    "kind": "detail",
+    "title": "민종식이 이끄는 부대가 홍주성을 점령하였다.",
+    "description": "민종식이 이끄는 부대가 홍주성을 점령하였다.",
+    "startYear": 1905,
+    "endYear": 1906,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "을사의병"
+    ],
+    "_src": "70회 심화 Q32 X"
+  },
+  {
+    "id": "70회_q32_2674",
+    "type": "사건",
+    "kind": "detail",
+    "title": "일본에 국권 반환 요구서를 제출하고자 하였다.",
+    "description": "일본에 국권 반환 요구서를 제출하고자 하였다.",
+    "startYear": 1912,
+    "endYear": 1914,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "독립의군부"
+    ],
+    "_src": "70회 심화 Q32 X"
+  },
+  {
+    "id": "70회_q32_2675",
+    "type": "사건",
+    "kind": "detail",
+    "title": "의병 부대가 연합하여 서울 진공 작전을 전개하였다.",
+    "description": "의병 부대가 연합하여 서울 진공 작전을 전개하였다.",
+    "startYear": 1907,
+    "endYear": 1908,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "정미의병"
+    ],
+    "_src": "70회 심화 Q32 O"
+  },
+  {
+    "id": "70회_q33_2676",
+    "type": "사건",
+    "kind": "detail",
+    "title": "학도 지원병을 독려하는 지식인",
+    "description": "학도 지원병을 독려하는 지식인",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "70회 심화 Q33 X"
+  },
+  {
+    "id": "70회_q33_2677",
+    "type": "사건",
+    "kind": "detail",
+    "title": "금난전권 폐지에 반대하는 시전 상인",
+    "description": "금난전권 폐지에 반대하는 시전 상인",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "70회 심화 Q33 X"
+  },
+  {
+    "id": "70회_q33_2678",
+    "type": "사건",
+    "kind": "detail",
+    "title": "근우회가 주최하는 강연에 참여하는 여성",
+    "description": "근우회가 주최하는 강연에 참여하는 여성",
+    "startYear": 1927,
+    "endYear": 1931,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "근우회"
+    ],
+    "_src": "70회 심화 Q33 X"
+  },
+  {
+    "id": "70회_q33_2679",
+    "type": "사건",
+    "kind": "detail",
+    "title": "두모포에서 무력시위를 벌이는 일본 군인",
+    "description": "두모포에서 무력시위를 벌이는 일본 군인",
+    "startYear": 1876,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "강화도 조약"
+    ],
+    "_src": "70회 심화 Q33 X"
+  },
+  {
+    "id": "70회_q33_2680",
+    "type": "사건",
+    "kind": "detail",
+    "title": "근대 학문을 가르치는 한성 사범 학교 교사",
+    "description": "근대 학문을 가르치는 한성 사범 학교 교사",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "70회 심화 Q33 O"
+  },
+  {
+    "id": "70회_q34_2682",
+    "type": "사건",
+    "kind": "detail",
+    "title": "권업회가 조직되어 기관지를 발행하였다.",
+    "description": "권업회가 조직되어 기관지를 발행하였다.",
+    "startYear": 1914,
+    "endYear": 1914,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대한 광복군 정부"
+    ],
+    "_src": "70회 심화 Q34 X"
+  },
+  {
+    "id": "70회_q34_2683",
+    "type": "사건",
+    "kind": "detail",
+    "title": "유학생들을 중심으로 2·8 독립 선언서가 발표되었다.",
+    "description": "유학생들을 중심으로 2·8 독립 선언서가 발표되었다.",
+    "startYear": 1919,
+    "endYear": 1919,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "2·8 독립 선언"
+    ],
+    "_src": "70회 심화 Q34 X"
+  },
+  {
+    "id": "70회_q34_2684",
+    "type": "사건",
+    "kind": "detail",
+    "title": "대조선 국민 군단이 결성되어 군사 훈련을 실시하였다.",
+    "description": "대조선 국민 군단이 결성되어 군사 훈련을 실시하였다.",
+    "startYear": 1914,
+    "endYear": 1917,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대조선 국민 군단"
+    ],
+    "_src": "70회 심화 Q34 X"
+  },
+  {
+    "id": "70회_q34_2685",
+    "type": "사건",
+    "kind": "detail",
+    "title": "흥사단이 창립되어 교민들에게 민족의식을 심어주고자 하였...",
+    "description": "흥사단이 창립되어 교민들에게 민족의식을 심어주고자 하였다.",
+    "startYear": 1913,
+    "endYear": 1945,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "흥사단"
+    ],
+    "_src": "70회 심화 Q34 X"
+  },
+  {
+    "id": "70회_q35_2687",
+    "type": "사건",
+    "kind": "detail",
+    "title": "천도교 소년회가 창립된 후 본격화되었다.",
+    "description": "천도교 소년회가 창립된 후 본격화되었다.",
+    "startYear": 1920,
+    "endYear": 1929,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "1920년대"
+    ],
+    "_src": "70회 심화 Q35 X"
+  },
+  {
+    "id": "70회_q35_2690",
+    "type": "사건",
+    "kind": "detail",
+    "title": "시위를 준비하는 과정에서 사회주의자들이 대거 검거되었다...",
+    "description": "시위를 준비하는 과정에서 사회주의자들이 대거 검거되었다.",
+    "startYear": 1926,
+    "endYear": 1926,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "6·10 만세 운동"
+    ],
+    "_src": "70회 심화 Q35 X"
+  },
+  {
+    "id": "70회_q36_2691",
+    "type": "사건",
+    "kind": "detail",
+    "title": "애국반을 조직하였다.",
+    "description": "애국반을 조직하였다.",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "70회 심화 Q36 X"
+  },
+  {
+    "id": "70회_q36_2692",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신문지법을 제정하였다.",
+    "description": "신문지법을 제정하였다.",
+    "startYear": 1897,
+    "endYear": 1910,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "대한제국"
+    ],
+    "_src": "70회 심화 Q36 X"
+  },
+  {
+    "id": "70회_q36_2693",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조선 태형령을 시행하였다.",
+    "description": "조선 태형령을 시행하였다.",
+    "startYear": 1910,
+    "endYear": 1919,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "1910년대"
+    ],
+    "_src": "70회 심화 Q36 O"
+  },
+  {
+    "id": "70회_q37_2697",
+    "type": "사건",
+    "kind": "detail",
+    "title": "한용운 등이 사찰령 폐지를 주장하였다.",
+    "description": "한용운 등이 사찰령 폐지를 주장하였다.",
+    "startYear": 1879,
+    "endYear": 1944,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "한용운"
+    ],
+    "_src": "70회 심화 Q37 X"
+  },
+  {
+    "id": "70회_q37_2699",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김창숙의 주도로 파리 장서 운동을 전개하였다.",
+    "description": "김창숙의 주도로 파리 장서 운동을 전개하였다.",
+    "startYear": 1910,
+    "endYear": 1919,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "1910년대"
+    ],
+    "_src": "70회 심화 Q37 X"
+  },
+  {
+    "id": "70회_q37_2700",
+    "type": "사건",
+    "kind": "detail",
+    "title": "무장 투쟁을 전개하기 위해 중광단을 조직하였다.",
+    "description": "무장 투쟁을 전개하기 위해 중광단을 조직하였다.",
+    "startYear": 1911,
+    "endYear": 1920,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "중광단"
+    ],
+    "_src": "70회 심화 Q37 O"
+  },
+  {
+    "id": "70회_q39_2701",
+    "type": "사건",
+    "kind": "detail",
+    "title": "관민 공동회에서 연설하는 백정",
+    "description": "관민 공동회에서 연설하는 백정",
+    "startYear": 1896,
+    "endYear": 1898,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "독립협회"
+    ],
+    "_src": "70회 심화 Q39 X"
+  },
+  {
+    "id": "70회_q39_2702",
+    "type": "사건",
+    "kind": "detail",
+    "title": "교육 입국 조서를 발표하는 관리",
+    "description": "교육 입국 조서를 발표하는 관리",
+    "startYear": 1894,
+    "endYear": 1896,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "갑오개혁"
+    ],
+    "_src": "70회 심화 Q39 X"
+  },
+  {
+    "id": "70회_q39_2705",
+    "type": "사건",
+    "kind": "detail",
+    "title": "카프(KAPF)를 형성하여 활동하는 신경향파 작가",
+    "description": "카프(KAPF)를 형성하여 활동하는 신경향파 작가",
+    "startYear": 1926,
+    "endYear": 1926,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "영화 아리랑"
+    ],
+    "_src": "70회 심화 Q39 O"
+  },
+  {
+    "id": "70회_q40_2708",
+    "type": "사건",
+    "kind": "detail",
+    "title": "헌병 경찰제를 실시하였다.",
+    "description": "헌병 경찰제를 실시하였다.",
+    "startYear": 1910,
+    "endYear": 1919,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "1910년대"
+    ],
+    "_src": "70회 심화 Q40 X"
+  },
+  {
+    "id": "70회_q40_2709",
+    "type": "사건",
+    "kind": "detail",
+    "title": "경성 제국 대학을 설립하였다.",
+    "description": "경성 제국 대학을 설립하였다.",
+    "startYear": 1920,
+    "endYear": 1929,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "1920년대"
+    ],
+    "_src": "70회 심화 Q40 X"
+  },
+  {
+    "id": "70회_q41_2711",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조선 혁명 선언을 작성하였다.",
+    "description": "조선 혁명 선언을 작성하였다.",
+    "startYear": 1919,
+    "endYear": 1947,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "의열단"
+    ],
+    "_src": "70회 심화 Q41 X"
+  },
+  {
+    "id": "70회_q41_2713",
+    "type": "사건",
+    "kind": "detail",
+    "title": "극동 인민 대표 대회에서 의장단으로 선출되었다.",
+    "description": "극동 인민 대표 대회에서 의장단으로 선출되었다.",
+    "startYear": 1919,
+    "endYear": 1948,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "대한민국 임시정부"
+    ],
+    "_src": "70회 심화 Q41 X"
+  },
+  {
+    "id": "70회_q41_2715",
+    "type": "사건",
+    "kind": "detail",
+    "title": "새로운 국가 건설을 위한 이념으로 삼균주의를 주장하였다...",
+    "description": "새로운 국가 건설을 위한 이념으로 삼균주의를 주장하였다.",
+    "startYear": 1887,
+    "endYear": 1958,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "조소앙"
+    ],
+    "_src": "70회 심화 Q41 O"
+  },
+  {
+    "id": "70회_q43_2718",
+    "type": "사건",
+    "kind": "detail",
+    "title": "민족 자존과 통일 번영을 위한 7·7 선언을 발표하였다...",
+    "description": "민족 자존과 통일 번영을 위한 7·7 선언을 발표하였다.",
+    "startYear": 1988,
+    "endYear": 1993,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "노태우 정부"
+    ],
+    "_src": "70회 심화 Q43 O"
+  },
+  {
+    "id": "70회_q43_2720",
+    "type": "사건",
+    "kind": "detail",
+    "title": "남북 관계 발전과 평화 번영을 위한 10·4 남북 정상...",
+    "description": "남북 관계 발전과 평화 번영을 위한 10·4 남북 정상 선언에 서명하였다.",
+    "startYear": 2003,
+    "endYear": 2008,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "노무현 정부"
+    ],
+    "_src": "70회 심화 Q43 X"
+  },
+  {
+    "id": "70회_q44_2724",
+    "type": "사건",
+    "kind": "detail",
+    "title": "미국의 극동 방위선을 규정한 애치슨 라인이 발표되었다.",
+    "description": "미국의 극동 방위선을 규정한 애치슨 라인이 발표되었다.",
+    "startYear": 1950,
+    "endYear": 1950,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "애치슨 라인"
+    ],
+    "_src": "70회 심화 Q44 X"
+  },
+  {
+    "id": "70회_q45_2726",
+    "type": "사건",
+    "kind": "detail",
+    "title": "6·25 전쟁 중 부산에서 공포되었다.",
+    "description": "6·25 전쟁 중 부산에서 공포되었다.",
+    "startYear": 1948,
+    "endYear": 1960,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "이승만 정부"
+    ],
+    "_src": "70회 심화 Q45 X"
+  },
+  {
+    "id": "70회_q45_2727",
+    "type": "사건",
+    "kind": "detail",
+    "title": "대통령의 국회의원 1/3 추천 조항을 담고 있다.",
+    "description": "대통령의 국회의원 1/3 추천 조항을 담고 있다.",
+    "startYear": 1972,
+    "endYear": 1980,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "유신헌법"
+    ],
+    "_src": "70회 심화 Q45 O"
+  },
+  {
+    "id": "70회_q45_2728",
+    "type": "사건",
+    "kind": "detail",
+    "title": "호헌 동지회 결성의 배경이 되었다.",
+    "description": "호헌 동지회 결성의 배경이 되었다.",
+    "startYear": 1954,
+    "endYear": 1954,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "사사오입 개헌"
+    ],
+    "_src": "70회 심화 Q45 X"
+  },
+  {
+    "id": "70회_q45_2730",
+    "type": "사건",
+    "kind": "detail",
+    "title": "(가)(나) - 6월 민주 항쟁 이후에 제정되었다.",
+    "description": "(가)(나) - 6월 민주 항쟁 이후에 제정되었다.",
+    "startYear": 1987,
+    "endYear": 1987,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "6월 민주항쟁"
+    ],
+    "_src": "70회 심화 Q45 X"
+  },
+  {
+    "id": "70회_q46_2731",
+    "type": "사건",
+    "kind": "detail",
+    "title": "처음으로 수출액 100억 달러를 달성하였다.",
+    "description": "처음으로 수출액 100억 달러를 달성하였다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "70회 심화 Q46 X"
+  },
+  {
+    "id": "70회_q47_2736",
+    "type": "사건",
+    "kind": "detail",
+    "title": "평창 동계 올림픽이 개최되었다.",
+    "description": "평창 동계 올림픽이 개최되었다.",
+    "startYear": 2017,
+    "endYear": 2022,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "문재인 정부"
+    ],
+    "_src": "70회 심화 Q47 X"
+  },
+  {
+    "id": "70회_q47_2738",
+    "type": "사건",
+    "kind": "detail",
+    "title": "헝가리와 상주 대표부 설치 협정을 체결하였다.",
+    "description": "헝가리와 상주 대표부 설치 협정을 체결하였다.",
+    "startYear": 1988,
+    "endYear": 1993,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "노태우 정부"
+    ],
+    "_src": "70회 심화 Q47 X"
+  },
+  {
+    "id": "70회_q47_2739",
+    "type": "사건",
+    "kind": "detail",
+    "title": "진실·화해를 위한 과거사 정리 기본법이 제정되었다.",
+    "description": "진실·화해를 위한 과거사 정리 기본법이 제정되었다.",
+    "startYear": 2003,
+    "endYear": 2008,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "노무현 정부"
+    ],
+    "_src": "70회 심화 Q47 O"
+  },
+  {
+    "id": "70회_q47_2740",
+    "type": "사건",
+    "kind": "detail",
+    "title": "중학교 입시 제도가 폐지되고 무시험 추첨제가 실시되었다...",
+    "description": "중학교 입시 제도가 폐지되고 무시험 추첨제가 실시되었다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "70회 심화 Q47 X"
+  },
+  {
+    "id": "70회_q48_2741",
+    "type": "사건",
+    "kind": "detail",
+    "title": "(㉠) 고국천왕이 시행하였다.",
+    "description": "(㉠) 고국천왕이 시행하였다.",
+    "startYear": 179,
+    "endYear": 197,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "고구려 고국천왕"
+    ],
+    "_src": "70회 심화 Q48 X"
+  },
+  {
+    "id": "70회_q48_2742",
+    "type": "사건",
+    "kind": "detail",
+    "title": "(㉡) 성종이 흑창을 확대 개편하여 설치하였다.",
+    "description": "(㉡) 성종이 흑창을 확대 개편하여 설치하였다.",
+    "startYear": 981,
+    "endYear": 997,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려 성종"
+    ],
+    "_src": "70회 심화 Q48 X"
+  },
+  {
+    "id": "70회_q48_2743",
+    "type": "사건",
+    "kind": "detail",
+    "title": "(㉢) 기금을 모아 그 이자로 빈민을 구휼하였다.",
+    "description": "(㉢) 기금을 모아 그 이자로 빈민을 구휼하였다.",
+    "startYear": 949,
+    "endYear": 975,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려 광종"
+    ],
+    "_src": "70회 심화 Q48 X"
+  },
+  {
+    "id": "70회_q48_2744",
+    "type": "사건",
+    "kind": "detail",
+    "title": "(㉣) 세도 정치기에 농민을 수탈하는 수단으로 변질되었...",
+    "description": "(㉣) 세도 정치기에 농민을 수탈하는 수단으로 변질되었다.",
+    "startYear": 1862,
+    "endYear": 1862,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임술농민봉기"
+    ],
+    "_src": "70회 심화 Q48 X"
+  },
+  {
+    "id": "70회_q48_2745",
+    "type": "사건",
+    "kind": "detail",
+    "title": "(㉤) 구제도감을 두어 백성을 구호하였다.",
+    "description": "(㉤) 구제도감을 두어 백성을 구호하였다.",
+    "startYear": 918,
+    "endYear": 1392,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "고려"
+    ],
+    "_src": "70회 심화 Q48 O"
+  },
+  {
+    "id": "70회_q49_2746",
+    "type": "사건",
+    "kind": "detail",
+    "title": "중앙정보부가 창설되었다.",
+    "description": "중앙정보부가 창설되었다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "70회 심화 Q49 X"
+  },
+  {
+    "id": "70회_q49_2747",
+    "type": "사건",
+    "kind": "detail",
+    "title": "국가 인권 위원회가 출범하였다.",
+    "description": "국가 인권 위원회가 출범하였다.",
+    "startYear": 1998,
+    "endYear": 2003,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "김대중 정부"
+    ],
+    "_src": "70회 심화 Q49 O"
+  },
+  {
+    "id": "70회_q49_2748",
+    "type": "사건",
+    "kind": "detail",
+    "title": "세계 무역 기구(WTO)에 가입하였다.",
+    "description": "세계 무역 기구(WTO)에 가입하였다.",
+    "startYear": 1993,
+    "endYear": 1998,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "김영삼 정부"
+    ],
+    "_src": "70회 심화 Q49 X"
+  },
+  {
+    "id": "70회_q49_2749",
+    "type": "사건",
+    "kind": "detail",
+    "title": "G20 정상 회의를 서울에서 개최하였다.",
+    "description": "G20 정상 회의를 서울에서 개최하였다.",
+    "startYear": 1993,
+    "endYear": 1998,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "김영삼 정부"
+    ],
+    "_src": "70회 심화 Q49 X"
+  },
+  {
+    "id": "70회_q49_2750",
+    "type": "사건",
+    "kind": "detail",
+    "title": "37년 만에 야간 통행 금지가 해제되었다.",
+    "description": "37년 만에 야간 통행 금지가 해제되었다.",
+    "startYear": 1980,
+    "endYear": 1988,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "전두환 정부"
+    ],
+    "_src": "70회 심화 Q49 X"
+  },
+  {
+    "id": "69회_q1_2755",
+    "type": "사건",
+    "kind": "detail",
+    "title": "빗살무늬 토기를 이용하여 음식을 저장하였다.",
+    "description": "빗살무늬 토기를 이용하여 음식을 저장하였다.",
+    "startYear": -8000,
+    "endYear": -1500,
+    "difficulty": 2,
+    "era": "선사시대",
+    "tags": [
+      "신석기 시대"
+    ],
+    "_src": "69회 기본 Q1 X"
+  },
+  {
+    "id": "69회_q2_2759",
+    "type": "사건",
+    "kind": "detail",
+    "title": "범금 8조를 만들어 사회 질서를 유지하였다.",
+    "description": "범금 8조를 만들어 사회 질서를 유지하였다.",
+    "startYear": -2333,
+    "endYear": -108,
+    "difficulty": 3,
+    "era": "고조선",
+    "tags": [
+      "고조선"
+    ],
+    "_src": "69회 기본 Q2 O"
+  },
+  {
+    "id": "69회_q2_2760",
+    "type": "사건",
+    "kind": "detail",
+    "title": "단군왕검의 건국 이야기가 전해진다.",
+    "description": "단군왕검의 건국 이야기가 전해진다.",
+    "startYear": -2333,
+    "endYear": -108,
+    "difficulty": 3,
+    "era": "고조선",
+    "tags": [
+      "고조선"
+    ],
+    "_src": "69회 기본 Q2 O"
+  },
+  {
+    "id": "69회_q3_2761",
+    "type": "사건",
+    "kind": "detail",
+    "title": "호우명 그릇",
+    "description": "호우명 그릇",
+    "startYear": -57,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라"
+    ],
+    "_src": "69회 기본 Q3 X"
+  },
+  {
+    "id": "69회_q3_2764",
+    "type": "사건",
+    "kind": "detail",
+    "title": "철제 판갑옷",
+    "description": "철제 판갑옷",
+    "startYear": 42,
+    "endYear": 562,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "가야"
+    ],
+    "_src": "69회 기본 Q3 O"
+  },
+  {
+    "id": "69회_q3_2765",
+    "type": "사건",
+    "kind": "detail",
+    "title": "금관가야가 자리 잡았던 곳이다.",
+    "description": "금관가야가 자리 잡았던 곳이다.",
+    "startYear": 42,
+    "endYear": 562,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "가야"
+    ],
+    "_src": "69회 기본 Q3 O"
+  },
+  {
+    "id": "69회_q4_2766",
+    "type": "사건",
+    "kind": "detail",
+    "title": "법흥왕",
+    "description": "법흥왕",
+    "startYear": 514,
+    "endYear": 540,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 법흥왕"
+    ],
+    "_src": "69회 기본 Q4 O"
+  },
+  {
+    "id": "69회_q4_2767",
+    "type": "사건",
+    "kind": "detail",
+    "title": "지증왕",
+    "description": "지증왕",
+    "startYear": 500,
+    "endYear": 514,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 지증왕"
+    ],
+    "_src": "69회 기본 Q4 X"
+  },
+  {
+    "id": "69회_q4_2768",
+    "type": "사건",
+    "kind": "detail",
+    "title": "진평왕",
+    "description": "진평왕",
+    "startYear": 579,
+    "endYear": 632,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 진평왕"
+    ],
+    "_src": "69회 기본 Q4 X"
+  },
+  {
+    "id": "69회_q4_2769",
+    "type": "사건",
+    "kind": "detail",
+    "title": "진흥왕",
+    "description": "진흥왕",
+    "startYear": 540,
+    "endYear": 576,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 진흥왕"
+    ],
+    "_src": "69회 기본 Q4 X"
+  },
+  {
+    "id": "69회_q4_2770",
+    "type": "사건",
+    "kind": "detail",
+    "title": "병부를 설치하다",
+    "description": "병부를 설치하다",
+    "startYear": 514,
+    "endYear": 540,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 법흥왕"
+    ],
+    "_src": "69회 기본 Q4 O"
+  },
+  {
+    "id": "69회_q5_2771",
+    "type": "사건",
+    "kind": "detail",
+    "title": "주몽이 건국하였다.",
+    "description": "주몽이 건국하였다.",
+    "startYear": -37,
+    "endYear": 668,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "고구려"
+    ],
+    "_src": "69회 기본 Q5 X"
+  },
+  {
+    "id": "69회_q5_2772",
+    "type": "사건",
+    "kind": "detail",
+    "title": "지방에 22담로를 두었다.",
+    "description": "지방에 22담로를 두었다.",
+    "startYear": -18,
+    "endYear": 660,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제"
+    ],
+    "_src": "69회 기본 Q5 O"
+  },
+  {
+    "id": "69회_q5_2774",
+    "type": "사건",
+    "kind": "detail",
+    "title": "한의 침략을 받아 멸망하였다.",
+    "description": "한의 침략을 받아 멸망하였다.",
+    "startYear": -2333,
+    "endYear": -108,
+    "difficulty": 3,
+    "era": "고조선",
+    "tags": [
+      "고조선"
+    ],
+    "_src": "69회 기본 Q5 X"
+  },
+  {
+    "id": "69회_q5_2775",
+    "type": "사건",
+    "kind": "detail",
+    "title": "성왕이 수도로 삼은 부여 지역",
+    "description": "성왕이 수도로 삼은 부여 지역",
+    "startYear": 538,
+    "endYear": 660,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "백제 사비기"
+    ],
+    "_src": "69회 기본 Q5 O"
+  },
+  {
+    "id": "69회_q6_2777",
+    "type": "사건",
+    "kind": "detail",
+    "title": "계백이 이끄는 결사대가 황산벌에서 항전하였어요.",
+    "description": "계백이 이끄는 결사대가 황산벌에서 항전하였어요.",
+    "startYear": 660,
+    "endYear": 660,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "황산벌 전투"
+    ],
+    "_src": "69회 기본 Q6 X"
+  },
+  {
+    "id": "69회_q6_2778",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이성계가 황산에서 왜구를 격퇴하였어요.",
+    "description": "이성계가 황산에서 왜구를 격퇴하였어요.",
+    "startYear": 1380,
+    "endYear": 1380,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "황산대첩"
+    ],
+    "_src": "69회 기본 Q6 X"
+  },
+  {
+    "id": "69회_q6_2779",
+    "type": "사건",
+    "kind": "detail",
+    "title": "왕건이 일리천에서 승리하였어요.",
+    "description": "왕건이 일리천에서 승리하였어요.",
+    "startYear": 936,
+    "endYear": 936,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "일리천 전투"
+    ],
+    "_src": "69회 기본 Q6 X"
+  },
+  {
+    "id": "69회_q6_2780",
+    "type": "사건",
+    "kind": "detail",
+    "title": "고구려가 외세의 침략을 막아낸 사례",
+    "description": "고구려가 외세의 침략을 막아낸 사례",
+    "startYear": -37,
+    "endYear": 668,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "고구려"
+    ],
+    "_src": "69회 기본 Q6 O"
+  },
+  {
+    "id": "69회_q7_2784",
+    "type": "사건",
+    "kind": "detail",
+    "title": "무애가를 짓는 등 불교 대중화에 힘썼다.",
+    "description": "무애가를 짓는 등 불교 대중화에 힘썼다.",
+    "startYear": 617,
+    "endYear": 686,
+    "difficulty": 4,
+    "era": "신라시대",
+    "tags": [
+      "원효"
+    ],
+    "_src": "69회 기본 Q7 O"
+  },
+  {
+    "id": "69회_q8_2786",
+    "type": "사건",
+    "kind": "detail",
+    "title": "9주 5소경을 두었다.",
+    "description": "9주 5소경을 두었다.",
+    "startYear": 676,
+    "endYear": 935,
+    "difficulty": 2,
+    "era": "신라시대",
+    "tags": [
+      "통일신라"
+    ],
+    "_src": "69회 기본 Q8 X"
+  },
+  {
+    "id": "69회_q8_2789",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백두산정계비를 건립하였다.",
+    "description": "백두산정계비를 건립하였다.",
+    "startYear": 1674,
+    "endYear": 1720,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 숙종"
+    ],
+    "_src": "69회 기본 Q8 X"
+  },
+  {
+    "id": "69회_q8_2790",
+    "type": "사건",
+    "kind": "detail",
+    "title": "상경성에서 출토된 이불병좌상",
+    "description": "상경성에서 출토된 이불병좌상",
+    "startYear": 698,
+    "endYear": 926,
+    "difficulty": 2,
+    "era": "신라시대",
+    "tags": [
+      "발해"
+    ],
+    "_src": "69회 기본 Q8 O"
+  },
+  {
+    "id": "69회_q9_2793",
+    "type": "사건",
+    "kind": "detail",
+    "title": "여진 정벌에 나선 별무반 병사",
+    "description": "여진 정벌에 나선 별무반 병사",
+    "startYear": 1104,
+    "endYear": 1108,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "여진 대응"
+    ],
+    "_src": "69회 기본 Q9 X"
+  },
+  {
+    "id": "69회_q9_2794",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"스스로를 성주",
+    "description": "\"스스로를 성주",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q9 X"
+  },
+  {
+    "id": "69회_q9_2795",
+    "type": "사건",
+    "kind": "detail",
+    "title": "혜공왕이 피살된 이후 왕위 쟁탈전",
+    "description": "혜공왕이 피살된 이후 왕위 쟁탈전",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "69회 기본 Q9 O"
+  },
+  {
+    "id": "69회_q10_2796",
+    "type": "사건",
+    "kind": "detail",
+    "title": "우산국을 복속하였다.",
+    "description": "우산국을 복속하였다.",
+    "startYear": 500,
+    "endYear": 514,
+    "difficulty": 4,
+    "era": "삼국시대",
+    "tags": [
+      "신라 지증왕"
+    ],
+    "_src": "69회 기본 Q10 X"
+  },
+  {
+    "id": "69회_q10_2797",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백제 계승을 내세웠다.",
+    "description": "백제 계승을 내세웠다.",
+    "startYear": 900,
+    "endYear": 936,
+    "difficulty": 4,
+    "era": "신라시대",
+    "tags": [
+      "후백제 견훤"
+    ],
+    "_src": "69회 기본 Q10 X"
+  },
+  {
+    "id": "69회_q10_2800",
+    "type": "사건",
+    "kind": "detail",
+    "title": "수도를 송악에서 철원으로 옮겼다.",
+    "description": "수도를 송악에서 철원으로 옮겼다.",
+    "startYear": 901,
+    "endYear": 918,
+    "difficulty": 4,
+    "era": "신라시대",
+    "tags": [
+      "궁예"
+    ],
+    "_src": "69회 기본 Q10 O"
+  },
+  {
+    "id": "69회_q11_2801",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"김종서",
+    "description": "\"김종서",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "X"
+    ],
+    "_src": "69회 기본 Q11 X"
+  },
+  {
+    "id": "69회_q11_2804",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"김윤후",
+    "description": "\"김윤후",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "X"
+    ],
+    "_src": "69회 기본 Q11 X"
+  },
+  {
+    "id": "69회_q11_2805",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"서희",
+    "description": "\"서희",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q11 X"
+  },
+  {
+    "id": "69회_q12_2810",
+    "type": "사건",
+    "kind": "detail",
+    "title": "숙종 때 의천의 건의로 주전도감에서 발행",
+    "description": "숙종 때 의천의 건의로 주전도감에서 발행",
+    "startYear": 1102,
+    "endYear": 1102,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "해동통보"
+    ],
+    "_src": "69회 기본 Q12 O"
+  },
+  {
+    "id": "69회_q14_2815",
+    "type": "사건",
+    "kind": "detail",
+    "title": "최무선이 원의 염초 기술자에게 화약 제조법을 배워 건의",
+    "description": "최무선이 원의 염초 기술자에게 화약 제조법을 배워 건의",
+    "startYear": 1377,
+    "endYear": 1389,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "화통도감"
+    ],
+    "_src": "69회 기본 Q14 O"
+  },
+  {
+    "id": "69회_q15_2819",
+    "type": "사건",
+    "kind": "detail",
+    "title": "묘청이 서경 천도를 주장하였다.",
+    "description": "묘청이 서경 천도를 주장하였다.",
+    "startYear": 1135,
+    "endYear": 1136,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "묘청의 난"
+    ],
+    "_src": "69회 기본 Q15 X"
+  },
+  {
+    "id": "69회_q15_2820",
+    "type": "사건",
+    "kind": "detail",
+    "title": "무신 정권 시기",
+    "description": "무신 정권 시기",
+    "startYear": 1170,
+    "endYear": 1392,
+    "difficulty": 4,
+    "era": "고려시대",
+    "tags": [
+      "고려 후기"
+    ],
+    "_src": "69회 기본 Q15 O"
+  },
+  {
+    "id": "69회_q16_2821",
+    "type": "사건",
+    "kind": "detail",
+    "title": "도선",
+    "description": "도선",
+    "startYear": 780,
+    "endYear": 935,
+    "difficulty": 2,
+    "era": "신라시대",
+    "tags": [
+      "신라 하대"
+    ],
+    "_src": "69회 기본 Q16 X"
+  },
+  {
+    "id": "69회_q17_2826",
+    "type": "사건",
+    "kind": "detail",
+    "title": "쌍성총관부가 설치되었다.",
+    "description": "쌍성총관부가 설치되었다.",
+    "startYear": 1231,
+    "endYear": 1259,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "몽골 침입"
+    ],
+    "_src": "69회 기본 Q17 X"
+  },
+  {
+    "id": "69회_q17_2828",
+    "type": "사건",
+    "kind": "detail",
+    "title": "한양이 새로운 도읍으로 정해졌다.",
+    "description": "한양이 새로운 도읍으로 정해졌다.",
+    "startYear": 1392,
+    "endYear": 1398,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 태조"
+    ],
+    "_src": "69회 기본 Q17 O"
+  },
+  {
+    "id": "69회_q17_2829",
+    "type": "사건",
+    "kind": "detail",
+    "title": "화랑도가 국가적인 조직으로 개편되었다.",
+    "description": "화랑도가 국가적인 조직으로 개편되었다.",
+    "startYear": 540,
+    "endYear": 576,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 진흥왕"
+    ],
+    "_src": "69회 기본 Q17 X"
+  },
+  {
+    "id": "69회_q17_2830",
+    "type": "사건",
+    "kind": "detail",
+    "title": "도평의사사의 건의로 과전법이 제정되었다",
+    "description": "도평의사사의 건의로 과전법이 제정되었다",
+    "startYear": 1391,
+    "endYear": 1466,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "과전법"
+    ],
+    "_src": "69회 기본 Q17 O"
+  },
+  {
+    "id": "69회_q19_2831",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"송상",
+    "description": "\"송상",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "X"
+    ],
+    "_src": "69회 기본 Q19 X"
+  },
+  {
+    "id": "69회_q19_2832",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"연등회",
+    "description": "\"연등회",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "X"
+    ],
+    "_src": "69회 기본 Q19 X"
+  },
+  {
+    "id": "69회_q19_2833",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"향",
+    "description": "\"향",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "소의 주민들이 받은 차별의 내용을 찾아본다.\""
+    ],
+    "_src": "69회 기본 Q19 X"
+  },
+  {
+    "id": "69회_q19_2834",
+    "type": "사건",
+    "kind": "detail",
+    "title": "양반 중심의 향촌 자치 질서가 자리 잡는 과정을 알아본...",
+    "description": "양반 중심의 향촌 자치 질서가 자리 잡는 과정을 알아본다.",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "69회 기본 Q19 O"
+  },
+  {
+    "id": "69회_q19_2835",
+    "type": "사건",
+    "kind": "detail",
+    "title": "퇴계집에 실린 향약 관련 자료",
+    "description": "퇴계집에 실린 향약 관련 자료",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "69회 기본 Q19 O"
+  },
+  {
+    "id": "69회_q20_2840",
+    "type": "사건",
+    "kind": "detail",
+    "title": "부산진순절도에 묘사된 정발과 조선군의 항전",
+    "description": "부산진순절도에 묘사된 정발과 조선군의 항전",
+    "startYear": 1592,
+    "endYear": 1598,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "임진왜란"
+    ],
+    "_src": "69회 기본 Q20 O"
+  },
+  {
+    "id": "69회_q21_2841",
+    "type": "사건",
+    "kind": "detail",
+    "title": "근정전을 정전으로 하였다.",
+    "description": "근정전을 정전으로 하였다.",
+    "startYear": 1395,
+    "endYear": 1395,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "광화문"
+    ],
+    "_src": "69회 기본 Q21 O"
+  },
+  {
+    "id": "69회_q21_2842",
+    "type": "사건",
+    "kind": "detail",
+    "title": "몽골의 침략으로 소실되었다.",
+    "description": "몽골의 침략으로 소실되었다.",
+    "startYear": 1231,
+    "endYear": 1259,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "몽골 침입"
+    ],
+    "_src": "69회 기본 Q21 X"
+  },
+  {
+    "id": "69회_q21_2843",
+    "type": "사건",
+    "kind": "detail",
+    "title": "정조의 명에 의해 축조되었다.",
+    "description": "정조의 명에 의해 축조되었다.",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "69회 기본 Q21 X"
+  },
+  {
+    "id": "69회_q21_2844",
+    "type": "사건",
+    "kind": "detail",
+    "title": "역대 왕과 왕비의 신주를 모셨다.",
+    "description": "역대 왕과 왕비의 신주를 모셨다.",
+    "startYear": 1394,
+    "endYear": 1394,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "종묘"
+    ],
+    "_src": "69회 기본 Q21 X"
+  },
+  {
+    "id": "69회_q22_2847",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조식",
+    "description": "조식",
+    "startYear": 1545,
+    "endYear": 1567,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "조선 명종"
+    ],
+    "_src": "69회 기본 Q22 X"
+  },
+  {
+    "id": "69회_q22_2850",
+    "type": "사건",
+    "kind": "detail",
+    "title": "오죽헌에서 신사임당의 아들로 자란 유학자",
+    "description": "오죽헌에서 신사임당의 아들로 자란 유학자",
+    "startYear": 1536,
+    "endYear": 1584,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "이이"
+    ],
+    "_src": "69회 기본 Q22 O"
+  },
+  {
+    "id": "69회_q23_2852",
+    "type": "사건",
+    "kind": "detail",
+    "title": "서북 지역민에 대한 차별이 원인이 되었다.",
+    "description": "서북 지역민에 대한 차별이 원인이 되었다.",
+    "startYear": 1811,
+    "endYear": 1812,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "홍경래의 난"
+    ],
+    "_src": "69회 기본 Q23 O"
+  },
+  {
+    "id": "69회_q23_2853",
+    "type": "사건",
+    "kind": "detail",
+    "title": "흥선 대원군이 재집권하는 결과를 가져왔다.",
+    "description": "흥선 대원군이 재집권하는 결과를 가져왔다.",
+    "startYear": 1882,
+    "endYear": 1882,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "임오군란"
+    ],
+    "_src": "69회 기본 Q23 X"
+  },
+  {
+    "id": "69회_q23_2855",
+    "type": "사건",
+    "kind": "detail",
+    "title": "홍경래 등이 주도하여 정주성으로 출동한 봉기",
+    "description": "홍경래 등이 주도하여 정주성으로 출동한 봉기",
+    "startYear": 1811,
+    "endYear": 1812,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "홍경래의 난"
+    ],
+    "_src": "69회 기본 Q23 O"
+  },
+  {
+    "id": "69회_q24_2860",
+    "type": "사건",
+    "kind": "detail",
+    "title": "수원 화성에서 두 개의 불이 피어오르는 모습",
+    "description": "수원 화성에서 두 개의 불이 피어오르는 모습",
+    "startYear": 1394,
+    "endYear": 1894,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "봉수 제도"
+    ],
+    "_src": "69회 기본 Q24 O"
+  },
+  {
+    "id": "69회_q25_2865",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"효자",
+    "description": "\"효자",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "열녀의 이야기를 모아 편찬\""
+    ],
+    "_src": "69회 기본 Q25 X"
+  },
+  {
+    "id": "69회_q26_2866",
+    "type": "사건",
+    "kind": "detail",
+    "title": "동시전이 설치되었다.",
+    "description": "동시전이 설치되었다.",
+    "startYear": 500,
+    "endYear": 514,
+    "difficulty": 3,
+    "era": "삼국시대",
+    "tags": [
+      "신라 지증왕"
+    ],
+    "_src": "69회 기본 Q26 X"
+  },
+  {
+    "id": "69회_q26_2870",
+    "type": "사건",
+    "kind": "detail",
+    "title": "박지원의 열하일기가 집필된 시기",
+    "description": "박지원의 열하일기가 집필된 시기",
+    "startYear": 1700,
+    "endYear": 1876,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 후기"
+    ],
+    "_src": "69회 기본 Q26 O"
+  },
+  {
+    "id": "69회_q27_2871",
+    "type": "사건",
+    "kind": "detail",
+    "title": "규장각을 설치하였다.",
+    "description": "규장각을 설치하였다.",
+    "startYear": 1776,
+    "endYear": 1800,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 정조"
+    ],
+    "_src": "69회 기본 Q27 X"
+  },
+  {
+    "id": "69회_q27_2873",
+    "type": "사건",
+    "kind": "detail",
+    "title": "비변사를 폐지하였다.",
+    "description": "비변사를 폐지하였다.",
+    "startYear": 1820,
+    "endYear": 1898,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "흥선대원군"
+    ],
+    "_src": "69회 기본 Q27 X"
+  },
+  {
+    "id": "69회_q27_2875",
+    "type": "사건",
+    "kind": "detail",
+    "title": "김두량의 그림 삽살개에 탕평책 의지를 드러냄",
+    "description": "김두량의 그림 삽살개에 탕평책 의지를 드러냄",
+    "startYear": 1724,
+    "endYear": 1776,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "조선 영조"
+    ],
+    "_src": "69회 기본 Q27 O"
+  },
+  {
+    "id": "69회_q30_2885",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"노비제",
+    "description": "\"노비제",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q30 X"
+  },
+  {
+    "id": "69회_q31_2886",
+    "type": "사건",
+    "kind": "detail",
+    "title": "상하이 훙커우 공원에서 의거를 일으켰다.",
+    "description": "상하이 훙커우 공원에서 의거를 일으켰다.",
+    "startYear": 1908,
+    "endYear": 1932,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "윤봉길"
+    ],
+    "_src": "69회 기본 Q31 X"
+  },
+  {
+    "id": "69회_q31_2887",
+    "type": "사건",
+    "kind": "detail",
+    "title": "평양 을밀대 지붕에서 고공 농성을 벌였다.",
+    "description": "평양 을밀대 지붕에서 고공 농성을 벌였다.",
+    "startYear": 1901,
+    "endYear": 1932,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "강주룡"
+    ],
+    "_src": "69회 기본 Q31 X"
+  },
+  {
+    "id": "69회_q31_2888",
+    "type": "사건",
+    "kind": "detail",
+    "title": "오산 학교를 설립하여 인재 양성에 힘썼다.",
+    "description": "오산 학교를 설립하여 인재 양성에 힘썼다.",
+    "startYear": 1864,
+    "endYear": 1930,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "이승훈"
+    ],
+    "_src": "69회 기본 Q31 O"
+  },
+  {
+    "id": "69회_q31_2889",
+    "type": "사건",
+    "kind": "detail",
+    "title": "헤이그 만국 평화 회의에 특사로 파견되었다.",
+    "description": "헤이그 만국 평화 회의에 특사로 파견되었다.",
+    "startYear": 1907,
+    "endYear": 1907,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "헤이그 특사"
+    ],
+    "_src": "69회 기본 Q31 X"
+  },
+  {
+    "id": "69회_q31_2890",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신민회 결성에 참여하고 민족 대표 33인으로 활동",
+    "description": "신민회 결성에 참여하고 민족 대표 33인으로 활동",
+    "startYear": 1864,
+    "endYear": 1930,
+    "difficulty": 4,
+    "era": "근대",
+    "tags": [
+      "이승훈"
+    ],
+    "_src": "69회 기본 Q31 O"
+  },
+  {
+    "id": "69회_q32_2895",
+    "type": "사건",
+    "kind": "detail",
+    "title": "1915년 박상진이 조직한 비밀 결사",
+    "description": "1915년 박상진이 조직한 비밀 결사",
+    "startYear": 1915,
+    "endYear": 1918,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "대한광복회"
+    ],
+    "_src": "69회 기본 Q32 O"
+  },
+  {
+    "id": "69회_q33_2896",
+    "type": "사건",
+    "kind": "detail",
+    "title": "최익현이 주도하였다.",
+    "description": "최익현이 주도하였다.",
+    "startYear": 1905,
+    "endYear": 1906,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "을사의병"
+    ],
+    "_src": "69회 기본 Q33 X"
+  },
+  {
+    "id": "69회_q33_2900",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"1907년 고종 강제 퇴위",
+    "description": "\"1907년 고종 강제 퇴위",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q33 X"
+  },
+  {
+    "id": "69회_q35_2901",
+    "type": "사건",
+    "kind": "detail",
+    "title": "동양 평화론을 저술하였다.",
+    "description": "동양 평화론을 저술하였다.",
+    "startYear": 1879,
+    "endYear": 1910,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "안중근"
+    ],
+    "_src": "69회 기본 Q35 O"
+  },
+  {
+    "id": "69회_q35_2905",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이토 히로부미 처단 후 뤼순 감옥에서 옥중 유묵을 남김",
+    "description": "이토 히로부미 처단 후 뤼순 감옥에서 옥중 유묵을 남김",
+    "startYear": 1879,
+    "endYear": 1910,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "안중근"
+    ],
+    "_src": "69회 기본 Q35 O"
+  },
+  {
+    "id": "69회_q36_2909",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이승만",
+    "description": "이승만",
+    "startYear": 1948,
+    "endYear": 1960,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "이승만 정부"
+    ],
+    "_src": "69회 기본 Q36 X"
+  },
+  {
+    "id": "69회_q36_2910",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"신한 청년당",
+    "description": "\"신한 청년당",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "좌우 합작 위원회\""
+    ],
+    "_src": "69회 기본 Q36 X"
+  },
+  {
+    "id": "69회_q37_2914",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신흥 무관 학교를 설립하였다.",
+    "description": "신흥 무관 학교를 설립하였다.",
+    "startYear": 1907,
+    "endYear": 1911,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "신민회"
+    ],
+    "_src": "69회 기본 Q37 X"
+  },
+  {
+    "id": "69회_q37_2915",
+    "type": "사건",
+    "kind": "detail",
+    "title": "상하이에서 수립되어 독립 공채를 발행",
+    "description": "상하이에서 수립되어 독립 공채를 발행",
+    "startYear": 1919,
+    "endYear": 1948,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "대한민국 임시정부"
+    ],
+    "_src": "69회 기본 Q37 O"
+  },
+  {
+    "id": "69회_q38_2920",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"1920년부터 실시",
+    "description": "\"1920년부터 실시",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 2,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q38 X"
+  },
+  {
+    "id": "69회_q39_2925",
+    "type": "사건",
+    "kind": "detail",
+    "title": "1929년 광주에서 한일 학생들 간 충돌로 촉발",
+    "description": "1929년 광주에서 한일 학생들 간 충돌로 촉발",
+    "startYear": 1929,
+    "endYear": 1930,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "광주학생항일운동"
+    ],
+    "_src": "69회 기본 Q39 O"
+  },
+  {
+    "id": "69회_q40_2926",
+    "type": "사건",
+    "kind": "detail",
+    "title": "지계를 발급하였다.",
+    "description": "지계를 발급하였다.",
+    "startYear": 1897,
+    "endYear": 1904,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "광무개혁"
+    ],
+    "_src": "69회 기본 Q40 X"
+  },
+  {
+    "id": "69회_q40_2927",
+    "type": "사건",
+    "kind": "detail",
+    "title": "조선 태형령을 공포하였다.",
+    "description": "조선 태형령을 공포하였다.",
+    "startYear": 1910,
+    "endYear": 1919,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "1910년대"
+    ],
+    "_src": "69회 기본 Q40 X"
+  },
+  {
+    "id": "69회_q40_2928",
+    "type": "사건",
+    "kind": "detail",
+    "title": "미곡 공출제를 시행하였다.",
+    "description": "미곡 공출제를 시행하였다.",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "69회 기본 Q40 O"
+  },
+  {
+    "id": "69회_q40_2929",
+    "type": "사건",
+    "kind": "detail",
+    "title": "헌병 경찰 제도를 실시하였다.",
+    "description": "헌병 경찰 제도를 실시하였다.",
+    "startYear": 1910,
+    "endYear": 1919,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "1910년대"
+    ],
+    "_src": "69회 기본 Q40 X"
+  },
+  {
+    "id": "69회_q40_2930",
+    "type": "사건",
+    "kind": "detail",
+    "title": "일본 나고야 군수공장에 강제 동원된 여자 근로 정신대",
+    "description": "일본 나고야 군수공장에 강제 동원된 여자 근로 정신대",
+    "startYear": 1937,
+    "endYear": 1945,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "민족말살통치기"
+    ],
+    "_src": "69회 기본 Q40 O"
+  },
+  {
+    "id": "69회_q42_2935",
+    "type": "사건",
+    "kind": "detail",
+    "title": "심훈의 상록수 작품 배경의 동아일보 농촌 계몽 운동",
+    "description": "심훈의 상록수 작품 배경의 동아일보 농촌 계몽 운동",
+    "startYear": 1931,
+    "endYear": 1934,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "브나로드 운동"
+    ],
+    "_src": "69회 기본 Q42 O"
+  },
+  {
+    "id": "69회_q43_2936",
+    "type": "사건",
+    "kind": "detail",
+    "title": "유엔군이 참전하였다.",
+    "description": "유엔군이 참전하였다.",
+    "startYear": 1950,
+    "endYear": 1953,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "6·25 전쟁"
+    ],
+    "_src": "69회 기본 Q43 X"
+  },
+  {
+    "id": "69회_q43_2940",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"굳세어라 금순아",
+    "description": "\"굳세어라 금순아",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q43 X"
+  },
+  {
+    "id": "69회_q44_2941",
+    "type": "사건",
+    "kind": "detail",
+    "title": "유신 체제가 붕괴하는 계기가 되었다.",
+    "description": "유신 체제가 붕괴하는 계기가 되었다.",
+    "startYear": 1979,
+    "endYear": 1979,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "부마민주항쟁"
+    ],
+    "_src": "69회 기본 Q44 X"
+  },
+  {
+    "id": "69회_q44_2942",
+    "type": "사건",
+    "kind": "detail",
+    "title": "3·15 부정 선거에 항의하여 일어났다.",
+    "description": "3·15 부정 선거에 항의하여 일어났다.",
+    "startYear": 1960,
+    "endYear": 1960,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "4·19 혁명"
+    ],
+    "_src": "69회 기본 Q44 X"
+  },
+  {
+    "id": "69회_q44_2944",
+    "type": "사건",
+    "kind": "detail",
+    "title": "전개 과정에서 시민군이 자발적으로 조직되었다.",
+    "description": "전개 과정에서 시민군이 자발적으로 조직되었다.",
+    "startYear": 1980,
+    "endYear": 1980,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "5·18 민주화 운동"
+    ],
+    "_src": "69회 기본 Q44 X"
+  },
+  {
+    "id": "69회_q44_2945",
+    "type": "사건",
+    "kind": "detail",
+    "title": "이한열 열사 동상에서 비롯된 민주화 운동",
+    "description": "이한열 열사 동상에서 비롯된 민주화 운동",
+    "startYear": 1987,
+    "endYear": 1987,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "6월 민주항쟁"
+    ],
+    "_src": "69회 기본 Q44 O"
+  },
+  {
+    "id": "69회_q45_2946",
+    "type": "사건",
+    "kind": "detail",
+    "title": "최초로 수출 100억 달러를 달성하였다.",
+    "description": "최초로 수출 100억 달러를 달성하였다.",
+    "startYear": 1961,
+    "endYear": 1979,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "박정희 정부"
+    ],
+    "_src": "69회 기본 Q45 X"
+  },
+  {
+    "id": "69회_q45_2950",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"1998년 제15대 대통령으로 취임",
+    "description": "\"1998년 제15대 대통령으로 취임",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q45 X"
+  },
+  {
+    "id": "69회_q46_2953",
+    "type": "사건",
+    "kind": "detail",
+    "title": "대동법을 시행하였다.",
+    "description": "대동법을 시행하였다.",
+    "startYear": 1608,
+    "endYear": 1623,
+    "difficulty": 4,
+    "era": "조선시대",
+    "tags": [
+      "광해군"
+    ],
+    "_src": "69회 기본 Q46 X"
+  },
+  {
+    "id": "69회_q48_2956",
+    "type": "사건",
+    "kind": "detail",
+    "title": "시무 10여 조를 건의하다",
+    "description": "시무 10여 조를 건의하다",
+    "startYear": 857,
+    "endYear": 908,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "최치원"
+    ],
+    "_src": "69회 기본 Q48 O"
+  },
+  {
+    "id": "69회_q48_2957",
+    "type": "사건",
+    "kind": "detail",
+    "title": "백운동 서원을 건립하다",
+    "description": "백운동 서원을 건립하다",
+    "startYear": 1495,
+    "endYear": 1554,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "주세붕"
+    ],
+    "_src": "69회 기본 Q48 X"
+  },
+  {
+    "id": "69회_q48_2959",
+    "type": "사건",
+    "kind": "detail",
+    "title": "영남 만인소를 주도하다",
+    "description": "영남 만인소를 주도하다",
+    "startYear": 1811,
+    "endYear": 1891,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "이만손"
+    ],
+    "_src": "69회 기본 Q48 X"
+  },
+  {
+    "id": "69회_q48_2960",
+    "type": "사건",
+    "kind": "detail",
+    "title": "신라 말 유학자",
+    "description": "신라 말 유학자",
+    "startYear": 857,
+    "endYear": 908,
+    "difficulty": 3,
+    "era": "신라시대",
+    "tags": [
+      "최치원"
+    ],
+    "_src": "69회 기본 Q48 O"
+  },
+  {
+    "id": "69회_q49_2962",
+    "type": "사건",
+    "kind": "detail",
+    "title": "10리마다 눈금을 표시하였다.",
+    "description": "10리마다 눈금을 표시하였다.",
+    "startYear": 1861,
+    "endYear": 1861,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "대동여지도"
+    ],
+    "_src": "69회 기본 Q49 X"
+  },
+  {
+    "id": "69회_q49_2963",
+    "type": "사건",
+    "kind": "detail",
+    "title": "영침의 그림자로 시각을 표시하였다.",
+    "description": "영침의 그림자로 시각을 표시하였다.",
+    "startYear": 1434,
+    "endYear": 1434,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "앙부일구"
+    ],
+    "_src": "69회 기본 Q49 O"
+  },
+  {
+    "id": "69회_q49_2964",
+    "type": "사건",
+    "kind": "detail",
+    "title": "소리로 시각을 알려주는 장치가 있다.",
+    "description": "소리로 시각을 알려주는 장치가 있다.",
+    "startYear": 1434,
+    "endYear": 1434,
+    "difficulty": 3,
+    "era": "조선시대",
+    "tags": [
+      "자격루"
+    ],
+    "_src": "69회 기본 Q49 X"
+  },
+  {
+    "id": "69회_q49_2965",
+    "type": "사건",
+    "kind": "detail",
+    "title": "\"조선 시대에 제작된 해시계",
+    "description": "\"조선 시대에 제작된 해시계",
+    "startYear": 1900,
+    "endYear": 1900,
+    "difficulty": 3,
+    "era": "근대",
+    "tags": [
+      "O"
+    ],
+    "_src": "69회 기본 Q49 X"
+  },
+  {
+    "id": "69회_q50_2970",
+    "type": "사건",
+    "kind": "detail",
+    "title": "음력 1월 15일 달집태우기 등 세시 풍속",
+    "description": "음력 1월 15일 달집태우기 등 세시 풍속",
+    "startYear": 1392,
+    "endYear": 1894,
+    "difficulty": 2,
+    "era": "조선시대",
+    "tags": [
+      "정월 대보름"
+    ],
+    "_src": "69회 기본 Q50 O"
   }
 ];
