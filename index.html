@@ -14,11 +14,20 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="한국사">
-  <!-- Defensive: unregister any service workers from previous tests so browser-sync live-reload always works -->
+  <!-- Service worker: production(github.io)에선 등록(PWA 설치 자격 위함), dev/LAN에선 unregister(라이브 리로드 영향 0) -->
   <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
-    }
+    (function () {
+      if (!('serviceWorker' in navigator)) return;
+      const h = location.hostname;
+      const isDevHost = h === 'localhost' || h === '127.0.0.1' || h.startsWith('192.168.') || h.startsWith('10.') || h === '';
+      if (isDevHost) {
+        navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
+      } else {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW register failed', err));
+        });
+      }
+    })();
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,6 +73,104 @@
       min-height: 0;
     }
     .view.hidden { display: none; }
+
+    /* ===== PWA install banner ===== */
+    .install-banner {
+      position: fixed;
+      left: 8px; right: 8px;
+      bottom: calc(env(safe-area-inset-bottom) + 12px);
+      max-width: 464px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #232946;
+      color: #f5f5f7;
+      border: 1px solid #393a5a;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 100;
+      animation: installSlideUp 0.35s ease;
+    }
+    @keyframes installSlideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .install-banner .install-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: serif; font-size: 20px; font-weight: 900;
+      color: #eebbc3;
+      background: #1a1a2e;
+      border: 1px solid #eebbc3;
+      border-radius: 8px;
+    }
+    .install-banner .install-text {
+      flex: 1;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .install-banner .install-action {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      background: #eebbc3;
+      color: #1a1a2e;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .install-banner .install-action:active { transform: scale(0.97); }
+    .install-banner .install-close {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: transparent;
+      color: #8b8ba7;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .install-banner .install-close:active { color: #eebbc3; }
+
+    /* ===== iOS install modal ===== */
+    .modal-backdrop {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      z-index: 200;
+      animation: fadeIn 0.2s ease;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal-card {
+      width: 100%; max-width: 360px;
+      background: #232946;
+      border: 1px solid #393a5a;
+      border-radius: 16px;
+      padding: 22px 20px;
+      color: #f5f5f7;
+    }
+    .modal-title { font-size: 17px; font-weight: 900; text-align: center; margin-bottom: 14px; }
+    .modal-body { font-size: 14px; line-height: 1.7; color: #b8b8d4; }
+    .ios-step { padding: 6px 0; }
+    .ios-step strong { color: #eebbc3; }
+    .modal-close-btn {
+      width: 100%;
+      margin-top: 18px;
+      padding: 12px;
+      background: #eebbc3;
+      color: #1a1a2e;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+    }
 
     /* ===== Login View ===== */
     .login-content {
@@ -217,6 +324,17 @@
       flex-direction: column;
       gap: 10px;
     }
+    .app-info {
+      margin-top: 20px;
+      padding: 16px 6px 24px;
+      text-align: center;
+      font-size: 11px;
+      color: #6c6c8a;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+    }
+    .app-info a { color: #8b8ba7; text-decoration: none; }
+    .app-info a:active { color: #eebbc3; }
     .setting-row {
       display: flex;
       flex-direction: column;
@@ -1195,6 +1313,27 @@
 </head>
 <body>
 
+  <!-- ============ PWA INSTALL BANNER ============ -->
+  <div class="install-banner hidden" id="installBanner">
+    <span class="install-icon">史</span>
+    <span class="install-text">홈 화면에 추가하면 앱처럼 빠르게 실행돼요</span>
+    <button class="install-action" id="installAction">설치</button>
+    <button class="install-close" id="installClose" aria-label="닫기">×</button>
+  </div>
+
+  <!-- ============ iOS INSTALL GUIDE MODAL ============ -->
+  <div class="modal-backdrop hidden" id="iosInstallModal">
+    <div class="modal-card">
+      <div class="modal-title">iOS에서 홈 화면에 추가</div>
+      <div class="modal-body">
+        <div class="ios-step">1. 하단 <strong>공유</strong> 버튼 ⎙ 탭</div>
+        <div class="ios-step">2. <strong>홈 화면에 추가</strong> 선택</div>
+        <div class="ios-step">3. 우상단 <strong>추가</strong> 탭</div>
+      </div>
+      <button class="modal-close-btn" id="iosModalClose">확인</button>
+    </div>
+  </div>
+
   <!-- ============ LOGIN VIEW ============ -->
   <div class="view" id="view-login">
     <div class="login-content">
@@ -1344,11 +1483,6 @@
         <span class="setting-label">내 기록 보기</span>
         <span class="setting-desc">점수·통계·레벨 확인</span>
       </button>
-      <button class="setting-row" id="goEventBtn">
-        <span class="setting-label">사건 정렬</span>
-        <span class="setting-desc">5개 사건을 시간순으로 드래그 정렬</span>
-      </button>
-
       <div class="setting-section-title">계정 / 데이터</div>
       <button class="setting-row" id="settingsLogout">
         <span class="setting-label">로그아웃</span>
@@ -1358,6 +1492,12 @@
         <span class="setting-label">기록 초기화</span>
         <span class="setting-desc">모든 점수와 풀이 기록을 삭제합니다</span>
       </button>
+
+      <div class="app-info">
+        한국사 자가진단 연구소 제작<br>
+        버전 1.0 · 2026년 제작<br>
+        contact: <a href="mailto:robotkiwi@gmail.com">robotkiwi@gmail.com</a>
+      </div>
     </div>
   </div>
 
@@ -1813,6 +1953,73 @@
     document.getElementById('feedbackBtn').addEventListener('click', () => {
       window.open('https://forms.gle/JE3wfSAkiaAnVwAi7', '_blank', 'noopener');
     });
+
+    // ===== PWA 설치 유도 =====
+    // Android/Chromium: beforeinstallprompt 캐치 → 배너에서 promtp()
+    // iOS Safari: 가이드 모달 (공유 → 홈 화면 추가)
+    // 이미 standalone으로 열렸거나 사용자가 닫은 적 있으면 표시 안 함
+    let deferredInstallPrompt = null;
+    const installBannerEl = document.getElementById('installBanner');
+    const installActionBtn = document.getElementById('installAction');
+    const installCloseBtn = document.getElementById('installClose');
+    const iosModal = document.getElementById('iosInstallModal');
+    const iosModalCloseBtn = document.getElementById('iosModalClose');
+    const INSTALL_DISMISS_KEY = 'pwa_install_dismissed';
+
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+                       || window.navigator.standalone === true;
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    function showInstallBanner(mode) {
+      if (isStandalone) return;
+      if (localStorage.getItem(INSTALL_DISMISS_KEY)) return;
+      installBannerEl.dataset.mode = mode;
+      installBannerEl.classList.remove('hidden');
+      trackEvent('pwa_banner_shown', { mode });
+    }
+    function hideInstallBanner() {
+      installBannerEl.classList.add('hidden');
+    }
+
+    // Android/Chromium
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+      showInstallBanner('android');
+    });
+    window.addEventListener('appinstalled', () => {
+      hideInstallBanner();
+      trackEvent('pwa_installed', {});
+    });
+
+    // iOS — beforeinstallprompt 없음, 직접 감지해서 안내 배너 표시
+    if (isIOS && !isStandalone) {
+      // 첫 진입 후 약간 지연시켜 첫인상 방해 안 함
+      setTimeout(() => showInstallBanner('ios'), 4000);
+    }
+
+    installActionBtn.addEventListener('click', async () => {
+      const mode = installBannerEl.dataset.mode;
+      if (mode === 'ios') {
+        iosModal.classList.remove('hidden');
+        trackEvent('pwa_ios_guide_opened', {});
+      } else if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        const choice = await deferredInstallPrompt.userChoice;
+        trackEvent('pwa_install_choice', { outcome: choice.outcome });
+        deferredInstallPrompt = null;
+        hideInstallBanner();
+      }
+    });
+    installCloseBtn.addEventListener('click', () => {
+      hideInstallBanner();
+      localStorage.setItem(INSTALL_DISMISS_KEY, '1');
+      trackEvent('pwa_banner_dismissed', { mode: installBannerEl.dataset.mode });
+    });
+    iosModalCloseBtn.addEventListener('click', () => iosModal.classList.add('hidden'));
+    iosModal.addEventListener('click', (e) => {
+      if (e.target === iosModal) iosModal.classList.add('hidden');
+    });
     document.getElementById('helpBtn').addEventListener('click', () => {
       alert([
         '【 사용법 안내 】',
@@ -1820,12 +2027,11 @@
         '◆ 랜딩 화면',
         '· 시대 카드 탭 → 그 시대 선택',
         '· 시대 카드 길게 누르기 → 그 시대 기록 초기화',
-        '· 상단 탭 / 좌우 스와이프 → 사실 매칭 ↔ 취약 키워드',
         '',
         '◆ 사실 매칭 (문제 화면)',
         '· 키워드 카드 탭 → 답 제출',
-        '· 디테일 카드 길게 누르기 → 1차 힌트 (-5점)',
-        '· 다시 길게 누르기 → 정답 보기(포기, -20점)',
+        '· 디테일 카드 길게 누르기 → 1차 힌트',
+        '· 다시 길게 누르기 → 정답 보기(포기)',
         '· 우상단 = 이번 세션 정답률 (한 번이라도 오답 시 그 문제는 틀린 걸로)',
         '',
         '◆ 취약 키워드 화면',
@@ -1837,7 +2043,6 @@
       ].join('\n'));
     });
     document.getElementById('goRecordsBtn').addEventListener('click', () => showRecordsView());
-    document.getElementById('goEventBtn').addEventListener('click', () => { showView('view-event'); startEventGame(); });
 
     // ===== Event sort game =====
     // ROUNDS is loaded from data.js
@@ -2727,6 +2932,26 @@
       '흥선대원군 집권': '흥선대원군',
     };
 
+    // 분야 변형 → 통합 키워드. 예: '박정희 정부 통일' → '박정희 정부' (정부·시대 + 분야 suffix 패턴).
+    // 이 매핑 대상 키워드는 별도 카드로 등록하지 않고, detail의 tags도 base로 자동 치환.
+    // import_exam_csv.js의 동일 맵과 sync 유지할 것.
+    const KEYWORD_ALIAS_TO_BASE = {
+      '박정희 정부 경제': '박정희 정부',
+      '박정희 정부 통일': '박정희 정부',
+      '전두환 정부 통일': '전두환 정부',
+      '노태우 정부 통일': '노태우 정부',
+      '김대중 정부 경제': '김대중 정부',
+      '김대중 정부 통일': '김대중 정부',
+      '조선 후기 경제': '조선 후기',
+      '조선 후기 사회': '조선 후기',
+      '대한제국 시기': '대한제국',
+      '신석기 시대 시작': '신석기 시대',
+      '청동기 시대 시작': '청동기 시대',
+      '철기 시대 시작': '철기 시대',
+      '신라 하대 시작': '신라 하대',
+    };
+    const applyAlias = (t) => KEYWORD_ALIAS_TO_BASE[t] || t;
+
     function _normalizeCard(c, kind) {
       const out = {
         type: c.type || '사건',
@@ -2749,6 +2974,7 @@
       const push = (c) => {
         if (c.kind === 'detail') return;
         if (EVENT_TO_DETAIL_OF[c.title]) return; // event 중복은 detail로 이동
+        if (KEYWORD_ALIAS_TO_BASE[c.title]) return; // 분야 변형 키워드는 base로 통합 (별도 카드 X)
         accum.push(_normalizeCard(c, 'keyword'));
       };
       (typeof EXAM_KEYWORDS !== 'undefined' ? EXAM_KEYWORDS : []).forEach(push);
@@ -2763,15 +2989,17 @@
     }
 
     function allDetailCards() {
+      // ALIAS 키워드를 가리키는 tags는 base로 치환 (예: '박정희 정부 통일' → '박정희 정부')
+      const aliasTags = (tags) => (tags || []).map(applyAlias);
       const out = [];
       (typeof DETAILS_SAMPLE !== 'undefined' ? DETAILS_SAMPLE : []).forEach(c => {
-        out.push(Object.assign({}, c, { era: cardEra(c) }));
+        out.push(Object.assign({}, c, { era: cardEra(c), tags: aliasTags(c.tags) }));
       });
       (typeof LATE_JOSEON_DETAILS !== 'undefined' ? LATE_JOSEON_DETAILS : []).forEach(c => {
-        out.push(Object.assign({}, c, { era: cardEra(c) }));
+        out.push(Object.assign({}, c, { era: cardEra(c), tags: aliasTags(c.tags) }));
       });
       (typeof EXAM_DETAILS !== 'undefined' ? EXAM_DETAILS : []).forEach(c => {
-        out.push(Object.assign({}, c, { era: cardEra(c) }));
+        out.push(Object.assign({}, c, { era: cardEra(c), tags: aliasTags(c.tags) }));
       });
       // 중복 event 카드들을 detail로 흡수 (자동 태그 = 부모 entity)
       (typeof YEAR_QUESTIONS !== 'undefined' ? YEAR_QUESTIONS : []).forEach(c => {

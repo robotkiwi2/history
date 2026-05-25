@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 356개 / 디테일 1503개 (보기 옵션만 있던 42행 제외, 라벨 prefix 56행 정제)
+// 생성: 키워드 348개 / 디테일 1503개 (보기 옵션만 있던 42행 제외, 라벨 prefix 56행 정제)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
 
 const EXAM_KEYWORDS = [
@@ -380,7 +380,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "조선 후기 경제",
+    "title": "조선 후기",
     "description": "",
     "startYear": 1700,
     "endYear": 1876,
@@ -472,17 +472,6 @@ const EXAM_KEYWORDS = [
     "description": "",
     "startYear": 1545,
     "endYear": 1567,
-    "difficulty": 3,
-    "era": "조선시대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "조선 후기 사회",
-    "description": "",
-    "startYear": 1700,
-    "endYear": 1876,
     "difficulty": 3,
     "era": "조선시대",
     "tags": []
@@ -1832,7 +1821,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "박정희 정부 경제",
+    "title": "박정희 정부",
     "description": "",
     "startYear": 1961,
     "endYear": 1979,
@@ -1843,7 +1832,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "김대중 정부 경제",
+    "title": "김대중 정부",
     "description": "",
     "startYear": 1998,
     "endYear": 2003,
@@ -1909,18 +1898,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "박정희 정부 통일",
-    "description": "",
-    "startYear": 1961,
-    "endYear": 1979,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "노태우 정부 통일",
+    "title": "노태우 정부",
     "description": "",
     "startYear": 1988,
     "endYear": 1993,
@@ -1931,7 +1909,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "전두환 정부 통일",
+    "title": "전두환 정부",
     "description": "",
     "startYear": 1980,
     "endYear": 1988,
@@ -2501,17 +2479,6 @@ const EXAM_KEYWORDS = [
     "tags": []
   },
   {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "조선 후기",
-    "description": "",
-    "startYear": 1700,
-    "endYear": 1876,
-    "difficulty": 3,
-    "era": "조선시대",
-    "tags": []
-  },
-  {
     "type": "유물",
     "kind": "keyword",
     "title": "초조대장경",
@@ -2584,17 +2551,6 @@ const EXAM_KEYWORDS = [
     "description": "",
     "startYear": 1907,
     "endYear": 1908,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "대한제국 시기",
-    "description": "",
-    "startYear": 1897,
-    "endYear": 1910,
     "difficulty": 3,
     "era": "근대",
     "tags": []
@@ -2987,28 +2943,6 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "전두환 정부",
-    "description": "",
-    "startYear": 1980,
-    "endYear": 1988,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "노태우 정부",
-    "description": "",
-    "startYear": 1988,
-    "endYear": 1993,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
     "title": "1950년대 경제",
     "description": "",
     "startYear": 1950,
@@ -3090,17 +3024,6 @@ const EXAM_KEYWORDS = [
     "description": "",
     "startYear": 1980,
     "endYear": 1980,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "김대중 정부 통일",
-    "description": "",
-    "startYear": 1998,
-    "endYear": 2003,
     "difficulty": 3,
     "era": "근대",
     "tags": []
@@ -3563,17 +3486,6 @@ const EXAM_KEYWORDS = [
     "description": "",
     "startYear": 1948,
     "endYear": 1948,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "박정희 정부",
-    "description": "",
-    "startYear": 1961,
-    "endYear": 1979,
     "difficulty": 3,
     "era": "근대",
     "tags": []
@@ -4578,7 +4490,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q12 X"
   },
@@ -4593,7 +4505,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q12 X"
   },
@@ -4788,7 +4700,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q15 X"
   },
@@ -5418,7 +5330,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q25 X"
   },
@@ -5433,7 +5345,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q25 X"
   },
@@ -5448,7 +5360,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q25 X"
   },
@@ -5463,7 +5375,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q25 X"
   },
@@ -5493,7 +5405,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "78회 심화 Q27 O"
   },
@@ -6978,7 +6890,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "78회 심화 Q47 X"
   },
@@ -6993,7 +6905,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "김대중 정부 경제"
+      "김대중 정부"
     ],
     "_src": "78회 심화 Q47 O"
   },
@@ -7008,7 +6920,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "78회 심화 Q47 X"
   },
@@ -7023,7 +6935,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "78회 심화 Q47 X"
   },
@@ -7038,7 +6950,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "78회 심화 Q47 X"
   },
@@ -7128,7 +7040,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 통일"
+      "박정희 정부"
     ],
     "_src": "78회 심화 Q49 X"
   },
@@ -7158,7 +7070,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "노태우 정부 통일"
+      "노태우 정부"
     ],
     "_src": "78회 심화 Q49 X"
   },
@@ -7173,7 +7085,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "전두환 정부 통일"
+      "전두환 정부"
     ],
     "_src": "78회 심화 Q49 X"
   },
@@ -7653,7 +7565,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "77회 기본 Q8 X"
   },
@@ -7908,7 +7820,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "77회 기본 Q15 X"
   },
@@ -8478,7 +8390,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "77회 기본 Q27 O"
   },
@@ -8658,7 +8570,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "77회 기본 Q31 O"
   },
@@ -9183,7 +9095,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "77회 기본 Q46 X"
   },
@@ -9393,7 +9305,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "박정희 정부 통일"
+      "박정희 정부"
     ],
     "_src": "77회 기본 Q50 O"
   },
@@ -9408,7 +9320,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "노태우 정부 통일"
+      "노태우 정부"
     ],
     "_src": "77회 기본 Q50 X"
   },
@@ -9423,7 +9335,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "김대중 정부 통일"
+      "김대중 정부"
     ],
     "_src": "77회 기본 Q50 X"
   },
@@ -10383,7 +10295,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q15 X"
   },
@@ -10893,7 +10805,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q23 X"
   },
@@ -10908,7 +10820,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q23 X"
   },
@@ -10923,7 +10835,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q23 X"
   },
@@ -10938,7 +10850,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q23 X"
   },
@@ -11058,7 +10970,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q25 O"
   },
@@ -11103,7 +11015,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q26 X"
   },
@@ -11208,7 +11120,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "77회 심화 Q27 X"
   },
@@ -11973,7 +11885,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "77회 심화 Q37 X"
   },
@@ -12438,7 +12350,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 통일"
+      "박정희 정부"
     ],
     "_src": "77회 심화 Q43 X"
   },
@@ -12483,7 +12395,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "77회 심화 Q44 X"
   },
@@ -12543,7 +12455,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "77회 심화 Q45 X"
   },
@@ -12558,7 +12470,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "77회 심화 Q45 X"
   },
@@ -12693,7 +12605,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "77회 심화 Q47 O"
   },
@@ -12828,7 +12740,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "노태우 정부 통일"
+      "노태우 정부"
     ],
     "_src": "77회 심화 Q49 X"
   },
@@ -12888,7 +12800,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "77회 심화 Q49 X"
   },
@@ -13728,7 +13640,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "76회 심화 Q13 X"
   },
@@ -13743,7 +13655,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "76회 심화 Q13 X"
   },
@@ -14553,7 +14465,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "76회 심화 Q26 X"
   },
@@ -14568,7 +14480,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "76회 심화 Q26 X"
   },
@@ -14598,7 +14510,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "76회 심화 Q26 X"
   },
@@ -14613,7 +14525,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "76회 심화 Q26 X"
   },
@@ -15153,7 +15065,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "76회 심화 Q37 X"
   },
@@ -15588,7 +15500,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "76회 심화 Q42 X"
   },
@@ -15903,7 +15815,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "76회 심화 Q48 O"
   },
@@ -15963,7 +15875,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "김대중 정부 경제"
+      "김대중 정부"
     ],
     "_src": "76회 심화 Q48 X"
   },
@@ -15978,7 +15890,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 통일"
+      "박정희 정부"
     ],
     "_src": "76회 심화 Q49 X"
   },
@@ -15993,7 +15905,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "노태우 정부 통일"
+      "노태우 정부"
     ],
     "_src": "76회 심화 Q49 O"
   },
@@ -16008,7 +15920,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "김대중 정부 통일"
+      "김대중 정부"
     ],
     "_src": "76회 심화 Q49 X"
   },
@@ -16038,7 +15950,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "전두환 정부 통일"
+      "전두환 정부"
     ],
     "_src": "76회 심화 Q49 X"
   },
@@ -16653,7 +16565,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "75회 심화 Q9 X"
   },
@@ -17238,7 +17150,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "75회 심화 Q17 X"
   },
@@ -17703,7 +17615,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "75회 심화 Q25 O"
   },
@@ -17793,7 +17705,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "75회 심화 Q26 X"
   },
@@ -17823,7 +17735,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "75회 심화 Q26 X"
   },
@@ -17838,7 +17750,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "75회 심화 Q26 X"
   },
@@ -18108,7 +18020,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "75회 심화 Q30 X"
   },
@@ -18843,7 +18755,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "75회 심화 Q41 X"
   },
@@ -18918,7 +18830,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "75회 심화 Q42 X"
   },
@@ -19053,7 +18965,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "75회 심화 Q44 X"
   },
@@ -19203,7 +19115,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "75회 심화 Q46 X"
   },
@@ -19443,7 +19355,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "75회 심화 Q49 X"
   },
@@ -19458,7 +19370,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "박정희 정부 통일"
+      "박정희 정부"
     ],
     "_src": "75회 심화 Q49 X"
   },
@@ -19473,7 +19385,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "노태우 정부 통일"
+      "노태우 정부"
     ],
     "_src": "75회 심화 Q49 X"
   },
@@ -19548,7 +19460,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "75회 심화 Q50 O"
   },
@@ -20478,7 +20390,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q15 X"
   },
@@ -20508,7 +20420,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q15 X"
   },
@@ -20688,7 +20600,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q17 X"
   },
@@ -21153,7 +21065,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q26 X"
   },
@@ -21183,7 +21095,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q26 X"
   },
@@ -21198,7 +21110,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q26 X"
   },
@@ -21213,7 +21125,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q26 X"
   },
@@ -21243,7 +21155,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "74회 심화 Q27 O"
   },
@@ -21783,7 +21695,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "74회 심화 Q34 X"
   },
@@ -22728,7 +22640,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "74회 심화 Q48 X"
   },
@@ -22743,7 +22655,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 경제"
+      "박정희 정부"
     ],
     "_src": "74회 심화 Q48 X"
   },
@@ -22788,7 +22700,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "김대중 정부 경제"
+      "김대중 정부"
     ],
     "_src": "74회 심화 Q48 O"
   },
@@ -22818,7 +22730,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "노태우 정부 통일"
+      "노태우 정부"
     ],
     "_src": "74회 심화 Q49 X"
   },
@@ -22833,7 +22745,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "전두환 정부 통일"
+      "전두환 정부"
     ],
     "_src": "74회 심화 Q49 X"
   },
@@ -22848,7 +22760,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "박정희 정부 통일"
+      "박정희 정부"
     ],
     "_src": "74회 심화 Q49 X"
   },
@@ -23718,7 +23630,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q12 X"
   },
@@ -23748,7 +23660,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q12 X"
   },
@@ -23898,7 +23810,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q14 X"
   },
@@ -24003,7 +23915,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q16 X"
   },
@@ -24888,7 +24800,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q28 X"
   },
@@ -24993,7 +24905,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q30 X"
   },
@@ -25008,7 +24920,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 경제"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q30 X"
   },
@@ -25023,7 +24935,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q30 X"
   },
@@ -25038,7 +24950,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "조선시대",
     "tags": [
-      "조선 후기 사회"
+      "조선 후기"
     ],
     "_src": "73회 심화 Q30 X"
   },
@@ -25128,7 +25040,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "73회 심화 Q32 X"
   },
@@ -25683,7 +25595,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "대한제국 시기"
+      "대한제국"
     ],
     "_src": "73회 심화 Q39 X"
   },
@@ -26403,7 +26315,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "박정희 정부 통일"
+      "박정희 정부"
     ],
     "_src": "73회 심화 Q50 X"
   },
@@ -26433,7 +26345,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "노태우 정부 통일"
+      "노태우 정부"
     ],
     "_src": "73회 심화 Q50 X"
   },
@@ -26448,7 +26360,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "전두환 정부 통일"
+      "전두환 정부"
     ],
     "_src": "73회 심화 Q50 X"
   },

@@ -313,6 +313,7 @@ const KEYWORD_META = {
   '김영삼 정부':       { type: '시대',  era: '근대',     startYear: 1993,  endYear: 1998  },
   '김대중 정부 통일':  { type: '시대',  era: '근대',     startYear: 1998,  endYear: 2003  },
   '노무현 정부':       { type: '시대',  era: '근대',     startYear: 2003,  endYear: 2008  },
+  '김대중 정부':       { type: '시대',  era: '근대',     startYear: 1998,  endYear: 2003  },
   '1950년대 경제':     { type: '시대',  era: '근대',     startYear: 1950,  endYear: 1959  },
   '1980년대 경제':     { type: '시대',  era: '근대',     startYear: 1980,  endYear: 1989  },
   // 해양 인물
@@ -435,6 +436,25 @@ function mapDifficulty(score) {
   return 4;
 }
 
+// 분야 변형 키워드 → base로 통합 (예: '박정희 정부 통일' → '박정희 정부').
+// 런타임(index.html)의 KEYWORD_ALIAS_TO_BASE와 동일하게 유지할 것.
+const KEYWORD_ALIAS_TO_BASE = {
+  '박정희 정부 경제': '박정희 정부',
+  '박정희 정부 통일': '박정희 정부',
+  '전두환 정부 통일': '전두환 정부',
+  '노태우 정부 통일': '노태우 정부',
+  '김대중 정부 경제': '김대중 정부',
+  '김대중 정부 통일': '김대중 정부',
+  '조선 후기 경제': '조선 후기',
+  '조선 후기 사회': '조선 후기',
+  '대한제국 시기': '대한제국',
+  '신석기 시대 시작': '신석기 시대',
+  '청동기 시대 시작': '청동기 시대',
+  '철기 시대 시작': '철기 시대',
+  '신라 하대 시작': '신라 하대',
+};
+const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
+
 function toSlug(s) {
   return s.replace(/[\s/·.]+/g, '_').replace(/[\(\)\[\]]/g, '');
 }
@@ -454,11 +474,11 @@ function main() {
   const text = fs.readFileSync(CSV_PATH, 'utf8');
   const rows = parseCSV(text);
 
-  // 1) 모든 키워드 후보 수집 (질문 대상 + 실제 대상)
+  // 1) 모든 키워드 후보 수집 (질문 대상 + 실제 대상). 분야 변형은 base로 통합.
   const subjects = new Set();
   rows.forEach(r => {
-    if (r['질문 대상']) subjects.add(r['질문 대상']);
-    if (r['실제 대상']) subjects.add(r['실제 대상']);
+    if (r['질문 대상']) subjects.add(applyAlias(r['질문 대상']));
+    if (r['실제 대상']) subjects.add(applyAlias(r['실제 대상']));
   });
 
   // 2) 키워드 카드 생성
@@ -504,8 +524,9 @@ function main() {
   let skippedNoContent = 0;
   let strippedLabel = 0;
   rows.forEach((r, idx) => {
-    const realSubject = r['실제 대상'] || r['질문 대상'];
-    if (!realSubject) return;
+    const rawSubject = r['실제 대상'] || r['질문 대상'];
+    if (!rawSubject) return;
+    const realSubject = applyAlias(rawSubject);  // 디테일의 정답 태그도 base로 통합
     const rawDetailText = r['디테일(역사적 사태)'];
     if (!rawDetailText) return;
     const hadLabel = LABEL_PREFIX_RE.test(rawDetailText);
