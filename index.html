@@ -2126,10 +2126,12 @@
         '· 우상단 = 이번 세션 정답률 (한 번이라도 오답 시 그 문제는 틀린 걸로)',
         '',
         '◆ 취약 키워드 화면',
+        '· 키워드 탭 → 해당 키워드와 관련된 사실(디테일) 펼침',
         '· 키워드 길게 누르기 → 그 키워드의 취약 기록 삭제',
         '',
         '◆ 설정',
-        '· 난이도 (기본 = 평이한 디테일만 / 심화 = 전체)',
+        '· 풀이 모드: 일반 / 오답 위주 (취약 키워드 디테일 우선 출제)',
+        '· 난이도: 기본 (평이한 디테일만) / 심화 (전체)',
         '· 기록 초기화 = 전체 데이터 삭제',
       ].join('\n'));
     });
@@ -3371,6 +3373,19 @@
         l2MatchedCount = 0;
       }
       l2TotalCount = allDetails.length;
+
+      // 오답 위주 모드: 취약 키워드(localStorage 기록)를 정답으로 가진 디테일 우선 정렬.
+      // 풀이 사용자별 자기 약점 위주 자동 출제. 신규 사용자는 weakSet 비어있어 일반 모드와 동일.
+      if (currentQuizMode === 'review') {
+        const weakSet = new Set(computeWeakKeywords(100).map(w => w.title));
+        if (weakSet.size > 0) {
+          l2DetailPool.sort((a, b) => {
+            const aWeak = (a.tags || []).some(t => weakSet.has(t));
+            const bWeak = (b.tags || []).some(t => weakSet.has(t));
+            return (bWeak ? 1 : 0) - (aWeak ? 1 : 0);
+          });
+        }
+      }
       resetL2Accuracy();
 
       showView('view-detail');
@@ -3446,8 +3461,11 @@
       // 답 확인 버튼 + 신고 버튼 숨김 (포기 후 잔존 방지)
       document.getElementById('l2AdvanceBtn').classList.add('hidden');
       document.getElementById('l2ReportBtn').classList.add('hidden');
-      // Pick random one
-      const idx = Math.floor(Math.random() * l2DetailPool.length);
+      // 오답 위주 모드: 풀 앞쪽(약점 키워드 우선)에서 픽. 일반 모드: 전체 랜덤.
+      const pickRange = currentQuizMode === 'review'
+        ? Math.max(1, Math.min(5, l2DetailPool.length))
+        : l2DetailPool.length;
+      const idx = Math.floor(Math.random() * pickRange);
       l2CurrentDetail = l2DetailPool[idx];
       l2Locked = false;
       l2AttemptsThisDetail = 0;
