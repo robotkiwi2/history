@@ -2019,8 +2019,9 @@
       QuizStore.reset();
       yearScore = 0;
       nextMilestone = 100;
-      refreshRecordsView();
-      showRecordsView();
+      // 데이터 카운트 갱신만 — 설정 화면에 그대로 머무름
+      refreshDataCountInfo();
+      alert('기록이 초기화되었습니다.');
     });
     document.getElementById('settingsLogout').addEventListener('click', () => {
       showView('view-login');
