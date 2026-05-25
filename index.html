@@ -200,25 +200,62 @@
     .modal-body { font-size: 14px; line-height: 1.7; color: #b8b8d4; }
     .ios-step { padding: 6px 0; }
     .ios-step strong { color: #eebbc3; }
-    .tour-step {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 8px 0;
-      font-size: 14px;
-      line-height: 1.55;
+    /* ===== Guided tour (spotlight + arrow + tooltip) ===== */
+    .tour-overlay {
+      position: fixed; inset: 0;
+      z-index: 300;
+      cursor: pointer;
+      animation: fadeIn 0.25s ease;
     }
-    .tour-step strong { color: #eebbc3; }
-    .tour-num {
-      flex-shrink: 0;
-      width: 22px; height: 22px;
-      display: flex; align-items: center; justify-content: center;
+    .tour-spotlight {
+      position: fixed;
+      border-radius: 12px;
+      box-shadow: 0 0 0 9999px rgba(0,0,0,0.75);
+      pointer-events: none;
+      transition: top 0.35s ease, left 0.35s ease, width 0.35s ease, height 0.35s ease;
+    }
+    .tour-arrow {
+      position: fixed;
+      width: 0; height: 0;
+      pointer-events: none;
+      transition: top 0.35s ease, left 0.35s ease;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+    .tour-arrow.down {
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-top: 16px solid #eebbc3;
+    }
+    .tour-arrow.up {
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 16px solid #eebbc3;
+    }
+    .tour-arrow.left {
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-right: 16px solid #eebbc3;
+    }
+    .tour-arrow.right {
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 16px solid #eebbc3;
+    }
+    .tour-tooltip {
+      position: fixed;
+      max-width: 280px;
+      padding: 12px 14px;
       background: #eebbc3;
       color: #1a1a2e;
-      border-radius: 50%;
-      font-weight: 900;
-      font-size: 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      line-height: 1.5;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+      transition: top 0.35s ease, left 0.35s ease;
+      pointer-events: none;
     }
+    .tour-text { font-weight: 700; }
+    .tour-meta { margin-top: 6px; font-size: 11px; font-weight: 600; opacity: 0.7; }
     .modal-close-btn {
       width: 100%;
       margin-top: 18px;
@@ -1439,18 +1476,13 @@
     <button class="install-close" id="installClose" aria-label="닫기">×</button>
   </div>
 
-  <!-- ============ FIRST-RUN TOUR MODAL ============ -->
-  <div class="modal-backdrop hidden" id="tourModal">
-    <div class="modal-card">
-      <div class="modal-title">첫 시작 가이드</div>
-      <div class="modal-body">
-        <div class="tour-step"><span class="tour-num">1</span> <strong>하단 카드</strong>에 문제(빈칸 사실)가 나옵니다</div>
-        <div class="tour-step"><span class="tour-num">2</span> <strong>상단 목록</strong>에서 빈칸에 들어갈 키워드를 탭하세요</div>
-        <div class="tour-step"><span class="tour-num">3</span> 문제 카드를 <strong>길게 누르면 힌트</strong>가 나옵니다</div>
-        <div class="tour-step"><span class="tour-num">4</span> 한 번 더 <strong>길게 누르면 정답</strong>이 보입니다</div>
-        <div class="tour-step"><span class="tour-num">5</span> 우상단 <strong>정답률을 길게 누르면</strong> 이번 세션이 초기화됩니다</div>
-      </div>
-      <button class="modal-close-btn" id="tourCloseBtn">시작하기</button>
+  <!-- ============ FIRST-RUN TOUR (spotlight + arrow + tooltip) ============ -->
+  <div class="tour-overlay hidden" id="tourOverlay">
+    <div class="tour-spotlight" id="tourSpotlight"></div>
+    <div class="tour-arrow" id="tourArrow"></div>
+    <div class="tour-tooltip" id="tourTooltip">
+      <div class="tour-text" id="tourText"></div>
+      <div class="tour-meta"><span id="tourProgress">1/5</span> · 탭하여 다음</div>
     </div>
   </div>
 
@@ -2155,18 +2187,83 @@
       if (e.target === iosModal) iosModal.classList.add('hidden');
     });
 
-    // ===== 첫 진입 투어 닫기 =====
-    const tourModalEl = document.getElementById('tourModal');
-    document.getElementById('tourCloseBtn').addEventListener('click', () => {
-      tourModalEl.classList.add('hidden');
-      localStorage.setItem('tour_shown_v1', '1');
-    });
-    tourModalEl.addEventListener('click', (e) => {
-      if (e.target === tourModalEl) {
-        tourModalEl.classList.add('hidden');
-        localStorage.setItem('tour_shown_v1', '1');
+    // ===== 첫 진입 가이드 투어 (spotlight + arrow + tooltip) =====
+    const TOUR_STEPS = [
+      { sel: '#detailQuestionCard', text: '여기 하단 카드에 문제(빈칸 사실)가 나옵니다', arrow: 'down', pos: 'above' },
+      { sel: '#detailTimeline',     text: '빈칸에 들어갈 키워드를 위 목록에서 탭하세요', arrow: 'up',   pos: 'below' },
+      { sel: '#detailQuestionCard', text: '문제 카드를 길게 누르면 힌트가 나옵니다',     arrow: 'down', pos: 'above' },
+      { sel: '#detailQuestionCard', text: '한 번 더 길게 누르면 정답이 보입니다',         arrow: 'down', pos: 'above' },
+      { sel: '#detailScore',        text: '우상단 정답률을 길게 누르면 세션 초기화',     arrow: 'up',   pos: 'below' },
+    ];
+    const tourOverlay = document.getElementById('tourOverlay');
+    const tourSpot = document.getElementById('tourSpotlight');
+    const tourArrow = document.getElementById('tourArrow');
+    const tourTip = document.getElementById('tourTooltip');
+    const tourText = document.getElementById('tourText');
+    const tourProgress = document.getElementById('tourProgress');
+    let tourIdx = 0;
+    let tourTimer = null;
+
+    function positionTourStep(step) {
+      const el = document.querySelector(step.sel);
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const pad = 6;
+      tourSpot.style.top = (r.top - pad) + 'px';
+      tourSpot.style.left = (r.left - pad) + 'px';
+      tourSpot.style.width = (r.width + pad*2) + 'px';
+      tourSpot.style.height = (r.height + pad*2) + 'px';
+      tourArrow.className = 'tour-arrow ' + step.arrow;
+      tourText.textContent = step.text;
+      tourProgress.textContent = (tourIdx + 1) + '/' + TOUR_STEPS.length;
+
+      const vw = window.innerWidth, vh = window.innerHeight;
+      const tipW = 280, tipH = 80, arrowH = 16, gap = 8;
+      let tipTop, tipLeft, arrowTop, arrowLeft;
+      const centerX = r.left + r.width / 2;
+      if (step.pos === 'above') {
+        // 툴팁이 element 위 → 아래 화살표
+        tipTop = r.top - pad - arrowH - tipH - gap;
+        tipLeft = Math.max(8, Math.min(vw - tipW - 8, centerX - tipW / 2));
+        arrowTop = r.top - pad - arrowH - 2;
+        arrowLeft = Math.max(20, Math.min(vw - 32, centerX - 12));
+      } else {
+        // 툴팁이 element 아래 → 위 화살표
+        tipTop = r.bottom + pad + arrowH + gap;
+        tipLeft = Math.max(8, Math.min(vw - tipW - 8, centerX - tipW / 2));
+        arrowTop = r.bottom + pad + 2;
+        arrowLeft = Math.max(20, Math.min(vw - 32, centerX - 12));
       }
-    });
+      // 뷰포트 하단 넘침 보호
+      if (tipTop + tipH > vh - 8) tipTop = vh - tipH - 8;
+      if (tipTop < 8) tipTop = 8;
+      tourTip.style.top = tipTop + 'px';
+      tourTip.style.left = tipLeft + 'px';
+      tourArrow.style.top = arrowTop + 'px';
+      tourArrow.style.left = arrowLeft + 'px';
+    }
+    function nextTourStep() {
+      if (tourTimer) { clearTimeout(tourTimer); tourTimer = null; }
+      tourIdx++;
+      if (tourIdx >= TOUR_STEPS.length) {
+        endTour();
+        return;
+      }
+      positionTourStep(TOUR_STEPS[tourIdx]);
+      tourTimer = setTimeout(nextTourStep, 4000);
+    }
+    function endTour() {
+      if (tourTimer) { clearTimeout(tourTimer); tourTimer = null; }
+      tourOverlay.classList.add('hidden');
+      localStorage.setItem('tour_shown_v1', '1');
+    }
+    function startTour() {
+      tourIdx = 0;
+      tourOverlay.classList.remove('hidden');
+      positionTourStep(TOUR_STEPS[0]);
+      tourTimer = setTimeout(nextTourStep, 4000);
+    }
+    tourOverlay.addEventListener('click', nextTourStep);
     document.getElementById('helpBtn').addEventListener('click', () => {
       alert([
         '【 사용법 안내 】',
@@ -3446,10 +3543,6 @@
       l2CurrentEra = era;
       detailTitleEl.textContent = era;
       trackEvent('era_started', { era, tier: currentDifficultyTier });
-      // 첫 진입 시에만 투어 노출
-      if (!localStorage.getItem('tour_shown_v1')) {
-        document.getElementById('tourModal').classList.remove('hidden');
-      }
 
       // Build primary timeline (sorted by startYear)
       l2Primaries = allPrimaryCards()
@@ -3488,6 +3581,10 @@
 
       showView('view-detail');
       pickNextDetail();
+      // 첫 진입 시에만 가이드 투어 (DOM 레이아웃 잡힌 뒤)
+      if (!localStorage.getItem('tour_shown_v1')) {
+        setTimeout(startTour, 350);
+      }
     }
 
     function renderL2Timeline() {
