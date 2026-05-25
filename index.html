@@ -2305,6 +2305,16 @@
     // ===== Score — view-era에는 표시 안 함, 게임 화면 우상단에만 노출 =====
     const detailScoreEl = document.getElementById('detailScore');
     const eraL2ScoreEl = document.getElementById('eraL2Score');
+    // 정답률 표시 탭 → 세션 정답률 초기화 confirm
+    if (detailScoreEl) {
+      detailScoreEl.style.cursor = 'pointer';
+      detailScoreEl.addEventListener('click', () => {
+        if (l2DetailsAttempted === 0) return;
+        if (confirm('이번 세션 정답률을 초기화하시겠습니까?')) {
+          resetL2Accuracy();
+        }
+      });
+    }
     function updateScoreDisplay() {
       // L1 / 구버전 score는 그대로. L2 detailScore는 별도로 정답률 노출.
       [yearScoreEl, eraL2ScoreEl].forEach(el => {
