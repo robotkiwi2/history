@@ -3590,8 +3590,9 @@
           [others[i], others[j]] = [others[j], others[i]];
         }
         others.forEach(pick => {
-          const text = (pick.description || pick.title || '').split(maskTag).join('**');
-          hints.push('힌트 : ' + text);
+          const text = pick.description || pick.title || '';
+          const match = findMaskMatch(text, maskTag);
+          hints.push('힌트 : ' + (match ? text.split(match).join('**') : text));
         });
       }
       hints.push('힌트 : ' + centuryHalfLabel(detail.startYear));
@@ -3884,23 +3885,40 @@
     });
 
     // 마스킹 — 지정된 태그만 "**"로 치환. 나머지 태그는 본문에 그대로 노출(문맥 단서).
-    function maskDetailDescription(detail, maskTag) {
-      let text = detail.description || detail.title;
-      if (maskTag && text.includes(maskTag)) {
-        text = text.split(maskTag).join('**');
+    // maskTag가 description에 그대로 안 들어있으면 뒷부분 fallback.
+    // 예: tag="고구려 광개토대왕", description="광개토대왕이 ..." → "광개토대왕"으로 마스킹.
+    function maskCandidatesFromTag(maskTag) {
+      if (!maskTag) return [];
+      const parts = maskTag.split(/\s+/).filter(Boolean);
+      const out = [maskTag];
+      // 뒤에서부터 한 단어씩 줄여가며 후보 추가
+      for (let i = 1; i < parts.length; i++) {
+        out.push(parts.slice(i).join(' '));
       }
-      return text;
+      return out;
+    }
+    function findMaskMatch(text, maskTag) {
+      for (const cand of maskCandidatesFromTag(maskTag)) {
+        if (text.includes(cand)) return cand;
+      }
+      return null;
+    }
+
+    function maskDetailDescription(detail, maskTag) {
+      const text = detail.description || detail.title;
+      const match = findMaskMatch(text, maskTag);
+      return match ? text.split(match).join('**') : text;
     }
 
     // 정답 reveal — 마스킹된 태그를 <span class="l2-answer">로 감싸서 카드에 노출.
     // tags 데이터는 우리 소스에서 옴 → innerHTML XSS 위험 없음.
     function revealAnswerInCard(detail, maskTag, gaveUp) {
-      let html = detail.description || detail.title;
-      if (maskTag && html.includes(maskTag)) {
-        html = html.split(maskTag).join(`<span class="l2-answer">${maskTag}</span>`);
-      }
+      const text = detail.description || detail.title;
+      const match = findMaskMatch(text, maskTag);
+      const html = match
+        ? text.split(match).join(`<span class="l2-answer">${match}</span>`)
+        : text;
       detailQTextEl.innerHTML = html;
-      // 힌트 라벨/뱃지는 reveal 동안 노출 안 함
       detailQuestionEl.classList.remove('l2-hint-shown');
       detailQuestionEl.classList.toggle('l2-gaveup-reveal', !!gaveUp);
     }
