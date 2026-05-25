@@ -1552,8 +1552,8 @@
       <div class="setting-row-grid">
         <div class="setting-label">난이도</div>
         <div class="mode-row">
-          <button class="mode-pill" data-difficulty-tier="기본">기본</button>
-          <button class="mode-pill selected" data-difficulty-tier="심화">심화</button>
+          <button class="mode-pill selected" data-difficulty-tier="기본">기본</button>
+          <button class="mode-pill" data-difficulty-tier="심화">심화</button>
         </div>
         <div class="setting-desc">기본 = 평이한 디테일(난이도 ≤3)만 / 심화 = 전체</div>
       </div>
@@ -1561,8 +1561,8 @@
         <div class="setting-label">한 라운드 문제 수</div>
         <div class="round-size-row" id="roundSizeRow">
           <button class="size-pill" data-round-size="5">5</button>
-          <button class="size-pill" data-round-size="10">10</button>
-          <button class="size-pill selected" data-round-size="20">20</button>
+          <button class="size-pill selected" data-round-size="10">10</button>
+          <button class="size-pill" data-round-size="20">20</button>
           <button class="size-pill" data-round-size="30">30</button>
           <button class="size-pill" data-round-size="50">50</button>
         </div>
@@ -1667,12 +1667,12 @@
       _default() {
         return {
           version: 1, stats: {}, totalScore: 0, history: [],
-          settings: { quizMode: 'normal', roundSize: 20, difficultyTier: '심화' },
+          settings: { quizMode: 'normal', roundSize: 10, difficultyTier: '기본' },
         };
       },
       getSettings() {
-        if (!this._data.settings) this._data.settings = { quizMode: 'normal', roundSize: 20, difficultyTier: '심화' };
-        if (!this._data.settings.difficultyTier) this._data.settings.difficultyTier = '심화';
+        if (!this._data.settings) this._data.settings = { quizMode: 'normal', roundSize: 10, difficultyTier: '기본' };
+        if (!this._data.settings.difficultyTier) this._data.settings.difficultyTier = '기본';
         return this._data.settings;
       },
       setSetting(key, value) {
@@ -2014,7 +2014,7 @@
     applyRoundSizeUI();
 
     // ===== Difficulty tier (기본 / 심화) — 디테일 필터 =====
-    let currentDifficultyTier = QuizStore.getSettings().difficultyTier || '심화';
+    let currentDifficultyTier = QuizStore.getSettings().difficultyTier || '기본';
     function applyDifficultyTierUI() {
       document.querySelectorAll('[data-difficulty-tier]').forEach(b => {
         b.classList.toggle('selected', b.dataset.difficultyTier === currentDifficultyTier);
