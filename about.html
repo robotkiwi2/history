@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>한국사매치 소개 · 한능검 자가진단 학습 도구</title>
+  <meta name="description" content="한국사매치는 한국사능력검정시험(한능검) 기출문제 기반 매칭 학습 도구입니다. 시대별 사실을 키워드 카드와 매칭하면서 자주 놓치는 약점 키워드를 자동으로 찾아드립니다. 회원가입·광고 없이 즉시 시작.">
+  <link rel="canonical" href="https://hanmatch.com/about.html">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://hanmatch.com/about.html">
+  <meta property="og:title" content="한국사매치 소개 · 한능검 자가진단 학습 도구">
+  <meta property="og:description" content="한능검 기출 디테일을 키워드와 매칭하며 약점 키워드를 자동 분석하는 무료 학습 도구.">
+  <meta property="og:site_name" content="한국사매치">
+  <meta property="og:image" content="https://hanmatch.com/icon.svg">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1X0C9G0LV7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-1X0C9G0LV7');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+      color: #f5f5f7;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #2c2f5a;
+      margin-bottom: 32px;
+    }
+    .header-icon {
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: serif; font-size: 38px; font-weight: 900;
+      color: #eebbc3;
+      background: linear-gradient(135deg, #2c3160 0%, #232946 100%);
+      border: 2px solid #eebbc3;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .header-text .tagline {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #8b8ba7;
+    }
+
+    h2 {
+      margin-top: 36px;
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #eebbc3;
+      letter-spacing: -0.01em;
+    }
+    h2:first-of-type { margin-top: 0; }
+
+    p, li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #d8d8e8;
+    }
+    p { margin-bottom: 14px; }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 14px;
+    }
+    li { margin-bottom: 6px; }
+
+    strong { color: #f5f5f7; font-weight: 700; }
+
+    .flow {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 16px 0 20px;
+    }
+    .flow-step {
+      display: flex;
+      gap: 14px;
+      padding: 14px 16px;
+      background: #232946;
+      border: 1px solid #2c2f5a;
+      border-radius: 12px;
+    }
+    .flow-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      display: flex; align-items: center; justify-content: center;
+      background: #eebbc3;
+      color: #1a1a2e;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 14px;
+    }
+    .flow-body {
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .flow-body strong {
+      display: block;
+      margin-bottom: 2px;
+      color: #f5f5f7;
+    }
+
+    .faq {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .faq-item {
+      padding: 14px 18px;
+      background: #1f2240;
+      border: 1px solid #2c2f5a;
+      border-radius: 10px;
+    }
+    .faq-q {
+      font-size: 14px;
+      font-weight: 700;
+      color: #eebbc3;
+      margin-bottom: 6px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: #b8b8d4;
+      line-height: 1.6;
+    }
+
+    .footer-cta {
+      margin-top: 48px;
+      padding: 24px;
+      background: linear-gradient(135deg, #2c3160 0%, #232946 100%);
+      border: 1px solid #393a5a;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .footer-cta a.btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 28px;
+      background: #eebbc3;
+      color: #1a1a2e;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .footer-cta a.btn:active { transform: scale(0.98); }
+
+    .meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #2c2f5a;
+      text-align: center;
+      font-size: 12px;
+      color: #6c6c8a;
+      line-height: 1.7;
+    }
+    .meta a { color: #8b8ba7; text-decoration: none; }
+    .meta a:hover { color: #eebbc3; }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #8b8ba7;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #eebbc3; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="./" class="back-link">← 홈으로</a>
+
+    <div class="header">
+      <div class="header-icon">史</div>
+      <div class="header-text">
+        <h1>한국사매치</h1>
+        <div class="tagline">한국사능력검정시험(한능검) 자가진단 학습 도구</div>
+      </div>
+    </div>
+
+    <h2>한국사매치란?</h2>
+    <p>
+      <strong>한국사매치</strong>는 한능검을 준비하는 학습자를 위한
+      사실 매칭 기반 자가진단 도구입니다. 매번 똑같은 5지 선다 풀이 대신,
+      실제 기출 디테일을 시대·인물·사건 키워드 카드와 매칭하면서
+      자주 놓치는 키워드를 자동으로 찾아드립니다.
+    </p>
+
+    <h2>왜 만들었나</h2>
+    <p>
+      한능검 학습의 본질은 <strong>"어떤 사실이 어느 키워드에 속하는지"</strong> 판별하는 능력.
+      그런데 시중 도구들은 단순 객관식 반복이라 사용자가 직접
+      "내가 어디서 약한지" 분석해야 했습니다.
+    </p>
+    <p>한국사매치는 풀이 기록을 자동 집계해서:</p>
+    <ul>
+      <li>자주 틀리는 키워드를 <strong>[취약 키워드]</strong> 탭에 모아 보여줍니다</li>
+      <li>시대별 학습 정도(정답률)를 한눈에 시각화합니다</li>
+      <li>약점 키워드가 등장하는 다른 출제 예시를 학습 힌트로 활용합니다</li>
+    </ul>
+
+    <h2>학습 흐름</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-body">
+          <strong>시대 선택</strong>
+          선사·고조선부터 현대까지 11개 시대 중 하나
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-body">
+          <strong>사실 카드 제시</strong>
+          정답 키워드가 가려진 사실문이 노출됨 (예: "**가 시행되었다")
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-body">
+          <strong>키워드 매칭</strong>
+          관련 키워드 카드를 탭해서 정답 제출
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-body">
+          <strong>즉시 피드백</strong>
+          정답·오답 결과와 함께 원문 노출. 길게 누르면 학습 힌트
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-body">
+          <strong>자동 약점 분석</strong>
+          세션 끝나면 정답률 + 자주 놓친 키워드가 자동 누적
+        </div>
+      </div>
+    </div>
+
+    <h2>데이터</h2>
+    <p>
+      한국사능력검정시험 공식 기출문제를 시대·키워드 단위로 분류하고
+      매칭 가능한 형태로 정제했습니다. 신규 회차는 시험 종료 후
+      1~2주 안에 추가됩니다. 잘못된 매칭이나 오류를 발견하시면
+      앱 내 <strong>[문제가 이상해요]</strong> 버튼으로 신고해주세요.
+    </p>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">무료인가요?</div>
+        <div class="faq-a">네, 광고도 없습니다. 회원가입 없이 즉시 시작.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">회원가입 필요한가요?</div>
+        <div class="faq-a">필요 없습니다. 풀이 기록은 이 기기 브라우저에만 저장됩니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">기본 / 심화 난이도 차이는?</div>
+        <div class="faq-a">설정에서 선택. 기본 = 평이한 디테일(난이도 ≤3)만, 심화 = 전체 디테일.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">모바일에서 앱처럼 쓸 수 있나요?</div>
+        <div class="faq-a">네, 홈 화면에 추가하면 PWA(Progressive Web App)로 작동합니다. 안드로이드 크롬은 설치 배너가 자동 노출되고, iOS는 공유 메뉴 → 홈 화면에 추가.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">새 회차 데이터는 언제 추가되나요?</div>
+        <div class="faq-a">한능검 시험 종료 후 1~2주 안에 추가하는 것을 목표로 합니다.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">문제 신고는 어떻게?</div>
+        <div class="faq-a">사실 매칭에서 [정답보기(포기)] 후 노출되는 [문제가 이상해요] 버튼, 또는 설정의 [문의사항/요청 보내기] 폼으로.</div>
+      </div>
+    </div>
+
+    <div class="footer-cta">
+      <div style="font-size: 16px; font-weight: 700; color: #f5f5f7;">지금 바로 시작</div>
+      <div style="margin-top: 6px; font-size: 13px; color: #b8b8d4;">로그인 없이 즉시 풀이 가능</div>
+      <a href="./" class="btn">한국사매치 열기 →</a>
+    </div>
+
+    <div class="meta">
+      한국사 자가진단 연구소 제작<br>
+      버전 1.0 · 2026년 제작<br>
+      contact: <a href="mailto:robotkiwi@gmail.com">robotkiwi@gmail.com</a>
+    </div>
+  </div>
+</body>
+</html>
