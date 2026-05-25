@@ -1657,6 +1657,7 @@
   <script src="sample_joseon.js"></script>
   <script src="sample_details.js"></script>
   <script src="sample_late_joseon.js"></script>
+  <script src="sample_prehistoric.js"></script>
   <script src="sample_exam.js"></script>
   <script>
     // ===== Persistent storage =====
@@ -3160,6 +3161,9 @@
         out.push(Object.assign({}, c, { era: cardEra(c), tags: aliasTags(c.tags) }));
       });
       (typeof LATE_JOSEON_DETAILS !== 'undefined' ? LATE_JOSEON_DETAILS : []).forEach(c => {
+        out.push(Object.assign({}, c, { era: cardEra(c), tags: aliasTags(c.tags) }));
+      });
+      (typeof PREHISTORIC_DETAILS !== 'undefined' ? PREHISTORIC_DETAILS : []).forEach(c => {
         out.push(Object.assign({}, c, { era: cardEra(c), tags: aliasTags(c.tags) }));
       });
       (typeof EXAM_DETAILS !== 'undefined' ? EXAM_DETAILS : []).forEach(c => {

@@ -18,6 +18,7 @@ const FILES = [
   { path: 'sample_joseon.js',     exports: ['JOSEON_SAMPLE'] },
   { path: 'sample_details.js',    exports: ['DETAILS_SAMPLE'] },
   { path: 'sample_late_joseon.js',exports: ['LATE_JOSEON_KEYWORDS', 'LATE_JOSEON_DETAILS'] },
+  { path: 'sample_prehistoric.js',exports: ['PREHISTORIC_DETAILS'] },
   { path: 'sample_exam.js',       exports: ['EXAM_KEYWORDS', 'EXAM_DETAILS'] },
 ];
 
@@ -111,6 +112,9 @@ loaded['sample_details.js'].DETAILS_SAMPLE.forEach(c => {
 });
 loaded['sample_late_joseon.js'].LATE_JOSEON_DETAILS.forEach(c => {
   details.push(normalize(c, 'detail', 'sample_late_joseon'));
+});
+loaded['sample_prehistoric.js'].PREHISTORIC_DETAILS.forEach(c => {
+  details.push(normalize(c, 'detail', 'sample_prehistoric'));
 });
 loaded['sample_exam.js'].EXAM_DETAILS.forEach(c => {
   details.push(normalize(c, 'detail', 'sample_exam'));
