@@ -1,0 +1,3250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>한국사 타임라인</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="한국사">
+  <!-- Defensive: unregister any service workers from previous tests so browser-sync live-reload always works -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister()));
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+
+  <!-- Google Analytics 4 — 측정 ID 발급 후 G-1X0C9G0LV7 부분만 교체 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1X0C9G0LV7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-1X0C9G0LV7');
+    // 헬퍼 — 측정 ID 미설정 시(`G-1X0C9G0LV7` 그대로)에는 no-op
+    window.trackEvent = function(name, params) {
+      if (typeof gtag === 'function') gtag('event', name, params || {});
+    };
+  </script>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body {
+      height: 100%;
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+      color: #f5f5f7;
+      overscroll-behavior: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+      min-height: 100vh;
+    }
+    .view {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+    .view.hidden { display: none; }
+
+    /* ===== Login View ===== */
+    .login-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 24px;
+    }
+    .login-title {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .login-subtitle {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #8b8ba7;
+      letter-spacing: 0.05em;
+    }
+    .social-buttons {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 300px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 16px;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.1s ease, filter 0.15s ease;
+    }
+    .social-btn:active { transform: scale(0.98); filter: brightness(0.95); }
+    .social-btn svg { flex-shrink: 0; }
+    .social-google {
+      background: #fff;
+      color: #1a1a2e;
+      border: 1px solid #dadce0;
+    }
+    .social-kakao {
+      background: #FEE500;
+      color: #3C1E1E;
+    }
+    .social-naver {
+      background: #03C75A;
+      color: #fff;
+    }
+    .login-note {
+      margin-top: 18px;
+      font-size: 11px;
+      color: #6c6c8a;
+    }
+
+    /* ===== Records View ===== */
+    .records-content {
+      padding: 16px 4px 8px;
+    }
+    .records-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .record-card {
+      background: linear-gradient(135deg, #2c3160 0%, #232946 100%);
+      border: 1px solid #393a5a;
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .record-card-label {
+      font-size: 11px;
+      color: #8b8ba7;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+    }
+    .record-card-value {
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 900;
+      color: #eebbc3;
+    }
+    .record-card-suffix {
+      font-size: 12px;
+      font-weight: 500;
+      color: #8b8ba7;
+      margin-left: 2px;
+    }
+    .icon-btn {
+      position: absolute;
+      right: 0;
+      top: 14px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #b8b8d4;
+      cursor: pointer;
+    }
+    .icon-btn:active { color: #eebbc3; }
+
+    /* ===== Settings View ===== */
+    .settings-content {
+      padding: 16px 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .setting-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      padding: 16px 18px;
+      background: #232946;
+      border: 1px solid #2c2f5a;
+      border-radius: 12px;
+      cursor: pointer;
+      font-family: inherit;
+      color: #f5f5f7;
+      text-align: left;
+      transition: background 0.15s ease;
+    }
+    .setting-row:active { background: #2a2f55; }
+    .setting-label { font-size: 16px; font-weight: 700; }
+    .setting-desc { font-size: 12px; color: #8b8ba7; }
+    .setting-row.danger .setting-label { color: #e74c3c; }
+    .setting-row-grid {
+      padding: 14px 18px;
+      background: #232946;
+      border: 1px solid #2c2f5a;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .setting-row-grid .setting-label { font-size: 13px; color: #b8b8d4; font-weight: 600; }
+    .round-size-row { display: flex; gap: 6px; }
+    .size-pill {
+      flex: 1;
+      padding: 8px 4px;
+      background: transparent;
+      border: 1px solid #393a5a;
+      border-radius: 8px;
+      color: #8b8ba7;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .size-pill.selected {
+      background: #2c3160;
+      border-color: #eebbc3;
+      color: #f5f5f7;
+    }
+
+    .setting-section-title {
+      margin-top: 18px;
+      padding: 4px 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #8b8ba7;
+      letter-spacing: 0.05em;
+    }
+    .cheat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cheat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: #1f2240;
+      border: 1px dashed #393a5a;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      color: #b8b8d4;
+      font-size: 13px;
+      transition: background 0.15s ease;
+    }
+    .cheat-row:active { background: #2a2f55; }
+    .cheat-era { font-weight: 600; color: #f5f5f7; }
+    .cheat-status { font-size: 11px; color: #8b8ba7; }
+    .cheat-status.done { color: #2ecc71; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .stat-box {
+      background: #232946;
+      border: 1px solid #2c2f5a;
+      border-radius: 12px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: #8b8ba7;
+      font-weight: 500;
+    }
+    .stat-value {
+      margin-top: 4px;
+      font-size: 24px;
+      font-weight: 900;
+    }
+    .stat-value.correct-color { color: #2ecc71; }
+    .stat-value.wrong-color { color: #e74c3c; }
+    .accuracy {
+      text-align: center;
+      font-size: 13px;
+      color: #8b8ba7;
+      margin-bottom: 14px;
+    }
+    .accuracy span {
+      color: #eebbc3;
+      font-weight: 700;
+      font-size: 18px;
+      margin-left: 4px;
+    }
+    .secondary-btn {
+      background: transparent;
+      color: #b8b8d4;
+      border: 1px solid #393a5a;
+      padding: 12px;
+      font-size: 14px;
+    }
+    .divider {
+      border-top: 1px solid #2c2f5a;
+      margin: 8px 4px 12px;
+    }
+
+    /* ===== Detail Match View (Level 2) ===== */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      padding: 4px 4px 8px;
+      position: sticky;
+      top: 0;
+      background: linear-gradient(180deg, #1a1a2e 0%, #1a1a2e 80%, rgba(26,26,46,0) 100%);
+      z-index: 10;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 10px 12px;
+      background: transparent;
+      border: 1px solid #2c2f5a;
+      border-radius: 10px;
+      color: #8b8ba7;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .tab-btn.active {
+      background: #2c3160;
+      border-color: #eebbc3;
+      color: #f5f5f7;
+    }
+    .tab-count {
+      font-size: 11px;
+      padding: 1px 6px;
+      background: rgba(238, 187, 195, 0.15);
+      color: #eebbc3;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .tab-btn:not(.active) .tab-count {
+      background: rgba(139, 139, 167, 0.15);
+      color: #8b8ba7;
+    }
+
+    .detail-progress {
+      text-align: center;
+      font-size: 12px;
+      color: #8b8ba7;
+      padding: 4px 0 8px;
+    }
+    .detail-timeline {
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px 0 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .detail-timeline::-webkit-scrollbar { width: 4px; }
+    .detail-timeline::-webkit-scrollbar-thumb { background: #2c2f5a; border-radius: 2px; }
+    .l2-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      margin: 0 4px;
+      background: #1f2240;
+      border: 1px solid #2c2f5a;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+    .l2-card:active { transform: scale(0.98); background: #2a2f55; }
+    .l2-card.l2-correct-flash {
+      background: #1e3a2a;
+      border-color: #2ecc71;
+    }
+    .l2-card.l2-giveup-highlight {
+      background: #3a1e1e;
+      border-color: #e74c3c;
+      color: #f0c8c8;
+    }
+    .l2-card.l2-wrong-flash {
+      animation: l2WrongShake 0.4s ease;
+    }
+    @keyframes l2WrongShake {
+      0%, 100% { transform: translateX(0); background: #1f2240; }
+      20%, 60% { transform: translateX(-6px); background: #3a1e1e; }
+      40%, 80% { transform: translateX(6px); background: #3a1e1e; }
+    }
+    .l2-type-badge {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #393a5a;
+      color: #b8b8d4;
+      min-width: 28px;
+      text-align: center;
+    }
+    .l2-card .l2-title {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f5f5f7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .l2-card .l2-year {
+      flex-shrink: 0;
+      font-size: 11px;
+      color: #6c6c8a;
+      font-weight: 500;
+    }
+    .l2-card .l2-detail-count {
+      flex-shrink: 0;
+      font-size: 10px;
+      color: #eebbc3;
+      background: rgba(238, 187, 195, 0.15);
+      padding: 2px 6px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+    .detail-question {
+      margin: 6px 0 0;
+    }
+    .detail-question .q-event {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+    /* L2 정답 reveal — 마스킹 해제된 원문에서 정답 키워드를 강조 */
+    .detail-question .l2-answer {
+      background: rgba(46, 204, 113, 0.35);
+      color: #1a1a2e;
+      font-weight: 900;
+      padding: 1px 6px;
+      margin: 0 1px;
+      border-radius: 4px;
+      box-shadow: 0 0 0 1px rgba(46, 204, 113, 0.55);
+    }
+    .detail-question.l2-gaveup-reveal .l2-answer {
+      background: rgba(231, 76, 60, 0.30);
+      box-shadow: 0 0 0 1px rgba(231, 76, 60, 0.55);
+    }
+
+    /* L2 1차 힌트 — 디테일 본문 아래에 추가 노출 (L1의 show-hint와 별개) */
+    .detail-question .q-hint.l2-hint {
+      display: none;
+      margin: 8px auto 0;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.4;
+      padding: 6px 12px;
+      background: rgba(26, 26, 46, 0.18);
+      color: #1a1a2e;
+      border-radius: 10px;
+      max-width: 95%;
+      text-align: left;
+    }
+    .detail-question.l2-hint-shown .q-hint.l2-hint { display: block; }
+    /* 디테일 카드는 클릭 대상이 아니지만 long-press 시각 피드백 */
+    .detail-question { cursor: pointer; -webkit-touch-callout: none; }
+
+    /* 포기 후 답 확인 단계 — 사용자가 직접 다음으로 이동 */
+    .l2-advance-btn { margin-top: 10px; }
+    /* 신고 버튼 — 포기 시 detailHint 자리에 노출. 다음 문제 버튼과 같은 크기, 흰 바탕에 빨간 글자.
+       .btn 규칙이 뒤에 선언돼서 specificity 같으면 source order로 이김 → .btn.l2-report-btn으로 강화. */
+    .btn.l2-report-btn {
+      background: #fff;
+      color: #e74c3c;
+      border: 1px solid rgba(231, 76, 60, 0.45);
+    }
+    .btn.l2-report-btn:active { background: #ffefef; }
+
+    /* Era item L2 — locked / available state */
+    .era-item.era-locked {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .era-item .era-l2-status {
+      font-size: 11px;
+      color: #8b8ba7;
+      margin-left: 8px;
+    }
+    .era-item.era-ready .era-l2-status { color: #2ecc71; }
+
+    /* Era row — card itself is the progress bar */
+    .era-row {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      min-height: 48px;
+      padding: 14px 18px;
+      background: #1f2240;
+      border: 1px solid #2c2f5a;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.1s ease, border-color 0.15s ease;
+    }
+    .era-row:active { transform: scale(0.99); }
+    .era-row.selected { border-color: #eebbc3; }
+    .era-row.era-locked { opacity: 0.45; pointer-events: none; }
+    .era-fill {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      background: rgba(46, 204, 113, 0.28);
+      transition: width 0.35s ease, background 0.3s ease;
+      z-index: 0;
+    }
+    .era-row.selected .era-fill { background: rgba(46, 204, 113, 0.40); }
+
+    /* 탭별 fill 색상 — 사실매칭도 녹색으로 통일 (이전 타임라인 색)
+       (timeline 모드 변경은 hidden 상태라 영향 없음) */
+    #view-era[data-era-tab="detail"] .era-fill,
+    #view-era[data-era-tab="timeline"] .era-fill { background: rgba(46, 204, 113, 0.28); }
+    #view-era[data-era-tab="detail"] .era-row.selected .era-fill,
+    #view-era[data-era-tab="timeline"] .era-row.selected .era-fill { background: rgba(46, 204, 113, 0.40); }
+
+    /* 탭별 컨테이너 전환: weak 탭이면 era-list 숨기고 weak-list 노출, footer(시작 버튼) 숨김 */
+    #view-era[data-era-tab="weak"] #eraList { display: none; }
+    #view-era[data-era-tab="weak"] #eraFooter { display: none; }
+    #view-era[data-era-tab="detail"] #weakList { display: none; }
+    #view-era[data-era-tab="weak"] #weakList { display: flex; }
+
+    /* 취약 키워드 탭 active 강조 (사실매칭과 다른 색) */
+    #view-era[data-era-tab="weak"] .era-tab-btn[data-era-tab="weak"].active {
+      background: rgba(231, 76, 60, 0.14);
+      border-color: rgba(231, 76, 60, 0.75);
+      color: #e74c3c;
+    }
+
+    /* weak-list — 취약 키워드 카드 목록 */
+    .weak-list {
+      flex-direction: column;
+      gap: 6px;
+      padding: 4px 4px 16px;
+      overflow-y: auto;
+    }
+    .weak-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: #1f2240;
+      border: 1px solid #2c2f5a;
+      border-radius: 10px;
+      cursor: pointer;
+      -webkit-touch-callout: none;
+    }
+    .weak-row:active { background: #2a2f55; }
+    .weak-row .weak-rank {
+      flex-shrink: 0;
+      width: 22px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #6c6c8a;
+      text-align: right;
+    }
+    .weak-row .l2-type-badge { /* 재사용 */ }
+    .weak-row .weak-title {
+      flex: 1;
+      font-size: 14px;
+      font-weight: 600;
+      color: #f5f5f7;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .weak-row .weak-era {
+      flex-shrink: 0;
+      font-size: 11px;
+      color: #8b8ba7;
+      font-weight: 500;
+    }
+    .weak-row .weak-count {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(231, 76, 60, 0.75);
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .weak-empty {
+      text-align: center;
+      color: #8b8ba7;
+      font-size: 13px;
+      padding: 40px 16px;
+      line-height: 1.5;
+    }
+
+    /* era-tab-bar: 탭바 자체에는 배경 fade 적용 안 함 (body가 그라데이션이라 깔끔하게 보이도록) */
+    .era-tab-bar {
+      background: transparent;
+      padding: 0 4px 10px;
+      position: static;
+    }
+    .era-tab-btn { padding: 12px 12px; font-size: 15px; }
+    /* 탭별 액티브 강조색 — 사실매칭/타임라인 모두 녹색 */
+    #view-era[data-era-tab="detail"] .era-tab-btn[data-era-tab="detail"].active,
+    #view-era[data-era-tab="timeline"] .era-tab-btn[data-era-tab="timeline"].active {
+      background: rgba(46, 204, 113, 0.14);
+      border-color: rgba(46, 204, 113, 0.85);
+      color: #7dd9a3;
+    }
+    .era-tab-btn { transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.15s ease; }
+    .era-tab-btn:active { transform: scale(0.97); }
+    .era-content {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .era-content .era-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f5f5f7;
+    }
+    .era-content .era-pct {
+      font-size: 13px;
+      font-weight: 700;
+      color: #f5f5f7;
+      opacity: 0.85;
+    }
+    .era-content .era-pct.empty { color: #6c6c8a; font-weight: 500; }
+    .era-content .era-lock {
+      font-size: 12px;
+      color: #8b8ba7;
+      margin-left: 6px;
+    }
+    .era-active-badge {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      background: #eebbc3;
+      color: #1a1a2e;
+      border-radius: 10px;
+      margin-left: 8px;
+      margin-right: 4px;
+    }
+    .era-content .era-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .era-menu-btn {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8b8ba7;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-left: 6px;
+      transition: color 0.15s ease, background 0.15s ease;
+      letter-spacing: 1px;
+    }
+    .era-menu-btn:active { color: #eebbc3; background: rgba(255,255,255,0.06); }
+
+    /* ===== Mode toggle (era view) ===== */
+    .mode-row {
+      display: flex;
+      gap: 8px;
+      padding: 4px 4px 4px;
+    }
+    .mode-pill {
+      flex: 1;
+      padding: 11px;
+      background: transparent;
+      border: 1px solid #393a5a;
+      border-radius: 10px;
+      color: #8b8ba7;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .mode-pill.selected {
+      background: #2c3160;
+      border-color: #eebbc3;
+      color: #f5f5f7;
+    }
+
+    /* ===== Menu View ===== */
+    .menu-header {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 16px;
+    }
+    .menu-title {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #f5f5f7;
+    }
+    .menu-subtitle {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #8b8ba7;
+      letter-spacing: 0.05em;
+    }
+    .menu-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 0 4px 24px;
+    }
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 22px 24px;
+      font-family: inherit;
+      font-size: 22px;
+      font-weight: 700;
+      color: #f5f5f7;
+      background: #232946;
+      border: 1px solid #2c2f5a;
+      border-radius: 18px;
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.2s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .menu-btn:active {
+      transform: scale(0.98);
+      background: #2a2f55;
+    }
+    .menu-btn .arrow { color: #eebbc3; font-size: 22px; font-weight: 400; }
+    .menu-btn .label-sub {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #8b8ba7;
+      letter-spacing: 0.02em;
+    }
+
+    /* ===== Game View ===== */
+    .game-header {
+      position: relative;
+      padding: 18px 4px 16px;
+      text-align: center;
+    }
+    .back-btn {
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #b8b8d4;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .back-btn:active { color: #eebbc3; }
+    .score-display {
+      position: absolute;
+      right: 0;
+      top: 16px;
+      padding: 5px 12px;
+      background: #393a5a;
+      color: #eebbc3;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 12px;
+      min-width: 36px;
+      text-align: center;
+      transition: transform 0.2s ease, background 0.4s ease;
+    }
+    .score-display.delta-up {
+      animation: scoreUp 0.5s ease;
+    }
+    .score-display.delta-down {
+      animation: scoreDown 0.5s ease;
+    }
+    @keyframes scoreUp {
+      0%, 40% { background: #2ecc71; color: #fff; transform: scale(1.18); }
+      100% { background: #393a5a; color: #eebbc3; transform: scale(1); }
+    }
+    @keyframes scoreDown {
+      0%, 40% { background: #e74c3c; color: #fff; transform: scale(1.18); }
+      100% { background: #393a5a; color: #eebbc3; transform: scale(1); }
+    }
+
+    .progress-counter {
+      position: absolute;
+      right: 0;
+      top: 16px;
+      padding: 5px 12px;
+      background: #2c2f5a;
+      color: #b8b8d4;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 12px;
+      min-width: 50px;
+      text-align: center;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 정답·포기로 추가된 카드의 연도 prefix */
+    .bg-card .bg-year {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      color: #8b8ba7;
+      margin-right: 8px;
+      font-variant-numeric: tabular-nums;
+    }
+    .bg-card.inserted.correct .bg-year { color: #7dd9a3; }
+    .bg-card.inserted.gave-up .bg-year { color: #b8b8d4; }
+    .bg-card .bg-title {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .era-intro {
+      text-align: center;
+      font-size: 13px;
+      color: #8b8ba7;
+      padding: 6px 0 16px;
+    }
+    .era-list {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 0 4px 16px;
+      overflow-y: auto;
+    }
+    .era-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #232946;
+      border: 1.5px solid #2c2f5a;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.1s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .era-item:active { transform: scale(0.98); }
+    .era-item.selected {
+      background: #2c3160;
+      border-color: #eebbc3;
+    }
+    .era-item.era-exhausted {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .era-name { font-size: 17px; font-weight: 700; }
+    .era-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8b8ba7;
+      background: #1a1a2e;
+      padding: 4px 10px;
+      border-radius: 10px;
+    }
+    .era-item.selected .era-count {
+      color: #eebbc3;
+      background: #1a1a2e;
+    }
+    .title {
+      font-size: 13px;
+      font-weight: 500;
+      color: #8b8ba7;
+      letter-spacing: 0.1em;
+    }
+    .question {
+      margin-top: 6px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #f5f5f7;
+    }
+    .progress {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #6c6c8a;
+    }
+    .cards {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 4px 0 16px;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 14px 16px 18px;
+      background: #232946;
+      border: 1px solid #2c2f5a;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      cursor: grab;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .card:active { cursor: grabbing; }
+    .card.sortable-chosen {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      border-color: #eebbc3;
+    }
+    .card.sortable-ghost { opacity: 0.4; }
+    .card.correct { background: #1e3a2a; border-color: #2ecc71; }
+    .card.wrong { background: #3a1e1e; border-color: #e74c3c; }
+    .order-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #393a5a;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 700;
+      color: #eebbc3;
+    }
+    .event-text { flex: 1; font-size: 16px; font-weight: 500; line-height: 1.4; }
+    .year-reveal {
+      flex-shrink: 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: #b8b8d4;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .year-reveal.show { opacity: 1; }
+    .grip {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      opacity: 0.4;
+      color: #b8b8d4;
+    }
+    .footer { padding: 12px 0 8px; }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a2e;
+      background: #eebbc3;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.1s ease, opacity 0.2s ease;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.5; }
+    .result {
+      text-align: center;
+      padding: 12px;
+      margin-bottom: 8px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      min-height: 0;
+    }
+    .result.correct { background: rgba(46, 204, 113, 0.15); color: #2ecc71; }
+    .result.wrong { background: rgba(231, 76, 60, 0.15); color: #e74c3c; }
+    .hidden { display: none; }
+
+    /* ===== Year Game View ===== */
+    .question-card {
+      margin: 10px 0 6px;
+      padding: 20px 20px;
+      background: linear-gradient(135deg, #eebbc3 0%, #f5cbd1 100%);
+      border-radius: 18px;
+      box-shadow: 0 6px 20px rgba(238, 187, 195, 0.25);
+      color: #1a1a2e;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      -webkit-touch-callout: none;
+      transition: transform 0.1s ease, opacity 0.25s ease;
+    }
+    .q-desc {
+      display: none;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: rgba(26, 26, 46, 0.82);
+      padding: 2px 6px;
+      max-width: 95%;
+      margin: 0 auto;
+    }
+    .q-hint {
+      display: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 3px 10px;
+      margin: 0 auto;
+      background: rgba(26, 26, 46, 0.12);
+      border-radius: 10px;
+      width: fit-content;
+    }
+    .question-card.show-desc .q-label { display: none; }
+    .question-card.show-desc .q-desc { display: block; }
+    .question-card.show-hint .q-label,
+    .question-card.show-hint .q-desc { display: none; }
+    .question-card.show-hint .q-hint { display: block; }
+    .question-card:active { transform: scale(0.97); }
+    .question-card.hidden { display: none; }
+    .question-card.shake {
+      animation: qshake 0.45s ease-in-out;
+      background: linear-gradient(135deg, #e74c3c 0%, #ff6b5e 100%);
+      color: #fff;
+    }
+    @keyframes qshake {
+      0%, 100% { transform: translateX(0); }
+      15%, 55% { transform: translateX(-10px); }
+      30%, 70% { transform: translateX(10px); }
+      85% { transform: translateX(-4px); }
+    }
+    .q-label {
+      font-size: 12px;
+      font-weight: 500;
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+    }
+    .q-event {
+      margin-top: 6px;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+    .timeline-area {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+      margin: 0 -4px;
+      overflow: hidden;
+    }
+    .timeline-scroll {
+      height: 100%;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scroll-padding-top: 50%;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .timeline-scroll::-webkit-scrollbar { display: none; }
+    .timeline-spacer { height: 50%; pointer-events: none; }
+    .bg-card {
+      height: 36px;
+      padding: 0 18px;
+      margin: 0 4px 4px;
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: #b8b8d4;
+      background: #1f2240;
+      border: 1px solid #2c2f5a;
+      border-radius: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .bg-card.snap { scroll-snap-align: start; }
+    .bg-card.sentinel { visibility: hidden; pointer-events: none; }
+    .bg-card.inserted {
+      background: #2c2f5a;
+      color: #f5f5f7;
+      border-color: #eebbc3;
+    }
+    .bg-card.inserted.correct { background: #1e3a2a; border-color: #2ecc71; color: #c8f0d4; }
+    .bg-card.inserted.wrong { background: #3a1e1e; border-color: #e74c3c; color: #f0c8c8; }
+    .bg-card.inserted.gave-up { background: #2a2c45; border-color: #6c6c8a; color: #8b8ba7; font-style: italic; }
+    .insertion-line {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      right: 8px;
+      height: 0;
+      border-top: 2px solid #e74c3c;
+      box-shadow: 0 0 12px rgba(231, 76, 60, 0.6);
+      pointer-events: none;
+      z-index: 5;
+      transform: translateY(-3px);
+    }
+    .insertion-line::before,
+    .insertion-line::after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      width: 8px;
+      height: 8px;
+      background: #e74c3c;
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(231, 76, 60, 0.8);
+    }
+    .insertion-line::before { left: -4px; }
+    .insertion-line::after { right: -4px; }
+    .gap-label {
+      position: absolute;
+      top: -28px;
+      right: 0;
+      padding: 3px 10px;
+      background: #e74c3c;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+    .year-footer { padding: 14px 0 8px; text-align: center; }
+    .hint {
+      font-size: 13px;
+      color: #8b8ba7;
+      padding: 12px 0;
+    }
+    .hint.correct { color: #2ecc71; font-weight: 700; }
+    .hint.wrong { color: #e74c3c; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <!-- ============ LOGIN VIEW ============ -->
+  <div class="view" id="view-login">
+    <div class="login-content">
+      <div class="login-title">한국사 타임라인</div>
+      <div class="login-subtitle">한국사 능력시험 학습</div>
+      <div class="social-buttons">
+        <button class="social-btn social-google" data-provider="google">
+          <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="#4285F4" d="M17.64 9.205c0-.639-.057-1.252-.164-1.841H9v3.481h4.844a4.14 4.14 0 01-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/>
+            <path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z"/>
+            <path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 013.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 000 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/>
+            <path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/>
+          </svg>
+          <span>Google로 계속하기</span>
+        </button>
+        <button class="social-btn social-kakao" data-provider="kakao">
+          <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="#3C1E1E">
+            <path d="M9 1C4.582 1 1 3.806 1 7.27c0 2.243 1.504 4.21 3.755 5.32-.166.61-.594 2.18-.685 2.52-.111.42.156.42.327.305.135-.09 2.135-1.45 2.997-2.034.526.077 1.066.118 1.606.118 4.418 0 8-2.806 8-6.27S13.418 1 9 1z"/>
+          </svg>
+          <span>카카오로 계속하기</span>
+        </button>
+        <button class="social-btn social-naver" data-provider="naver">
+          <svg width="14" height="14" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="#fff">
+            <path d="M16.273 12.845L7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845z"/>
+          </svg>
+          <span>네이버로 계속하기</span>
+        </button>
+      </div>
+      <div class="login-note">데모용 — 어느 버튼을 눌러도 진입합니다</div>
+    </div>
+  </div>
+
+  <!-- ============ RECORDS / MAIN MENU ============ -->
+  <div class="view hidden" id="view-records">
+    <div class="game-header">
+      <button class="back-btn" data-action="back">←</button>
+      <div class="title">내 기록</div>
+      <button class="icon-btn" id="settingsBtn" aria-label="설정">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0014 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+      </button>
+    </div>
+    <div class="records-content">
+      <div class="records-cards">
+        <div class="record-card">
+          <div class="record-card-label">나의 레벨</div>
+          <div class="record-card-value" id="levelValue">측정 중</div>
+        </div>
+        <div class="record-card">
+          <div class="record-card-label">최근 평균</div>
+          <div class="record-card-value"><span id="avgValue">—</span><span class="record-card-suffix">점</span></div>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-box"><div class="stat-label">푼 문제</div><div class="stat-value" id="statSeen">0</div></div>
+        <div class="stat-box"><div class="stat-label">정답</div><div class="stat-value correct-color" id="statCorrect">0</div></div>
+        <div class="stat-box"><div class="stat-label">오답</div><div class="stat-value wrong-color" id="statWrong">0</div></div>
+        <div class="stat-box"><div class="stat-label">포기</div><div class="stat-value" id="statGaveUp">0</div></div>
+      </div>
+      <div class="accuracy">전체 정답률 <span id="statAccuracy">—</span></div>
+    </div>
+    <div class="divider"></div>
+    <div class="menu-buttons">
+      <button class="menu-btn" data-mode="year">
+        <span>Level 1 · 연도<span class="label-sub">키워드 카드를 연도순으로 배치</span></span>
+        <span class="arrow">→</span>
+      </button>
+      <button class="menu-btn" data-mode="event">
+        <span>사건 정렬<span class="label-sub">5개 사건을 시간순으로 드래그 정렬</span></span>
+        <span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ LEVEL 2 ERA SELECT ============ -->
+  <div class="view hidden" id="view-era-l2">
+    <div class="game-header">
+      <button class="back-btn" data-action="back">←</button>
+      <div class="title">디테일 매칭 — 시대 선택</div>
+      <div class="score-display" id="eraL2Score">0</div>
+    </div>
+    <div class="era-intro">단일 시대를 선택하세요. Level 1 키워드 학습이 완료되어야 매칭 가능합니다.</div>
+    <div class="era-list" id="eraL2List"></div>
+  </div>
+
+  <!-- ============ DETAIL MATCH GAME VIEW ============ -->
+  <div class="view hidden" id="view-detail">
+    <div class="game-header">
+      <button class="back-btn" data-action="back">←</button>
+      <div class="title" id="detailTitle">조선시대</div>
+      <div class="score-display" id="detailScore">0</div>
+    </div>
+
+    <div class="detail-progress" id="detailProgress">문제 0/0</div>
+    <div class="detail-timeline" id="detailTimeline"></div>
+
+    <div class="year-footer">
+      <div class="hint" id="detailHint">아래 디테일과 관련 있는 키워드 카드를 탭하세요</div>
+      <button class="btn l2-report-btn hidden" id="l2ReportBtn">문제가 이상해요</button>
+      <div class="question-card detail-question hidden" id="detailQuestionCard">
+        <div class="q-label" id="detailQLabel">이 사실은 어느 키워드와 관련 있을까요?</div>
+        <div class="q-event" id="detailQText">…</div>
+        <div class="q-hint l2-hint" id="detailQHint"></div>
+      </div>
+      <button class="btn l2-advance-btn hidden" id="l2AdvanceBtn">다음 문제 →</button>
+    </div>
+  </div>
+
+  <!-- ============ SETTINGS VIEW ============ -->
+  <div class="view hidden" id="view-settings">
+    <div class="game-header">
+      <button class="back-btn" data-action="back">←</button>
+      <div class="title">설정</div>
+    </div>
+    <div class="settings-content">
+      <button class="setting-row" id="helpBtn">
+        <span class="setting-label">사용법 안내</span>
+        <span class="setting-desc">탭·길게 누르기 등 조작 방법</span>
+      </button>
+
+      <div class="setting-section-title">풀이 옵션</div>
+      <div class="setting-row-grid">
+        <div class="setting-label">풀이 모드</div>
+        <div class="mode-row">
+          <button class="mode-pill selected" data-quiz-mode="normal">일반 풀이</button>
+          <button class="mode-pill" data-quiz-mode="review">오답 위주</button>
+        </div>
+      </div>
+      <div class="setting-row-grid">
+        <div class="setting-label">난이도</div>
+        <div class="mode-row">
+          <button class="mode-pill" data-difficulty-tier="기본">기본</button>
+          <button class="mode-pill selected" data-difficulty-tier="심화">심화</button>
+        </div>
+        <div class="setting-desc">기본 = 평이한 디테일(난이도 ≤3)만 / 심화 = 전체</div>
+      </div>
+      <div class="setting-row-grid">
+        <div class="setting-label">한 라운드 문제 수</div>
+        <div class="round-size-row" id="roundSizeRow">
+          <button class="size-pill" data-round-size="5">5</button>
+          <button class="size-pill" data-round-size="10">10</button>
+          <button class="size-pill selected" data-round-size="20">20</button>
+          <button class="size-pill" data-round-size="30">30</button>
+          <button class="size-pill" data-round-size="50">50</button>
+        </div>
+      </div>
+
+      <div class="setting-section-title">데이터</div>
+      <div class="setting-row-grid">
+        <div class="setting-label">로드된 카드</div>
+        <div class="setting-desc" id="dataCountInfo">—</div>
+      </div>
+
+      <div class="setting-section-title">다른 모드 / 기록</div>
+      <button class="setting-row" id="goRecordsBtn">
+        <span class="setting-label">내 기록 보기</span>
+        <span class="setting-desc">점수·통계·레벨 확인</span>
+      </button>
+      <button class="setting-row" id="goEventBtn">
+        <span class="setting-label">사건 정렬</span>
+        <span class="setting-desc">5개 사건을 시간순으로 드래그 정렬</span>
+      </button>
+
+      <div class="setting-section-title">계정 / 데이터</div>
+      <button class="setting-row" id="settingsLogout">
+        <span class="setting-label">로그아웃</span>
+        <span class="setting-desc">시작 화면으로 돌아갑니다</span>
+      </button>
+      <button class="setting-row danger" id="settingsReset">
+        <span class="setting-label">기록 초기화</span>
+        <span class="setting-desc">모든 점수와 풀이 기록을 삭제합니다</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ============ GAME VIEW (event sort) ============ -->
+  <div class="view hidden" id="view-event">
+    <div class="game-header">
+      <button class="back-btn" data-action="back">←</button>
+      <div class="title">사건 정렬</div>
+      <div class="question">사건들을 일어난 순서대로 정렬하세요</div>
+      <div class="progress" id="progress">개항기 · 1라운드</div>
+    </div>
+    <div class="cards" id="cards"></div>
+    <div class="footer">
+      <div class="result hidden" id="result"></div>
+      <button class="btn" id="actionBtn">채점하기</button>
+    </div>
+  </div>
+
+  <!-- ============ ERA SELECT VIEW (메인 화면) ============ -->
+  <div class="view hidden" id="view-era" data-era-tab="detail">
+    <div class="game-header">
+      <div class="title">시대별 최근 정답율</div>
+      <button class="icon-btn" id="eraSettingsBtn" aria-label="설정">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0014 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+      </button>
+    </div>
+    <div class="tab-bar era-tab-bar">
+      <button class="tab-btn era-tab-btn active" data-era-tab="detail">사실 매칭</button>
+      <button class="tab-btn era-tab-btn" data-era-tab="weak">취약 키워드</button>
+    </div>
+    <div class="era-intro" id="eraIntro"></div>
+    <div class="era-list" id="eraList"></div>
+    <div class="weak-list hidden" id="weakList"></div>
+    <div class="footer" id="eraFooter">
+      <button class="btn" id="eraStartBtn" disabled>시대를 선택해주세요</button>
+    </div>
+  </div>
+
+  <!-- ============ GAME VIEW (year insert) ============ -->
+  <div class="view hidden" id="view-year">
+    <div class="game-header">
+      <button class="back-btn" data-action="back">←</button>
+      <div class="title">연도 맞추기</div>
+      <div class="progress-counter" id="progressCounter">0/0</div>
+    </div>
+
+    <div class="timeline-area">
+      <div class="timeline-scroll" id="timeline"></div>
+      <div class="insertion-line">
+        <div class="gap-label" id="gapLabel"></div>
+      </div>
+    </div>
+
+    <div class="year-footer">
+      <div class="hint" id="yearHint">스크롤로 위치를 맞춘 뒤<br>아래 카드를 탭하세요</div>
+      <div class="question-card" id="questionCard">
+        <div class="q-label" id="qLabel">언제 일어났을까요?</div>
+        <div class="q-desc" id="qDesc"></div>
+        <div class="q-hint" id="qHint"></div>
+        <div class="q-event" id="questionEvent">고려 건국</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="sample_joseon.js"></script>
+  <script src="sample_details.js"></script>
+  <script src="sample_late_joseon.js"></script>
+  <script src="sample_exam.js"></script>
+  <script>
+    // ===== Persistent storage =====
+    // Wraps localStorage. Future swap to server API only changes this module.
+    const QuizStore = {
+      KEY: 'history_quiz_v1',
+      _data: null,
+      _default() {
+        return {
+          version: 1, stats: {}, totalScore: 0, history: [],
+          settings: { quizMode: 'normal', roundSize: 20, difficultyTier: '심화' },
+        };
+      },
+      getSettings() {
+        if (!this._data.settings) this._data.settings = { quizMode: 'normal', roundSize: 20, difficultyTier: '심화' };
+        if (!this._data.settings.difficultyTier) this._data.settings.difficultyTier = '심화';
+        return this._data.settings;
+      },
+      setSetting(key, value) {
+        this.getSettings()[key] = value;
+        this.save();
+      },
+      // 진행 중인 라운드 (시대 + 풀이한 문제 리스트) — 중간 종료/재진입 시 복원용
+      getActiveRound() { return this._data.activeRound || null; },
+      setActiveRound(round) { this._data.activeRound = round; this.save(); },
+      clearActiveRound() {
+        if (this._data.activeRound) {
+          delete this._data.activeRound;
+          this.save();
+        }
+      },
+      pushActiveResolved(entry) {
+        if (!this._data.activeRound) return;
+        if (!this._data.activeRound.resolved) this._data.activeRound.resolved = [];
+        this._data.activeRound.resolved.push(entry);
+        this.save();
+      },
+      HISTORY_CAP: 500,
+      RECENT_WINDOW: 50,
+      load() {
+        try {
+          const raw = localStorage.getItem(this.KEY);
+          this._data = raw ? JSON.parse(raw) : this._default();
+        } catch {
+          this._data = this._default();
+        }
+      },
+      save() {
+        try { localStorage.setItem(this.KEY, JSON.stringify(this._data)); } catch {}
+      },
+      _newStat() {
+        return { seen: 0, correct: 0, wrong: 0, gaveUp: 0, lastResult: null, lastHadWrong: false, lastSeen: 0 };
+      },
+      getStats(title) {
+        return this._data.stats[title] || this._newStat();
+      },
+      recordWrongAttempt(title) {
+        const s = this._data.stats[title] || this._newStat();
+        s.wrong++;
+        this._data.stats[title] = s;
+        this.save();
+      },
+      _logResolution(title, result, attempts) {
+        if (!this._data.history) this._data.history = [];
+        this._data.history.push({ title, time: Date.now(), result, attempts });
+        if (this._data.history.length > this.HISTORY_CAP) {
+          this._data.history = this._data.history.slice(-this.HISTORY_CAP);
+        }
+      },
+      resolveCorrect(title, attempts) {
+        const s = this._data.stats[title] || this._newStat();
+        s.seen++;
+        s.correct++;
+        s.lastResult = 'correct';
+        s.lastHadWrong = attempts > 0;
+        s.lastSeen = Date.now();
+        this._data.stats[title] = s;
+        this._logResolution(title, 'correct', attempts);
+        this.save();
+      },
+      resolveGaveUp(title, attempts) {
+        const s = this._data.stats[title] || this._newStat();
+        s.seen++;
+        s.gaveUp++;
+        s.lastResult = 'gaveUp';
+        s.lastHadWrong = false;
+        s.lastSeen = Date.now();
+        this._data.stats[title] = s;
+        this._logResolution(title, 'gaveUp', attempts);
+        this.save();
+      },
+      // Level 2 detail-match attempt (one row per tap, success or fail).
+      // gaveUp=true → giveUpL2에서 호출 (포기 구분용. tappedKeywordId는 정답 키워드로 저장)
+      recordL2Match(detailId, tappedKeywordId, isCorrect, attempts, hintsUsed, gaveUp = false) {
+        if (!this._data.history) this._data.history = [];
+        const entry = {
+          kind: 'l2', detailId, tappedKeywordId, isCorrect,
+          attempts, hintsUsed, time: Date.now(),
+        };
+        if (gaveUp) entry.gaveUp = true;
+        this._data.history.push(entry);
+        if (this._data.history.length > this.HISTORY_CAP) {
+          this._data.history = this._data.history.slice(-this.HISTORY_CAP);
+        }
+        this.save();
+      },
+      // L2: which details have been correctly matched (set of detail IDs)
+      getL2MatchedDetailIds() {
+        const matched = new Set();
+        (this._data.history || []).forEach(h => {
+          if (h.kind === 'l2' && h.isCorrect) matched.add(h.detailId);
+        });
+        return matched;
+      },
+      getTotalScore() { return this._data.totalScore || 0; },
+      setTotalScore(v) { this._data.totalScore = v; this.save(); },
+      getSummary() {
+        let seen = 0, correct = 0, wrong = 0, gaveUp = 0;
+        for (const s of Object.values(this._data.stats)) {
+          seen += s.seen; correct += s.correct; wrong += s.wrong; gaveUp += s.gaveUp;
+        }
+        return { seen, correct, wrong, gaveUp };
+      },
+      needsReview(title) {
+        const s = this._data.stats[title];
+        if (!s) return false;
+        return s.lastResult === 'gaveUp' || (s.lastResult === 'correct' && s.lastHadWrong);
+      },
+      // Per-resolution score: 정답 무오답=100, 정답 오답있음=50 (시도수와 무관), 포기=0
+      _scoreOf(entry) {
+        if (entry.result === 'gaveUp') return 0;
+        return entry.attempts > 0 ? 50 : 100;
+      },
+      // 최근 N개 평균 점수 (0~100). 데이터 부족시 null.
+      getRecentAverage(n) {
+        const hist = this._data.history || [];
+        if (hist.length === 0) return null;
+        const window = hist.slice(-Math.min(n || this.RECENT_WINDOW, hist.length));
+        const sum = window.reduce((a, e) => a + this._scoreOf(e), 0);
+        return Math.round(sum / window.length);
+      },
+      // 최근 평균을 한국사 능력시험 등급으로 매핑. 데이터 부족시 null.
+      getLevel() {
+        const hist = this._data.history || [];
+        if (hist.length < 10) return null; // 측정 신뢰성 확보
+        const avg = this.getRecentAverage(this.RECENT_WINDOW);
+        if (avg >= 90) return '심화 1급';
+        if (avg >= 80) return '심화 2급';
+        if (avg >= 70) return '심화 3급';
+        if (avg >= 60) return '기본 1급';
+        if (avg >= 50) return '기본 2급';
+        return '기본 3급';
+      },
+      reset() {
+        this._data = this._default();
+        this.save();
+      },
+    };
+    QuizStore.load();
+
+    // 세분 시대별 startYear/endYear 범위 — 타임라인 기준 카드 동적 생성에 사용
+    const ERA_RANGES = {
+      '선사·고조선':     { start: -10000, end: -100 },  // 신석기 ~ 고조선 멸망
+      '삼국시대':        { start: -57,    end: 668  },
+      '통일신라·발해':   { start: 676,    end: 935  },
+      '고려 전기':       { start: 918,    end: 1170 },
+      '고려 후기':       { start: 1170,   end: 1392 },
+      '조선 전기':       { start: 1392,   end: 1500 },
+      '조선 중기':       { start: 1500,   end: 1700 },
+      '조선 후기':       { start: 1700,   end: 1876 },
+      '개항기':          { start: 1876,   end: 1910 },
+      '일제강점기':      { start: 1910,   end: 1945 },
+      '현대':            { start: 1945,   end: 2025 },
+    };
+
+    // 선택된 시대 합집합 범위를 5개 영역으로 분할 = 6개 기준 카드 생성
+    function computeReferenceCards(selectedErasSet) {
+      if (!selectedErasSet || selectedErasSet.size === 0) return INITIAL_BG;
+      let minStart = Infinity, maxEnd = -Infinity;
+      for (const era of selectedErasSet) {
+        const r = ERA_RANGES[era];
+        if (!r) continue;
+        if (r.start < minStart) minStart = r.start;
+        if (r.end > maxEnd) maxEnd = r.end;
+      }
+      if (minStart === Infinity) return INITIAL_BG;
+      const total = maxEnd - minStart;
+      const step = total / 5;
+      const cards = [];
+      for (let i = 0; i <= 5; i++) {
+        let y;
+        if (i === 0) y = minStart;                 // 시작은 그대로
+        else if (i === 5) y = maxEnd;              // 끝도 그대로
+        else y = Math.round((minStart + step * i) / 10) * 10; // 중간은 10의 자리 반올림
+        cards.push({
+          title: formatYear(y),
+          description: '',
+          startYear: y,
+          endYear: y,
+        });
+      }
+      return cards;
+    }
+
+    // ===== Era partition helper =====
+    // 카드의 raw era 필드를 ERAS의 세분 시대로 매핑. 데이터는 안 건드리고 표시·필터 시점에만 적용.
+    // 조선시대/근대 raw era는 startYear 기준으로 동일 매핑 — 1876(강화도 조약) 경계 일관.
+    // (이전엔 raw='근대' + 1866 같은 사건이 개항기로 빠져 같은 사건의 조선시대/근대 분류 카드가 다른 era로 갈라짐)
+    function cardEra(card) {
+      if (!card) return null;
+      const y = card.startYear;
+      switch (card.era) {
+        case '선사시대':
+        case '고조선':
+          return '선사·고조선';
+        case '삼국시대':
+          return '삼국시대';
+        case '신라시대':
+          return '통일신라·발해';
+        case '고려시대':
+          return y < 1170 ? '고려 전기' : '고려 후기';
+        case '조선시대':
+        case '근대':
+          // 1876(강화도 조약) 이전 = 조선 후기까지, 이후 = 개항기/일제강점기/현대
+          if (y < 1500) return '조선 전기';
+          if (y < 1700) return '조선 중기';
+          if (y < 1876) return '조선 후기';
+          if (y < 1910) return '개항기';
+          if (y < 1945) return '일제강점기';
+          return '현대';
+        case '현대':
+          return '현대';
+        default:
+          return card.era;
+      }
+    }
+
+    // ===== Router =====
+    function showView(id) {
+      document.querySelectorAll('.view').forEach(v => v.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    // ===== Login flow =====
+    // No real OAuth — any social button just proceeds directly to era selection.
+    document.querySelectorAll('.social-btn').forEach(btn => {
+      btn.addEventListener('click', () => enterYearMode());
+    });
+
+    function showRecordsView() {
+      refreshRecordsView();
+      showView('view-records');
+    }
+
+    function refreshRecordsView() {
+      const sum = QuizStore.getSummary();
+      document.getElementById('statSeen').textContent = sum.seen;
+      document.getElementById('statCorrect').textContent = sum.correct;
+      document.getElementById('statWrong').textContent = sum.wrong;
+      document.getElementById('statGaveUp').textContent = sum.gaveUp;
+      const acc = sum.seen > 0 ? Math.round(sum.correct / sum.seen * 100) + '%' : '—';
+      document.getElementById('statAccuracy').textContent = acc;
+      const level = QuizStore.getLevel();
+      document.getElementById('levelValue').textContent = level || '측정 중';
+      const avg = QuizStore.getRecentAverage();
+      document.getElementById('avgValue').textContent = avg == null ? '—' : avg;
+    }
+
+    // ===== Settings =====
+    function refreshDataCountInfo() {
+      const el = document.getElementById('dataCountInfo');
+      if (!el) return;
+      const kw = allPrimaryCards().length;
+      const dt = allDetailCards().length;
+      const dtBasic = allDetailCards().filter(d => (d.difficulty || 3) <= 3).length;
+      el.innerHTML = `키워드 <strong>${kw}</strong>개 · 디테일 <strong>${dt}</strong>개 (기본 ${dtBasic} / 심화 +${dt - dtBasic})`;
+    }
+    document.getElementById('settingsBtn').addEventListener('click', () => {
+      refreshDataCountInfo();
+      showView('view-settings');
+    });
+    document.getElementById('settingsReset').addEventListener('click', () => {
+      if (!confirm('모든 점수와 풀이 기록이 삭제됩니다. 계속할까요?')) return;
+      QuizStore.reset();
+      yearScore = 0;
+      nextMilestone = 100;
+      refreshRecordsView();
+      showRecordsView();
+    });
+    document.getElementById('settingsLogout').addEventListener('click', () => {
+      showView('view-login');
+    });
+
+    // ===== Menu (in records view) =====
+    document.querySelectorAll('.menu-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const mode = btn.dataset.mode;
+        if (mode === 'event') {
+          showView('view-event');
+          startEventGame();
+        } else if (mode === 'year') {
+          enterYearMode();
+        } else if (mode === 'detail') {
+          enterDetailMode();
+        }
+      });
+    });
+
+    // Back navigation: each view has a specific "back to" target.
+    document.querySelectorAll('[data-action="back"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const parent = btn.closest('.view');
+        if (!parent) return;
+        if (parent.id === 'view-year') showEraSelection();
+        else if (parent.id === 'view-detail') showEraSelection();
+        else if (parent.id === 'view-era-l2' || parent.id === 'view-event') showEraSelection();
+        else if (parent.id === 'view-settings') showEraSelection();
+        else if (parent.id === 'view-records') showEraSelection();
+        else showEraSelection();
+      });
+    });
+
+
+    // ===== Quiz mode toggle (normal vs review) — 설정 화면에 위치 =====
+    // .mode-pill 클래스를 난이도 버튼과 공유하므로 selector를 [data-quiz-mode]로 좁힘
+    let currentQuizMode = QuizStore.getSettings().quizMode || 'normal';
+    function applyQuizModeUI() {
+      document.querySelectorAll('[data-quiz-mode]').forEach(b => {
+        b.classList.toggle('selected', b.dataset.quizMode === currentQuizMode);
+      });
+    }
+    document.querySelectorAll('[data-quiz-mode]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentQuizMode = btn.dataset.quizMode;
+        QuizStore.setSetting('quizMode', currentQuizMode);
+        applyQuizModeUI();
+      });
+    });
+    applyQuizModeUI();
+
+    // ===== Round size (한 라운드 문제 수) =====
+    let currentRoundSize = QuizStore.getSettings().roundSize || 20;
+    function applyRoundSizeUI() {
+      document.querySelectorAll('.size-pill').forEach(b => {
+        b.classList.toggle('selected', +b.dataset.roundSize === currentRoundSize);
+      });
+    }
+    document.querySelectorAll('.size-pill').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentRoundSize = +btn.dataset.roundSize;
+        QuizStore.setSetting('roundSize', currentRoundSize);
+        applyRoundSizeUI();
+      });
+    });
+    applyRoundSizeUI();
+
+    // ===== Difficulty tier (기본 / 심화) — 디테일 필터 =====
+    let currentDifficultyTier = QuizStore.getSettings().difficultyTier || '심화';
+    function applyDifficultyTierUI() {
+      document.querySelectorAll('[data-difficulty-tier]').forEach(b => {
+        b.classList.toggle('selected', b.dataset.difficultyTier === currentDifficultyTier);
+      });
+    }
+    document.querySelectorAll('[data-difficulty-tier]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentDifficultyTier = btn.dataset.difficultyTier;
+        QuizStore.setSetting('difficultyTier', currentDifficultyTier);
+        applyDifficultyTierUI();
+      });
+    });
+    applyDifficultyTierUI();
+    // 기본 모드 = difficulty ≤ 3, 심화 모드 = 전체. 손작성 카드(difficulty 1~5)도 동일 룰.
+    function detailPassesDifficulty(detail) {
+      if (currentDifficultyTier === '심화') return true;
+      return (detail.difficulty || 3) <= 3;
+    }
+
+    // ===== view-era 우상단 설정 버튼 =====
+    document.getElementById('eraSettingsBtn').addEventListener('click', () => {
+      refreshDataCountInfo();
+      showView('view-settings');
+    });
+
+    // ===== 설정 화면의 새 메뉴 핸들러 =====
+    document.getElementById('helpBtn').addEventListener('click', () => {
+      alert([
+        '【 사용법 안내 】',
+        '',
+        '◆ 랜딩 화면',
+        '· 시대 카드 탭 → 그 시대 선택',
+        '· 시대 카드 길게 누르기 → 그 시대 기록 초기화',
+        '· 상단 탭 / 좌우 스와이프 → 사실 매칭 ↔ 취약 키워드',
+        '',
+        '◆ 사실 매칭 (문제 화면)',
+        '· 키워드 카드 탭 → 답 제출',
+        '· 디테일 카드 길게 누르기 → 1차 힌트 (-5점)',
+        '· 다시 길게 누르기 → 정답 보기(포기, -20점)',
+        '· 우상단 = 이번 세션 정답률 (한 번이라도 오답 시 그 문제는 틀린 걸로)',
+        '',
+        '◆ 취약 키워드 화면',
+        '· 키워드 길게 누르기 → 그 키워드의 취약 기록 삭제',
+        '',
+        '◆ 설정',
+        '· 난이도 (기본 = 평이한 디테일만 / 심화 = 전체)',
+        '· 기록 초기화 = 전체 데이터 삭제',
+      ].join('\n'));
+    });
+    document.getElementById('goRecordsBtn').addEventListener('click', () => showRecordsView());
+    document.getElementById('goEventBtn').addEventListener('click', () => { showView('view-event'); startEventGame(); });
+
+    // ===== Event sort game =====
+    // ROUNDS is loaded from data.js
+    let currentRound = 0;
+    let graded = false;
+    let sortable = null;
+
+    const cardsEl = document.getElementById('cards');
+    const actionBtn = document.getElementById('actionBtn');
+    const resultEl = document.getElementById('result');
+    const progressEl = document.getElementById('progress');
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      if (a.every((v, i) => i === 0 || a[i - 1].year <= v.year)) {
+        [a[0], a[a.length - 1]] = [a[a.length - 1], a[0]];
+      }
+      return a;
+    }
+
+    function renderRound() {
+      graded = false;
+      const round = ROUNDS[currentRound];
+      progressEl.textContent = `${round.era} · ${currentRound + 1}/${ROUNDS.length}라운드`;
+      resultEl.className = 'result hidden';
+      actionBtn.textContent = '채점하기';
+
+      const shuffled = shuffle(round.events);
+      cardsEl.innerHTML = '';
+      shuffled.forEach((ev, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.dataset.year = ev.year;
+        card.innerHTML = `
+          <div class="order-num">${idx + 1}</div>
+          <div class="event-text">${ev.text}</div>
+          <div class="year-reveal">${ev.year}</div>
+          <svg class="grip" viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+        `;
+        cardsEl.appendChild(card);
+      });
+
+      if (sortable) sortable.destroy();
+      sortable = Sortable.create(cardsEl, {
+        animation: 180,
+        delay: 60,
+        delayOnTouchOnly: true,
+        touchStartThreshold: 5,
+        onEnd: updateOrderNums,
+      });
+    }
+
+    function updateOrderNums() {
+      [...cardsEl.children].forEach((card, idx) => {
+        card.querySelector('.order-num').textContent = idx + 1;
+      });
+    }
+
+    function grade() {
+      graded = true;
+      const cards = [...cardsEl.children];
+      const years = cards.map(c => +c.dataset.year);
+      const sorted = [...years].sort((a, b) => a - b);
+
+      let allRight = true;
+      cards.forEach((card, idx) => {
+        const isRight = years[idx] === sorted[idx];
+        card.classList.add(isRight ? 'correct' : 'wrong');
+        card.querySelector('.year-reveal').classList.add('show');
+        if (!isRight) allRight = false;
+      });
+
+      resultEl.className = `result ${allRight ? 'correct' : 'wrong'}`;
+      resultEl.textContent = allRight ? '정답입니다! 🎉' : '아쉬워요. 연도를 확인해보세요.';
+
+      const isLast = currentRound === ROUNDS.length - 1;
+      actionBtn.textContent = isLast ? '다시 시작' : '다음 라운드';
+    }
+
+    actionBtn.addEventListener('click', () => {
+      if (!graded) {
+        grade();
+      } else {
+        currentRound = (currentRound + 1) % ROUNDS.length;
+        renderRound();
+      }
+    });
+
+    function startEventGame() {
+      currentRound = 0;
+      renderRound();
+    }
+
+    // ===== Year insert game =====
+    // INITIAL_BG and YEAR_QUESTIONS are loaded from data.js
+    // Card shape: { title, description, year } — reference cards have empty description.
+
+    const timelineEl = document.getElementById('timeline');
+    const questionCardEl = document.getElementById('questionCard');
+    const questionEventEl = document.getElementById('questionEvent');
+    const qDescEl = document.getElementById('qDesc');
+    const qHintEl = document.getElementById('qHint');
+    const gapLabelEl = document.getElementById('gapLabel');
+    const yearHintEl = document.getElementById('yearHint');
+    const yearScoreEl = document.getElementById('yearScore');
+    const eraListEl = document.getElementById('eraList');
+    const eraIntroEl = document.getElementById('eraIntro');
+    const eraStartBtn = document.getElementById('eraStartBtn');
+
+    let yearCurrent = null;
+    let yearLocked = false;
+    let hintLevel = 0; // 0: label, 1: description, 2: masked year
+    let yearScore = 0;
+    let roundQuestionsAnswered = 0; // 현재 라운드에서 종결된 문제 수
+    const yearUsedTitles = new Set();
+    const selectedEras = new Set();
+
+    function snapCards() {
+      return [...timelineEl.querySelectorAll('.bg-card.snap')];
+    }
+    function getCurrentGap() {
+      // Returns { above, below } — the two .bg-cards immediately adjacent to the red line.
+      // The "below" card is the snap card whose top is at (or closest to) the red line.
+      const allCards = [...timelineEl.querySelectorAll('.bg-card')];
+      const snaps = snapCards();
+      if (!snaps.length) return null;
+      const halfH = timelineEl.clientHeight / 2;
+      const scroll = timelineEl.scrollTop;
+      let closest = snaps[0], minDist = Infinity;
+      for (const card of snaps) {
+        const snapScroll = card.offsetTop - halfH;
+        const dist = Math.abs(scroll - snapScroll);
+        if (dist < minDist) { minDist = dist; closest = card; }
+      }
+      const idx = allCards.indexOf(closest);
+      return {
+        above: idx > 0 ? allCards[idx - 1] : null,
+        below: closest,
+      };
+    }
+    function updateGapLabel() {
+      const gap = getCurrentGap();
+      if (!gap) return;
+      if (!gap.above) {
+        gapLabelEl.textContent = `${gap.below.textContent} 이전`;
+      } else if (gap.below.classList.contains('sentinel')) {
+        gapLabelEl.textContent = `${gap.above.textContent} 이후`;
+      } else {
+        gapLabelEl.textContent = `${gap.above.textContent} ~ ${gap.below.textContent}`;
+      }
+    }
+
+    function pickQuestion() {
+      let available = YEAR_QUESTIONS.filter(q =>
+        !yearUsedTitles.has(q.title) && selectedEras.has(cardEra(q))
+      );
+      if (currentQuizMode === 'review') {
+        available = available.filter(q => QuizStore.needsReview(q.title));
+      }
+      if (available.length === 0) return null;
+      return available[Math.floor(Math.random() * available.length)];
+    }
+
+    // ===== Score — view-era에는 표시 안 함, 게임 화면 우상단에만 노출 =====
+    const detailScoreEl = document.getElementById('detailScore');
+    const eraL2ScoreEl = document.getElementById('eraL2Score');
+    function updateScoreDisplay() {
+      // L1 / 구버전 score는 그대로. L2 detailScore는 별도로 정답률 노출.
+      [yearScoreEl, eraL2ScoreEl].forEach(el => {
+        if (el) el.textContent = yearScore;
+      });
+    }
+    function addScore(delta) {
+      yearScore += delta;
+      QuizStore.setTotalScore(yearScore);
+      updateScoreDisplay();
+      const cls = delta > 0 ? 'delta-up' : 'delta-down';
+      [yearScoreEl, eraL2ScoreEl].forEach(el => {
+        if (!el) return;
+        el.classList.remove('delta-up', 'delta-down');
+        void el.offsetWidth;
+        el.classList.add(cls);
+      });
+    }
+
+    // ===== L2 세션 정답률 — 우상단 표시 =====
+    // 한 디테일에 한 번이라도 오답을 선택했거나 포기했으면 "틀린 것"으로 카운트.
+    // 첫 시도에 맞춰야만 clean correct.
+    let l2DetailsAttempted = 0;
+    let l2DetailsCleanCorrect = 0;
+    function resetL2Accuracy() {
+      l2DetailsAttempted = 0;
+      l2DetailsCleanCorrect = 0;
+      updateL2AccuracyDisplay();
+    }
+    function updateL2AccuracyDisplay(flashCls) {
+      if (!detailScoreEl) return;
+      if (l2DetailsAttempted === 0) {
+        detailScoreEl.textContent = '—';
+      } else {
+        const pct = Math.round(l2DetailsCleanCorrect / l2DetailsAttempted * 100);
+        detailScoreEl.textContent = `${pct}%`;
+      }
+      if (flashCls) {
+        detailScoreEl.classList.remove('delta-up', 'delta-down');
+        void detailScoreEl.offsetWidth;
+        detailScoreEl.classList.add(flashCls);
+      }
+    }
+    function noteL2Resolution(wasCleanCorrect) {
+      l2DetailsAttempted++;
+      if (wasCleanCorrect) l2DetailsCleanCorrect++;
+      updateL2AccuracyDisplay(wasCleanCorrect ? 'delta-up' : 'delta-down');
+    }
+
+    // Per-showing state: wrong attempt count for current question
+    let wrongInCurrentShowing = false;
+    let wrongAttemptsInShowing = 0;
+
+    // 진행 카운트 표시 (게임 화면 우상단)
+    const progressCounterEl = document.getElementById('progressCounter');
+    function updateProgressCounter() {
+      if (progressCounterEl) {
+        progressCounterEl.textContent = `${roundQuestionsAnswered}/${currentRoundSize}`;
+      }
+    }
+
+    // ===== Era tab (사실 매칭 vs 취약 키워드) — landing 화면 상단 탭 =====
+    // 'timeline'(L1)은 일단 UI에서 숨김. 코드는 유지(재오픈 대비).
+    let currentEraTab = 'detail'; // 'detail' (L2/사실매칭) | 'weak' (취약 키워드 정보) | 'timeline' (현재 숨김)
+    const eraTabModeMap = { detail: 'l2', timeline: 'l1' };
+
+    function setEraTab(tab, opts = {}) {
+      if (tab !== 'detail' && tab !== 'weak' && tab !== 'timeline') return;
+      if (currentEraTab === tab && !opts.force) return;
+      currentEraTab = tab;
+      const viewEra = document.getElementById('view-era');
+      if (viewEra) viewEra.dataset.eraTab = tab;
+      document.querySelectorAll('.era-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.eraTab === tab);
+      });
+      if (tab === 'weak') {
+        renderWeakList();
+        return;
+      }
+      // 탭 전환 시 선택된 시대가 새 탭에서 잠겨있으면 해제
+      if (selectedEras.size > 0) {
+        const selectedEra = [...selectedEras][0];
+        const stillSelectable = isEraSelectable(selectedEra, eraTabModeMap[tab]);
+        if (!stillSelectable) selectedEras.clear();
+      }
+      renderEraList();
+      updateEraStartBtn();
+    }
+
+    // ===== 취약 키워드 분석 =====
+    // L1 stats: wrong + gaveUp 카운트 합산
+    // L2 history: 디테일별로 "사용자가 struggle했나" 판단 → 정답 키워드에 +1
+    //   - isCorrect=true && attempts > 1: 오답 후 정답
+    //   - gaveUp=true: 포기
+    //   둘 다 tappedKeywordId가 정답 키워드를 가리키므로 그대로 카운트
+    function computeWeakKeywords(limit = 30) {
+      const history = QuizStore._data.history || [];
+      const stats = QuizStore._data.stats || {};
+      const weakness = {};
+
+      // L1 stats
+      Object.entries(stats).forEach(([title, s]) => {
+        const w = (s.wrong || 0) + (s.gaveUp || 0);
+        if (w > 0) weakness[title] = (weakness[title] || 0) + w;
+      });
+
+      // L2 history
+      history.forEach(h => {
+        if (h.kind !== 'l2' || !h.tappedKeywordId) return;
+        const struggled = (h.isCorrect && (h.attempts || 0) > 1) || h.gaveUp;
+        if (!struggled) return;
+        weakness[h.tappedKeywordId] = (weakness[h.tappedKeywordId] || 0) + 1;
+      });
+
+      // 메타 매핑 (현재 카드에 없는 legacy/삭제 키워드는 제외)
+      const titleToCard = new Map();
+      allPrimaryCards().forEach(c => titleToCard.set(c.title, c));
+
+      return Object.entries(weakness)
+        .map(([title, count]) => ({ title, count, card: titleToCard.get(title) }))
+        .filter(x => x.card)
+        .sort((a, b) => b.count - a.count)
+        .slice(0, limit);
+    }
+
+    function renderWeakList() {
+      const listEl = document.getElementById('weakList');
+      listEl.innerHTML = '';
+      const items = computeWeakKeywords();
+      if (items.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'weak-empty';
+        empty.textContent = '아직 풀이 기록이 부족합니다.\n사실 매칭을 좀 더 풀어보세요.';
+        listEl.appendChild(empty);
+        return;
+      }
+      items.forEach((item, idx) => {
+        const row = document.createElement('div');
+        row.className = 'weak-row';
+        row.innerHTML = `
+          <span class="weak-rank">${idx + 1}</span>
+          <span class="l2-type-badge">${item.card.type || '사건'}</span>
+          <span class="weak-title">${item.title}</span>
+          <span class="weak-era">${item.card.era}</span>
+          <span class="weak-count">${item.count}회</span>
+        `;
+        // 길게 누르면 그 키워드의 취약 기록 삭제 (L1 stats wrong/gaveUp + L2 struggle history)
+        let timer = null;
+        row.addEventListener('pointerdown', () => {
+          timer = setTimeout(() => {
+            timer = null;
+            if (confirm(`[${item.title}]의 취약 기록을 삭제할까요?\n(오답·포기 기록만 삭제됩니다)`)) {
+              deleteWeakKeywordRecord(item.title);
+              renderWeakList();
+            }
+          }, 500);
+        });
+        const cancel = () => { if (timer) { clearTimeout(timer); timer = null; } };
+        row.addEventListener('pointerup', cancel);
+        row.addEventListener('pointercancel', cancel);
+        row.addEventListener('pointerleave', cancel);
+        row.addEventListener('contextmenu', e => e.preventDefault());
+        listEl.appendChild(row);
+      });
+    }
+
+    // 한 키워드의 취약 기록만 삭제 — L1 stats의 wrong/gaveUp 0으로 + L2 history의 struggle entry 제거.
+    // clean correct entry는 보존(matched 상태/seen 카운트 유지).
+    function deleteWeakKeywordRecord(title) {
+      const s = QuizStore._data.stats && QuizStore._data.stats[title];
+      if (s) { s.wrong = 0; s.gaveUp = 0; }
+      const hist = QuizStore._data.history || [];
+      QuizStore._data.history = hist.filter(h => {
+        if (h.kind !== 'l2') return true;
+        if (h.tappedKeywordId !== title) return true;
+        const struggled = (h.isCorrect && (h.attempts || 0) > 1) || h.gaveUp;
+        return !struggled;
+      });
+      QuizStore.save();
+    }
+
+    // 특정 시대가 주어진 모드에서 선택 가능한지 (renderEraList의 잠금 판정과 동일 로직)
+    function isEraSelectable(era, mode) {
+      if (mode === 'l1') {
+        const remaining = YEAR_QUESTIONS.filter(q => cardEra(q) === era && !yearUsedTitles.has(q.title)).length;
+        return remaining > 0;
+      }
+      // L2 — 디테일이 있는 시대는 항상 선택 가능 (L1 게이팅 폐기, 모두 매칭한 시대도 "다시 풀기")
+      return allDetailCards().filter(detailPassesDifficulty).some(c => c.era === era);
+    }
+
+    // ===== Era selection =====
+    function renderEraList() {
+      const mode = eraTabModeMap[currentEraTab]; // 'l1' or 'l2'
+
+      // L1 (타임라인): 남은 문제 수 0이면 잠금
+      const l1Counts = {};
+      ERAS.forEach(e => l1Counts[e] = 0);
+      YEAR_QUESTIONS.forEach(q => {
+        if (!yearUsedTitles.has(q.title)) {
+          const e = cardEra(q);
+          l1Counts[e] = (l1Counts[e] || 0) + 1;
+        }
+      });
+
+      eraListEl.innerHTML = '';
+      ERAS.forEach(era => {
+        const item = document.createElement('div');
+        item.className = 'era-row';
+        item.dataset.era = era;
+
+        // 잠금 판정 — 탭별 다름
+        let locked = false;
+        let lockReason = '';
+        if (mode === 'l1') {
+          if ((l1Counts[era] || 0) === 0) { locked = true; lockReason = '문제 없음'; }
+        } else {
+          // L2: 디테일 카드 없으면만 잠금. L1 게이팅 폐기. 모두 매칭한 시대도 "다시 풀기" 가능.
+          const hasDetails = allDetailCards().filter(detailPassesDifficulty).some(c => c.era === era);
+          if (!hasDetails) { locked = true; lockReason = '준비 중'; }
+        }
+
+        if (locked) item.classList.add('era-locked');
+        if (selectedEras.has(era)) item.classList.add('selected');
+        item.innerHTML = renderEraRow(era, mode);
+
+        if (locked && lockReason) {
+          const lock = document.createElement('span');
+          lock.className = 'era-lock';
+          lock.textContent = `· ${lockReason}`;
+          item.querySelector('.era-content').appendChild(lock);
+        }
+
+        // 길게 누르기로 그 시대 초기화 — 잠긴 시대 포함 항상 동작
+        let lpTimer = null;
+        let lpUsed = false;
+        item.addEventListener('pointerdown', () => {
+          lpUsed = false;
+          lpTimer = setTimeout(() => {
+            lpUsed = true;
+            lpTimer = null;
+            if (confirm(`[${era}] 시대의 모든 풀이 기록을 초기화할까요?\n(키워드 통계, 디테일 매칭, 진행 중 라운드 모두 삭제)`)) {
+              resetEra(era);
+              renderEraList();
+              updateEraStartBtn();
+            }
+          }, 500);
+        });
+        const cancelLp = () => { if (lpTimer) { clearTimeout(lpTimer); lpTimer = null; } };
+        item.addEventListener('pointerup', cancelLp);
+        item.addEventListener('pointercancel', cancelLp);
+        item.addEventListener('pointerleave', cancelLp);
+        item.addEventListener('contextmenu', e => e.preventDefault());
+
+        if (!locked) {
+          item.addEventListener('click', () => {
+            // 길게 누른 직후의 click은 시대 선택으로 작동하지 않도록 차단
+            if (lpUsed) { lpUsed = false; return; }
+            const wasSelected = selectedEras.has(era);
+            selectedEras.clear();
+            document.querySelectorAll('.era-row').forEach(r => r.classList.remove('selected'));
+            if (!wasSelected) {
+              selectedEras.add(era);
+              item.classList.add('selected');
+            }
+            updateEraStartBtn();
+          });
+        }
+        eraListEl.appendChild(item);
+      });
+    }
+
+    function updateEraStartBtn() {
+      const mode = eraTabModeMap[currentEraTab];
+      const selectedEra = selectedEras.values().next().value;
+
+      if (!selectedEra) {
+        eraStartBtn.disabled = true;
+        eraStartBtn.textContent = '시대를 선택해주세요';
+        return;
+      }
+
+      if (mode === 'l1') {
+        const total = YEAR_QUESTIONS.filter(q => {
+          if (cardEra(q) !== selectedEra || yearUsedTitles.has(q.title)) return false;
+          if (currentQuizMode === 'review' && !QuizStore.needsReview(q.title)) return false;
+          return true;
+        }).length;
+        eraStartBtn.disabled = total === 0;
+        if (total === 0) {
+          eraStartBtn.textContent = currentQuizMode === 'review'
+            ? '복습할 오답이 없습니다'
+            : '풀 수 있는 문제가 없습니다';
+        } else {
+          const active = QuizStore.getActiveRound();
+          const resuming = active && active.era === selectedEra;
+          if (resuming) {
+            const done = (active.resolved || []).length;
+            eraStartBtn.textContent = `이어서 (${done}/${currentRoundSize})`;
+          } else {
+            eraStartBtn.textContent = `타임라인 시작 (${currentRoundSize}문제)`;
+          }
+        }
+      } else {
+        // L2 (사실 매칭) — 남은 디테일 수 기준 (다 매칭한 시대는 "다시 풀기"로 전체 풀 재시작)
+        const { matched, total } = eraDetailProgress(selectedEra);
+        const remaining = total - matched;
+        eraStartBtn.disabled = total === 0;
+        if (total === 0) {
+          eraStartBtn.textContent = '준비 중';
+        } else if (remaining === 0) {
+          eraStartBtn.textContent = `다시 풀기 (${total}개)`;
+        } else {
+          eraStartBtn.textContent = `사실 매칭 시작 (${remaining}개)`;
+        }
+      }
+    }
+
+    function showEraSelection() {
+      selectedEras.clear();
+      // 타임라인 탭은 현재 UI에서 숨김 → activeRound auto-switch 비활성 (기존 코드는 가시화 시 부활 가능)
+      if (currentEraTab === 'timeline') currentEraTab = 'detail';
+      // 탭 UI 동기화
+      const viewEra = document.getElementById('view-era');
+      if (viewEra) viewEra.dataset.eraTab = currentEraTab;
+      document.querySelectorAll('.era-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.eraTab === currentEraTab);
+      });
+
+      eraIntroEl.textContent = '';
+      if (currentEraTab === 'weak') {
+        renderWeakList();
+      } else {
+        renderEraList();
+        updateEraStartBtn();
+      }
+      showView('view-era');
+    }
+
+    function enterYearMode() {
+      // Per-session reset (timeline cards, used set). Score & stats persist.
+      yearScore = QuizStore.getTotalScore();
+      yearUsedTitles.clear();
+      rebuildTimeline();
+      showEraSelection();
+    }
+
+    function startPlayingWithEras() {
+      const selectedEra = selectedEras.values().next().value;
+      const active = QuizStore.getActiveRound();
+      const resuming = active && active.era === selectedEra && (active.resolved || []).length < currentRoundSize;
+
+      if (resuming) {
+        // 이어서 — 기존 resolved 카드들 복구
+        roundQuestionsAnswered = active.resolved.length;
+        yearUsedTitles.clear();
+        active.resolved.forEach(r => yearUsedTitles.add(r.title));
+      } else {
+        // 새 라운드
+        QuizStore.setActiveRound({ era: selectedEra, resolved: [] });
+        roundQuestionsAnswered = 0;
+        yearUsedTitles.clear();
+      }
+
+      // 선택된 시대 범위에 맞춰 기준 카드(6개) 동적 생성
+      rebuildTimeline(computeReferenceCards(selectedEras));
+
+      // 복구 시 resolved 카드를 chronological 순서로 다시 인서트
+      if (resuming) {
+        active.resolved.forEach(r => {
+          const inserted = document.createElement('div');
+          const cls = r.result === 'gaveUp' ? 'gave-up' : 'correct';
+          inserted.className = `bg-card snap inserted ${cls}`;
+          inserted.dataset.year = r.startYear;
+          inserted.innerHTML = `<span class="bg-year">${r.startYear}</span><span class="bg-title">${r.title}</span>`;
+          const allCards = [...timelineEl.querySelectorAll('.bg-card')];
+          const after = allCards.find(c => +c.dataset.year > r.startYear);
+          if (after) after.before(inserted);
+          else timelineEl.querySelector('.timeline-spacer.bottom').before(inserted);
+        });
+      }
+
+      updateProgressCounter();
+      showView('view-year');
+      showNextQuestion();
+      requestAnimationFrame(() => {
+        const cards = snapCards();
+        const mid = cards[Math.floor(cards.length / 2)];
+        if (mid) timelineEl.scrollTo({ top: mid.offsetTop - timelineEl.clientHeight / 2, behavior: 'auto' });
+        updateGapLabel();
+      });
+    }
+
+    eraStartBtn.addEventListener('click', () => {
+      if (selectedEras.size === 0) return;
+      const selectedEra = selectedEras.values().next().value;
+      if (currentEraTab === 'detail') {
+        startDetailGame(selectedEra);
+      } else {
+        startPlayingWithEras();
+      }
+    });
+
+    // ===== view-era 탭 클릭·스와이프 =====
+    document.querySelectorAll('.era-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => setEraTab(btn.dataset.eraTab));
+    });
+    (function bindEraSwipe() {
+      const view = document.getElementById('view-era');
+      if (!view) return;
+      let startX = null, startY = null, aborted = false;
+      view.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        aborted = false;
+      }, { passive: true });
+      view.addEventListener('touchmove', (e) => {
+        if (startX === null) return;
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+        if (Math.abs(dy) > 30 && Math.abs(dy) > Math.abs(dx)) aborted = true;
+      }, { passive: true });
+      view.addEventListener('touchend', (e) => {
+        if (startX === null || aborted) { startX = null; return; }
+        const dx = e.changedTouches[0].clientX - startX;
+        startX = null;
+        if (Math.abs(dx) < 60) return;
+        if (dx < 0) setEraTab('weak');    // 좌로 → 우측 탭(취약)
+        else setEraTab('detail');           // 우로 → 좌측 탭(사실매칭)
+      });
+    })();
+
+    function rebuildTimeline(refCards) {
+      const cards = refCards && refCards.length ? refCards : INITIAL_BG;
+      timelineEl.innerHTML = '';
+      const top = document.createElement('div');
+      top.className = 'timeline-spacer top';
+      timelineEl.appendChild(top);
+
+      cards.forEach((card) => {
+        const el = document.createElement('div');
+        el.className = 'bg-card snap';
+        // dataset.year stores startYear — used for chronological ordering only.
+        el.dataset.year = card.startYear;
+        el.textContent = card.title;
+        timelineEl.appendChild(el);
+      });
+
+      // End sentinel: invisible snap target after the last card so the red line can sit BELOW it.
+      const sentinel = document.createElement('div');
+      sentinel.className = 'bg-card snap sentinel';
+      sentinel.dataset.year = 'Infinity';
+      sentinel.setAttribute('aria-hidden', 'true');
+      timelineEl.appendChild(sentinel);
+
+      const bottom = document.createElement('div');
+      bottom.className = 'timeline-spacer bottom';
+      timelineEl.appendChild(bottom);
+    }
+
+    function formatYear(y) {
+      return y < 0 ? `기원전 ${-y}년` : `${y}년`;
+    }
+    function formatYearRange(item) {
+      if (item.startYear === item.endYear) return formatYear(item.startYear);
+      return `${formatYear(item.startYear)}~${formatYear(item.endYear)}`;
+    }
+    function maskedYearHint(item) {
+      // 끝자리 마스킹은 startYear만 적용 (범위 사건도 시작 연도 기준 힌트)
+      const y = item.startYear;
+      const abs = Math.abs(y);
+      const truncated = Math.floor(abs / 10);
+      const masked = `${truncated}?년`;
+      return y < 0 ? `힌트: 기원전 ${masked}` : `힌트: ${masked}`;
+    }
+
+    function applyHintLevel() {
+      questionCardEl.classList.remove('show-desc', 'show-hint');
+      if (hintLevel === 1) questionCardEl.classList.add('show-desc');
+      else if (hintLevel === 2) questionCardEl.classList.add('show-hint');
+    }
+
+    function showNextQuestion() {
+      // 라운드 종료 조건: 설정된 문제 수 도달
+      if (roundQuestionsAnswered >= currentRoundSize) {
+        QuizStore.clearActiveRound();
+        showEraSelection();
+        return;
+      }
+      const next = pickQuestion();
+      if (!next) {
+        // Selected eras exhausted — back to era reselect (or game over if all done)
+        showEraSelection();
+        return;
+      }
+      yearCurrent = next;
+      yearLocked = false;
+      hintLevel = 0;
+      wrongInCurrentShowing = false;
+      wrongAttemptsInShowing = 0;
+      questionEventEl.textContent = yearCurrent.title;
+      qDescEl.textContent = yearCurrent.description;
+      qHintEl.textContent = maskedYearHint(yearCurrent);
+      questionCardEl.classList.remove('hidden', 'shake');
+      applyHintLevel();
+      yearHintEl.innerHTML = '스크롤로 위치를 맞춘 뒤<br>아래 카드를 탭하세요';
+      yearHintEl.className = 'hint';
+      updateGapLabel();
+    }
+
+    // Give up: insert card at chronologically correct position, -20 points, advance to next.
+    function giveUpAndPlace() {
+      if (yearLocked) return;
+      yearLocked = true;
+      yearUsedTitles.add(yearCurrent.title);
+      addScore(-20);
+      QuizStore.resolveGaveUp(yearCurrent.title, wrongAttemptsInShowing);
+      QuizStore.pushActiveResolved({ title: yearCurrent.title, result: 'gaveUp', startYear: yearCurrent.startYear });
+      roundQuestionsAnswered++;
+
+      const inserted = document.createElement('div');
+      inserted.className = 'bg-card snap inserted gave-up';
+      inserted.dataset.year = yearCurrent.startYear;
+      inserted.innerHTML = `<span class="bg-year">${yearCurrent.startYear}</span><span class="bg-title">${yearCurrent.title}</span>`;
+      const allCards = [...timelineEl.querySelectorAll('.bg-card')];
+      const after = allCards.find(c => +c.dataset.year > yearCurrent.startYear);
+      if (after) after.before(inserted);
+      else timelineEl.querySelector('.timeline-spacer.bottom').before(inserted);
+      updateProgressCounter();
+
+      questionCardEl.classList.add('hidden');
+      yearHintEl.textContent = `포기. ${yearCurrent.title} = ${formatYearRange(yearCurrent)} (-20)`;
+      yearHintEl.className = 'hint wrong';
+      setTimeout(() => showNextQuestion(), 1300);
+    }
+
+    // Long-press progression: 0→1 description (-5), 1→2 masked year (-5), 2→give-up (-20, auto-place).
+    let longPressTimer = null;
+    let longPressUsed = false;
+    questionCardEl.addEventListener('pointerdown', () => {
+      if (yearLocked) return;
+      longPressUsed = false;
+      longPressTimer = setTimeout(() => {
+        if (hintLevel < 2) {
+          hintLevel++;
+          addScore(-5);
+          applyHintLevel();
+          longPressUsed = true;
+        } else {
+          giveUpAndPlace();
+          longPressUsed = true;
+        }
+      }, 500);
+    });
+    function cancelLongPress() {
+      if (longPressTimer) { clearTimeout(longPressTimer); longPressTimer = null; }
+    }
+    questionCardEl.addEventListener('pointerup', cancelLongPress);
+    questionCardEl.addEventListener('pointercancel', cancelLongPress);
+    questionCardEl.addEventListener('pointerleave', cancelLongPress);
+    questionCardEl.addEventListener('contextmenu', e => e.preventDefault());
+
+    let shakeTimer = null;
+    function handleQuestionTap() {
+      if (yearLocked) return;
+      if (longPressUsed) {
+        // The click that follows a long-press release should not commit a guess
+        longPressUsed = false;
+        return;
+      }
+      const gap = getCurrentGap();
+      if (!gap) return;
+      const lowYear  = gap.above ? +gap.above.dataset.year : -Infinity;
+      const highYear = +gap.below.dataset.year;
+      // 채점·정렬 모두 startYear 기준
+      const isCorrect = yearCurrent.startYear >= lowYear && yearCurrent.startYear <= highYear;
+
+      if (isCorrect) {
+        yearLocked = true;
+        yearUsedTitles.add(yearCurrent.title);
+        addScore(10);
+        QuizStore.resolveCorrect(yearCurrent.title, wrongAttemptsInShowing);
+        QuizStore.pushActiveResolved({ title: yearCurrent.title, result: 'correct', startYear: yearCurrent.startYear });
+        roundQuestionsAnswered++;
+        // Insert at exactly the chosen position; make it a snap point so finer gaps appear next round.
+        const inserted = document.createElement('div');
+        inserted.className = 'bg-card snap inserted correct';
+        inserted.dataset.year = yearCurrent.startYear;
+        inserted.innerHTML = `<span class="bg-year">${yearCurrent.startYear}</span><span class="bg-title">${yearCurrent.title}</span>`;
+        gap.below.before(inserted);
+        updateProgressCounter();
+
+        questionCardEl.classList.add('hidden');
+        yearHintEl.textContent = `정답! ${yearCurrent.title} = ${formatYearRange(yearCurrent)} (+10)`;
+        yearHintEl.className = 'hint correct';
+        setTimeout(() => showNextQuestion(), 1300);
+      } else {
+        // Wrong: shake, show 오답 briefly, no insertion, allow retry
+        addScore(-10);
+        QuizStore.recordWrongAttempt(yearCurrent.title);
+        wrongInCurrentShowing = true;
+        wrongAttemptsInShowing++;
+        questionCardEl.classList.remove('shake');
+        void questionCardEl.offsetWidth;
+        questionCardEl.classList.add('shake');
+        yearHintEl.textContent = '오답! 다른 위치를 시도해보세요 (-10)';
+        yearHintEl.className = 'hint wrong';
+        if (shakeTimer) clearTimeout(shakeTimer);
+        shakeTimer = setTimeout(() => {
+          questionCardEl.classList.remove('shake');
+          if (!yearLocked) {
+            yearHintEl.innerHTML = '스크롤로 위치를 맞춘 뒤<br>아래 카드를 탭하세요';
+            yearHintEl.className = 'hint';
+          }
+        }, 1500);
+      }
+    }
+
+    questionCardEl.addEventListener('click', handleQuestionTap);
+
+    function correctRangeLabel(year) {
+      for (let i = 0; i < BG_YEARS.length - 1; i++) {
+        if (year >= BG_YEARS[i] && year < BG_YEARS[i + 1]) {
+          return `${BG_YEARS[i]}년~${BG_YEARS[i + 1]}년`;
+        }
+      }
+      return '범위 밖';
+    }
+
+    timelineEl.addEventListener('scroll', () => {
+      if (!yearLocked) updateGapLabel();
+    });
+
+    // ===== Keyboard nav: ArrowUp/Down for stepwise scroll =====
+    // L1 (view-year): snap to prev/next snap point
+    // L2 (view-detail): scroll by one card height
+    function l1SnapPrev() {
+      const cards = snapCards();
+      const halfH = timelineEl.clientHeight / 2;
+      const cur = timelineEl.scrollTop;
+      for (let i = cards.length - 1; i >= 0; i--) {
+        const pos = cards[i].offsetTop - halfH;
+        if (pos < cur - 1) { timelineEl.scrollTo({ top: pos, behavior: 'smooth' }); return; }
+      }
+    }
+    function l1SnapNext() {
+      const cards = snapCards();
+      const halfH = timelineEl.clientHeight / 2;
+      const cur = timelineEl.scrollTop;
+      for (let i = 0; i < cards.length; i++) {
+        const pos = cards[i].offsetTop - halfH;
+        if (pos > cur + 1) { timelineEl.scrollTo({ top: pos, behavior: 'smooth' }); return; }
+      }
+    }
+    function l2ScrollByOne(direction) {
+      const cards = detailTimelineEl.querySelectorAll('.l2-card');
+      if (!cards.length) return;
+      const step = cards[0].offsetHeight + 5;
+      detailTimelineEl.scrollBy({ top: step * direction, behavior: 'smooth' });
+    }
+    document.addEventListener('keydown', (e) => {
+      const tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+      const yearView = document.getElementById('view-year');
+      const detailView = document.getElementById('view-detail');
+      const eraView = document.getElementById('view-era');
+      const inYear = yearView && !yearView.classList.contains('hidden');
+      const inDetail = detailView && !detailView.classList.contains('hidden');
+      const inEra = eraView && !eraView.classList.contains('hidden');
+      if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        if (inYear) {
+          e.preventDefault();
+          if (e.key === 'ArrowUp') l1SnapPrev(); else l1SnapNext();
+        } else if (inDetail) {
+          e.preventDefault();
+          l2ScrollByOne(e.key === 'ArrowUp' ? -1 : 1);
+        }
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        if (inEra) {
+          e.preventDefault();
+          setEraTab(e.key === 'ArrowLeft' ? 'detail' : 'weak');
+        }
+      }
+    });
+
+    // ============================================================
+    // ===== Level 2: Detail Matching =====
+    // ============================================================
+    const detailTimelineEl = document.getElementById('detailTimeline');
+    const detailQuestionEl = document.getElementById('detailQuestionCard');
+    const detailQTextEl = document.getElementById('detailQText');
+    const detailQLabelEl = document.getElementById('detailQLabel');
+    const detailHintEl = document.getElementById('detailHint');
+    const detailProgressEl = document.getElementById('detailProgress');
+    const detailTitleEl = document.getElementById('detailTitle');
+    const eraL2ListEl = document.getElementById('eraL2List');
+
+    // Combined primary card pool: data.js YEAR_QUESTIONS + sample_joseon.js JOSEON_SAMPLE.
+    // Excludes detail-kind cards. Each card normalized to common shape.
+    // 동일 entity의 다른 표기 (event/사건) → entity 카드로 흡수. event는 detail로 강등.
+    const EVENT_TO_DETAIL_OF = {
+      // 왕 즉위 → 왕 entity
+      '세종 즉위': '조선 세종',
+      '세조 즉위': '조선 세조',
+      '영조 즉위': '조선 영조',
+      '정조 즉위': '조선 정조',
+      '신라 진흥왕 즉위': '신라 진흥왕',
+      '광종 즉위': '고려 광종',
+      '공민왕 즉위': '고려 공민왕',
+      // 사물/시설 사건 → 사물/시설 entity
+      '규장각 설치': '규장각',
+      '수원 화성 완공': '수원 화성',
+      '측우기 발명': '측우기',
+      // 전쟁·인물 사건 → 전쟁·인물 entity
+      '임진왜란 발발': '임진왜란',
+      '흥선대원군 집권': '흥선대원군',
+    };
+
+    function _normalizeCard(c, kind) {
+      const out = {
+        type: c.type || '사건',
+        kind,
+        title: c.title,
+        description: c.description || '',
+        startYear: c.startYear, endYear: c.endYear,
+        era: cardEra(c),
+        difficulty: c.difficulty || 3,
+        tags: c.tags || [],
+      };
+      // detail만 id 유지 (matched 추적용). keyword는 title이 식별자.
+      if (kind === 'detail') out.id = c.id || c.title;
+      return out;
+    }
+
+    function allPrimaryCards() {
+      // 우선순위 (last wins on dedup): exam78(auto) < data.js < sample_joseon < late_joseon
+      const accum = [];
+      const push = (c) => {
+        if (c.kind === 'detail') return;
+        if (EVENT_TO_DETAIL_OF[c.title]) return; // event 중복은 detail로 이동
+        accum.push(_normalizeCard(c, 'keyword'));
+      };
+      (typeof EXAM_KEYWORDS !== 'undefined' ? EXAM_KEYWORDS : []).forEach(push);
+      (typeof YEAR_QUESTIONS !== 'undefined' ? YEAR_QUESTIONS : []).forEach(push);
+      (typeof JOSEON_SAMPLE !== 'undefined' ? JOSEON_SAMPLE : []).forEach(push);
+      (typeof LATE_JOSEON_KEYWORDS !== 'undefined' ? LATE_JOSEON_KEYWORDS : []).forEach(push);
+
+      // Dedupe by title (last in wins — 손으로 쓴 entity가 auto-gen exam을 override)
+      const byTitle = new Map();
+      accum.forEach(c => byTitle.set(c.title, c));
+      return [...byTitle.values()];
+    }
+
+    function allDetailCards() {
+      const out = [];
+      (typeof DETAILS_SAMPLE !== 'undefined' ? DETAILS_SAMPLE : []).forEach(c => {
+        out.push(Object.assign({}, c, { era: cardEra(c) }));
+      });
+      (typeof LATE_JOSEON_DETAILS !== 'undefined' ? LATE_JOSEON_DETAILS : []).forEach(c => {
+        out.push(Object.assign({}, c, { era: cardEra(c) }));
+      });
+      (typeof EXAM_DETAILS !== 'undefined' ? EXAM_DETAILS : []).forEach(c => {
+        out.push(Object.assign({}, c, { era: cardEra(c) }));
+      });
+      // 중복 event 카드들을 detail로 흡수 (자동 태그 = 부모 entity)
+      (typeof YEAR_QUESTIONS !== 'undefined' ? YEAR_QUESTIONS : []).forEach(c => {
+        const parent = EVENT_TO_DETAIL_OF[c.title];
+        if (!parent) return;
+        out.push({
+          id: (c.title || '').replace(/\s+/g, '_'),
+          type: '사건',
+          kind: 'detail',
+          title: c.title,
+          description: c.description || '',
+          startYear: c.startYear, endYear: c.endYear,
+          era: cardEra(c),
+          difficulty: c.difficulty || 3,
+          tags: [parent],
+        });
+      });
+      return out;
+    }
+
+    // Gating: era is "Level 1 complete enough" if user has correctly answered
+    // at least 50% of that era's primary cards (loose threshold for prototype).
+    function l1CompletionRatio(era) {
+      const primaries = allPrimaryCards().filter(c => c.era === era);
+      if (primaries.length === 0) return 0;
+      const correct = primaries.filter(c => {
+        const s = QuizStore.getStats(c.title);
+        return s.lastResult === 'correct';
+      }).length;
+      return correct / primaries.length;
+    }
+    const L2_UNLOCK_THRESHOLD = 0.5; // 50% of era's primaries correctly placed
+
+    // 시대별 최근 평균 정답률 — mode 인자로 필터.
+    // mode: 'l1' (타임라인) / 'l2' (사실 매칭) / 'all' (둘 다)
+    // 점수 환산: L1 정답 무오답=100 / 정답 오답있음=50 / 포기=0 / L2 정답=100, 오답=0
+    function eraRecentAccuracy(era, n = 20, mode = 'all') {
+      // title → era 룩업 (primary 카드 기준)
+      const titleEra = new Map();
+      allPrimaryCards().forEach(c => titleEra.set(c.title, c.era));
+      const history = QuizStore._data.history || [];
+      const scores = [];
+      for (let i = history.length - 1; i >= 0 && scores.length < n; i--) {
+        const h = history[i];
+        const isL1 = (h.kind === 'l1' || !h.kind); // legacy entries: kind 없음 = L1
+        const isL2 = (h.kind === 'l2');
+        if (mode === 'l1' && !isL1) continue;
+        if (mode === 'l2' && !isL2) continue;
+        let entryEra = null, score = null;
+        if (isL1) {
+          entryEra = titleEra.get(h.title);
+          if (h.result === 'correct') score = (h.attempts > 0) ? 50 : 100;
+          else if (h.result === 'gaveUp') score = 0;
+        } else if (isL2) {
+          entryEra = titleEra.get(h.tappedKeywordId);
+          score = h.isCorrect ? 100 : 0;
+        }
+        if (entryEra === era && score != null) scores.push(score);
+      }
+      if (scores.length === 0) return null;
+      return Math.round(scores.reduce((a, b) => a + b, 0) / scores.length);
+    }
+
+    // 시대별 디테일 매칭 진행 — 매칭 완료한 디테일 / 전체 디테일 수 (현재 난이도 필터 적용)
+    function eraDetailProgress(era) {
+      const all = allDetailCards().filter(c => c.era === era).filter(detailPassesDifficulty);
+      if (all.length === 0) return { matched: 0, total: 0 };
+      const matchedSet = QuizStore.getL2MatchedDetailIds();
+      const matched = all.filter(c => matchedSet.has(c.id)).length;
+      return { matched, total: all.length };
+    }
+    // Render the era row's inner HTML (fill bar + name + pct + 메뉴 아이콘)
+    // mode: 'l1' (타임라인) — 라운드 진행 배지만 / 'l2' (사실 매칭) — 갯수 배지 제거
+    function renderEraRow(era, mode = 'l1') {
+      const acc = eraRecentAccuracy(era, 20, mode);
+      const fillPct = acc == null ? 0 : acc;
+      const text = acc == null ? '—' : `${acc}%`;
+      const pctCls = acc == null ? 'empty' : '';
+      let badge = '';
+      if (mode === 'l1') {
+        const active = QuizStore.getActiveRound();
+        const isActive = active && active.era === era;
+        if (isActive) {
+          badge = `<span class="era-active-badge">진행 중 ${active.resolved.length}/${QuizStore.getSettings().roundSize}</span>`;
+        }
+      }
+      // L2의 X/Y 매칭 배지는 사용자 요청으로 제거 — 정답률만 노출
+      // 초기화는 시대 카드 길게 누르기로 (별도 메뉴 아이콘 없음)
+      return `
+        <span class="era-fill" style="width: ${fillPct}%"></span>
+        <div class="era-content">
+          <span class="era-name">${era}</span>
+          ${badge}
+          <span class="era-pct ${pctCls}">${text}</span>
+        </div>
+      `;
+    }
+
+    // 시대 단위 초기화 — 그 시대의 키워드 stats + 디테일 매칭 history + activeRound 제거
+    function resetEra(era) {
+      const eraDetailIds = new Set();
+      allDetailCards().forEach(d => { if (d.era === era) eraDetailIds.add(d.id); });
+      const eraKwTitles = new Set();
+      allPrimaryCards().forEach(c => { if (c.era === era) eraKwTitles.add(c.title); });
+
+      const hist = QuizStore._data.history || [];
+      QuizStore._data.history = hist.filter(h => {
+        if (h.kind === 'l2') return !eraDetailIds.has(h.detailId);
+        return !eraKwTitles.has(h.title); // L1 (kind 없음) entry
+      });
+
+      Object.keys(QuizStore._data.stats || {}).forEach(title => {
+        if (eraKwTitles.has(title)) delete QuizStore._data.stats[title];
+      });
+
+      const active = QuizStore.getActiveRound();
+      if (active && active.era === era) QuizStore.clearActiveRound();
+
+      QuizStore.save();
+    }
+
+    // ===== L2 era selection =====
+    function enterDetailMode() {
+      showDetailEraSelection();
+    }
+
+    function showDetailEraSelection() {
+      eraL2ListEl.innerHTML = '';
+      updateScoreDisplay();
+      ERAS.forEach(era => {
+        const ratio = l1CompletionRatio(era);
+        const unlocked = ratio >= L2_UNLOCK_THRESHOLD;
+        const hasDetails = allDetailCards().filter(c => c.era === era).length > 0;
+
+        const item = document.createElement('div');
+        item.className = 'era-row';
+        if (!hasDetails || !unlocked) item.classList.add('era-locked');
+        item.innerHTML = renderEraRow(era);
+        // Add lock icon to right if locked
+        if (!hasDetails || !unlocked) {
+          const lock = document.createElement('span');
+          lock.className = 'era-lock';
+          lock.textContent = !hasDetails ? '· 준비 중' : '· L1 학습 부족';
+          item.querySelector('.era-content').appendChild(lock);
+        }
+        if (hasDetails && unlocked) {
+          item.addEventListener('click', () => startDetailGame(era));
+        }
+        eraL2ListEl.appendChild(item);
+      });
+      showView('view-era-l2');
+    }
+
+    // ===== L2 game state =====
+    let l2CurrentEra = null;
+    let l2Primaries = [];        // primary cards in selected era, sorted by startYear
+    let l2DetailPool = [];       // detail cards (unused) for selected era
+    let l2CurrentDetail = null;
+    let l2Locked = false;
+    let l2AttemptsThisDetail = 0;
+    let l2HintsThisDetail = 0;
+    let l2HintLevel = 0;         // 0: none, 1: 세기·반세기 + type (-5), 2: 포기 (-20)
+    let l2MatchedCount = 0;
+    let l2TotalCount = 0;
+    let l2VisibleTypes = null;   // Set<string> — 현재 마스킹 태그의 type (필터)
+    let l2MaskTag = null;        // 현재 디테일에서 마스킹·정답 처리할 태그 (다중 태그 중 랜덤 1)
+
+    // 디테일의 startYear → "14세기 후반" / "기원전 2세기" 표기
+    function centuryHalfLabel(year) {
+      if (year < 0) {
+        const cent = Math.ceil(Math.abs(year) / 100);
+        return `기원전 ${cent}세기`;
+      }
+      const cent = Math.ceil(year / 100);
+      const inCent = year - (cent - 1) * 100; // 1392 → 92
+      const half = inCent <= 50 ? '전반' : '후반';
+      return `${cent}세기 ${half}`;
+    }
+    // 다중 태그 디테일 — description에 실제 등장하는 태그 중 랜덤 1을 마스킹·정답 대상으로 선택.
+    // 등장 태그가 없으면(예: description이 짧거나 비어있을 때) 첫 태그 fallback.
+    function pickMaskTag(detail) {
+      const tags = detail.tags || [];
+      if (tags.length === 0) return null;
+      const desc = detail.description || detail.title || '';
+      const present = tags.filter(t => desc.includes(t));
+      const pool = present.length > 0 ? present : tags;
+      return pool[Math.floor(Math.random() * pool.length)];
+    }
+    // maskTag의 type 1개를 Set으로 (시대 cross-era 로직과 호환).
+    function maskTagTypeSet(maskTag) {
+      if (!maskTag) return new Set();
+      const card = allPrimaryCards().find(c => c.title === maskTag);
+      return new Set([card?.type || '사건']);
+    }
+    function buildL2HintText(detail, maskTag) {
+      // 1순위: 같은 maskTag를 정답으로 하는 다른 디테일의 본문(마스킹 적용) → 추가 사실로 학습
+      if (maskTag) {
+        const others = allDetailCards().filter(d =>
+          d.id !== detail.id && (d.tags || []).includes(maskTag) && detailPassesDifficulty(d)
+        );
+        if (others.length > 0) {
+          const pick = others[Math.floor(Math.random() * others.length)];
+          const text = (pick.description || pick.title || '').split(maskTag).join('**');
+          return `힌트 : ${text}`;
+        }
+      }
+      // 2순위: 시기 단서
+      return `힌트 : ${centuryHalfLabel(detail.startYear)}`;
+    }
+
+    function startDetailGame(era) {
+      l2CurrentEra = era;
+      detailTitleEl.textContent = era;
+      trackEvent('era_started', { era, tier: currentDifficultyTier });
+
+      // Build primary timeline (sorted by startYear)
+      l2Primaries = allPrimaryCards()
+        .filter(c => c.era === era)
+        .sort((a, b) => a.startYear - b.startYear);
+
+      // Build detail pool. difficulty 필터 적용 → 매칭 안 한 것 우선. 다 매칭했으면 전체 풀로 다시 풀기.
+      const matched = QuizStore.getL2MatchedDetailIds();
+      const allDetails = allDetailCards()
+        .filter(c => c.era === era)
+        .filter(detailPassesDifficulty);
+      const unmatched = allDetails.filter(c => !matched.has(c.id));
+      if (unmatched.length > 0) {
+        l2DetailPool = unmatched;
+        l2MatchedCount = allDetails.length - unmatched.length;
+      } else {
+        // 다시 풀기 모드 — 세션 카운트는 0부터, 누적 matched는 유지
+        l2DetailPool = [...allDetails];
+        l2MatchedCount = 0;
+      }
+      l2TotalCount = allDetails.length;
+      resetL2Accuracy();
+
+      showView('view-detail');
+      pickNextDetail();
+    }
+
+    function renderL2Timeline() {
+      detailTimelineEl.innerHTML = '';
+      const matchedCounts = countMatchedByKeyword();
+      // 현재 디테일의 정답 키워드 type과 같은 카드만 표시 (l2VisibleTypes가 null이면 전체)
+      let visible;
+      if (l2VisibleTypes && l2VisibleTypes.has('시대')) {
+        // 시대 type은 한 시대에 1~2개뿐이라 변별력이 약함.
+        // 선택 시대 안의 시대 키워드가 5개 미만이면 인접 시대(디테일 startYear에서 가까운 순)로 5개까지 채움.
+        const allTimeKw = allPrimaryCards().filter(c => l2VisibleTypes.has(c.type || '사건'));
+        const inEra = allTimeKw.filter(c => c.era === l2CurrentEra);
+        if (inEra.length >= 5) {
+          visible = inEra.sort((a, b) => a.startYear - b.startYear);
+        } else {
+          const need = 5 - inEra.length;
+          const targetYear = l2CurrentDetail ? l2CurrentDetail.startYear : 0;
+          const extras = allTimeKw
+            .filter(c => c.era !== l2CurrentEra)
+            .sort((a, b) => Math.abs(a.startYear - targetYear) - Math.abs(b.startYear - targetYear))
+            .slice(0, need);
+          visible = [...inEra, ...extras].sort((a, b) => a.startYear - b.startYear);
+        }
+      } else if (l2VisibleTypes) {
+        visible = l2Primaries.filter(c => l2VisibleTypes.has(c.type || '사건'));
+      } else {
+        visible = l2Primaries;
+      }
+
+      visible.forEach(card => {
+        const el = document.createElement('div');
+        el.className = 'l2-card';
+        el.dataset.title = card.title;
+        const matched = matchedCounts[card.title] || 0;
+        const yearText = card.startYear === card.endYear
+          ? formatYear(card.startYear)
+          : `${formatYear(card.startYear)}~`;
+        el.innerHTML = `
+          <span class="l2-type-badge">${card.type || '사건'}</span>
+          <span class="l2-title">${card.title}</span>
+          ${matched > 0 ? `<span class="l2-detail-count">+${matched}</span>` : ''}
+          <span class="l2-year">${yearText}</span>
+        `;
+        el.addEventListener('click', () => onKeywordTap(card));
+        detailTimelineEl.appendChild(el);
+      });
+    }
+    function countMatchedByKeyword() {
+      const counts = {};
+      (QuizStore._data.history || []).forEach(h => {
+        if (h.kind === 'l2' && h.isCorrect) {
+          counts[h.tappedKeywordId] = (counts[h.tappedKeywordId] || 0) + 1;
+        }
+      });
+      return counts;
+    }
+
+    function pickNextDetail() {
+      if (l2DetailPool.length === 0) {
+        // All matched — 필터 해제하고 전체 키워드 노출
+        l2VisibleTypes = null;
+        renderL2Timeline();
+        detailQuestionEl.classList.add('hidden');
+        detailHintEl.innerHTML = `🎉 ${l2CurrentEra} 디테일을 모두 매칭했습니다!`;
+        detailHintEl.className = 'hint correct';
+        detailProgressEl.textContent = `${l2MatchedCount}/${l2TotalCount} 완료`;
+        return;
+      }
+      // 답 확인 버튼 + 신고 버튼 숨김 (포기 후 잔존 방지)
+      document.getElementById('l2AdvanceBtn').classList.add('hidden');
+      document.getElementById('l2ReportBtn').classList.add('hidden');
+      // Pick random one
+      const idx = Math.floor(Math.random() * l2DetailPool.length);
+      l2CurrentDetail = l2DetailPool[idx];
+      l2Locked = false;
+      l2AttemptsThisDetail = 0;
+      l2HintsThisDetail = 0;
+      l2HintLevel = 0;
+      // 다중 태그 중 랜덤 1을 마스킹 대상으로. type 필터도 그 태그의 type 하나만.
+      l2MaskTag = pickMaskTag(l2CurrentDetail);
+      l2VisibleTypes = maskTagTypeSet(l2MaskTag);
+      if (l2VisibleTypes.size === 0) l2VisibleTypes = null; // 매핑 정보 없으면 전체
+      renderL2Timeline();
+      const typesLabel = l2VisibleTypes ? [...l2VisibleTypes].join('/') : '키워드';
+      detailQuestionEl.classList.remove('hidden', 'l2-hint-shown', 'l2-gaveup-reveal');
+      detailQTextEl.textContent = maskDetailDescription(l2CurrentDetail, l2MaskTag);
+      detailQLabelEl.textContent = `관련 ${typesLabel} 카드를 탭하세요`;
+      document.getElementById('detailQHint').textContent = '';
+      detailHintEl.innerHTML = `관련 ${typesLabel} 카드를 탭하세요 (길게 누르면 힌트)`;
+      detailHintEl.className = 'hint';  // hidden 클래스 제거되며 복원
+      // 현재 풀고 있는 문제 번호 = 이번 세션에서 해결된 문제 수 + 1 (정답·포기 둘 다 카운트)
+      detailProgressEl.textContent = `문제 ${l2DetailsAttempted + 1}/${l2TotalCount}`;
+    }
+
+    // ===== L2 long-press: 1차 힌트(다른 디테일 사실 or 시기) → 포기 =====
+    function applyL2Hint() {
+      // hintLevel 1: 카드 안에 "다른 사실: ..." 또는 시기 단서
+      const hintText = buildL2HintText(l2CurrentDetail, l2MaskTag);
+      document.getElementById('detailQHint').textContent = hintText;
+      detailQuestionEl.classList.add('l2-hint-shown');
+      l2HintsThisDetail++;
+      addScore(-5);
+      detailHintEl.textContent = '길게 누르면 정답보기';
+      detailHintEl.className = 'hint';
+    }
+    function giveUpL2() {
+      if (l2Locked || !l2CurrentDetail) return;
+      l2Locked = true;
+      addScore(-20);
+      const answerTag = l2MaskTag || (l2CurrentDetail.tags || [])[0] || null;
+      // 포기 기록 — tappedKeywordId 자리에 정답 키워드 넣어 eraRecentAccuracy가 시대 매칭 가능하게 (isCorrect=false → 0점)
+      QuizStore.recordL2Match(l2CurrentDetail.id, answerTag, false, l2AttemptsThisDetail, l2HintsThisDetail, true);
+      noteL2Resolution(false);  // 포기는 무조건 틀린 것
+      trackEvent('detail_gave_up', {
+        era: l2CurrentEra,
+        attempts: l2AttemptsThisDetail,
+        hints: l2HintsThisDetail,
+      });
+      // 원문 reveal — 마스킹된 태그를 빨간 강조로 카드 노출
+      revealAnswerInCard(l2CurrentDetail, answerTag, true);
+      // 키워드 목록에서 정답 카드도 빨간색 하이라이트 + 보이도록 스크롤
+      if (answerTag) {
+        const answerCardEl = detailTimelineEl.querySelector(`[data-title="${cssEscape(answerTag)}"]`);
+        if (answerCardEl) {
+          answerCardEl.classList.add('l2-giveup-highlight');
+          answerCardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+      // 포기 안내 텍스트는 제거 — detailHint 자리는 신고 버튼이 차지
+      detailHintEl.textContent = '';
+      detailHintEl.className = 'hint hidden';
+      // 현재 세션 풀에선 제거 (matched로는 안 침 → 다음 세션에 재출제)
+      l2DetailPool = l2DetailPool.filter(d => d.id !== l2CurrentDetail.id);
+      // 답 확인 단계 — 사용자가 버튼 탭할 때까지 머무름 (auto-advance 없음)
+      document.getElementById('l2AdvanceBtn').classList.remove('hidden');
+      document.getElementById('l2ReportBtn').classList.remove('hidden');
+    }
+    document.getElementById('l2AdvanceBtn').addEventListener('click', () => {
+      document.getElementById('l2AdvanceBtn').classList.add('hidden');
+      document.getElementById('l2ReportBtn').classList.add('hidden');
+      pickNextDetail();
+    });
+    document.getElementById('l2ReportBtn').addEventListener('click', () => {
+      // 신고 stashing — 추후 DB/서버 연동 자리. 지금은 localStorage에 누적만 한다.
+      if (!QuizStore._data.reports) QuizStore._data.reports = [];
+      QuizStore._data.reports.push({
+        detailId: l2CurrentDetail?.id,
+        maskTag: l2MaskTag,
+        title: l2CurrentDetail?.title,
+        era: l2CurrentEra,
+        time: Date.now(),
+      });
+      QuizStore.save();
+      trackEvent('detail_reported', {
+        era: l2CurrentEra,
+        detailId: l2CurrentDetail?.id,
+      });
+      alert('문제 이상이 신고되었습니다. 검토하도록 하겠습니다.');
+    });
+
+    let l2LongPressTimer = null;
+    let l2LongPressUsed = false;
+    detailQuestionEl.addEventListener('pointerdown', () => {
+      if (l2Locked) return;
+      l2LongPressUsed = false;
+      l2LongPressTimer = setTimeout(() => {
+        l2LongPressUsed = true;
+        if (l2HintLevel < 1) {
+          l2HintLevel = 1;
+          applyL2Hint();
+        } else {
+          giveUpL2();
+        }
+      }, 500);
+    });
+    function cancelL2LongPress() {
+      if (l2LongPressTimer) { clearTimeout(l2LongPressTimer); l2LongPressTimer = null; }
+    }
+    detailQuestionEl.addEventListener('pointerup', cancelL2LongPress);
+    detailQuestionEl.addEventListener('pointercancel', cancelL2LongPress);
+    detailQuestionEl.addEventListener('pointerleave', cancelL2LongPress);
+    detailQuestionEl.addEventListener('contextmenu', e => e.preventDefault());
+
+    // 마스킹 — 지정된 태그만 "**"로 치환. 나머지 태그는 본문에 그대로 노출(문맥 단서).
+    function maskDetailDescription(detail, maskTag) {
+      let text = detail.description || detail.title;
+      if (maskTag && text.includes(maskTag)) {
+        text = text.split(maskTag).join('**');
+      }
+      return text;
+    }
+
+    // 정답 reveal — 마스킹된 태그를 <span class="l2-answer">로 감싸서 카드에 노출.
+    // tags 데이터는 우리 소스에서 옴 → innerHTML XSS 위험 없음.
+    function revealAnswerInCard(detail, maskTag, gaveUp) {
+      let html = detail.description || detail.title;
+      if (maskTag && html.includes(maskTag)) {
+        html = html.split(maskTag).join(`<span class="l2-answer">${maskTag}</span>`);
+      }
+      detailQTextEl.innerHTML = html;
+      // 힌트 라벨/뱃지는 reveal 동안 노출 안 함
+      detailQuestionEl.classList.remove('l2-hint-shown');
+      detailQuestionEl.classList.toggle('l2-gaveup-reveal', !!gaveUp);
+    }
+
+    function onKeywordTap(card) {
+      if (l2Locked || !l2CurrentDetail) return;
+      l2AttemptsThisDetail++;
+      // 마스킹된 태그와 정확히 일치해야 정답 (다중 태그 중 랜덤 1만 출제)
+      const isCorrect = l2MaskTag ? (card.title === l2MaskTag)
+                                  : (l2CurrentDetail.tags || []).includes(card.title);
+      QuizStore.recordL2Match(l2CurrentDetail.id, card.title, isCorrect, l2AttemptsThisDetail, l2HintsThisDetail);
+
+      const cardEl = detailTimelineEl.querySelector(`[data-title="${cssEscape(card.title)}"]`);
+      if (isCorrect) {
+        l2Locked = true;
+        addScore(10);
+        // 첫 시도 정답만 clean correct. 오답 후 맞췄으면 그 디테일은 틀린 걸로.
+        noteL2Resolution(l2AttemptsThisDetail === 1);
+        trackEvent('detail_matched', {
+          era: l2CurrentEra,
+          attempts: l2AttemptsThisDetail,
+          hints: l2HintsThisDetail,
+          clean: l2AttemptsThisDetail === 1,
+        });
+        if (cardEl) cardEl.classList.add('l2-correct-flash');
+        // 원문 reveal — 마스킹된 태그를 초록 강조로 카드 노출
+        revealAnswerInCard(l2CurrentDetail, l2MaskTag, false);
+        detailHintEl.textContent = `정답! (+10)`;
+        detailHintEl.className = 'hint correct';
+        // Remove the matched detail from pool
+        l2DetailPool = l2DetailPool.filter(d => d.id !== l2CurrentDetail.id);
+        l2MatchedCount++;
+        // Re-render timeline to show updated badge — 후 2초 노출하고 다음으로
+        setTimeout(() => {
+          renderL2Timeline();
+          pickNextDetail();
+        }, 2000);
+      } else {
+        addScore(-10);
+        if (cardEl) {
+          cardEl.classList.remove('l2-wrong-flash');
+          void cardEl.offsetWidth;
+          cardEl.classList.add('l2-wrong-flash');
+          setTimeout(() => cardEl.classList.remove('l2-wrong-flash'), 500);
+        }
+        // Hint: era/time distance feedback
+        const detailMid = (l2CurrentDetail.startYear + l2CurrentDetail.endYear) / 2;
+        const cardMid = (card.startYear + card.endYear) / 2;
+        const diff = Math.abs(detailMid - cardMid);
+        const distHint = diff < 50 ? '비슷한 시기지만 관련 없음' : `시기 차이 약 ${Math.round(diff)}년`;
+        detailHintEl.textContent = `오답 (-10). ${distHint}. 다시 시도하세요.`;
+        detailHintEl.className = 'hint wrong';
+      }
+    }
+    // Minimal CSS.escape polyfill for Korean titles in querySelector
+    function cssEscape(s) {
+      return s.replace(/(["\\\[\].,#:>~+*^$|?!()=])/g, '\\$1');
+    }
+  </script>
+</body>
+</html>
