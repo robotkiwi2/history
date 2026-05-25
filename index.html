@@ -200,6 +200,25 @@
     .modal-body { font-size: 14px; line-height: 1.7; color: #b8b8d4; }
     .ios-step { padding: 6px 0; }
     .ios-step strong { color: #eebbc3; }
+    .tour-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .tour-step strong { color: #eebbc3; }
+    .tour-num {
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      background: #eebbc3;
+      color: #1a1a2e;
+      border-radius: 50%;
+      font-weight: 900;
+      font-size: 12px;
+    }
     .modal-close-btn {
       width: 100%;
       margin-top: 18px;
@@ -1420,6 +1439,21 @@
     <button class="install-close" id="installClose" aria-label="닫기">×</button>
   </div>
 
+  <!-- ============ FIRST-RUN TOUR MODAL ============ -->
+  <div class="modal-backdrop hidden" id="tourModal">
+    <div class="modal-card">
+      <div class="modal-title">첫 시작 가이드</div>
+      <div class="modal-body">
+        <div class="tour-step"><span class="tour-num">1</span> <strong>하단 카드</strong>에 문제(빈칸 사실)가 나옵니다</div>
+        <div class="tour-step"><span class="tour-num">2</span> <strong>상단 목록</strong>에서 빈칸에 들어갈 키워드를 탭하세요</div>
+        <div class="tour-step"><span class="tour-num">3</span> 문제 카드를 <strong>길게 누르면 힌트</strong>가 나옵니다</div>
+        <div class="tour-step"><span class="tour-num">4</span> 한 번 더 <strong>길게 누르면 정답</strong>이 보입니다</div>
+        <div class="tour-step"><span class="tour-num">5</span> 우상단 <strong>정답률을 길게 누르면</strong> 이번 세션이 초기화됩니다</div>
+      </div>
+      <button class="modal-close-btn" id="tourCloseBtn">시작하기</button>
+    </div>
+  </div>
+
   <!-- ============ iOS INSTALL GUIDE MODAL ============ -->
   <div class="modal-backdrop hidden" id="iosInstallModal">
     <div class="modal-card">
@@ -2120,6 +2154,19 @@
     iosModal.addEventListener('click', (e) => {
       if (e.target === iosModal) iosModal.classList.add('hidden');
     });
+
+    // ===== 첫 진입 투어 닫기 =====
+    const tourModalEl = document.getElementById('tourModal');
+    document.getElementById('tourCloseBtn').addEventListener('click', () => {
+      tourModalEl.classList.add('hidden');
+      localStorage.setItem('tour_shown_v1', '1');
+    });
+    tourModalEl.addEventListener('click', (e) => {
+      if (e.target === tourModalEl) {
+        tourModalEl.classList.add('hidden');
+        localStorage.setItem('tour_shown_v1', '1');
+      }
+    });
     document.getElementById('helpBtn').addEventListener('click', () => {
       alert([
         '【 사용법 안내 】',
@@ -2314,15 +2361,24 @@
     // ===== Score — view-era에는 표시 안 함, 게임 화면 우상단에만 노출 =====
     const detailScoreEl = document.getElementById('detailScore');
     const eraL2ScoreEl = document.getElementById('eraL2Score');
-    // 정답률 표시 탭 → 세션 정답률 초기화 confirm
+    // 정답률 표시 길게 누르기 → 세션 정답률 초기화 confirm (오탭 방지)
     if (detailScoreEl) {
       detailScoreEl.style.cursor = 'pointer';
-      detailScoreEl.addEventListener('click', () => {
+      let scoreLpTimer = null;
+      detailScoreEl.addEventListener('pointerdown', () => {
         if (l2DetailsAttempted === 0) return;
-        if (confirm('이번 세션 정답률을 초기화하시겠습니까?')) {
-          resetL2Accuracy();
-        }
+        scoreLpTimer = setTimeout(() => {
+          scoreLpTimer = null;
+          if (confirm('이번 세션 정답률을 초기화하시겠습니까?')) {
+            resetL2Accuracy();
+          }
+        }, 500);
       });
+      const cancelScoreLp = () => { if (scoreLpTimer) { clearTimeout(scoreLpTimer); scoreLpTimer = null; } };
+      detailScoreEl.addEventListener('pointerup', cancelScoreLp);
+      detailScoreEl.addEventListener('pointercancel', cancelScoreLp);
+      detailScoreEl.addEventListener('pointerleave', cancelScoreLp);
+      detailScoreEl.addEventListener('contextmenu', e => e.preventDefault());
     }
     function updateScoreDisplay() {
       // L1 / 구버전 score는 그대로. L2 detailScore는 별도로 정답률 노출.
@@ -3390,6 +3446,10 @@
       l2CurrentEra = era;
       detailTitleEl.textContent = era;
       trackEvent('era_started', { era, tier: currentDifficultyTier });
+      // 첫 진입 시에만 투어 노출
+      if (!localStorage.getItem('tour_shown_v1')) {
+        document.getElementById('tourModal').classList.remove('hidden');
+      }
 
       // Build primary timeline (sorted by startYear)
       l2Primaries = allPrimaryCards()

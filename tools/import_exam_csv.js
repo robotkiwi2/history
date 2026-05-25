@@ -610,9 +610,18 @@ function main() {
   let skippedNoContent = 0;
   let strippedLabel = 0;
   let skippedDup = 0;
+  let skippedCrossTagDup = 0;
   // 중복 제거 — 같은 정답 태그 + description 첫 8자(공백·구두점 제거) 동일 시 첫 번째만 keep
   const seenDedupKey = new Set();
   const dedupKey = (text, tag) => tag + '|' + text.replace(/[\s.,!?·()\[\]"']/g, '').slice(0, 8);
+  // Cross-tag 중복 제거 — 다른 태그여도 디테일 텍스트가 사실상 동일하면 첫 occurrence만 keep
+  // (예: 같은 사실을 회차마다 다르게 분류한 경우 — 충돌 태그 자동 감춤)
+  const seenNormalized = new Set();
+  const strictNorm = s => s
+    .replace(/^\([가-마]\)\s*-\s*/, '')
+    .replace(/[\s.,·\-。．、!?()\[\]"']+/g, '')
+    .replace(/(이?다|었다|있었다|되었다|하였다|했다|이었다|이다)\.?$/u, '')
+    .trim();
   rows.forEach((r, idx) => {
     const rawSubject = r['실제 대상'] || r['질문 대상'];
     if (!rawSubject) return;
@@ -641,6 +650,13 @@ function main() {
       skippedNoContent++;
       return;
     }
+    // Cross-tag dedup — 정규화된 전체 텍스트로 비교, 첫 occurrence만 keep
+    const fullNorm = strictNorm(detailText);
+    if (seenNormalized.has(fullNorm)) {
+      skippedCrossTagDup++;
+      return;
+    }
+    seenNormalized.add(fullNorm);
     // 8자 dedup — 같은 정답 + 앞 8자 같으면 거의 동일 변형으로 간주
     const k = dedupKey(detailText, realSubject);
     if (seenDedupKey.has(k)) {
@@ -671,7 +687,7 @@ function main() {
   });
 
   const out = `// 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 ${keywords.length}개 / 디테일 ${details.length}개 (보기 옵션만 있던 ${skippedNoContent}행 제외, 라벨 prefix ${strippedLabel}행 정제, 중복 변형 ${skippedDup}행 제외)
+// 생성: 키워드 ${keywords.length}개 / 디테일 ${details.length}개 (보기 옵션만 있던 ${skippedNoContent}행 제외, 라벨 prefix ${strippedLabel}행 정제, 중복 변형 ${skippedDup}행 제외, 충돌 태그 ${skippedCrossTagDup}행 제외)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): ${unmapped.length}개
 ${unmapped.length ? '//   ' + unmapped.join(', ') + '\n' : ''}
 const EXAM_KEYWORDS = ${JSON.stringify(keywords, null, 2)};

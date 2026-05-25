@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 376개 / 디테일 1562개 (보기 옵션만 있던 192행 제외, 라벨 prefix 70행 정제, 중복 변형 366행 제외)
+// 생성: 키워드 376개 / 디테일 1557개 (보기 옵션만 있던 192행 제외, 라벨 prefix 70행 정제, 중복 변형 159행 제외, 충돌 태그 212행 제외)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
 
 const EXAM_KEYWORDS = [
@@ -15873,21 +15873,6 @@ const EXAM_DETAILS = [
     "_src": "75회 심화 Q21 O"
   },
   {
-    "id": "75회_q21_943",
-    "type": "사건",
-    "kind": "detail",
-    "title": "철령위 설치에 반발하여 요동 정벌을 추진하였다.",
-    "description": "철령위 설치에 반발하여 요동 정벌을 추진하였다.",
-    "startYear": 1388,
-    "endYear": 1388,
-    "difficulty": 3,
-    "era": "고려시대",
-    "tags": [
-      "위화도 회군"
-    ],
-    "_src": "75회 심화 Q21 X"
-  },
-  {
     "id": "75회_q21_944",
     "type": "사건",
     "kind": "detail",
@@ -20474,21 +20459,6 @@ const EXAM_DETAILS = [
     "era": "고려시대",
     "tags": [
       "고려"
-    ],
-    "_src": "73회 심화 Q11 X"
-  },
-  {
-    "id": "73회_q11_1356",
-    "type": "사건",
-    "kind": "detail",
-    "title": "주전도감을 설치하여 해동통보를 발행하였다.",
-    "description": "주전도감을 설치하여 해동통보를 발행하였다.",
-    "startYear": 1095,
-    "endYear": 1105,
-    "difficulty": 3,
-    "era": "고려시대",
-    "tags": [
-      "고려 숙종"
     ],
     "_src": "73회 심화 Q11 X"
   },
@@ -25443,21 +25413,6 @@ const EXAM_DETAILS = [
     "_src": "73회 기본 Q48 X"
   },
   {
-    "id": "73회_q49_1909",
-    "type": "사건",
-    "kind": "detail",
-    "title": "긴급 조치 철폐를 요구하였다.",
-    "description": "긴급 조치 철폐를 요구하였다.",
-    "startYear": 1961,
-    "endYear": 1979,
-    "difficulty": 4,
-    "era": "근대",
-    "tags": [
-      "박정희 정부"
-    ],
-    "_src": "73회 기본 Q49 X"
-  },
-  {
     "id": "73회_q49_1910",
     "type": "사건",
     "kind": "detail",
@@ -25591,21 +25546,6 @@ const EXAM_DETAILS = [
       "신라"
     ],
     "_src": "72회 심화 Q2 X"
-  },
-  {
-    "id": "72회_q3_1927",
-    "type": "사건",
-    "kind": "detail",
-    "title": "신라가 기벌포에서 당군을 격파하였다.",
-    "description": "신라가 기벌포에서 당군을 격파하였다.",
-    "startYear": 645,
-    "endYear": 676,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "삼국 통일 과정"
-    ],
-    "_src": "72회 심화 Q3 X"
   },
   {
     "id": "72회_q3_1928",
@@ -25979,6 +25919,21 @@ const EXAM_DETAILS = [
     "era": "고려시대",
     "tags": [
       "화통도감"
+    ],
+    "_src": "72회 심화 Q12 X"
+  },
+  {
+    "id": "72회_q12_1976",
+    "type": "사건",
+    "kind": "detail",
+    "title": "철령위 설치에 반발해 요동 정벌을 추진하였다.",
+    "description": "철령위 설치에 반발해 요동 정벌을 추진하였다.",
+    "startYear": 1388,
+    "endYear": 1388,
+    "difficulty": 3,
+    "era": "고려시대",
+    "tags": [
+      "위화도 회군"
     ],
     "_src": "72회 심화 Q12 X"
   },
@@ -26523,21 +26478,6 @@ const EXAM_DETAILS = [
     "_src": "72회 심화 Q26 X"
   },
   {
-    "id": "72회_q27_2027",
-    "type": "사건",
-    "kind": "detail",
-    "title": "금속 화폐인 건원중보가 주조되었다.",
-    "description": "금속 화폐인 건원중보가 주조되었다.",
-    "startYear": 981,
-    "endYear": 997,
-    "difficulty": 2,
-    "era": "고려시대",
-    "tags": [
-      "고려 성종"
-    ],
-    "_src": "72회 심화 Q27 O"
-  },
-  {
     "id": "72회_q27_2028",
     "type": "사건",
     "kind": "detail",
@@ -26791,21 +26731,6 @@ const EXAM_DETAILS = [
       "통리기무아문"
     ],
     "_src": "72회 심화 Q32 X"
-  },
-  {
-    "id": "72회_q32_2051",
-    "type": "사건",
-    "kind": "detail",
-    "title": "교육 입국 조서가 반포되었다.",
-    "description": "교육 입국 조서가 반포되었다.",
-    "startYear": 1895,
-    "endYear": 1896,
-    "difficulty": 4,
-    "era": "근대",
-    "tags": [
-      "을미개혁"
-    ],
-    "_src": "72회 심화 Q32 O"
   },
   {
     "id": "72회_q33_2052",
