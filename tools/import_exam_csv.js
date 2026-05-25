@@ -545,6 +545,10 @@ const KEYWORD_META = {
   '북학의':            { type: '유물',  era: '조선시대', startYear: 1778,  endYear: 1778  },
   '동국여지승람':      { type: '유물',  era: '조선시대', startYear: 1481,  endYear: 1481  },
   '창경궁':            { type: '유물',  era: '조선시대', startYear: 1483,  endYear: 1483  },
+
+  // ===== 잔여 누락 보강 =====
+  '광혜원':            { type: '기관',  era: '근대',     startYear: 1885,  endYear: 1904  },
+  '설총':              { type: '인물',  era: '신라시대', startYear: 655,   endYear: 720   },
 };
 
 function mapDifficulty(score) {
@@ -586,6 +590,8 @@ const KEYWORD_ALIAS_TO_BASE = {
   '신라 하대 시작': '신라 하대',
   // 표기 동일 entity
   '의금부': '조선 의금부',
+  '조선 (후기)': '조선 후기',
+  '조선': '조선 후기',
 };
 const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
 
@@ -615,11 +621,32 @@ function toSlug(s) {
   return s.replace(/[\s/·.]+/g, '_').replace(/[\(\)\[\]]/g, '');
 }
 
+function parseCSVLine(line) {
+  const cells = [];
+  let cur = '';
+  let inQuote = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (inQuote) {
+      if (c === '"') {
+        if (line[i + 1] === '"') { cur += '"'; i++; }
+        else { inQuote = false; }
+      } else { cur += c; }
+    } else {
+      if (c === '"') { inQuote = true; }
+      else if (c === ',') { cells.push(cur); cur = ''; }
+      else { cur += c; }
+    }
+  }
+  cells.push(cur);
+  return cells;
+}
+
 function parseCSV(text) {
   const lines = text.split(/\r?\n/).filter(l => l.trim());
-  const header = lines[0].split(',');
+  const header = parseCSVLine(lines[0]);
   return lines.slice(1).map(line => {
-    const cells = line.split(',');
+    const cells = parseCSVLine(line);
     const obj = {};
     header.forEach((h, i) => { obj[h.trim()] = (cells[i] || '').trim(); });
     return obj;

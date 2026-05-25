@@ -2961,6 +2961,12 @@
       if (selectedEras.size === 0) return;
       const selectedEra = selectedEras.values().next().value;
       if (currentEraTab === 'detail') {
+        // 모든 디테일 매칭 완료된 시대면 confirm + 시대 초기화 후 시작
+        const { matched, total } = eraDetailProgress(selectedEra);
+        if (total > 0 && matched >= total) {
+          if (!confirm(`[${selectedEra}] 모든 매칭을 완료했습니다.\n기록을 초기화하고 다시 시작할까요?`)) return;
+          resetEra(selectedEra);
+        }
         startDetailGame(selectedEra);
       } else {
         startPlayingWithEras();
