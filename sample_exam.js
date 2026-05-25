@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 419개 / 디테일 2043개 (보기 옵션만 있던 304행 제외, 라벨 prefix 92행 정제, 중복 변형 263행 제외, 충돌 태그 359행 제외)
+// 생성: 키워드 419개 / 디테일 2030개 (보기 옵션만 있던 318행 제외, 라벨 prefix 92행 정제, 중복 변형 263행 제외, 충돌 태그 358행 제외)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 9개
 //   광혜원, 설총, 조선 (후기), 조선, O, X, 소의 주민들이 받은 차별의 내용을 찾아본다.", 열녀의 이야기를 모아 편찬", 좌우 합작 위원회"
 
@@ -8380,21 +8380,6 @@ const EXAM_DETAILS = [
       "거란 1차 침입"
     ],
     "_src": "77회 기본 Q12 O"
-  },
-  {
-    "id": "77회_q13_269",
-    "type": "사건",
-    "kind": "detail",
-    "title": "의금부",
-    "description": "의금부",
-    "startYear": 1414,
-    "endYear": 1894,
-    "difficulty": 2,
-    "era": "조선시대",
-    "tags": [
-      "조선 의금부"
-    ],
-    "_src": "77회 기본 Q13 X"
   },
   {
     "id": "77회_q16_275",
@@ -24342,51 +24327,6 @@ const EXAM_DETAILS = [
     "_src": "73회 기본 Q3 O"
   },
   {
-    "id": "73회_q5_1749",
-    "type": "사건",
-    "kind": "detail",
-    "title": "미천왕",
-    "description": "미천왕",
-    "startYear": 300,
-    "endYear": 331,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "고구려 미천왕"
-    ],
-    "_src": "73회 기본 Q5 X"
-  },
-  {
-    "id": "73회_q5_1750",
-    "type": "사건",
-    "kind": "detail",
-    "title": "장수왕",
-    "description": "장수왕",
-    "startYear": 413,
-    "endYear": 491,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "고구려 장수왕"
-    ],
-    "_src": "73회 기본 Q5 X"
-  },
-  {
-    "id": "73회_q5_1751",
-    "type": "사건",
-    "kind": "detail",
-    "title": "소수림왕",
-    "description": "소수림왕",
-    "startYear": 371,
-    "endYear": 384,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "고구려 소수림왕"
-    ],
-    "_src": "73회 기본 Q5 O"
-  },
-  {
     "id": "73회_q6_1755",
     "type": "사건",
     "kind": "detail",
@@ -30117,21 +30057,6 @@ const EXAM_DETAILS = [
     "_src": "71회 기본 Q2 X"
   },
   {
-    "id": "71회_q2_2353",
-    "type": "사건",
-    "kind": "detail",
-    "title": "부여",
-    "description": "부여",
-    "startYear": -200,
-    "endYear": 562,
-    "difficulty": 3,
-    "era": "선사시대",
-    "tags": [
-      "삼한/부여"
-    ],
-    "_src": "71회 기본 Q2 X"
-  },
-  {
     "id": "71회_q3_2355",
     "type": "사건",
     "kind": "detail",
@@ -30160,51 +30085,6 @@ const EXAM_DETAILS = [
       "백제 근초고왕"
     ],
     "_src": "71회 기본 Q3 X"
-  },
-  {
-    "id": "71회_q4_2359",
-    "type": "사건",
-    "kind": "detail",
-    "title": "성왕",
-    "description": "성왕",
-    "startYear": 523,
-    "endYear": 554,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "백제 성왕"
-    ],
-    "_src": "71회 기본 Q4 O"
-  },
-  {
-    "id": "71회_q4_2360",
-    "type": "사건",
-    "kind": "detail",
-    "title": "무령왕",
-    "description": "무령왕",
-    "startYear": 501,
-    "endYear": 523,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "백제 무령왕"
-    ],
-    "_src": "71회 기본 Q4 X"
-  },
-  {
-    "id": "71회_q4_2361",
-    "type": "사건",
-    "kind": "detail",
-    "title": "근초고왕",
-    "description": "근초고왕",
-    "startYear": 346,
-    "endYear": 375,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "백제 근초고왕"
-    ],
-    "_src": "71회 기본 Q4 X"
   },
   {
     "id": "71회_q5_2363",
@@ -33792,66 +33672,6 @@ const EXAM_DETAILS = [
     "_src": "69회 기본 Q3 O"
   },
   {
-    "id": "69회_q4_2766",
-    "type": "사건",
-    "kind": "detail",
-    "title": "법흥왕",
-    "description": "법흥왕",
-    "startYear": 514,
-    "endYear": 540,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "신라 법흥왕"
-    ],
-    "_src": "69회 기본 Q4 O"
-  },
-  {
-    "id": "69회_q4_2767",
-    "type": "사건",
-    "kind": "detail",
-    "title": "지증왕",
-    "description": "지증왕",
-    "startYear": 500,
-    "endYear": 514,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "신라 지증왕"
-    ],
-    "_src": "69회 기본 Q4 X"
-  },
-  {
-    "id": "69회_q4_2768",
-    "type": "사건",
-    "kind": "detail",
-    "title": "진평왕",
-    "description": "진평왕",
-    "startYear": 579,
-    "endYear": 632,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "신라 진평왕"
-    ],
-    "_src": "69회 기본 Q4 X"
-  },
-  {
-    "id": "69회_q4_2769",
-    "type": "사건",
-    "kind": "detail",
-    "title": "진흥왕",
-    "description": "진흥왕",
-    "startYear": 540,
-    "endYear": 576,
-    "difficulty": 3,
-    "era": "삼국시대",
-    "tags": [
-      "신라 진흥왕"
-    ],
-    "_src": "69회 기본 Q4 X"
-  },
-  {
     "id": "69회_q4_2770",
     "type": "사건",
     "kind": "detail",
@@ -34810,21 +34630,6 @@ const EXAM_DETAILS = [
       "안중근"
     ],
     "_src": "69회 기본 Q35 O"
-  },
-  {
-    "id": "69회_q36_2909",
-    "type": "사건",
-    "kind": "detail",
-    "title": "이승만",
-    "description": "이승만",
-    "startYear": 1948,
-    "endYear": 1960,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": [
-      "이승만 정부"
-    ],
-    "_src": "69회 기본 Q36 X"
   },
   {
     "id": "69회_q36_2910",

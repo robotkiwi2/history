@@ -690,6 +690,12 @@ function main() {
       skippedNoContent++;
       return;
     }
+    // 디테일이 정답 키워드의 부분 문자열 — 마스킹 불가, 답이 그대로 노출
+    // 예: detail="진흥왕", 정답="신라 진흥왕" → "진흥왕"이 그대로 노출되어 매칭 무의미
+    if (rn.includes(dn) && dn.length < rn.length) {
+      skippedNoContent++;
+      return;
+    }
     // tag로 시작 + 나머지 ≤10자면 컨텍스트 부족 (예: "발췌 개헌에 따라 이루어졌다." → "**에 따라 이루어졌다."
     // — 마스킹 후 generic 동사만 남아 변별 불가)
     if (dn.startsWith(rn) && dn.length - rn.length <= 10) {
