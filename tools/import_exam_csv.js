@@ -201,7 +201,7 @@ const KEYWORD_META = {
   '모스크바 3국 외상회의': { type: '사건', era: '근대', startYear: 1945,  endYear: 1945  },
   '4·19 혁명':         { type: '운동',  era: '근대',     startYear: 1960,  endYear: 1960  },
   '유신 체제':         { type: '제도',  era: '근대',     startYear: 1972,  endYear: 1980  },
-  '5·18 광주민주화운동': { type: '운동', era: '근대',   startYear: 1980,  endYear: 1980  },
+  // (5·18 광주민주화운동 → 5·18 민주화 운동으로 alias)
   '부마민주항쟁':      { type: '운동',  era: '근대',     startYear: 1979,  endYear: 1979  },
   '6월 민주항쟁':      { type: '운동',  era: '근대',     startYear: 1987,  endYear: 1987  },
   '박정희 정부 경제':  { type: '시대',  era: '근대',     startYear: 1961,  endYear: 1979  },
@@ -592,6 +592,7 @@ const KEYWORD_ALIAS_TO_BASE = {
   '의금부': '조선 의금부',
   '조선 (후기)': '조선 후기',
   '조선': '조선 후기',
+  '5·18 광주민주화운동': '5·18 민주화 운동',
 };
 const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
 

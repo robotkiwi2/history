@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 435개 / 디테일 2167개 (보기 옵션만 있던 324행 제외, 라벨 prefix 92행 정제, 중복 변형 284행 제외, 충돌 태그 398행 제외)
+// 생성: 키워드 434개 / 디테일 2166개 (보기 옵션만 있던 327행 제외, 라벨 prefix 92행 정제, 중복 변형 284행 제외, 충돌 태그 396행 제외)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
 
 const EXAM_KEYWORDS = [
@@ -1755,7 +1755,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "운동",
     "kind": "keyword",
-    "title": "5·18 광주민주화운동",
+    "title": "5·18 민주화 운동",
     "description": "",
     "startYear": 1980,
     "endYear": 1980,
@@ -2982,17 +2982,6 @@ const EXAM_KEYWORDS = [
     "endYear": 846,
     "difficulty": 3,
     "era": "신라시대",
-    "tags": []
-  },
-  {
-    "type": "운동",
-    "kind": "keyword",
-    "title": "5·18 민주화 운동",
-    "description": "",
-    "startYear": 1980,
-    "endYear": 1980,
-    "difficulty": 3,
-    "era": "근대",
     "tags": []
   },
   {
@@ -7652,7 +7641,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "5·18 광주민주화운동"
+      "5·18 민주화 운동"
     ],
     "_src": "78회 심화 Q46 X"
   },
@@ -9740,21 +9729,6 @@ const EXAM_DETAILS = [
       "장보고"
     ],
     "_src": "77회 기본 Q48 X"
-  },
-  {
-    "id": "77회_q49_405",
-    "type": "사건",
-    "kind": "detail",
-    "title": "5·18 민주화 운동",
-    "description": "5·18 민주화 운동",
-    "startYear": 1980,
-    "endYear": 1980,
-    "difficulty": 2,
-    "era": "근대",
-    "tags": [
-      "5·18 광주민주화운동"
-    ],
-    "_src": "77회 기본 Q49 O"
   },
   {
     "id": "77회_q50_406",
@@ -18017,7 +17991,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "5·18 광주민주화운동"
+      "5·18 민주화 운동"
     ],
     "_src": "75회 심화 Q48 X"
   },
@@ -20462,7 +20436,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "5·18 광주민주화운동"
+      "5·18 민주화 운동"
     ],
     "_src": "74회 심화 Q46 X"
   },
@@ -22937,7 +22911,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "5·18 광주민주화운동"
+      "5·18 민주화 운동"
     ],
     "_src": "73회 심화 Q48 O"
   },
@@ -24227,7 +24201,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "5·18 광주민주화운동"
+      "5·18 민주화 운동"
     ],
     "_src": "75회 기본 Q45 X"
   },
@@ -26012,7 +25986,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "5·18 광주민주화운동"
+      "5·18 민주화 운동"
     ],
     "_src": "73회 기본 Q49 X"
   },
