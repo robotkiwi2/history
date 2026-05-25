@@ -2019,6 +2019,8 @@
       QuizStore.reset();
       yearScore = 0;
       nextMilestone = 100;
+      // 투어도 다시 볼 수 있게 플래그 해제
+      localStorage.removeItem('tour_shown_v1');
       // 데이터 카운트 갱신만 — 설정 화면에 그대로 머무름
       refreshDataCountInfo();
       alert('기록이 초기화되었습니다.');
