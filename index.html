@@ -3535,21 +3535,53 @@
       document.getElementById('l2ReportBtn').classList.add('hidden');
       pickNextDetail();
     });
+    // 신고 endpoint — Google Apps Script Web App (시트에 append)
+    const REPORT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxsNhsxFv2ZwPKfYX38ny8eIO63IaoIIXEyyMksN62zE1QykHuY1fdbuTkBtBQDq1ES/exec';
+
+    // 익명 세션 ID — 같은 사용자 여러 신고 묶어 볼 수 있도록. 첫 방문 시 1회 생성.
+    function getSessionId() {
+      let sid = localStorage.getItem('hanmatch_sid');
+      if (!sid) {
+        sid = 's_' + Math.random().toString(36).slice(2, 10) + '_' + Date.now().toString(36);
+        localStorage.setItem('hanmatch_sid', sid);
+      }
+      return sid;
+    }
+
+    async function sendReportToSheet(report) {
+      try {
+        // Apps Script는 CORS preflight를 잘 받지 못해 text/plain으로 보냄 (서버에서 JSON.parse)
+        await fetch(REPORT_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(report),
+        });
+      } catch (e) {
+        console.warn('report send failed', e); // 네트워크 실패해도 localStorage에 백업됨
+      }
+    }
+
     document.getElementById('l2ReportBtn').addEventListener('click', () => {
-      // 신고 stashing — 추후 DB/서버 연동 자리. 지금은 localStorage에 누적만 한다.
-      if (!QuizStore._data.reports) QuizStore._data.reports = [];
-      QuizStore._data.reports.push({
+      const report = {
         detailId: l2CurrentDetail?.id,
         maskTag: l2MaskTag,
         title: l2CurrentDetail?.title,
+        description: l2CurrentDetail?.description || '',
         era: l2CurrentEra,
+        sessionId: getSessionId(),
         time: Date.now(),
-      });
+      };
+      // 로컬 백업 (네트워크 실패 대비)
+      if (!QuizStore._data.reports) QuizStore._data.reports = [];
+      QuizStore._data.reports.push(report);
       QuizStore.save();
+      // GA4 이벤트
       trackEvent('detail_reported', {
         era: l2CurrentEra,
         detailId: l2CurrentDetail?.id,
       });
+      // 시트로 전송 (fire-and-forget)
+      sendReportToSheet(report);
       alert('문제 이상이 신고되었습니다. 검토하도록 하겠습니다.');
     });
 
