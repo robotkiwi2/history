@@ -549,6 +549,61 @@ const KEYWORD_META = {
   // ===== 잔여 누락 보강 =====
   '광혜원':            { type: '기관',  era: '근대',     startYear: 1885,  endYear: 1904  },
   '설총':              { type: '인물',  era: '신라시대', startYear: 655,   endYear: 720   },
+
+  // ===== 67회 심화 추가 키워드 =====
+  // 왕·시대
+  '고려 현종':         { type: '왕',    era: '고려시대', startYear: 1009,  endYear: 1031  },
+  '신라 경덕왕':       { type: '왕',    era: '신라시대', startYear: 742,   endYear: 765   },
+  '신라 진성여왕':     { type: '왕',    era: '신라시대', startYear: 887,   endYear: 897   },
+  '백제 의자왕':       { type: '왕',    era: '삼국시대', startYear: 641,   endYear: 660   },
+  '백제 개로왕':       { type: '왕',    era: '삼국시대', startYear: 455,   endYear: 475   },
+  // 인물
+  '김종서':            { type: '인물',  era: '조선시대', startYear: 1383,  endYear: 1453  },
+  '박정양':            { type: '인물',  era: '근대',     startYear: 1841,  endYear: 1905  },
+  '정인보':            { type: '인물',  era: '근대',     startYear: 1893,  endYear: 1950  },
+  '신숭겸':            { type: '인물',  era: '고려시대', startYear: 870,   endYear: 927   },
+  '김헌창의 난':       { type: '운동',  era: '신라시대', startYear: 822,   endYear: 822   },
+  // 기관·제도·사건
+  '정동행성':          { type: '기관',  era: '고려시대', startYear: 1280,  endYear: 1356  },
+  '국자감':            { type: '기관',  era: '고려시대', startYear: 992,   endYear: 1392  },
+  '유향소':            { type: '기관',  era: '조선시대', startYear: 1428,  endYear: 1864  },
+  '양현고':            { type: '기관',  era: '고려시대', startYear: 1119,  endYear: 1391  },
+  '9재 학당':          { type: '기관',  era: '고려시대', startYear: 1055,  endYear: 1392  },
+  '향교':              { type: '기관',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '원수부':            { type: '기관',  era: '근대',     startYear: 1899,  endYear: 1907  },
+  '천도교':            { type: '기관',  era: '근대',     startYear: 1905,  endYear: 1945  },
+  '13도 창의군':       { type: '기관',  era: '근대',     startYear: 1907,  endYear: 1908  },
+  '총융청':            { type: '기관',  era: '조선시대', startYear: 1624,  endYear: 1846  },
+  '금위영':            { type: '기관',  era: '조선시대', startYear: 1682,  endYear: 1894  },
+  '백운동 서원':       { type: '기관',  era: '조선시대', startYear: 1543,  endYear: 1871  },
+  '만부교 사건':       { type: '사건',  era: '고려시대', startYear: 942,   endYear: 942   },
+  '사심관 제도':       { type: '제도',  era: '고려시대', startYear: 935,   endYear: 1283  },
+  '조일 통상 장정':    { type: '조약',  era: '근대',     startYear: 1883,  endYear: 1883  },
+  '신해박해':          { type: '사건',  era: '조선시대', startYear: 1791,  endYear: 1791  },
+  // 유물·문헌·전쟁
+  '고려사':            { type: '유물',  era: '조선시대', startYear: 1451,  endYear: 1451  },
+  '당백전':            { type: '유물',  era: '근대',     startYear: 1866,  endYear: 1868  },
+  '한성순보':          { type: '기관',  era: '근대',     startYear: 1883,  endYear: 1884  },
+  '한산도 대첩':       { type: '전쟁',  era: '조선시대', startYear: 1592,  endYear: 1592  },
+  '행주대첩':          { type: '전쟁',  era: '조선시대', startYear: 1593,  endYear: 1593  },
+
+  // ===== 67회 기본 추가 키워드 =====
+  // 전쟁·사건
+  '진포 대첩':         { type: '전쟁',  era: '고려시대', startYear: 1380,  endYear: 1380  },
+  // 인물
+  '신돌석':            { type: '인물',  era: '근대',     startYear: 1878,  endYear: 1908  },
+  '이상설':            { type: '인물',  era: '근대',     startYear: 1870,  endYear: 1917  },
+  '허난설헌':          { type: '인물',  era: '조선시대', startYear: 1563,  endYear: 1589  },
+  // 기관·제도
+  '서전서숙':          { type: '기관',  era: '근대',     startYear: 1906,  endYear: 1907  },
+  '좌우 합작 위원회':  { type: '기관',  era: '근대',     startYear: 1946,  endYear: 1947  },
+  '남북 조절 위원회':  { type: '기관',  era: '근대',     startYear: 1972,  endYear: 1973  },
+  // 유물
+  '조선왕조실록':      { type: '유물',  era: '조선시대', startYear: 1413,  endYear: 1865  },
+  // 풍속
+  '단오':              { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '칠석':              { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
+  '한식':              { type: '풍속',  era: '조선시대', startYear: 1392,  endYear: 1894  },
 };
 
 function mapDifficulty(score) {
