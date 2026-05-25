@@ -4,3 +4,8 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+
+# 시험지 OCR/이미지 중간 산출물 — 로컬 처리용. CSV만 repo에 포함.
+exams/*_pages/
+exams/*.png
+exams/*_full.txt

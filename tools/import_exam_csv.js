@@ -433,6 +433,42 @@ const KEYWORD_META = {
   '최영':              { type: '인물',  era: '고려시대', startYear: 1316,  endYear: 1388  },
   '대한인 국민회':     { type: '기관',  era: '근대',     startYear: 1909,  endYear: 1945  },
   '전형필':            { type: '인물',  era: '근대',     startYear: 1906,  endYear: 1962  },
+
+  // ===== 단일 단어 디테일 → 자체 키워드 등록 (보수적 일괄 추가, 33개) =====
+  // 디테일이 한 단어이면서 정답 후보로 가치 있는 항목 (저서·기관·인물·유물·화폐·사건·사신)
+  '9서당':             { type: '기관',  era: '신라시대', startYear: 687,   endYear: 935   },
+  '갑자사화':          { type: '사건',  era: '조선시대', startYear: 1504,  endYear: 1504  },
+  '건원중보':          { type: '유물',  era: '고려시대', startYear: 996,   endYear: 996   },
+  '계유정난':          { type: '사건',  era: '조선시대', startYear: 1453,  endYear: 1453  },
+  '교정청':            { type: '기관',  era: '근대',     startYear: 1894,  endYear: 1894  },
+  '권업회':            { type: '기관',  era: '근대',     startYear: 1911,  endYear: 1914  },
+  '금동관':            { type: '유물',  era: '삼국시대', startYear: 400,   endYear: 562   },
+  '기해예송':          { type: '사건',  era: '조선시대', startYear: 1659,  endYear: 1659  },
+  '도방':              { type: '기관',  era: '고려시대', startYear: 1179,  endYear: 1270  },
+  '동사강목':          { type: '유물',  era: '조선시대', startYear: 1778,  endYear: 1778  },
+  '명도전':            { type: '유물',  era: '선사시대', startYear: -500,  endYear: 0     },
+  '목민심서':          { type: '유물',  era: '조선시대', startYear: 1818,  endYear: 1818  },
+  '박상진':            { type: '인물',  era: '근대',     startYear: 1884,  endYear: 1921  },
+  '반계수록':          { type: '유물',  era: '조선시대', startYear: 1670,  endYear: 1670  },
+  '반량전':            { type: '유물',  era: '선사시대', startYear: -300,  endYear: -100  },
+  '삼별초':            { type: '기관',  era: '고려시대', startYear: 1232,  endYear: 1273  },
+  '상평통보':          { type: '유물',  era: '조선시대', startYear: 1678,  endYear: 1894  },
+  '석주명':            { type: '인물',  era: '근대',     startYear: 1908,  endYear: 1950  },
+  '성학십도':          { type: '유물',  era: '조선시대', startYear: 1568,  endYear: 1568  },
+  '송죽회':            { type: '기관',  era: '근대',     startYear: 1913,  endYear: 1919  },
+  '수신사':            { type: '기관',  era: '근대',     startYear: 1876,  endYear: 1882  },
+  '안창호':            { type: '인물',  era: '근대',     startYear: 1878,  endYear: 1938  },
+  '연행사':            { type: '기관',  era: '조선시대', startYear: 1637,  endYear: 1894  },
+  '영선사':            { type: '기관',  era: '근대',     startYear: 1881,  endYear: 1882  },
+  '응방':              { type: '기관',  era: '고려시대', startYear: 1274,  endYear: 1311  },
+  '이규보':            { type: '인물',  era: '고려시대', startYear: 1168,  endYear: 1241  },
+  '장용영':            { type: '기관',  era: '조선시대', startYear: 1793,  endYear: 1802  },
+  '정방':              { type: '기관',  era: '고려시대', startYear: 1225,  endYear: 1270  },
+  '주시경':            { type: '인물',  era: '근대',     startYear: 1876,  endYear: 1914  },
+  '중방':              { type: '기관',  era: '고려시대', startYear: 1170,  endYear: 1270  },
+  '칠지도':            { type: '유물',  era: '삼국시대', startYear: 369,   endYear: 369   },
+  '통신사':            { type: '기관',  era: '조선시대', startYear: 1607,  endYear: 1811  },
+  '훈련도감':          { type: '기관',  era: '조선시대', startYear: 1593,  endYear: 1882  },
 };
 
 function mapDifficulty(score) {
@@ -457,8 +493,20 @@ const KEYWORD_ALIAS_TO_BASE = {
   '청동기 시대 시작': '청동기 시대',
   '철기 시대 시작': '철기 시대',
   '신라 하대 시작': '신라 하대',
+  '의금부': '조선 의금부',  // 동일 entity, 표기만 다름
 };
 const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
+
+// CSV의 디테일이 이 단어 중 하나면 (단일 단어 정답 후보), 실제 대상을 자기자신으로 retag.
+// 예: 디테일="상평통보", 실제 대상="조선 후기 경제" → 실제 대상을 "상평통보"로 교체.
+const SINGLE_WORD_KEYWORDS = new Set([
+  '9서당', '갑자사화', '건원중보', '계유정난', '교정청', '권업회',
+  '금동관', '기해예송', '도방', '동사강목', '명도전', '목민심서',
+  '박상진', '반계수록', '반량전', '삼별초', '상평통보', '석주명',
+  '성학십도', '송죽회', '수신사', '안창호', '연행사', '영선사',
+  '응방', '의금부', '이규보', '장용영', '정방', '주시경',
+  '중방', '칠지도', '통신사', '훈련도감',
+]);
 
 function toSlug(s) {
   return s.replace(/[\s/·.]+/g, '_').replace(/[\(\)\[\]]/g, '');
@@ -480,10 +528,13 @@ function main() {
   const rows = parseCSV(text);
 
   // 1) 모든 키워드 후보 수집 (질문 대상 + 실제 대상). 분야 변형은 base로 통합.
+  // 단일 단어 디테일이 신규 키워드면 그것도 후보에 포함.
   const subjects = new Set();
   rows.forEach(r => {
     if (r['질문 대상']) subjects.add(applyAlias(r['질문 대상']));
     if (r['실제 대상']) subjects.add(applyAlias(r['실제 대상']));
+    const dt = (r['디테일(역사적 사태)'] || '').trim();
+    if (SINGLE_WORD_KEYWORDS.has(dt)) subjects.add(applyAlias(dt));
   });
 
   // 2) 키워드 카드 생성
@@ -531,7 +582,10 @@ function main() {
   rows.forEach((r, idx) => {
     const rawSubject = r['실제 대상'] || r['질문 대상'];
     if (!rawSubject) return;
-    const realSubject = applyAlias(rawSubject);  // 디테일의 정답 태그도 base로 통합
+    const rawDetailTrim = (r['디테일(역사적 사태)'] || '').trim();
+    // 단일 단어 디테일이 신규 키워드면 자기자신을 실제 대상으로 retag
+    const baseSubject = SINGLE_WORD_KEYWORDS.has(rawDetailTrim) ? rawDetailTrim : rawSubject;
+    const realSubject = applyAlias(baseSubject);  // 디테일의 정답 태그도 base로 통합
     const rawDetailText = r['디테일(역사적 사태)'];
     if (!rawDetailText) return;
     const hadLabel = LABEL_PREFIX_RE.test(rawDetailText);
