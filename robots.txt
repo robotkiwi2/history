@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://robotkiwi2.github.io/history/sitemap.xml
+Sitemap: https://hanmatch.com/sitemap.xml
