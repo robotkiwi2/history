@@ -738,6 +738,7 @@
       text-align: left;
     }
     .detail-question.l2-hint-shown .q-hint.l2-hint { display: block; }
+    .detail-question.l2-hint-shown .q-label { display: none; }
     /* 디테일 카드는 클릭 대상이 아니지만 long-press 시각 피드백 */
     .detail-question { cursor: pointer; -webkit-touch-callout: none; }
     /* 새 문제 노출 시 카드 테두리 깜박 — 시선 유도 */
@@ -2191,8 +2192,8 @@
     const TOUR_STEPS = [
       { sel: '#detailQuestionCard', text: '여기 하단 카드에 문제(빈칸 사실)가 나옵니다', arrow: 'down', pos: 'above' },
       { sel: '#detailTimeline',     text: '빈칸에 들어갈 키워드를 위 목록에서 탭하세요', arrow: 'up',   pos: 'below' },
-      { sel: '#detailQuestionCard', text: '문제 카드를 길게 누르면 힌트가 나옵니다',     arrow: 'down', pos: 'above' },
-      { sel: '#detailQuestionCard', text: '한 번 더 길게 누르면 정답이 보입니다',         arrow: 'down', pos: 'above' },
+      { sel: '#detailQuestionCard', text: '문제 카드를 터치하면 힌트가 차례로 나옵니다',  arrow: 'down', pos: 'above' },
+      { sel: '#detailQuestionCard', text: '길게 누르면 정답이 보입니다(포기)',           arrow: 'down', pos: 'above' },
       { sel: '#detailScore',        text: '우상단 정답률을 길게 누르면 세션 초기화',     arrow: 'up',   pos: 'below' },
     ];
     const tourOverlay = document.getElementById('tourOverlay');
@@ -2274,8 +2275,8 @@
         '',
         '◆ 사실 매칭 (문제 화면)',
         '· 키워드 카드 탭 → 답 제출',
-        '· 디테일 카드 길게 누르기 → 1차 힌트',
-        '· 다시 길게 누르기 → 정답 보기(포기)',
+        '· 디테일 카드 탭 → 힌트 (계속 탭하면 다른 힌트, 마지막은 시기 단서)',
+        '· 디테일 카드 길게 누르기 → 정답 보기(포기)',
         '· 우상단 = 이번 세션 정답률 (한 번이라도 오답 시 그 문제는 틀린 걸로)',
         '',
         '◆ 취약 키워드 화면',
@@ -3490,7 +3491,8 @@
     let l2Locked = false;
     let l2AttemptsThisDetail = 0;
     let l2HintsThisDetail = 0;
-    let l2HintLevel = 0;         // 0: none, 1: 세기·반세기 + type (-5), 2: 포기 (-20)
+    let l2HintList = [];         // 현재 디테일의 힌트들 (탭마다 하나씩 cycle)
+    let l2HintShownCount = 0;    // 지금까지 보여준 힌트 수
     let l2MatchedCount = 0;
     let l2TotalCount = 0;
     let l2VisibleTypes = null;   // Set<string> — 현재 마스킹 태그의 type (필터)
@@ -3523,20 +3525,26 @@
       const card = allPrimaryCards().find(c => c.title === maskTag);
       return new Set([card?.type || '사건']);
     }
-    function buildL2HintText(detail, maskTag) {
-      // 1순위: 같은 maskTag를 정답으로 하는 다른 디테일의 본문(마스킹 적용) → 추가 사실로 학습
+    // 디테일 하나에 대해 표시 가능한 모든 힌트 목록 빌드 (탭마다 하나씩 cycle).
+    // 순서: 같은 정답의 다른 사실들 (랜덤 섞음) → 마지막에 시기 단서.
+    function buildHintList(detail, maskTag) {
+      const hints = [];
       if (maskTag) {
         const others = allDetailCards().filter(d =>
           d.id !== detail.id && (d.tags || []).includes(maskTag) && detailPassesDifficulty(d)
         );
-        if (others.length > 0) {
-          const pick = others[Math.floor(Math.random() * others.length)];
-          const text = (pick.description || pick.title || '').split(maskTag).join('**');
-          return `힌트 : ${text}`;
+        // shuffle
+        for (let i = others.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [others[i], others[j]] = [others[j], others[i]];
         }
+        others.forEach(pick => {
+          const text = (pick.description || pick.title || '').split(maskTag).join('**');
+          hints.push('힌트 : ' + text);
+        });
       }
-      // 2순위: 시기 단서
-      return `힌트 : ${centuryHalfLabel(detail.startYear)}`;
+      hints.push('힌트 : ' + centuryHalfLabel(detail.startYear));
+      return hints;
     }
 
     function startDetailGame(era) {
@@ -3663,37 +3671,38 @@
       l2Locked = false;
       l2AttemptsThisDetail = 0;
       l2HintsThisDetail = 0;
-      l2HintLevel = 0;
       // 다중 태그 중 랜덤 1을 마스킹 대상으로. type 필터도 그 태그의 type 하나만.
       l2MaskTag = pickMaskTag(l2CurrentDetail);
       l2VisibleTypes = maskTagTypeSet(l2MaskTag);
-      if (l2VisibleTypes.size === 0) l2VisibleTypes = null; // 매핑 정보 없으면 전체
+      if (l2VisibleTypes.size === 0) l2VisibleTypes = null;
+      // 힌트 리스트 미리 빌드 (탭마다 cycle)
+      l2HintList = buildHintList(l2CurrentDetail, l2MaskTag);
+      l2HintShownCount = 0;
       renderL2Timeline();
       const typesLabel = l2VisibleTypes ? [...l2VisibleTypes].join('/') : '키워드';
       detailQuestionEl.classList.remove('hidden', 'l2-hint-shown', 'l2-gaveup-reveal');
-      // 새 문제 등장 효과 — 테두리를 따라 흰빛이 한 바퀴 (animation restart 위해 reflow)
+      // 새 문제 등장 효과 — 테두리 깜박
       detailQuestionEl.classList.remove('q-new');
       void detailQuestionEl.offsetWidth;
       detailQuestionEl.classList.add('q-new');
       detailQTextEl.textContent = maskDetailDescription(l2CurrentDetail, l2MaskTag);
-      detailQLabelEl.textContent = `관련 ${typesLabel} 카드를 탭하세요`;
+      detailQLabelEl.textContent = '터치하면 힌트가 제공됩니다.';
       document.getElementById('detailQHint').textContent = '';
-      detailHintEl.innerHTML = `관련 ${typesLabel} 카드를 탭하세요 (길게 누르면 힌트)`;
-      detailHintEl.className = 'hint';  // hidden 클래스 제거되며 복원
+      detailHintEl.innerHTML = `관련 ${typesLabel} 카드를 탭하세요 (길게 누르면 정답보기)`;
+      detailHintEl.className = 'hint';
       // 현재 풀고 있는 문제 번호 = 이번 세션에서 해결된 문제 수 + 1 (정답·포기 둘 다 카운트)
       detailProgressEl.textContent = `문제 ${l2DetailsAttempted + 1}/${l2TotalCount}`;
     }
 
-    // ===== L2 long-press: 1차 힌트(다른 디테일 사실 or 시기) → 포기 =====
+    // ===== L2 카드 탭 → 힌트 cycle, 길게 누르면 포기 =====
     function applyL2Hint() {
-      // hintLevel 1: 카드 안에 "다른 사실: ..." 또는 시기 단서
-      const hintText = buildL2HintText(l2CurrentDetail, l2MaskTag);
+      if (l2HintShownCount >= l2HintList.length) return; // 더 보여줄 힌트 없음
+      const hintText = l2HintList[l2HintShownCount];
       document.getElementById('detailQHint').textContent = hintText;
       detailQuestionEl.classList.add('l2-hint-shown');
+      l2HintShownCount++;
       l2HintsThisDetail++;
       addScore(-5);
-      detailHintEl.textContent = '길게 누르면 정답보기';
-      detailHintEl.className = 'hint';
     }
     function giveUpL2() {
       if (l2Locked || !l2CurrentDetail) return;
@@ -3789,12 +3798,7 @@
       l2LongPressUsed = false;
       l2LongPressTimer = setTimeout(() => {
         l2LongPressUsed = true;
-        if (l2HintLevel < 1) {
-          l2HintLevel = 1;
-          applyL2Hint();
-        } else {
-          giveUpL2();
-        }
+        giveUpL2();
       }, 500);
     });
     function cancelL2LongPress() {
@@ -3804,6 +3808,12 @@
     detailQuestionEl.addEventListener('pointercancel', cancelL2LongPress);
     detailQuestionEl.addEventListener('pointerleave', cancelL2LongPress);
     detailQuestionEl.addEventListener('contextmenu', e => e.preventDefault());
+    // 짧은 탭 → 힌트 cycle. 길게 누르기 직후 click은 무시 (longPressUsed 플래그)
+    detailQuestionEl.addEventListener('click', () => {
+      if (l2Locked) return;
+      if (l2LongPressUsed) { l2LongPressUsed = false; return; }
+      applyL2Hint();
+    });
 
     // 마스킹 — 지정된 태그만 "**"로 치환. 나머지 태그는 본문에 그대로 노출(문맥 단서).
     function maskDetailDescription(detail, maskTag) {
