@@ -30,7 +30,7 @@ const KEYWORD_META = {
   '청동기 시대':       { type: '시대',  era: '선사시대', startYear: -1500, endYear: -500 },
   '철기 시대':         { type: '시대',  era: '선사시대', startYear: -500, endYear: 0 },
   '고조선':            { type: '국가',  era: '고조선',   startYear: -2333, endYear: -108 },
-  '고조선의 변천':     { type: '국가',  era: '고조선',   startYear: -2333, endYear: -108  },
+  // (고조선의 변천 → 고조선으로 alias)
   // 삼국·가야
   '삼한/부여':         { type: '국가',  era: '삼국시대', startYear: -200,  endYear: 562   },
   '옥저':              { type: '국가',  era: '삼국시대', startYear: -200,  endYear: 285   },
@@ -67,10 +67,9 @@ const KEYWORD_META = {
   '고려 공민왕':       { type: '왕',    era: '고려시대', startYear: 1351,  endYear: 1374  },
   '고려 우왕':         { type: '왕',    era: '고려시대', startYear: 1374,  endYear: 1388  },
   '고려 충렬왕':       { type: '왕',    era: '고려시대', startYear: 1274,  endYear: 1308  },
-  '고려의 경제':       { type: '시대',  era: '고려시대', startYear: 918,   endYear: 1392  },
-  '고려의 사회':       { type: '시대',  era: '고려시대', startYear: 918,   endYear: 1392  },
+  // (고려의 경제 / 고려의 사회 → 고려로 alias)
   '고려 후기':         { type: '시대',  era: '고려시대', startYear: 1170,  endYear: 1392  },
-  '고려 의학':         { type: '시대',  era: '고려시대', startYear: 918,   endYear: 1392  },
+  // (고려 의학 → SKIP)
   '여진 대응':         { type: '사건',  era: '고려시대', startYear: 1104,  endYear: 1108  },
   '거란 2차 침입':     { type: '전쟁',  era: '고려시대', startYear: 1010,  endYear: 1011  },
   '몽골 침입':         { type: '전쟁',  era: '고려시대', startYear: 1231,  endYear: 1259  },
@@ -156,10 +155,10 @@ const KEYWORD_META = {
   '박은식':            { type: '인물',  era: '근대',     startYear: 1859,  endYear: 1925  },
   '신채호':            { type: '인물',  era: '근대',     startYear: 1880,  endYear: 1936  },
   '헤이그 특사':       { type: '사건',  era: '근대',     startYear: 1907,  endYear: 1907  },
-  '1910년대 통치':     { type: '시대',  era: '근대',     startYear: 1910,  endYear: 1919  },
+  '1910년대':          { type: '시대',  era: '근대',     startYear: 1910,  endYear: 1919  },
   '치안유지법':        { type: '제도',  era: '근대',     startYear: 1925,  endYear: 1945  },
   '대한제국':          { type: '국가',  era: '근대',     startYear: 1897,  endYear: 1910  },
-  '1920년대 사회운동': { type: '시대',  era: '근대',     startYear: 1920,  endYear: 1930  },
+  '1920년대':          { type: '시대',  era: '근대',     startYear: 1920,  endYear: 1929  },
   '민족말살통치기':    { type: '시대',  era: '근대',     startYear: 1937,  endYear: 1945  },
   '농민 운동':         { type: '운동',  era: '근대',     startYear: 1920,  endYear: 1935  },
   '광무개혁':          { type: '개혁',  era: '근대',     startYear: 1897,  endYear: 1904  },
@@ -182,9 +181,9 @@ const KEYWORD_META = {
   '동북 항일 연군':    { type: '기관',  era: '근대',     startYear: 1936,  endYear: 1940  },
   '한국독립군':        { type: '기관',  era: '근대',     startYear: 1930,  endYear: 1935  },
   '조선혁명군':        { type: '기관',  era: '근대',     startYear: 1929,  endYear: 1938  },
-  '근대 사회상':       { type: '시대',  era: '근대',     startYear: 1920,  endYear: 1940  },
+  // (근대 사회상 → 일제강점기로 alias)
   // 현대
-  '현대 사회상':       { type: '시대',  era: '근대',     startYear: 1950,  endYear: 2000  },
+  '현대':              { type: '시대',  era: '현대',     startYear: 1945,  endYear: 2025  },
   '5·10 총선거':       { type: '사건',  era: '근대',     startYear: 1948,  endYear: 1948  },
   '6·3 시위':          { type: '운동',  era: '근대',     startYear: 1964,  endYear: 1964  },
   '발췌 개헌':         { type: '제도',  era: '근대',     startYear: 1952,  endYear: 1952  },
@@ -206,11 +205,11 @@ const KEYWORD_META = {
   '사사오입 개헌':     { type: '제도',  era: '근대',     startYear: 1954,  endYear: 1954  },
   '3선 개헌':          { type: '제도',  era: '근대',     startYear: 1969,  endYear: 1969  },
   '제2공화국 헌법':    { type: '제도',  era: '근대',     startYear: 1960,  endYear: 1961  },
-  '문재인 정부 통일':  { type: '시대',  era: '근대',     startYear: 2017,  endYear: 2022  },
+  '문재인 정부':       { type: '시대',  era: '근대',     startYear: 2017,  endYear: 2022  },
   '박정희 정부 통일':  { type: '시대',  era: '근대',     startYear: 1961,  endYear: 1979  },
   '노태우 정부 통일':  { type: '시대',  era: '근대',     startYear: 1988,  endYear: 1993  },
   '전두환 정부 통일':  { type: '시대',  era: '근대',     startYear: 1980,  endYear: 1988  },
-  '부산 지역 역사':    { type: '시대',  era: '근대',     startYear: 1900,  endYear: 2000  },
+  // (부산 지역 역사 → SKIP)
   '탄금대 전투':       { type: '전쟁',  era: '조선시대', startYear: 1592,  endYear: 1592  },
   '2·28 민주 운동':    { type: '운동',  era: '근대',     startYear: 1960,  endYear: 1960  },
   'YH 무역 사건':      { type: '운동',  era: '근대',     startYear: 1979,  endYear: 1979  },
@@ -301,7 +300,7 @@ const KEYWORD_META = {
   '황국 중앙 총상회':  { type: '기관',  era: '근대',     startYear: 1898,  endYear: 1898  },
   '전환국':            { type: '기관',  era: '근대',     startYear: 1883,  endYear: 1904  },
   '대한민국 임시정부': { type: '기관',  era: '근대',     startYear: 1919,  endYear: 1948  },
-  '일제강점기 사회상': { type: '시대',  era: '근대',     startYear: 1920,  endYear: 1940  },
+  '일제강점기':        { type: '시대',  era: '근대',     startYear: 1910,  endYear: 1945  },
   '새마을 운동':       { type: '운동',  era: '근대',     startYear: 1970,  endYear: 1985  },
   // 현대 정치·경제
   '닉슨 독트린':       { type: '조약',  era: '근대',     startYear: 1969,  endYear: 1969  },
@@ -314,8 +313,8 @@ const KEYWORD_META = {
   '김대중 정부 통일':  { type: '시대',  era: '근대',     startYear: 1998,  endYear: 2003  },
   '노무현 정부':       { type: '시대',  era: '근대',     startYear: 2003,  endYear: 2008  },
   '김대중 정부':       { type: '시대',  era: '근대',     startYear: 1998,  endYear: 2003  },
-  '1950년대 경제':     { type: '시대',  era: '근대',     startYear: 1950,  endYear: 1959  },
-  '1980년대 경제':     { type: '시대',  era: '근대',     startYear: 1980,  endYear: 1989  },
+  '1950년대':          { type: '시대',  era: '근대',     startYear: 1950,  endYear: 1959  },
+  '1980년대':          { type: '시대',  era: '근대',     startYear: 1980,  endYear: 1989  },
   // 해양 인물
   '이순신':            { type: '인물',  era: '조선시대', startYear: 1545,  endYear: 1598  },
   '이사부':            { type: '인물',  era: '삼국시대', startYear: 480,   endYear: 562   },
@@ -359,7 +358,7 @@ const KEYWORD_META = {
   '조선 순조':         { type: '왕',    era: '조선시대', startYear: 1800,  endYear: 1834  },
   '신유박해':          { type: '사건',  era: '조선시대', startYear: 1801,  endYear: 1801  },
   '이괄의 난':         { type: '운동',  era: '조선시대', startYear: 1624,  endYear: 1624  },
-  '충주 지역 역사':    { type: '시대',  era: '고려시대', startYear: 500,   endYear: 1900  },
+  // (충주 지역 역사 → SKIP)
   '최익현':            { type: '인물',  era: '조선시대', startYear: 1833,  endYear: 1906  },
   // 개항기
   '병인박해':          { type: '사건',  era: '근대',     startYear: 1866,  endYear: 1866  },
@@ -399,7 +398,7 @@ const KEYWORD_META = {
   // 고려
   '고려 숙종':         { type: '왕',    era: '고려시대', startYear: 1095,  endYear: 1105  },
   '최우':              { type: '인물',  era: '고려시대', startYear: 1219,  endYear: 1249  },
-  '개경 지역 역사':    { type: '시대',  era: '고려시대', startYear: 918,   endYear: 1392  },
+  // (개경 지역 역사 → SKIP)
   // 조선
   '연산군':            { type: '왕',    era: '조선시대', startYear: 1494,  endYear: 1506  },
   '이익':              { type: '인물',  era: '조선시대', startYear: 1681,  endYear: 1763  },
@@ -479,20 +478,36 @@ function mapDifficulty(score) {
 // 분야 변형 키워드 → base로 통합 (예: '박정희 정부 통일' → '박정희 정부').
 // 런타임(index.html)의 KEYWORD_ALIAS_TO_BASE와 동일하게 유지할 것.
 const KEYWORD_ALIAS_TO_BASE = {
+  // 정부 + 분야 variant
   '박정희 정부 경제': '박정희 정부',
   '박정희 정부 통일': '박정희 정부',
   '전두환 정부 통일': '전두환 정부',
   '노태우 정부 통일': '노태우 정부',
   '김대중 정부 경제': '김대중 정부',
   '김대중 정부 통일': '김대중 정부',
+  '문재인 정부 통일': '문재인 정부',
+  // 시대 + 분야 variant
   '조선 후기 경제': '조선 후기',
   '조선 후기 사회': '조선 후기',
   '대한제국 시기': '대한제국',
+  '고조선의 변천': '고조선',
+  '고려의 경제': '고려',
+  '고려의 사회': '고려',
+  // 시기 묶음 (분야 prefix 제거)
+  '1910년대 통치': '1910년대',
+  '1920년대 사회운동': '1920년대',
+  '1950년대 경제': '1950년대',
+  '1980년대 경제': '1980년대',
+  '일제강점기 사회상': '일제강점기',
+  '근대 사회상': '일제강점기',
+  '현대 사회상': '현대',
+  // 시대 시작 사건 → 시대 자체
   '신석기 시대 시작': '신석기 시대',
   '청동기 시대 시작': '청동기 시대',
   '철기 시대 시작': '철기 시대',
   '신라 하대 시작': '신라 하대',
-  '의금부': '조선 의금부',  // 동일 entity, 표기만 다름
+  // 표기 동일 entity
+  '의금부': '조선 의금부',
 };
 const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
 
@@ -501,6 +516,10 @@ const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
 // 예: 77회 기본 Q48 "해양 인물" — 보기 4개가 이순신·이사부·최무선·장보고 등 서로 다른 시대 인물
 const SKIP_SUBJECTS = new Set([
   '해양 인물',
+  '충주 지역 역사',
+  '부산 지역 역사',
+  '개경 지역 역사',
+  '고려 의학',
 ]);
 
 // CSV의 디테일이 이 단어 중 하나면 (단일 단어 정답 후보), 실제 대상을 자기자신으로 retag.

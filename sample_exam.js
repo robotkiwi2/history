@@ -1,5 +1,5 @@
 // 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
-// 생성: 키워드 383개 / 디테일 1729개 (보기 옵션만 있던 188행 제외, 라벨 prefix 60행 정제)
+// 생성: 키워드 375개 / 디테일 1727개 (보기 옵션만 있던 188행 제외, 라벨 prefix 60행 정제)
 // 매핑 누락 키워드(fallback meta 사용 — 보강 권장): 0개
 
 const EXAM_KEYWORDS = [
@@ -50,7 +50,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "국가",
     "kind": "keyword",
-    "title": "고조선의 변천",
+    "title": "고조선",
     "description": "",
     "startYear": -2333,
     "endYear": -108,
@@ -166,17 +166,6 @@ const EXAM_KEYWORDS = [
     "endYear": 375,
     "difficulty": 3,
     "era": "삼국시대",
-    "tags": []
-  },
-  {
-    "type": "국가",
-    "kind": "keyword",
-    "title": "고조선",
-    "description": "",
-    "startYear": -2333,
-    "endYear": -108,
-    "difficulty": 3,
-    "era": "고조선",
     "tags": []
   },
   {
@@ -367,9 +356,9 @@ const EXAM_KEYWORDS = [
     "tags": []
   },
   {
-    "type": "시대",
+    "type": "국가",
     "kind": "keyword",
-    "title": "고려의 경제",
+    "title": "고려",
     "description": "",
     "startYear": 918,
     "endYear": 1392,
@@ -439,17 +428,6 @@ const EXAM_KEYWORDS = [
     "description": "",
     "startYear": 1010,
     "endYear": 1011,
-    "difficulty": 3,
-    "era": "고려시대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "고려의 사회",
-    "description": "",
-    "startYear": 918,
-    "endYear": 1392,
     "difficulty": 3,
     "era": "고려시대",
     "tags": []
@@ -939,17 +917,6 @@ const EXAM_KEYWORDS = [
     "tags": []
   },
   {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "고려 의학",
-    "description": "",
-    "startYear": 918,
-    "endYear": 1392,
-    "difficulty": 3,
-    "era": "고려시대",
-    "tags": []
-  },
-  {
     "type": "조약",
     "kind": "keyword",
     "title": "강화도 조약",
@@ -1326,7 +1293,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "1910년대 통치",
+    "title": "1910년대",
     "description": "",
     "startYear": 1910,
     "endYear": 1919,
@@ -1359,10 +1326,10 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "1920년대 사회운동",
+    "title": "1920년대",
     "description": "",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": []
@@ -1634,10 +1601,10 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "근대 사회상",
+    "title": "일제강점기",
     "description": "",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": []
@@ -1645,12 +1612,12 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "현대 사회상",
+    "title": "현대",
     "description": "",
-    "startYear": 1950,
-    "endYear": 2000,
+    "startYear": 1945,
+    "endYear": 2025,
     "difficulty": 3,
-    "era": "근대",
+    "era": "현대",
     "tags": []
   },
   {
@@ -1887,7 +1854,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "문재인 정부 통일",
+    "title": "문재인 정부",
     "description": "",
     "startYear": 2017,
     "endYear": 2022,
@@ -1913,17 +1880,6 @@ const EXAM_KEYWORDS = [
     "description": "",
     "startYear": 1980,
     "endYear": 1988,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "부산 지역 역사",
-    "description": "",
-    "startYear": 1900,
-    "endYear": 2000,
     "difficulty": 3,
     "era": "근대",
     "tags": []
@@ -2333,17 +2289,6 @@ const EXAM_KEYWORDS = [
     "endYear": 787,
     "difficulty": 3,
     "era": "신라시대",
-    "tags": []
-  },
-  {
-    "type": "국가",
-    "kind": "keyword",
-    "title": "고려",
-    "description": "",
-    "startYear": 918,
-    "endYear": 1392,
-    "difficulty": 3,
-    "era": "고려시대",
     "tags": []
   },
   {
@@ -2787,17 +2732,6 @@ const EXAM_KEYWORDS = [
     "tags": []
   },
   {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "일제강점기 사회상",
-    "description": "",
-    "startYear": 1920,
-    "endYear": 1940,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": []
-  },
-  {
     "type": "운동",
     "kind": "keyword",
     "title": "새마을 운동",
@@ -2987,7 +2921,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "1950년대 경제",
+    "title": "1950년대",
     "description": "",
     "startYear": 1950,
     "endYear": 1959,
@@ -3009,7 +2943,7 @@ const EXAM_KEYWORDS = [
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "1980년대 경제",
+    "title": "1980년대",
     "description": "",
     "startYear": 1980,
     "endYear": 1989,
@@ -3290,17 +3224,6 @@ const EXAM_KEYWORDS = [
     "endYear": 1906,
     "difficulty": 3,
     "era": "조선시대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "충주 지역 역사",
-    "description": "",
-    "startYear": 500,
-    "endYear": 1900,
-    "difficulty": 3,
-    "era": "고려시대",
     "tags": []
   },
   {
@@ -3640,17 +3563,6 @@ const EXAM_KEYWORDS = [
     "description": "",
     "startYear": 1219,
     "endYear": 1249,
-    "difficulty": 3,
-    "era": "고려시대",
-    "tags": []
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
-    "title": "개경 지역 역사",
-    "description": "",
-    "startYear": 918,
-    "endYear": 1392,
     "difficulty": 3,
     "era": "고려시대",
     "tags": []
@@ -4305,7 +4217,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "고조선",
     "tags": [
-      "고조선의 변천"
+      "고조선"
     ],
     "_src": "78회 심화 Q2 X"
   },
@@ -4320,7 +4232,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "고조선",
     "tags": [
-      "고조선의 변천"
+      "고조선"
     ],
     "_src": "78회 심화 Q2 X"
   },
@@ -4335,7 +4247,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "고조선",
     "tags": [
-      "고조선의 변천"
+      "고조선"
     ],
     "_src": "78회 심화 Q2 X"
   },
@@ -4905,7 +4817,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "고려시대",
     "tags": [
-      "고려의 경제"
+      "고려"
     ],
     "_src": "78회 심화 Q12 O"
   },
@@ -5070,7 +4982,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "고려시대",
     "tags": [
-      "고려의 사회"
+      "고려"
     ],
     "_src": "78회 심화 Q15 O"
   },
@@ -5700,7 +5612,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "고려시대",
     "tags": [
-      "고려의 경제"
+      "고려"
     ],
     "_src": "78회 심화 Q25 O"
   },
@@ -5821,21 +5733,6 @@ const EXAM_DETAILS = [
     "era": "고려시대",
     "tags": [
       "망이·망소이의 난"
-    ],
-    "_src": "78회 심화 Q27 X"
-  },
-  {
-    "id": "78회_q27_107",
-    "type": "사건",
-    "kind": "detail",
-    "title": "질병에 대한 처방 등을 소개한 향약구급방이 편찬되었다.",
-    "description": "질병에 대한 처방 등을 소개한 향약구급방이 편찬되었다.",
-    "startYear": 918,
-    "endYear": 1392,
-    "difficulty": 3,
-    "era": "고려시대",
-    "tags": [
-      "고려 의학"
     ],
     "_src": "78회 심화 Q27 X"
   },
@@ -6435,7 +6332,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "78회 심화 Q36 O"
   },
@@ -6461,11 +6358,11 @@ const EXAM_DETAILS = [
     "title": "조선 여성 동우회가 창립되었다.",
     "description": "조선 여성 동우회가 창립되었다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "78회 심화 Q36 X"
   },
@@ -6910,12 +6807,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "텔레비전 방송이 시작되었다.",
     "description": "텔레비전 방송이 시작되었다.",
-    "startYear": 1950,
-    "endYear": 2000,
+    "startYear": 1945,
+    "endYear": 2025,
     "difficulty": 3,
-    "era": "근대",
+    "era": "현대",
     "tags": [
-      "현대 사회상"
+      "현대"
     ],
     "_src": "78회 심화 Q43 O"
   },
@@ -6925,12 +6822,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "화학조미료를 활용한 요리법이 확산되었다.",
     "description": "화학조미료를 활용한 요리법이 확산되었다.",
-    "startYear": 1950,
-    "endYear": 2000,
+    "startYear": 1945,
+    "endYear": 2025,
     "difficulty": 3,
-    "era": "근대",
+    "era": "현대",
     "tags": [
-      "현대 사회상"
+      "현대"
     ],
     "_src": "78회 심화 Q43 X"
   },
@@ -6940,12 +6837,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "새로운 주택 양식인 문화 주택이 등장하였다.",
     "description": "새로운 주택 양식인 문화 주택이 등장하였다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "근대 사회상"
+      "일제강점기"
     ],
     "_src": "78회 심화 Q43 X"
   },
@@ -6955,12 +6852,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "영화 임자 없는 나룻배가 상영되었다.",
     "description": "영화 임자 없는 나룻배가 상영되었다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "근대 사회상"
+      "일제강점기"
     ],
     "_src": "78회 심화 Q43 X"
   },
@@ -6970,12 +6867,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "모던 걸 모던 보이가 늘어났다.",
     "description": "모던 걸 모던 보이가 늘어났다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "근대 사회상"
+      "일제강점기"
     ],
     "_src": "78회 심화 Q43 X"
   },
@@ -7305,7 +7202,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "문재인 정부 통일"
+      "문재인 정부"
     ],
     "_src": "78회 심화 Q49 O"
   },
@@ -7350,7 +7247,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "문재인 정부 통일"
+      "문재인 정부"
     ],
     "_src": "78회 심화 Q49 X"
   },
@@ -7413,21 +7310,6 @@ const EXAM_DETAILS = [
       "YH 무역 사건"
     ],
     "_src": "78회 심화 Q50 X"
-  },
-  {
-    "id": "78회_q50_222",
-    "type": "사건",
-    "kind": "detail",
-    "title": "박재혁이 경찰서에서 폭탄을 터뜨리는 의거를 일으켰다.",
-    "description": "박재혁이 경찰서에서 폭탄을 터뜨리는 의거를 일으켰다.",
-    "startYear": 1900,
-    "endYear": 2000,
-    "difficulty": 3,
-    "era": "근대",
-    "tags": [
-      "부산 지역 역사"
-    ],
-    "_src": "78회 심화 Q50 O"
   },
   {
     "id": "77회_q1_223",
@@ -8535,7 +8417,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "고려시대",
     "tags": [
-      "고려의 경제"
+      "고려"
     ],
     "_src": "77회 기본 Q27 X"
   },
@@ -8860,12 +8742,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "소비 문화의 공간인 백화점이 등장했어요.",
     "description": "소비 문화의 공간인 백화점이 등장했어요.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "77회 기본 Q38 O"
   },
@@ -8875,12 +8757,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "여성들은 작업복으로 몸뻬를 입도록 강요받았어요.",
     "description": "여성들은 작업복으로 몸뻬를 입도록 강요받았어요.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "77회 기본 Q38 O"
   },
@@ -8890,12 +8772,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "사교 문화의 공간인 끽다점이 생겼어요.",
     "description": "사교 문화의 공간인 끽다점이 생겼어요.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "77회 기본 Q38 O"
   },
@@ -8925,7 +8807,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "77회 기본 Q39 X"
   },
@@ -9180,7 +9062,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1950년대 경제"
+      "1950년대"
     ],
     "_src": "77회 기본 Q47 O"
   },
@@ -9195,7 +9077,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1980년대 경제"
+      "1980년대"
     ],
     "_src": "77회 기본 Q47 X"
   },
@@ -9330,7 +9212,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "문재인 정부 통일"
+      "문재인 정부"
     ],
     "_src": "77회 기본 Q50 X"
   },
@@ -10090,12 +9972,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "가죽 제품 수요 증가와 독도 강치의 멸종",
     "description": "가죽 제품 수요 증가와 독도 강치의 멸종",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "77회 심화 Q12 X"
   },
@@ -10105,12 +9987,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "을축년 대홍수의 피해와 경성부의 대응 양상",
     "description": "을축년 대홍수의 피해와 경성부의 대응 양상",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "77회 심화 Q12 X"
   },
@@ -11066,11 +10948,11 @@ const EXAM_DETAILS = [
     "title": "강주룡이 고공 농성을 벌인 을밀대의 위치를 찾아본다.",
     "description": "강주룡이 고공 농성을 벌인 을밀대의 위치를 찾아본다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "77회 심화 Q27 X"
   },
@@ -11760,7 +11642,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "77회 심화 Q37 O"
   },
@@ -11831,11 +11713,11 @@ const EXAM_DETAILS = [
     "title": "개벽 신여성 등의 잡지를 발행하였다.",
     "description": "개벽 신여성 등의 잡지를 발행하였다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "77회 심화 Q38 X"
   },
@@ -11995,12 +11877,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "윤심덕 사의 찬미",
     "description": "윤심덕 사의 찬미",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "77회 심화 Q40 O"
   },
@@ -12015,7 +11897,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "1950년대 경제"
+      "1950년대"
     ],
     "_src": "77회 심화 Q40 X"
   },
@@ -12045,7 +11927,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "1950년대 경제"
+      "1950년대"
     ],
     "_src": "77회 심화 Q40 X"
   },
@@ -12235,12 +12117,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "은사의 날 – 스승을 향한 감사와 공경의 마음을 전하다",
     "description": "은사의 날 – 스승을 향한 감사와 공경의 마음을 전하다",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "77회 심화 Q43 X"
   },
@@ -14835,7 +14717,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "76회 심화 Q36 O"
   },
@@ -14846,11 +14728,11 @@ const EXAM_DETAILS = [
     "title": "잡지 어린이에 실을 원고를 작성하는 작가",
     "description": "잡지 어린이에 실을 원고를 작성하는 작가",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "76회 심화 Q36 X"
   },
@@ -14861,11 +14743,11 @@ const EXAM_DETAILS = [
     "title": "토월회에서 연극 공연을 준비하고 있는 배우",
     "description": "토월회에서 연극 공연을 준비하고 있는 배우",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "76회 심화 Q36 X"
   },
@@ -14876,11 +14758,11 @@ const EXAM_DETAILS = [
     "title": "경성 고무 여자 직공 조합의 파업을 취재하는 기자",
     "description": "경성 고무 여자 직공 조합의 파업을 취재하는 기자",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "76회 심화 Q36 X"
   },
@@ -14910,7 +14792,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "76회 심화 Q37 X"
   },
@@ -15101,11 +14983,11 @@ const EXAM_DETAILS = [
     "title": "강주룡이 을밀대 지붕에서 고공 농성을 벌였다.",
     "description": "강주룡이 을밀대 지붕에서 고공 농성을 벌였다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "76회 심화 Q39 X"
   },
@@ -15116,11 +14998,11 @@ const EXAM_DETAILS = [
     "title": "개벽 신여성 등의 잡지를 발행하였다.",
     "description": "개벽 신여성 등의 잡지를 발행하였다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "76회 심화 Q40 X"
   },
@@ -15265,12 +15147,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "조선사 편수회가 조직되었다.",
     "description": "조선사 편수회가 조직되었다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "76회 심화 Q42 X"
   },
@@ -15325,12 +15207,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "라디오 방송 연예 오락의 유행",
     "description": "라디오 방송 연예 오락의 유행",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "76회 심화 Q43 X"
   },
@@ -15340,12 +15222,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "경평 축구 대회 스포츠의 대중화",
     "description": "경평 축구 대회 스포츠의 대중화",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "76회 심화 Q43 X"
   },
@@ -15355,12 +15237,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "모던 걸 전통적 여성상을 탈피한 신여성의 등장",
     "description": "모던 걸 전통적 여성상을 탈피한 신여성의 등장",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "76회 심화 Q43 X"
   },
@@ -17695,12 +17577,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "박중빈을 중심으로 새생활 운동을 추진하였다.",
     "description": "박중빈을 중심으로 새생활 운동을 추진하였다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "75회 심화 Q29 X"
   },
@@ -17711,11 +17593,11 @@ const EXAM_DETAILS = [
     "title": "일제의 통제에 맞서 사찰령 폐지 운동을 벌였다.",
     "description": "일제의 통제에 맞서 사찰령 폐지 운동을 벌였다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "75회 심화 Q29 X"
   },
@@ -18101,11 +17983,11 @@ const EXAM_DETAILS = [
     "title": "경성 제국 대학에서 공부하는 학생",
     "description": "경성 제국 대학에서 공부하는 학생",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "75회 심화 Q35 O"
   },
@@ -18401,11 +18283,11 @@ const EXAM_DETAILS = [
     "title": "전국 단위 조직인 조선 농민 총동맹이 결성되었어요.",
     "description": "전국 단위 조직인 조선 농민 총동맹이 결성되었어요.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "75회 심화 Q40 O"
   },
@@ -18555,7 +18437,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1950년대 경제"
+      "1950년대"
     ],
     "_src": "75회 심화 Q42 X"
   },
@@ -18570,7 +18452,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1950년대 경제"
+      "1950년대"
     ],
     "_src": "75회 심화 Q42 X"
   },
@@ -18735,7 +18617,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "75회 심화 Q44 X"
   },
@@ -19121,11 +19003,11 @@ const EXAM_DETAILS = [
     "title": "강주룡이 고공 시위를 전개한 장소를 알아본다.",
     "description": "강주룡이 고공 시위를 전개한 장소를 알아본다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "75회 심화 Q50 X"
   },
@@ -21311,11 +21193,11 @@ const EXAM_DETAILS = [
     "title": "경성 제국 대학에 입학하는 학생",
     "description": "경성 제국 대학에 입학하는 학생",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "74회 심화 Q34 X"
   },
@@ -21356,11 +21238,11 @@ const EXAM_DETAILS = [
     "title": "어린이날 기념 행사에 참여하는 천도교 소년회 회원",
     "description": "어린이날 기념 행사에 참여하는 천도교 소년회 회원",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "74회 심화 Q34 X"
   },
@@ -21625,12 +21507,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "조선사 편수회에 들어가 조선사 편찬에 참여하였다.",
     "description": "조선사 편수회에 들어가 조선사 편찬에 참여하였다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "74회 심화 Q39 X"
   },
@@ -21671,11 +21553,11 @@ const EXAM_DETAILS = [
     "title": "잡지 신여성 여권 신장을 주장하다",
     "description": "잡지 신여성 여권 신장을 주장하다",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "74회 심화 Q40 X"
   },
@@ -21760,12 +21642,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "관동 대지진 당시 자경단에 학살당하다",
     "description": "관동 대지진 당시 자경단에 학살당하다",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "74회 심화 Q41 X"
   },
@@ -21900,7 +21782,7 @@ const EXAM_DETAILS = [
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "74회 심화 Q43 X"
   },
@@ -21911,11 +21793,11 @@ const EXAM_DETAILS = [
     "title": "조선 노농 총동맹이 결성되었다.",
     "description": "조선 노농 총동맹이 결성되었다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "74회 심화 Q43 X"
   },
@@ -22335,7 +22217,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "문재인 정부 통일"
+      "문재인 정부"
     ],
     "_src": "74회 심화 Q49 X"
   },
@@ -25091,11 +24973,11 @@ const EXAM_DETAILS = [
     "title": "김기전 방정환 등이 주축이 되어 활동하였다.",
     "description": "김기전 방정환 등이 주축이 되어 활동하였다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "73회 심화 Q38 O"
   },
@@ -25136,11 +25018,11 @@ const EXAM_DETAILS = [
     "title": "경성 제국 대학 설립을 추진하는 관리",
     "description": "경성 제국 대학 설립을 추진하는 관리",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "73회 심화 Q39 X"
   },
@@ -25300,12 +25182,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "경성 방송국 우리말 방송을 검열하여 송출하다",
     "description": "경성 방송국 우리말 방송을 검열하여 송출하다",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "73회 심화 Q41 X"
   },
@@ -25315,12 +25197,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "미쓰코시 백화점 자본주의적 소비문화가 이식되다",
     "description": "미쓰코시 백화점 자본주의적 소비문화가 이식되다",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "73회 심화 Q41 X"
   },
@@ -25331,11 +25213,11 @@ const EXAM_DETAILS = [
     "title": "신여성 여권 신장 등의 내용으로 여성을 계몽하다",
     "description": "신여성 여권 신장 등의 내용으로 여성을 계몽하다",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "73회 심화 Q41 X"
   },
@@ -25496,11 +25378,11 @@ const EXAM_DETAILS = [
     "title": "조선 노동 총동맹을 중심으로 전개되었다.",
     "description": "조선 노동 총동맹을 중심으로 전개되었다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "73회 심화 Q44 X"
   },
@@ -25935,7 +25817,7 @@ const EXAM_DETAILS = [
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "문재인 정부 통일"
+      "문재인 정부"
     ],
     "_src": "73회 심화 Q50 O"
   },
@@ -27355,12 +27237,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "심훈이 소설 상록수를 저술하였다.",
     "description": "심훈이 소설 상록수를 저술하였다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "75회 기본 Q38 X"
   },
@@ -27400,12 +27282,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "손기정이 베를린 올림픽 마라톤 경기에서 우승하였다.",
     "description": "손기정이 베를린 올림픽 마라톤 경기에서 우승하였다.",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 4,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "75회 기본 Q38 X"
   },
@@ -27525,7 +27407,7 @@ const EXAM_DETAILS = [
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1910년대 통치"
+      "1910년대"
     ],
     "_src": "75회 기본 Q44 X"
   },
@@ -29306,11 +29188,11 @@ const EXAM_DETAILS = [
     "title": "잡지 개벽을 창간하였다.",
     "description": "잡지 개벽을 창간하였다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "73회 기본 Q33 X"
   },
@@ -29606,11 +29488,11 @@ const EXAM_DETAILS = [
     "title": "경성 제국 대학이 설립되었다.",
     "description": "경성 제국 대학이 설립되었다.",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 3,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "73회 기본 Q38 X"
   },
@@ -29696,11 +29578,11 @@ const EXAM_DETAILS = [
     "title": "문자 보급 운동",
     "description": "문자 보급 운동",
     "startYear": 1920,
-    "endYear": 1930,
+    "endYear": 1929,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "1920년대 사회운동"
+      "1920년대"
     ],
     "_src": "73회 기본 Q41 X"
   },
@@ -29845,12 +29727,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "심훈",
     "description": "심훈",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "73회 기본 Q45 X"
   },
@@ -29875,12 +29757,12 @@ const EXAM_DETAILS = [
     "kind": "detail",
     "title": "이중섭",
     "description": "이중섭",
-    "startYear": 1920,
-    "endYear": 1940,
+    "startYear": 1910,
+    "endYear": 1945,
     "difficulty": 2,
     "era": "근대",
     "tags": [
-      "일제강점기 사회상"
+      "일제강점기"
     ],
     "_src": "73회 기본 Q45 X"
   },

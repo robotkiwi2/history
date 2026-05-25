@@ -1552,8 +1552,8 @@
       <div class="setting-row-grid">
         <div class="setting-label">난이도</div>
         <div class="mode-row">
-          <button class="mode-pill selected" data-difficulty-tier="기본">기본</button>
-          <button class="mode-pill" data-difficulty-tier="심화">심화</button>
+          <button class="mode-pill" data-difficulty-tier="기본">기본</button>
+          <button class="mode-pill selected" data-difficulty-tier="심화">심화</button>
         </div>
         <div class="setting-desc">기본 = 평이한 디테일(난이도 ≤3)만 / 심화 = 전체</div>
       </div>
@@ -1667,12 +1667,12 @@
       _default() {
         return {
           version: 1, stats: {}, totalScore: 0, history: [],
-          settings: { quizMode: 'normal', roundSize: 10, difficultyTier: '기본' },
+          settings: { quizMode: 'normal', roundSize: 10, difficultyTier: '심화' },
         };
       },
       getSettings() {
-        if (!this._data.settings) this._data.settings = { quizMode: 'normal', roundSize: 10, difficultyTier: '기본' };
-        if (!this._data.settings.difficultyTier) this._data.settings.difficultyTier = '기본';
+        if (!this._data.settings) this._data.settings = { quizMode: 'normal', roundSize: 10, difficultyTier: '심화' };
+        if (!this._data.settings.difficultyTier) this._data.settings.difficultyTier = '심화';
         return this._data.settings;
       },
       setSetting(key, value) {
@@ -2014,7 +2014,7 @@
     applyRoundSizeUI();
 
     // ===== Difficulty tier (기본 / 심화) — 디테일 필터 =====
-    let currentDifficultyTier = QuizStore.getSettings().difficultyTier || '기본';
+    let currentDifficultyTier = QuizStore.getSettings().difficultyTier || '심화';
     function applyDifficultyTierUI() {
       document.querySelectorAll('[data-difficulty-tier]').forEach(b => {
         b.classList.toggle('selected', b.dataset.difficultyTier === currentDifficultyTier);
@@ -3073,19 +3073,35 @@
     // 이 매핑 대상 키워드는 별도 카드로 등록하지 않고, detail의 tags도 base로 자동 치환.
     // import_exam_csv.js의 동일 맵과 sync 유지할 것.
     const KEYWORD_ALIAS_TO_BASE = {
+      // 정부 + 분야 variant
       '박정희 정부 경제': '박정희 정부',
       '박정희 정부 통일': '박정희 정부',
       '전두환 정부 통일': '전두환 정부',
       '노태우 정부 통일': '노태우 정부',
       '김대중 정부 경제': '김대중 정부',
       '김대중 정부 통일': '김대중 정부',
+      '문재인 정부 통일': '문재인 정부',
+      // 시대 + 분야 variant
       '조선 후기 경제': '조선 후기',
       '조선 후기 사회': '조선 후기',
       '대한제국 시기': '대한제국',
+      '고조선의 변천': '고조선',
+      '고려의 경제': '고려',
+      '고려의 사회': '고려',
+      // 시기 묶음 (분야 prefix 제거)
+      '1910년대 통치': '1910년대',
+      '1920년대 사회운동': '1920년대',
+      '1950년대 경제': '1950년대',
+      '1980년대 경제': '1980년대',
+      '일제강점기 사회상': '일제강점기',
+      '근대 사회상': '일제강점기',
+      '현대 사회상': '현대',
+      // 시대 시작 사건 → 시대 자체
       '신석기 시대 시작': '신석기 시대',
       '청동기 시대 시작': '청동기 시대',
       '철기 시대 시작': '철기 시대',
       '신라 하대 시작': '신라 하대',
+      // 표기 동일 entity
       '의금부': '조선 의금부',
     };
     const applyAlias = (t) => KEYWORD_ALIAS_TO_BASE[t] || t;

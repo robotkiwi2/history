@@ -828,20 +828,6 @@
   {
     "type": "시대",
     "kind": "keyword",
-    "title": "해양 인물",
-    "description": "",
-    "startYear": 500,
-    "endYear": 1600,
-    "era": "조선 전기",
-    "eraRaw": "조선시대",
-    "difficulty": 3,
-    "tags": [],
-    "_source": "sample_exam",
-    "_src": null
-  },
-  {
-    "type": "시대",
-    "kind": "keyword",
     "title": "충주 지역 역사",
     "description": "",
     "startYear": 500,
