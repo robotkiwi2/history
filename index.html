@@ -812,8 +812,49 @@
     /* 탭별 컨테이너 전환: weak 탭이면 era-list 숨기고 weak-list 노출, footer(시작 버튼) 숨김 */
     #view-era[data-era-tab="weak"] #eraList { display: none; }
     #view-era[data-era-tab="weak"] #eraFooter { display: none; }
+    #view-era[data-era-tab="weak"] #overallProgress { display: none; }
     #view-era[data-era-tab="detail"] #weakList { display: none; }
     #view-era[data-era-tab="weak"] #weakList { display: flex; }
+
+    /* 전체 매칭 진도 — 사실매칭 탭 진입 시 매번 노출 */
+    .overall-progress {
+      margin: 0 4px 12px;
+      padding: 12px 14px;
+      background: #1f2240;
+      border: 1px solid #2c2f5a;
+      border-radius: 10px;
+    }
+    .overall-progress-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 12px;
+      color: #b8b8d4;
+      margin-bottom: 8px;
+    }
+    .overall-progress-label span:last-child {
+      color: #7dd9a3;
+      font-weight: 900;
+      font-size: 16px;
+    }
+    .overall-progress-bar {
+      height: 6px;
+      background: #2c2f5a;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .overall-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #7dd9a3 0%, #eebbc3 100%);
+      transition: width 0.5s ease;
+      border-radius: 3px;
+    }
+    .overall-progress-meta {
+      margin-top: 6px;
+      font-size: 11px;
+      color: #6c6c8a;
+      text-align: right;
+    }
 
     /* 취약 키워드 탭 active 강조 (사실매칭과 다른 색) */
     #view-era[data-era-tab="weak"] .era-tab-btn[data-era-tab="weak"].active {
@@ -1718,6 +1759,14 @@
       <button class="tab-btn era-tab-btn" data-era-tab="weak">취약 키워드</button>
     </div>
     <div class="era-intro" id="eraIntro"></div>
+    <div class="overall-progress hidden" id="overallProgress">
+      <div class="overall-progress-label">
+        <span>전체 매칭 진도</span>
+        <span id="overallProgressPct">0%</span>
+      </div>
+      <div class="overall-progress-bar"><div class="overall-progress-fill" id="overallProgressFill"></div></div>
+      <div class="overall-progress-meta" id="overallProgressMeta">0 / 0</div>
+    </div>
     <div class="era-list" id="eraList"></div>
     <div class="weak-list hidden" id="weakList"></div>
     <div class="footer" id="eraFooter">
@@ -2127,6 +2176,8 @@
         currentDifficultyTier = btn.dataset.difficultyTier;
         QuizStore.setSetting('difficultyTier', currentDifficultyTier);
         applyDifficultyTierUI();
+        // 진도 표시도 변경된 난이도 기준으로 즉시 갱신
+        if (typeof updateOverallProgress === 'function') updateOverallProgress();
       });
     });
     applyDifficultyTierUI();
@@ -2630,6 +2681,24 @@
     let currentEraTab = 'detail'; // 'detail' (L2/사실매칭) | 'weak' (취약 키워드 정보) | 'timeline' (현재 숨김)
     const eraTabModeMap = { detail: 'l2', timeline: 'l1' };
 
+    // 전체 매칭 진도 계산·표시 (현재 난이도 필터 기준)
+    function updateOverallProgress() {
+      const el = document.getElementById('overallProgress');
+      if (!el) return;
+      if (currentEraTab !== 'detail') { el.classList.add('hidden'); return; }
+      const all = allDetailCards().filter(detailPassesDifficulty);
+      const matchedSet = QuizStore.getL2MatchedDetailIds();
+      const matched = all.filter(d => matchedSet.has(d.id)).length;
+      const total = all.length;
+      if (total === 0) { el.classList.add('hidden'); return; }
+      const pct = Math.round(matched / total * 100);
+      document.getElementById('overallProgressPct').textContent = pct + '%';
+      document.getElementById('overallProgressFill').style.width = pct + '%';
+      document.getElementById('overallProgressMeta').textContent =
+        matched + ' / ' + total + ' 디테일 (' + currentDifficultyTier + ')';
+      el.classList.remove('hidden');
+    }
+
     function setEraTab(tab, opts = {}) {
       if (tab !== 'detail' && tab !== 'weak' && tab !== 'timeline') return;
       if (currentEraTab === tab && !opts.force) return;
@@ -2651,6 +2720,7 @@
       }
       renderEraList();
       updateEraStartBtn();
+      updateOverallProgress();
     }
 
     // ===== 취약 키워드 분석 =====
@@ -2945,6 +3015,7 @@
         renderEraList();
         updateEraStartBtn();
       }
+      updateOverallProgress();
       showView('view-era');
     }
 
