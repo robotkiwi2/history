@@ -2150,10 +2150,13 @@
     // ===== 공유 (Web Share API + 데스크탑 fallback) =====
     async function shareApp(opts) {
       opts = opts || {};
+      const url = 'https://hanmatch.com/';
+      const body = opts.text || '한국사매치 — 한능검 약점 자동 진단 학습 (무료)';
+      // 일부 메신저(아이폰 문자·카톡 등)는 url 필드를 무시하고 text만 노출하므로 URL도 본문에 인라인 포함
       const data = {
         title: '한국사매치',
-        text: opts.text || '한국사매치 — 한능검 약점 자동 진단 학습 (무료)',
-        url: 'https://hanmatch.com/',
+        text: body + '\n\n' + url,
+        url: url,
       };
       if (navigator.share) {
         try {

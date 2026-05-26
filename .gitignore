@@ -4,6 +4,7 @@ node_modules/
 Thumbs.db
 .vscode/
 .idea/
+.playwright-mcp/
 
 # 시험지 OCR/이미지 중간 산출물 — 로컬 처리용.
 exams/*_pages/
