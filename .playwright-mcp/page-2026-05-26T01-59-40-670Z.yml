@@ -1,0 +1,49 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e13]:
+    - generic [ref=e14]: 史
+    - generic [ref=e15]: 홈 화면에 추가하면 앱처럼 빠르게 실행돼요
+    - button "설치" [ref=e16] [cursor=pointer]
+    - button "닫기" [ref=e17] [cursor=pointer]: ×
+  - generic [ref=e18]:
+    - generic [ref=e19]:
+      - generic [ref=e20]: 시대별 최근 정답율
+      - button "설정" [ref=e21] [cursor=pointer]:
+        - img [ref=e22]
+    - generic [ref=e24]:
+      - button "사실 매칭" [ref=e25] [cursor=pointer]
+      - button "취약 키워드" [ref=e26] [cursor=pointer]
+    - generic [ref=e28]:
+      - generic [ref=e30] [cursor=pointer]:
+        - generic [ref=e31]: 선사·고조선
+        - generic [ref=e32]: —
+      - generic [ref=e34] [cursor=pointer]:
+        - generic [ref=e35]: 삼국시대
+        - generic [ref=e36]: —
+      - generic [ref=e38] [cursor=pointer]:
+        - generic [ref=e39]: 통일신라·발해
+        - generic [ref=e40]: —
+      - generic [ref=e42] [cursor=pointer]:
+        - generic [ref=e43]: 고려 전기
+        - generic [ref=e44]: —
+      - generic [ref=e46] [cursor=pointer]:
+        - generic [ref=e47]: 고려 후기
+        - generic [ref=e48]: —
+      - generic [ref=e50] [cursor=pointer]:
+        - generic [ref=e51]: 조선 전기
+        - generic [ref=e52]: —
+      - generic [ref=e54] [cursor=pointer]:
+        - generic [ref=e55]: 조선 중기
+        - generic [ref=e56]: —
+      - generic [ref=e58] [cursor=pointer]:
+        - generic [ref=e59]: 조선 후기
+        - generic [ref=e60]: —
+      - generic [ref=e62] [cursor=pointer]:
+        - generic [ref=e63]: 개항기
+        - generic [ref=e64]: —
+      - generic [ref=e66] [cursor=pointer]:
+        - generic [ref=e67]: 일제강점기
+        - generic [ref=e68]: —
+      - generic [ref=e70] [cursor=pointer]:
+        - generic [ref=e71]: 현대
+        - generic [ref=e72]: —
+    - button "사실 매칭 시작 (242개)" [ref=e75] [cursor=pointer]

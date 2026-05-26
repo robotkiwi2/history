@@ -1498,6 +1498,7 @@
         <div style="font-size:13px;color:#b8b8d4;" id="roundDetailText">—</div>
       </div>
       <button class="modal-close-btn" id="roundNextBtn">다음 라운드</button>
+      <button class="modal-close-btn" id="roundShareBtn" style="margin-top:8px;background:#7dd9a3;color:#1a1a2e;">친구에게 공유</button>
       <button class="modal-close-btn round-secondary" id="roundHomeBtn" style="margin-top:8px;background:transparent;color:#b8b8d4;border:1px solid #393a5a;">시대 선택으로</button>
     </div>
   </div>
@@ -1629,6 +1630,10 @@
       <button class="setting-row" id="feedbackBtn">
         <span class="setting-label">문의사항 / 요청 보내기</span>
         <span class="setting-desc">버그 신고·기능 요청 (구글폼)</span>
+      </button>
+      <button class="setting-row" id="shareBtn">
+        <span class="setting-label">친구에게 공유</span>
+        <span class="setting-desc">카톡·문자로 한국사매치 추천</span>
       </button>
 
       <div class="setting-section-title">풀이 옵션</div>
@@ -2138,6 +2143,33 @@
     document.getElementById('feedbackBtn').addEventListener('click', () => {
       window.open('https://forms.gle/JE3wfSAkiaAnVwAi7', '_blank', 'noopener');
     });
+    document.getElementById('shareBtn').addEventListener('click', () => {
+      shareApp({ source: 'settings' });
+    });
+
+    // ===== 공유 (Web Share API + 데스크탑 fallback) =====
+    async function shareApp(opts) {
+      opts = opts || {};
+      const data = {
+        title: '한국사매치',
+        text: opts.text || '한국사매치 — 한능검 약점 자동 진단 학습 (무료)',
+        url: 'https://hanmatch.com/',
+      };
+      if (navigator.share) {
+        try {
+          await navigator.share(data);
+          trackEvent('share_used', { source: opts.source || 'unknown', method: 'native' });
+        } catch (e) { /* user cancelled */ }
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(data.url);
+        alert('주소가 복사되었습니다.\n' + data.url);
+        trackEvent('share_used', { source: opts.source || 'unknown', method: 'clipboard' });
+      } catch (e) {
+        prompt('아래 주소를 복사해 공유하세요:', data.url);
+      }
+    }
 
     // ===== PWA 설치 유도 =====
     // Android/Chromium: beforeinstallprompt 캐치 → 배너에서 promtp()
@@ -2219,6 +2251,13 @@
       l2RoundSolved = 0;
       l2RoundCorrect = 0;
       pickNextDetail();
+    });
+    document.getElementById('roundShareBtn').addEventListener('click', () => {
+      const pct = l2RoundSolved === 0 ? 0 : Math.round(l2RoundCorrect / l2RoundSolved * 100);
+      shareApp({
+        source: 'round_complete',
+        text: `한국사매치 [${l2CurrentEra}] 정답률 ${pct}%! 한능검 약점 자동 진단 학습`,
+      });
     });
     document.getElementById('roundHomeBtn').addEventListener('click', () => {
       document.getElementById('roundCompleteModal').classList.add('hidden');

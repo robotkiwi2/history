@@ -238,7 +238,7 @@ const LATE_JOSEON_DETAILS = [
     startYear: 1866, endYear: 1866,
     difficulty: 3,
     era: '조선시대',
-    tags: ['병인양요', '프랑스', '조선 고종', '흥선대원군'],
+    tags: ['병인양요', '조선 고종', '흥선대원군'],
   },
   {
     id: '양헌수_정족산성',

@@ -105,26 +105,33 @@ const byTitle = new Map();
 primaryAccum.forEach(c => byTitle.set(c.title, c));
 const keywords = [...byTitle.values()];
 
-// 2) Detail 카드
-const details = [];
-loaded['sample_details.js'].DETAILS_SAMPLE.forEach(c => {
-  details.push(normalize(c, 'detail', 'sample_details'));
-});
-loaded['sample_late_joseon.js'].LATE_JOSEON_DETAILS.forEach(c => {
-  details.push(normalize(c, 'detail', 'sample_late_joseon'));
-});
-loaded['sample_prehistoric.js'].PREHISTORIC_DETAILS.forEach(c => {
-  details.push(normalize(c, 'detail', 'sample_prehistoric'));
-});
-loaded['sample_exam.js'].EXAM_DETAILS.forEach(c => {
-  details.push(normalize(c, 'detail', 'sample_exam'));
-});
+// 2) Detail 카드 — id 기준 dedup, 동일 id면 첫 source 유지
+const detailById = new Map();
+const detailByNorm = new Map(); // title+태그 정규화 기준 추가 dedup
+const normDetail = (c) => {
+  const t = (c.title || '').replace(/[\s.,·\-。．、!?()\[\]"']+/g, '').trim();
+  const tag = (c.tags && c.tags[0]) || '';
+  return `${tag}::${t}`;
+};
+const pushDetail = (c, source) => {
+  const d = normalize(c, 'detail', source);
+  if (detailById.has(d.id)) return; // 같은 id 중복 skip
+  const nk = normDetail(d);
+  if (detailByNorm.has(nk)) return; // 동일 정규화 title+tag 중복 skip
+  detailById.set(d.id, d);
+  detailByNorm.set(nk, d);
+};
+loaded['sample_details.js'].DETAILS_SAMPLE.forEach(c => pushDetail(c, 'sample_details'));
+loaded['sample_late_joseon.js'].LATE_JOSEON_DETAILS.forEach(c => pushDetail(c, 'sample_late_joseon'));
+loaded['sample_prehistoric.js'].PREHISTORIC_DETAILS.forEach(c => pushDetail(c, 'sample_prehistoric'));
+loaded['sample_exam.js'].EXAM_DETAILS.forEach(c => pushDetail(c, 'sample_exam'));
 // EVENT_TO_DETAIL_OF 매핑된 event 카드를 detail로 흡수
 loaded['data.js'].YEAR_QUESTIONS.forEach(c => {
   const parent = EVENT_TO_DETAIL_OF[c.title];
   if (!parent) return;
-  details.push(normalize({ ...c, tags: [parent], type: '사건' }, 'detail', 'data(demoted)'));
+  pushDetail({ ...c, tags: [parent], type: '사건' }, 'data(demoted)');
 });
+const details = [...detailById.values()];
 
 // ===== 정렬 + 출력 =====
 const all = [...keywords, ...details].sort((a, b) => {
