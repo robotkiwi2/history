@@ -5,7 +5,15 @@ Thumbs.db
 .vscode/
 .idea/
 
-# 시험지 OCR/이미지 중간 산출물 — 로컬 처리용. CSV만 repo에 포함.
+# 시험지 OCR/이미지 중간 산출물 — 로컬 처리용.
 exams/*_pages/
 exams/*.png
 exams/*_full.txt
+exams/*.pdf
+exams/*.hwp
+
+# 소스 데이터 — 빌드 입력. 사이트는 sample_exam.js / data.js 등을 통해 데이터를 사용하므로,
+# 원본은 공개 사이트에 노출하지 않는다 (로컬에만 보관).
+exams/*.csv
+data/cards.all.json
+data/cards.summary.json
