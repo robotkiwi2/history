@@ -3744,9 +3744,9 @@
       void detailQuestionEl.offsetWidth;
       detailQuestionEl.classList.add('q-new');
       detailQTextEl.textContent = maskDetailDescription(l2CurrentDetail, l2MaskTag);
-      detailQLabelEl.textContent = '터치하면 힌트가 제공됩니다.';
+      detailQLabelEl.textContent = '터치하면 힌트 제공 (길게 누르면 정답보기)';
       document.getElementById('detailQHint').textContent = '';
-      detailHintEl.innerHTML = `관련 ${typesLabel} 카드를 탭하세요 (길게 누르면 정답보기)`;
+      detailHintEl.innerHTML = `아래와 관련된 ${typesLabel} 카드를 탭하세요`;
       detailHintEl.className = 'hint';
       // 현재 풀고 있는 문제 번호 = 이번 세션에서 해결된 문제 수 + 1 (정답·포기 둘 다 카운트)
       detailProgressEl.textContent = `문제 ${l2DetailsAttempted + 1}/${l2TotalCount}`;
@@ -3759,7 +3759,7 @@
         l2HintShownCount = 0;
         detailQuestionEl.classList.remove('l2-hint-shown');
         document.getElementById('detailQHint').textContent = '';
-        detailQLabelEl.textContent = '터치하면 힌트가 제공됩니다.';
+        detailQLabelEl.textContent = '터치하면 힌트 제공 (길게 누르면 정답보기)';
         return;
       }
       const hintText = l2HintList[l2HintShownCount];
