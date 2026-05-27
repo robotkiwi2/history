@@ -679,6 +679,24 @@ const KEYWORD_META = {
   '국가총동원법':      { type: '사건',  era: '근대',     startYear: 1938,  endYear: 1938  },
   '화폐 정리 사업':    { type: '사건',  era: '근대',     startYear: 1905,  endYear: 1905  },
   '좌우합작위원회':    { type: '기관',  era: '근대',     startYear: 1946,  endYear: 1947  },
+  // 64회 기본 신규
+  '분황사 모전 석탑':  { type: '유물',  era: '삼국시대', startYear: 634,   endYear: 634   },
+  '을사사화':          { type: '사건',  era: '조선시대', startYear: 1545,  endYear: 1545  },
+  '벽란도':            { type: '기관',  era: '고려시대', startYear: 918,   endYear: 1392  },
+  '독도':              { type: '지역',  era: '조선시대', startYear: 512,   endYear: 2024  },
+  '의궤':              { type: '유물',  era: '조선시대', startYear: 1413,  endYear: 1866  },
+  '이봉창':            { type: '인물',  era: '근대',     startYear: 1901,  endYear: 1932  },
+  '무구정광대다라니경':{ type: '유물',  era: '신라시대', startYear: 751,   endYear: 751   },
+  '이재명 의사':       { type: '인물',  era: '근대',     startYear: 1878,  endYear: 1910  },
+  '양기탁':            { type: '인물',  era: '근대',     startYear: 1871,  endYear: 1938  },
+  '나석주':            { type: '인물',  era: '근대',     startYear: 1892,  endYear: 1926  },
+  '신익희':            { type: '인물',  era: '근대',     startYear: 1894,  endYear: 1956  },
+  '색동회':            { type: '기관',  era: '근대',     startYear: 1923,  endYear: 1941  },
+  '만민 공동회':       { type: '기관',  era: '근대',     startYear: 1898,  endYear: 1898  },
+  '경부선':            { type: '사건',  era: '근대',     startYear: 1905,  endYear: 1905  },
+  '지계':              { type: '제도',  era: '근대',     startYear: 1898,  endYear: 1904  },
+  '군국기무처':        { type: '기관',  era: '근대',     startYear: 1894,  endYear: 1894  },
+  '창씨개명':          { type: '제도',  era: '근대',     startYear: 1940,  endYear: 1945  },
 };
 
 function mapDifficulty(score) {
@@ -786,6 +804,13 @@ const KEYWORD_ALIAS_TO_BASE = {
   '화폐 정리 사업': '화폐 정리 사업',
   '동학농민운동': '동학 농민 운동',
   '대한민국 임시 정부': '대한민국 임시 정부',
+  // 64회 기본 신규 alias
+  '견훤': '후백제 견훤',
+  '임술 농민 봉기': '임술농민봉기',
+  '한국 광복군': '광복군 창설',
+  '이재명': '이재명 의사',
+  '육영 공원': '육영공원',
+  '통일신라 원성왕': '신라 원성왕',
   '한국광복군': '한국광복군',
   '미소공동위원회': '미소 공동 위원회',
   '미군정': '미군정기',
