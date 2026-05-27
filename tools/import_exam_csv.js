@@ -701,6 +701,28 @@ const KEYWORD_META = {
   '이성계':            { type: '인물',  era: '고려시대', startYear: 1335,  endYear: 1408  },
   '황룡사':            { type: '유물',  era: '삼국시대', startYear: 553,   endYear: 1238  },
   '흑산도':            { type: '지역',  era: '조선시대', startYear: 1392,  endYear: 1910  },
+  // 63회 기본 신규
+  '집사부':            { type: '기관',  era: '삼국시대', startYear: 651,   endYear: 935   },
+  '부석사 무량수전':   { type: '유물',  era: '고려시대', startYear: 1376,  endYear: 2024  },
+  '법주사 팔상전':     { type: '유물',  era: '조선시대', startYear: 1626,  endYear: 2024  },
+  '동인과 서인':       { type: '사건',  era: '조선시대', startYear: 1575,  endYear: 1575  },
+  '왕자의 난':         { type: '사건',  era: '조선시대', startYear: 1398,  endYear: 1400  },
+  '삼전도 굴욕':       { type: '사건',  era: '조선시대', startYear: 1637,  endYear: 1637  },
+  '황국 신민 서사':    { type: '제도',  era: '근대',     startYear: 1937,  endYear: 1945  },
+  '제헌 국회':         { type: '기관',  era: '현대',     startYear: 1948,  endYear: 1950  },
+  '진주':              { type: '지역',  era: '조선시대', startYear: 1392,  endYear: 2024  },
+  '삼정이정청':        { type: '기관',  era: '조선시대', startYear: 1862,  endYear: 1862  },
+  '흑치상지':          { type: '인물',  era: '삼국시대', startYear: 630,   endYear: 689   },
+  '이제마':            { type: '인물',  era: '근대',     startYear: 1837,  endYear: 1900  },
+  '강우규':            { type: '인물',  era: '근대',     startYear: 1855,  endYear: 1920  },
+  '우정총국':          { type: '기관',  era: '근대',     startYear: 1884,  endYear: 1895  },
+  '황성신문':          { type: '기관',  era: '근대',     startYear: 1898,  endYear: 1910  },
+  '을미사변':          { type: '사건',  era: '근대',     startYear: 1895,  endYear: 1895  },
+  '수원 화성':         { type: '유물',  era: '조선시대', startYear: 1796,  endYear: 2024  },
+  '척화비':            { type: '제도',  era: '근대',     startYear: 1871,  endYear: 1871  },
+  '손병희':            { type: '인물',  era: '근대',     startYear: 1861,  endYear: 1922  },
+  '김구':              { type: '인물',  era: '근대',     startYear: 1876,  endYear: 1949  },
+  '북벌':              { type: '사건',  era: '조선시대', startYear: 1649,  endYear: 1659  },
 };
 
 function mapDifficulty(score) {
@@ -827,6 +849,21 @@ const KEYWORD_ALIAS_TO_BASE = {
   '국채보상운동': '국채보상운동',
   '유길준': '유길준',
   '헐버트': '헐버트',
+  // 63회 기본 신규 alias
+  '귀주 대첩': '귀주대첩',
+  '황산 대첩': '황산대첩',
+  '행주 대첩': '행주대첩',
+  '아관파천': '아관 파천',
+  '부마 민주 항쟁': '부마민주항쟁',
+  '광주 학생 항일 운동': '광주학생항일운동',
+  '조선 혁명군': '조선혁명군',
+  '변한': '삼한',
+  '민립대학 설립운동': '민립 대학 설립 운동',
+  '조선어 학회': '조선어학회',
+  '삼별초': '삼별초 항쟁',
+  '독립 의군부': '독립의군부',
+  '조선 의용대': '조선의용대',
+  '아리랑': '영화 아리랑',
 };
 const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
 
