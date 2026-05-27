@@ -723,6 +723,20 @@ const KEYWORD_META = {
   '손병희':            { type: '인물',  era: '근대',     startYear: 1861,  endYear: 1922  },
   '김구':              { type: '인물',  era: '근대',     startYear: 1876,  endYear: 1949  },
   '북벌':              { type: '사건',  era: '조선시대', startYear: 1649,  endYear: 1659  },
+
+  // ===== 63회 심화 추가 키워드 =====
+  '발해 문왕':         { type: '왕',    era: '신라시대', startYear: 737,   endYear: 793   },
+  '발해 선왕':         { type: '왕',    era: '신라시대', startYear: 818,   endYear: 830   },
+  '고려 목종':         { type: '왕',    era: '고려시대', startYear: 997,   endYear: 1009  },
+  '각훈':              { type: '인물',  era: '고려시대', startYear: 1174,  endYear: 1235  },
+  '안견':              { type: '인물',  era: '조선시대', startYear: 1400,  endYear: 1470  },
+  '강세황':            { type: '인물',  era: '조선시대', startYear: 1713,  endYear: 1791  },
+  '신헌':              { type: '인물',  era: '근대',     startYear: 1810,  endYear: 1888  },
+  '박규수':            { type: '인물',  era: '근대',     startYear: 1807,  endYear: 1877  },
+  '제1차 한일협약':    { type: '조약',  era: '근대',     startYear: 1904,  endYear: 1904  },
+  '동래성 전투':       { type: '전쟁',  era: '조선시대', startYear: 1592,  endYear: 1592  },
+  '건국 준비 위원회':  { type: '기관',  era: '근대',     startYear: 1945,  endYear: 1945  },
+  '대한독립군':        { type: '기관',  era: '근대',     startYear: 1919,  endYear: 1921  },
 };
 
 function mapDifficulty(score) {
@@ -864,6 +878,18 @@ const KEYWORD_ALIAS_TO_BASE = {
   '독립 의군부': '독립의군부',
   '조선 의용대': '조선의용대',
   '아리랑': '영화 아리랑',
+  // 63회 심화 신규 alias
+  '초기 철기 시대': '철기 시대',
+  '발해 문왕': '발해 문왕',
+  '임병찬': '독립의군부',
+  '거란 침입 대응': '거란 1차 침입',
+  '조선 광해군': '광해군',
+  '고려 충선왕 원': '고려 충선왕',
+  '조선 근대화': '근대',
+  '조선 3사': '사헌부',
+  '한인 애국단': '한인 애국단',
+  '각훈': '각훈',
+  '안견': '안견',
 };
 const applyAlias = (s) => KEYWORD_ALIAS_TO_BASE[s] || s;
 
