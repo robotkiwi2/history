@@ -1827,7 +1827,7 @@
   <script src="sample_exam.js"></script>
   <script>
     // 앱 버전 — 캐시 디버깅·배포 확인용. 의미 있는 변경마다 bump.
-    const APP_VERSION = '1.0.1';
+    const APP_VERSION = '1.0.2';
     document.addEventListener('DOMContentLoaded', () => {
       const el = document.getElementById('appVersion');
       if (el) el.textContent = APP_VERSION;
@@ -3489,6 +3489,7 @@
       // 표기 동일 entity
       '의금부': '조선 의금부',
       '5·18 광주민주화운동': '5·18 민주화 운동',
+      '제너럴셔먼호 사건': '제너럴 셔먼호 사건',
     };
     const applyAlias = (t) => KEYWORD_ALIAS_TO_BASE[t] || t;
 

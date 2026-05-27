@@ -637,7 +637,7 @@ const KEYWORD_META = {
   '향약':              { type: '제도',  era: '조선시대', startYear: 1540,  endYear: 1540  },
   '초계문신제':        { type: '제도',  era: '조선시대', startYear: 1781,  endYear: 1800  },
   '원간섭기':          { type: '사건',  era: '고려시대', startYear: 1270,  endYear: 1356  },
-  '제너럴셔먼호 사건': { type: '사건',  era: '조선시대', startYear: 1866,  endYear: 1866  },
+  // (제너럴셔먼호 사건 → 제너럴 셔먼호 사건으로 alias)
   '물산장려운동':      { type: '운동',  era: '근대',     startYear: 1920,  endYear: 1923  },
   '이윤재':            { type: '인물',  era: '근대',     startYear: 1888,  endYear: 1943  },
   '한성사범학교':      { type: '기관',  era: '근대',     startYear: 1895,  endYear: 1895  },
@@ -745,6 +745,7 @@ const KEYWORD_ALIAS_TO_BASE = {
   '조선 (후기)': '조선 후기',
   '조선': '조선 후기',
   '5·18 광주민주화운동': '5·18 민주화 운동',
+  '제너럴셔먼호 사건': '제너럴 셔먼호 사건',
   // ===== 65회 심화 추가 alias =====
   '의천': '고려 의천',
   '거란 침입': '거란 2차 침입',
