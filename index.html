@@ -1784,7 +1784,7 @@
   <!-- ============ ERA SELECT VIEW (메인 화면) ============ -->
   <div class="view hidden" id="view-era" data-era-tab="detail">
     <div class="game-header">
-      <div class="title">시대별 최근 정답율</div>
+      <div class="title">시대별 예상 점수</div>
       <button class="icon-btn" id="eraSettingsBtn" aria-label="설정">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65A.488.488 0 0014 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
       </button>
@@ -1843,7 +1843,7 @@
   <script src="sample_exam.js"></script>
   <script>
     // 앱 버전 — 캐시 디버깅·배포 확인용. 의미 있는 변경마다 bump.
-    const APP_VERSION = '1.0.5';
+    const APP_VERSION = '1.0.6';
     document.addEventListener('DOMContentLoaded', () => {
       const el = document.getElementById('appVersion');
       if (el) el.textContent = APP_VERSION;
@@ -3637,7 +3637,7 @@
     function renderEraRow(era, mode = 'l1') {
       const acc = eraRecentAccuracy(era, 20, mode);
       const fillPct = acc == null ? 0 : acc;
-      const text = acc == null ? '—' : `${acc}%`;
+      const text = acc == null ? '—' : `${acc}점`;
       const pctCls = acc == null ? 'empty' : '';
       let badge = '';
       if (mode === 'l1') {
