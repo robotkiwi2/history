@@ -33,6 +33,17 @@
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scrollbar-width: thin; scrollbar-color: #393a5a transparent; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: #393a5a;
+      background-clip: padding-box;
+      border: 2px solid transparent;
+      border-radius: 8px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #4a4d75; background-clip: padding-box; }
+    ::-webkit-scrollbar-corner { background: transparent; }
     html, body {
       font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
       background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);

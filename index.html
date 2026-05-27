@@ -94,6 +94,18 @@
   </script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    /* Custom scrollbar — minimal, palette-matched (PC; mobile hides natively) */
+    html { scrollbar-width: thin; scrollbar-color: #393a5a transparent; }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: #393a5a;
+      background-clip: padding-box;
+      border: 2px solid transparent;
+      border-radius: 8px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #4a4d75; background-clip: padding-box; }
+    ::-webkit-scrollbar-corner { background: transparent; }
     html, body {
       height: 100%;
       font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1854,7 +1866,7 @@
   <script src="sample_exam.js"></script>
   <script>
     // 앱 버전 — 캐시 디버깅·배포 확인용. 의미 있는 변경마다 bump.
-    const APP_VERSION = '1.0.8';
+    const APP_VERSION = '1.0.9';
     document.addEventListener('DOMContentLoaded', () => {
       const el = document.getElementById('appVersion');
       if (el) el.textContent = APP_VERSION;
