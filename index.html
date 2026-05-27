@@ -1744,7 +1744,7 @@
 
       <div class="app-info">
         한국사 자가진단 연구소 제작<br>
-        버전 1.0 · 2026년 제작<br>
+        버전 <span id="appVersion">—</span> · 2026년 제작<br>
         contact: <a href="mailto:robotkiwi@gmail.com">robotkiwi@gmail.com</a>
       </div>
     </div>
@@ -1826,6 +1826,13 @@
   <script src="sample_prehistoric.js"></script>
   <script src="sample_exam.js"></script>
   <script>
+    // 앱 버전 — 캐시 디버깅·배포 확인용. 의미 있는 변경마다 bump.
+    const APP_VERSION = '1.0.1';
+    document.addEventListener('DOMContentLoaded', () => {
+      const el = document.getElementById('appVersion');
+      if (el) el.textContent = APP_VERSION;
+    });
+
     // ===== Persistent storage =====
     // Wraps localStorage. Future swap to server API only changes this module.
     const QuizStore = {
