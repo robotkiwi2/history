@@ -1827,7 +1827,7 @@
   <script src="sample_exam.js"></script>
   <script>
     // 앱 버전 — 캐시 디버깅·배포 확인용. 의미 있는 변경마다 bump.
-    const APP_VERSION = '1.0.3';
+    const APP_VERSION = '1.0.4';
     document.addEventListener('DOMContentLoaded', () => {
       const el = document.getElementById('appVersion');
       if (el) el.textContent = APP_VERSION;
@@ -3729,7 +3729,8 @@
     // 다중 태그 디테일 — description에 실제 등장하는 태그 중 랜덤 1을 마스킹·정답 대상으로 선택.
     // 등장 태그가 없으면(예: description이 짧거나 비어있을 때) 첫 태그 fallback.
     function pickMaskTag(detail) {
-      const tags = detail.tags || [];
+      // 현재 시대 이름 자체가 답인 tag는 제외 (이미 그 시대 풀이 중이므로 자명)
+      const tags = (detail.tags || []).filter(t => t !== l2CurrentEra);
       if (tags.length === 0) return null;
       const desc = detail.description || detail.title || '';
       const present = tags.filter(t => desc.includes(t));
@@ -3775,11 +3776,12 @@
         .filter(c => c.era === era)
         .sort((a, b) => a.startYear - b.startYear);
 
-      // Build detail pool. difficulty 필터 적용 → 매칭 안 한 것 우선. 다 매칭했으면 전체 풀로 다시 풀기.
+      // Build detail pool. difficulty 필터 적용 + 시대명 자체가 유일한 답인 디테일 제외.
       const matched = QuizStore.getL2MatchedDetailIds();
       const allDetails = allDetailCards()
         .filter(c => c.era === era)
-        .filter(detailPassesDifficulty);
+        .filter(detailPassesDifficulty)
+        .filter(c => (c.tags || []).some(t => t !== era)); // 비-시대명 tag 최소 1개 있어야 함
       const unmatched = allDetails.filter(c => !matched.has(c.id));
       if (unmatched.length > 0) {
         l2DetailPool = unmatched;

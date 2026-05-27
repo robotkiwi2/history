@@ -48,6 +48,91 @@ const LATE_JOSEON_KEYWORDS = [
     era: '조선시대',
     tags: ['조선', '조선 철종', '최제우', '인내천'],
   },
+
+  // ===== 다른 디테일에서 tag로 참조되지만 키워드 미등록이던 항목 일괄 등록 =====
+  // 제도·현상
+  {
+    type: '제도', kind: 'keyword',
+    title: '삼정 문란',
+    description: '세도정치기 전정·군정·환곡 등 조세 행정의 부패가 극에 달한 현상',
+    startYear: 1800, endYear: 1862,
+    difficulty: 2, era: '조선시대',
+    tags: ['조선 철종', '임술농민봉기'],
+  },
+  {
+    type: '시대', kind: 'keyword',
+    title: '세도정치',
+    description: '순조~철종 60여 년간 안동 김씨·풍양 조씨 등 외척 가문이 권력 독점',
+    startYear: 1800, endYear: 1863,
+    difficulty: 2, era: '조선시대',
+    tags: ['조선 순조', '조선 헌종', '조선 철종'],
+  },
+  {
+    type: '제도', kind: 'keyword',
+    title: '통상수교거부',
+    description: '흥선대원군의 외세 통상 거부 정책. 척화비 건립으로 상징',
+    startYear: 1863, endYear: 1873,
+    difficulty: 2, era: '조선시대',
+    tags: ['흥선대원군', '병인양요', '신미양요'],
+  },
+  // 왕
+  {
+    type: '왕', kind: 'keyword',
+    title: '조선 헌종',
+    description: '8세 즉위 후 풍양 조씨 세도정치. 천주교 박해(기해박해) 시기',
+    startYear: 1834, endYear: 1849,
+    difficulty: 3, era: '조선시대',
+    tags: ['조선', '세도정치'],
+  },
+  // 인물
+  {
+    type: '인물', kind: 'keyword',
+    title: '장영실',
+    description: '세종 때 천문기구(혼천의·앙부일구)와 측우기를 제작한 과학자',
+    startYear: 1390, endYear: 1450,
+    difficulty: 2, era: '조선시대',
+    tags: ['조선 세종', '측우기'],
+  },
+  {
+    type: '인물', kind: 'keyword',
+    title: '사육신',
+    description: '단종 복위를 도모하다 세조에게 처형된 성삼문·박팽년 등 여섯 신하',
+    startYear: 1456, endYear: 1456,
+    difficulty: 3, era: '조선시대',
+    tags: ['조선 세조', '계유정난'],
+  },
+  {
+    type: '인물', kind: 'keyword',
+    title: '곽재우',
+    description: '임진왜란 때 의병을 일으킨 홍의장군',
+    startYear: 1552, endYear: 1617,
+    difficulty: 3, era: '조선시대',
+    tags: ['임진왜란', '조선 선조'],
+  },
+  {
+    type: '인물', kind: 'keyword',
+    title: '최제우',
+    description: '동학 창시자. 인내천 사상 주창',
+    startYear: 1824, endYear: 1864,
+    difficulty: 2, era: '조선시대',
+    tags: ['동학', '조선 철종'],
+  },
+  {
+    type: '인물', kind: 'keyword',
+    title: '양헌수',
+    description: '병인양요 때 정족산성에서 프랑스군을 격퇴한 장수',
+    startYear: 1816, endYear: 1888,
+    difficulty: 4, era: '조선시대',
+    tags: ['병인양요', '흥선대원군'],
+  },
+  {
+    type: '인물', kind: 'keyword',
+    title: '어재연',
+    description: '신미양요 때 광성보 전투에서 전사한 장수',
+    startYear: 1823, endYear: 1871,
+    difficulty: 4, era: '조선시대',
+    tags: ['신미양요', '흥선대원군'],
+  },
 ];
 
 const LATE_JOSEON_DETAILS = [
