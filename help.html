@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>한국사매치 사용법 · 탭·길게 누르기 등 조작 안내</title>
+  <meta name="description" content="한국사매치 사용법 안내. 시대 선택, 사실 매칭 화면 조작(탭/길게 누르기/힌트), 취약 키워드 학습, 설정 항목까지 한눈에.">
+  <link rel="canonical" href="https://hanmatch.com/help.html">
+  <link rel="icon" type="image/svg+xml" href="icon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://hanmatch.com/help.html">
+  <meta property="og:title" content="한국사매치 사용법">
+  <meta property="og:description" content="탭·길게 누르기·힌트 등 한국사매치의 조작 방법을 한눈에.">
+  <meta property="og:site_name" content="한국사매치">
+  <meta property="og:image" content="https://hanmatch.com/og-image.png">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1X0C9G0LV7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-1X0C9G0LV7');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+      color: #f5f5f7;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #2c2f5a;
+      margin-bottom: 32px;
+    }
+    .header-icon {
+      width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: serif; font-size: 38px; font-weight: 900;
+      color: #eebbc3;
+      background: linear-gradient(135deg, #2c3160 0%, #232946 100%);
+      border: 2px solid #eebbc3;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+    .header-text h1 {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    .header-text .tagline {
+      margin-top: 6px;
+      font-size: 13px;
+      color: #8b8ba7;
+    }
+    h2 {
+      margin-top: 36px;
+      margin-bottom: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #eebbc3;
+      letter-spacing: -0.01em;
+    }
+    h2:first-of-type { margin-top: 0; }
+    p, li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #d8d8e8;
+    }
+    p { margin-bottom: 14px; }
+    ul { padding-left: 0; margin-bottom: 14px; list-style: none; }
+    li { margin-bottom: 8px; }
+    strong { color: #f5f5f7; font-weight: 700; }
+
+    .action-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+    .action-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      padding: 12px 16px;
+      background: #232946;
+      border: 1px solid #2c2f5a;
+      border-radius: 10px;
+      align-items: start;
+    }
+    .action-key {
+      font-size: 13px;
+      font-weight: 700;
+      color: #eebbc3;
+      line-height: 1.4;
+    }
+    .action-desc {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #d8d8e8;
+    }
+    @media (max-width: 480px) {
+      .action-item { grid-template-columns: 1fr; gap: 4px; padding: 12px 14px; }
+      .action-key { font-size: 12px; }
+    }
+
+    .tip-box {
+      margin-top: 8px;
+      padding: 12px 16px;
+      background: #1f2240;
+      border-left: 3px solid #eebbc3;
+      border-radius: 6px;
+      font-size: 13px;
+      color: #b8b8d4;
+      line-height: 1.6;
+    }
+
+    .footer-cta {
+      margin-top: 48px;
+      padding: 24px;
+      background: linear-gradient(135deg, #2c3160 0%, #232946 100%);
+      border: 1px solid #393a5a;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .footer-cta a.btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 28px;
+      background: #eebbc3;
+      color: #1a1a2e;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .footer-cta a.btn:active { transform: scale(0.98); }
+
+    .meta {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid #2c2f5a;
+      text-align: center;
+      font-size: 12px;
+      color: #6c6c8a;
+      line-height: 1.7;
+    }
+    .meta a { color: #8b8ba7; text-decoration: none; }
+    .meta a:hover { color: #eebbc3; }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #8b8ba7;
+      text-decoration: none;
+    }
+    .back-link:hover { color: #eebbc3; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="./" class="back-link">← 홈으로</a>
+
+    <div class="header">
+      <div class="header-icon">史</div>
+      <div class="header-text">
+        <h1>사용법 안내</h1>
+        <div class="tagline">탭·길게 누르기·힌트 등 화면별 조작 방법</div>
+      </div>
+    </div>
+
+    <h2>시대 선택 화면</h2>
+    <div class="action-list">
+      <div class="action-item">
+        <div class="action-key">시대 카드 탭</div>
+        <div class="action-desc">선택한 시대로 사실 매칭 시작</div>
+      </div>
+      <div class="action-item">
+        <div class="action-key">시대 카드 길게 누르기</div>
+        <div class="action-desc">해당 시대의 풀이 기록 초기화</div>
+      </div>
+    </div>
+    <div class="tip-box">
+      각 시대바의 점수는 <strong>예상 점수</strong>입니다. 설정에서 산출 기준 문항 수(10~50)를 바꿀 수 있습니다.
+    </div>
+
+    <h2>사실 매칭 (문제 화면)</h2>
+    <div class="action-list">
+      <div class="action-item">
+        <div class="action-key">키워드 카드 탭</div>
+        <div class="action-desc">선택한 키워드를 정답으로 제출</div>
+      </div>
+      <div class="action-item">
+        <div class="action-key">키워드 카드 길게 누르기</div>
+        <div class="action-desc">그 키워드와 관련된 다른 사실들을 펼쳐 학습 (다시 길게 누르면 접힘)</div>
+      </div>
+      <div class="action-item">
+        <div class="action-key">디테일 카드 탭</div>
+        <div class="action-desc">힌트 표시. 연속으로 탭하면 다른 힌트 → 마지막은 시기 단서 → 다시 탭하면 첫 상태로</div>
+      </div>
+      <div class="action-item">
+        <div class="action-key">디테일 카드 길게 누르기</div>
+        <div class="action-desc">정답 보기 (포기)</div>
+      </div>
+      <div class="action-item">
+        <div class="action-key">우상단 숫자</div>
+        <div class="action-desc">이번 세션 정답률 — 한 번이라도 오답이 있던 문제는 틀린 것으로 집계</div>
+      </div>
+    </div>
+
+    <h2>취약 키워드 화면</h2>
+    <div class="action-list">
+      <div class="action-item">
+        <div class="action-key">키워드 탭</div>
+        <div class="action-desc">그 키워드와 관련된 사실(디테일) 펼치기</div>
+      </div>
+      <div class="action-item">
+        <div class="action-key">키워드 길게 누르기</div>
+        <div class="action-desc">해당 키워드의 취약 기록 삭제</div>
+      </div>
+    </div>
+
+    <h2>설정</h2>
+    <ul>
+      <li><strong>풀이 모드</strong> — 일반 풀이 / 오답 위주 (취약 키워드 디테일 우선 출제)</li>
+      <li><strong>난이도</strong> — 기본(평이한 디테일만) / 심화(전체 디테일)</li>
+      <li><strong>한 라운드 문제 수</strong> — 5 / 10 / 20 / 30 / 50</li>
+      <li><strong>예상점수 산출방식</strong> — 시대별 최근 N개 풀이로 점수 환산 (10/20/30/40/50, 기본 30)</li>
+      <li><strong>기록 초기화</strong> — 모든 점수와 풀이 기록 삭제</li>
+    </ul>
+
+    <div class="footer-cta">
+      <div style="font-size: 16px; font-weight: 700; color: #f5f5f7;">바로 시작하기</div>
+      <div style="margin-top: 6px; font-size: 13px; color: #b8b8d4;">실행 중 막히면 이 페이지를 다시 확인하세요</div>
+      <a href="./" class="btn">한국사매치 열기 →</a>
+    </div>
+
+    <div class="meta">
+      한국사 자가진단 연구소 제작<br>
+      <a href="about.html">한국사매치 소개</a> · <a href="mailto:robotkiwi@gmail.com">robotkiwi@gmail.com</a>
+    </div>
+  </div>
+</body>
+</html>
