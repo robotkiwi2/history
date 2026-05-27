@@ -652,6 +652,22 @@
       transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
     }
     .l2-card:active { transform: scale(0.98); background: #2a2f55; }
+    .l2-card.l2-card-studying {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-color: transparent;
+    }
+    .l2-card-details {
+      margin: 0 4px 4px;
+      padding: 8px 14px 12px;
+      background: #1a1a2e;
+      border: 1px solid #2c2f5a;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
     .l2-card.l2-correct-flash {
       background: #1e3a2a;
       border-color: #2ecc71;
@@ -1827,7 +1843,7 @@
   <script src="sample_exam.js"></script>
   <script>
     // 앱 버전 — 캐시 디버깅·배포 확인용. 의미 있는 변경마다 bump.
-    const APP_VERSION = '1.0.4';
+    const APP_VERSION = '1.0.5';
     document.addEventListener('DOMContentLoaded', () => {
       const el = document.getElementById('appVersion');
       if (el) el.textContent = APP_VERSION;
@@ -2459,6 +2475,7 @@
         '',
         '◆ 사실 매칭 (문제 화면)',
         '· 키워드 카드 탭 → 답 제출',
+        '· 키워드 카드 길게 누르기 → 관련 디테일 펼침(학습용, 다시 누르면 접힘)',
         '· 디테일 카드 탭 → 힌트 (계속 탭하면 다른 힌트, 마지막은 시기 단서)',
         '· 디테일 카드 길게 누르기 → 정답 보기(포기)',
         '· 우상단 = 이번 세션 정답률 (한 번이라도 오답 시 그 문제는 틀린 걸로)',
@@ -3862,6 +3879,9 @@
       }
 
       visible.forEach(card => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'l2-item';
+
         const el = document.createElement('div');
         el.className = 'l2-card';
         el.dataset.title = card.title;
@@ -3873,9 +3893,65 @@
           <span class="l2-title">${card.title}</span>
           <span class="l2-year">${yearText}</span>
         `;
-        el.addEventListener('click', () => onKeywordTap(card));
-        detailTimelineEl.appendChild(el);
+
+        const detailsBox = document.createElement('div');
+        detailsBox.className = 'l2-card-details hidden';
+
+        wrapper.appendChild(el);
+        wrapper.appendChild(detailsBox);
+
+        // Long-press = 관련 디테일 펼침 (학습용) / Tap = 매칭 시도
+        let lpTimer = null;
+        let lpUsed = false;
+        el.addEventListener('pointerdown', () => {
+          lpUsed = false;
+          lpTimer = setTimeout(() => {
+            lpUsed = true;
+            lpTimer = null;
+            toggleL2CardDetails(wrapper, card.title);
+          }, 500);
+        });
+        const cancelLp = () => { if (lpTimer) { clearTimeout(lpTimer); lpTimer = null; } };
+        el.addEventListener('pointerup', cancelLp);
+        el.addEventListener('pointercancel', cancelLp);
+        el.addEventListener('pointerleave', cancelLp);
+        el.addEventListener('contextmenu', e => e.preventDefault());
+        el.addEventListener('click', () => {
+          if (lpUsed) { lpUsed = false; return; }
+          onKeywordTap(card);
+        });
+
+        detailTimelineEl.appendChild(wrapper);
       });
+    }
+
+    // 키워드 카드 길게 누르기 → 그 키워드가 정답인 관련 디테일들 펼침/접힘
+    function toggleL2CardDetails(wrapper, cardTitle) {
+      const detailsBox = wrapper.querySelector('.l2-card-details');
+      const cardEl = wrapper.querySelector('.l2-card');
+      if (!detailsBox.classList.contains('hidden')) {
+        detailsBox.classList.add('hidden');
+        detailsBox.innerHTML = '';
+        cardEl.classList.remove('l2-card-studying');
+        return;
+      }
+      const matches = allDetailCards()
+        .filter(d => (d.tags || []).includes(cardTitle))
+        .filter(detailPassesDifficulty)
+        .sort((a, b) => (a.difficulty || 3) - (b.difficulty || 3));
+      if (matches.length === 0) {
+        detailsBox.innerHTML = '<div class="weak-detail-empty">관련 디테일이 없습니다</div>';
+      } else {
+        detailsBox.innerHTML = matches.map(d => {
+          const desc = d.description || d.title || '';
+          const html = cardTitle && desc.includes(cardTitle)
+            ? desc.split(cardTitle).join(`<span class="weak-detail-highlight">${cardTitle}</span>`)
+            : desc;
+          return `<div class="weak-detail-row">${html}</div>`;
+        }).join('');
+      }
+      detailsBox.classList.remove('hidden');
+      cardEl.classList.add('l2-card-studying');
     }
     function countMatchedByKeyword() {
       const counts = {};
