@@ -1531,6 +1531,24 @@
     </div>
   </div>
 
+  <!-- ============ DESKTOP MOBILE GUIDE MODAL ============ -->
+  <div class="modal-backdrop hidden" id="desktopMobileModal">
+    <div class="modal-card">
+      <div class="modal-title">스마트폰에서 더 쾌적해요</div>
+      <div class="modal-body" style="text-align:center;">
+        <div style="font-size:13px;color:#b8b8d4;line-height:1.6;margin-bottom:14px;">
+          한국사매치는 모바일에 최적화된 학습 도구입니다.<br>
+          폰에서 출퇴근·자투리 시간에 쓰기 좋아요.
+        </div>
+        <div style="background:#fff;padding:10px;border-radius:10px;display:inline-block;">
+          <img src="qr.png" alt="hanmatch.com QR" width="200" height="200" style="display:block;">
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:#8b8ba7;">스마트폰 카메라로 QR 코드를 찍어보세요</div>
+      </div>
+      <button class="modal-close-btn" id="desktopMobileCloseBtn">PC에서 계속하기</button>
+    </div>
+  </div>
+
   <!-- ============ ROUND COMPLETE MODAL ============ -->
   <div class="modal-backdrop hidden" id="roundCompleteModal">
     <div class="modal-card">
@@ -2227,6 +2245,29 @@
         prompt('아래 주소를 복사해 공유하세요:', data.url);
       }
     }
+
+    // ===== PC 첫 방문 → 모바일 안내 (QR 코드) =====
+    (function showDesktopMobileGuide() {
+      const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+                         || window.navigator.standalone === true;
+      if (isMobile || isStandalone) return;
+      if (localStorage.getItem('desktop_qr_shown')) return;
+      const modal = document.getElementById('desktopMobileModal');
+      // 사용자가 [시작하기] 누르고 잠시 후 노출 (첫인상 방해 최소화)
+      setTimeout(() => {
+        modal.classList.remove('hidden');
+        trackEvent('desktop_qr_shown', {});
+      }, 1500);
+      const dismiss = () => {
+        modal.classList.add('hidden');
+        localStorage.setItem('desktop_qr_shown', '1');
+      };
+      document.getElementById('desktopMobileCloseBtn').addEventListener('click', dismiss);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) dismiss();
+      });
+    })();
 
     // ===== PWA 설치 유도 =====
     // Android/Chromium: beforeinstallprompt 캐치 → 배너에서 promtp()

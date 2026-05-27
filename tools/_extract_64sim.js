@@ -4,7 +4,7 @@ const { PDFParse } = require('pdf-parse');
 const sharp = require('sharp');
 
 (async () => {
-  const pdfPath = path.join(__dirname, '..', 'exams', '66회 한국사_문제지(심화).pdf');
+  const pdfPath = path.join(__dirname, '..', 'exams', '64회 한국사_문제지(심화).pdf');
   const buf = fs.readFileSync(pdfPath);
   const parser = new PDFParse({ data: buf });
   const r = await parser.getText();
@@ -24,11 +24,9 @@ const sharp = require('sharp');
       ];
       for (const [l, t, w, h, name] of quads) {
         await sharp(ss.pages[i].data).extract({ left: l, top: t, width: w, height: h })
-          .toFile(path.join(__dirname, '..', 'exams', `66s_p${i+1}_${name}.png`));
+          .toFile(path.join(__dirname, '..', 'exams', `64s_p${i+1}_${name}.png`));
       }
       console.log('page', i+1, 'done');
     }
-  } else {
-    fs.writeFileSync(path.join(__dirname, '..', 'exams', '66sim.txt'), r.text);
   }
 })();
