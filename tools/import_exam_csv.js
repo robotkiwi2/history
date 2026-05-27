@@ -697,6 +697,10 @@ const KEYWORD_META = {
   '지계':              { type: '제도',  era: '근대',     startYear: 1898,  endYear: 1904  },
   '군국기무처':        { type: '기관',  era: '근대',     startYear: 1894,  endYear: 1894  },
   '창씨개명':          { type: '제도',  era: '근대',     startYear: 1940,  endYear: 1945  },
+  '연개소문':          { type: '인물',  era: '삼국시대', startYear: 603,   endYear: 666   },
+  '이성계':            { type: '인물',  era: '고려시대', startYear: 1335,  endYear: 1408  },
+  '황룡사':            { type: '유물',  era: '삼국시대', startYear: 553,   endYear: 1238  },
+  '흑산도':            { type: '지역',  era: '조선시대', startYear: 1392,  endYear: 1910  },
 };
 
 function mapDifficulty(score) {

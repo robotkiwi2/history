@@ -3813,21 +3813,40 @@
       // 현재 디테일의 정답 키워드 type과 같은 카드만 표시 (l2VisibleTypes가 null이면 전체)
       let visible;
       if (l2VisibleTypes) {
-        // 모든 type에 동일 적용: 선택 시대 안에 같은 type 키워드가 5개 미만이면
-        // 인접 시대(디테일 startYear에서 가까운 순)로 5개까지 채움. 변별력 확보용.
+        // 같은 type 키워드 풀에서 변별력 있게 5~10개로 표시.
+        // - 5개 미만이면 인접 시대로 보충 (디테일 startYear 기준 가까운 순)
+        // - 10개 초과면 답 키워드 + 가까운 순 9개로 cap (정답 반드시 포함)
         const allOfType = allPrimaryCards().filter(c => l2VisibleTypes.has(c.type || '사건'));
         const inEra = allOfType.filter(c => c.era === l2CurrentEra);
+        const targetYear = l2CurrentDetail ? l2CurrentDetail.startYear : 0;
+        const distFromTarget = (c) => Math.abs((c.startYear ?? 0) - targetYear);
+
+        let pool;
         if (inEra.length >= 5) {
-          visible = inEra.sort((a, b) => a.startYear - b.startYear);
+          pool = inEra.slice();
         } else {
           const need = 5 - inEra.length;
-          const targetYear = l2CurrentDetail ? l2CurrentDetail.startYear : 0;
           const extras = allOfType
             .filter(c => c.era !== l2CurrentEra)
-            .sort((a, b) => Math.abs(a.startYear - targetYear) - Math.abs(b.startYear - targetYear))
+            .sort((a, b) => distFromTarget(a) - distFromTarget(b))
             .slice(0, need);
-          visible = [...inEra, ...extras].sort((a, b) => a.startYear - b.startYear);
+          pool = [...inEra, ...extras];
         }
+
+        // 답 키워드가 풀에 없으면 강제로 포함
+        const answerKw = l2MaskTag ? allOfType.find(c => c.title === l2MaskTag) : null;
+        if (answerKw && !pool.find(c => c.title === answerKw.title)) {
+          pool.push(answerKw);
+        }
+
+        // 최대 10개 cap — 답 카드 보존 + 나머지는 시기 가까운 순
+        if (pool.length > 10) {
+          const others = pool.filter(c => c.title !== (answerKw && answerKw.title))
+            .sort((a, b) => distFromTarget(a) - distFromTarget(b));
+          pool = (answerKw ? [answerKw] : []).concat(others.slice(0, answerKw ? 9 : 10));
+        }
+
+        visible = pool.sort((a, b) => a.startYear - b.startYear);
       } else {
         visible = l2Primaries;
       }
