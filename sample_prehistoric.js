@@ -246,7 +246,7 @@ const PREHISTORIC_DETAILS = [
     startYear: -1000, endYear: -108,
     difficulty: 2, era: '고조선',
     tags: ['고조선'],
-    frequency: 2
+    frequency: 3
   },
   {
     id: '고조선_위만',
@@ -425,6 +425,7 @@ const PREHISTORIC_DETAILS = [
     startYear: -200, endYear: 313,
     difficulty: 2, era: '선사시대',
     tags: ['동예'],
+    frequency: 2
   },
   {
     id: '동예_특산물',
@@ -434,6 +435,7 @@ const PREHISTORIC_DETAILS = [
     startYear: -200, endYear: 313,
     difficulty: 3, era: '선사시대',
     tags: ['동예'],
+    frequency: 2
   },
 
   // ===== 삼한 (4) =====
