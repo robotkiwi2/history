@@ -23,6 +23,9 @@ const CSV_PATH = path.join(ROOT, 'exams', '한능검 기출근거 디테일.csv'
 const OUT_PATH = path.join(ROOT, 'sample_exam.js');
 const DEDUPE_DECISIONS_PATH = path.join(ROOT, 'data', 'dedupe_decisions.json');
 
+// 짧은 파편 디테일 필터 — tools/find_short_details.js와 동일 패턴
+const SHORT_VERB_ENDING = /(다|음|함|됨|었음|였음|하였다|하다|되다|되었다|하였음|하였습니다|하였어요|이다|이었다|있다|있었다|없다|없었다|되었다|되었음|시켰다|이루었다|에요|어요|냐|니|네|되었어요|이루어졌다|발표되었다|체결되었다|반포되었다|설치되었다|제정되었다|폐지되었다|개최되었다|건립되었다|파견됨)[.。、!?]?$/;
+
 // 머지 결정 적용 — id 기반.
 //   mergedToCanonical: merged id → canonical id (해당 id 디테일은 생성 단계에서 skip)
 //   canonicalFrequency: canonical id → frequency (살아남은 디테일에 frequency 필드 부착)
@@ -1100,6 +1103,15 @@ function main() {
     // tag로 시작 + 나머지 ≤10자면 컨텍스트 부족 (예: "발췌 개헌에 따라 이루어졌다." → "**에 따라 이루어졌다."
     // — 마스킹 후 generic 동사만 남아 변별 불가)
     if (dn.startsWith(rn) && dn.length - rn.length <= 10) {
+      skippedNoContent++;
+      return;
+    }
+    // 짧은 파편 디테일 — 어절≤3 또는 글자≤8 + 동사 어미 없음
+    //   (단순 명사·인명·유물명만 추출된 케이스, 사실 서술 아님)
+    const wc = detailText.trim().split(/\s+/).filter(Boolean).length;
+    const charLen = dn.length;
+    const hasVerbEnding = SHORT_VERB_ENDING.test(detailText);
+    if ((wc <= 3 || charLen <= 8) && !hasVerbEnding) {
       skippedNoContent++;
       return;
     }

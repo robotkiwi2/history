@@ -20,3 +20,4 @@ data/cards.all.json
 data/cards.summary.json
 data/dedupe_report.json
 data/dedupe_report.md
+data/short_details_report.md
