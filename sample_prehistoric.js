@@ -245,6 +245,7 @@ const PREHISTORIC_DETAILS = [
     startYear: -1000, endYear: -108,
     difficulty: 2, era: '고조선',
     tags: ['고조선'],
+    frequency: 2
   },
   {
     id: '고조선_위만',
@@ -310,6 +311,7 @@ const PREHISTORIC_DETAILS = [
     startYear: -200, endYear: 494,
     difficulty: 2, era: '선사시대',
     tags: ['부여'],
+    frequency: 2
   },
   {
     id: '부여_1책12법',

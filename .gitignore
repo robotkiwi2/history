@@ -18,3 +18,5 @@ exams/*.hwp
 exams/*.csv
 data/cards.all.json
 data/cards.summary.json
+data/dedupe_report.json
+data/dedupe_report.md

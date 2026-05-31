@@ -21,6 +21,22 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const CSV_PATH = path.join(ROOT, 'exams', '한능검 기출근거 디테일.csv');
 const OUT_PATH = path.join(ROOT, 'sample_exam.js');
+const DEDUPE_DECISIONS_PATH = path.join(ROOT, 'data', 'dedupe_decisions.json');
+
+// 머지 결정 적용 — id 기반.
+//   mergedToCanonical: merged id → canonical id (해당 id 디테일은 생성 단계에서 skip)
+//   canonicalFrequency: canonical id → frequency (살아남은 디테일에 frequency 필드 부착)
+let mergedToCanonical = new Map();
+let canonicalFrequency = new Map();
+if (fs.existsSync(DEDUPE_DECISIONS_PATH)) {
+  const dec = JSON.parse(fs.readFileSync(DEDUPE_DECISIONS_PATH, 'utf8'));
+  for (const d of (dec.decisions || [])) {
+    canonicalFrequency.set(d.canonical_id, d.frequency);
+    for (const m of (d.merged || [])) {
+      mergedToCanonical.set(m.id, d.canonical_id);
+    }
+  }
+}
 
 // 알려진 키워드 메타 — 풍부한 정보 제공
 const KEYWORD_META = {
@@ -1108,8 +1124,14 @@ function main() {
     const isCorrect = r['정답여부'].startsWith('O');
     const sourceTag = isCorrect ? 'O' : 'X';
 
-    details.push({
-      id: `${round}_q${qNum}_${idx}`,
+    const generatedId = `${round}_q${qNum}_${idx}`;
+    // dedupe_decisions에서 머지된 id면 skip
+    if (mergedToCanonical.has(generatedId)) {
+      skippedDup++;
+      return;
+    }
+    const detail = {
+      id: generatedId,
       type: '사건',
       kind: 'detail',
       title: detailText.slice(0, 30) + (detailText.length > 30 ? '...' : ''),
@@ -1120,7 +1142,11 @@ function main() {
       era: meta.era,
       tags: [realSubject],
       _src: `${round} ${r['구분']} Q${qNum} ${sourceTag}`,
-    });
+    };
+    if (canonicalFrequency.has(generatedId)) {
+      detail.frequency = canonicalFrequency.get(generatedId);
+    }
+    details.push(detail);
   });
 
   const out = `// 한능검 기출 자동 변환 — tools/import_exam_csv.js. 직접 수정하지 마세요.
