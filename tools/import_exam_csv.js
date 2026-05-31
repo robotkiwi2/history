@@ -26,6 +26,19 @@ const DEDUPE_DECISIONS_PATH = path.join(ROOT, 'data', 'dedupe_decisions.json');
 // 짧은 파편 디테일 필터 — tools/find_short_details.js와 동일 패턴
 const SHORT_VERB_ENDING = /(다|음|함|됨|었음|였음|하였다|하다|되다|되었다|하였음|하였습니다|하였어요|이다|이었다|있다|있었다|없다|없었다|되었다|되었음|시켰다|이루었다|에요|어요|냐|니|네|되었어요|이루어졌다|발표되었다|체결되었다|반포되었다|설치되었다|제정되었다|폐지되었다|개최되었다|건립되었다|파견됨)[.。、!?]?$/;
 
+// 잘못된 태깅 교정 — CSV의 '실제 대상' 컬럼이 명백히 틀린 경우 보정.
+//   from(원래 태그) + contains(detail 본문에 포함된 키워드) → to(교정 후 태그)
+const TAG_FIXES = [
+  // G20 정상회의(2010)는 이명박 정부 사건이지만 CSV에 김영삼 정부로 잘못 분류됨
+  { from: '김영삼 정부', contains: 'G20', to: '이명박 정부' },
+];
+function applyTagFix(tag, detailText) {
+  for (const rule of TAG_FIXES) {
+    if (rule.from === tag && detailText.includes(rule.contains)) return rule.to;
+  }
+  return tag;
+}
+
 // 머지 결정 적용 — id 기반.
 //   mergedToCanonical: merged id → canonical id (해당 id 디테일은 생성 단계에서 skip)
 //   canonicalFrequency: canonical id → frequency (살아남은 디테일에 frequency 필드 부착)
@@ -336,6 +349,7 @@ const KEYWORD_META = {
   '김영삼 정부':       { type: '시대',  era: '근대',     startYear: 1993,  endYear: 1998  },
   '김대중 정부 통일':  { type: '시대',  era: '근대',     startYear: 1998,  endYear: 2003  },
   '노무현 정부':       { type: '시대',  era: '근대',     startYear: 2003,  endYear: 2008  },
+  '이명박 정부':       { type: '시대',  era: '근대',     startYear: 2008,  endYear: 2013  },
   '김대중 정부':       { type: '시대',  era: '근대',     startYear: 1998,  endYear: 2003  },
   '1950년대':          { type: '시대',  era: '근대',     startYear: 1950,  endYear: 1959  },
   '1980년대':          { type: '시대',  era: '근대',     startYear: 1980,  endYear: 1989  },
@@ -1011,6 +1025,9 @@ function main() {
     if (SINGLE_WORD_KEYWORDS.has(dt)) subjects.add(applyAlias(dt));
   });
 
+  // TAG_FIXES의 교정 후 태그도 키워드 후보로 추가 (CSV에 없더라도 키워드 카드 생성 필요)
+  TAG_FIXES.forEach(rule => subjects.add(rule.to));
+
   // 2) 키워드 카드 생성
   const keywords = [];
   const unmapped = [];
@@ -1129,7 +1146,9 @@ function main() {
       return;
     }
     seenDedupKey.add(k);
-    const meta = KEYWORD_META[realSubject] || { era: '근대', startYear: 1900, endYear: 1900 };
+    // 잘못된 태깅 교정 (예: G20 → 김영삼 → 이명박)
+    const finalSubject = applyTagFix(realSubject, detailText);
+    const meta = KEYWORD_META[finalSubject] || { era: '근대', startYear: 1900, endYear: 1900 };
 
     const round = r['회차'];
     const qNum = r['문항'];
@@ -1152,7 +1171,7 @@ function main() {
       endYear: meta.endYear,
       difficulty: mapDifficulty(parseInt(r['배점'], 10)),
       era: meta.era,
-      tags: [realSubject],
+      tags: [finalSubject],
       _src: `${round} ${r['구분']} Q${qNum} ${sourceTag}`,
     };
     if (canonicalFrequency.has(generatedId)) {
