@@ -22,11 +22,15 @@ const IN_PATH = path.join(ROOT, 'data', 'cards.all.json');
 const OUT_JSON = path.join(ROOT, 'data', 'dedupe_report.json');
 const OUT_MD   = path.join(ROOT, 'data', 'dedupe_report.md');
 
-const THRESHOLD = parseFloat(process.argv[2] || '0.8');
+const args = process.argv.slice(2);
+const STRIP_TAIL = args.includes('--strip-tail');
+const numArg = args.find(a => !a.startsWith('--'));
+const THRESHOLD = parseFloat(numArg || '0.8');
 if (Number.isNaN(THRESHOLD) || THRESHOLD <= 0 || THRESHOLD > 1) {
   console.error('threshold는 0~1 사이여야 합니다.');
   process.exit(1);
 }
+if (STRIP_TAIL) console.log('--strip-tail: 마지막 어절(동사)을 떼고 비교');
 
 // 시대명 목록 — primary_tag 후보에서 제외.
 const ERA_NAMES = new Set([
@@ -59,8 +63,16 @@ function primaryTag(detail) {
 }
 
 // ===== Normalization & bigram =====
+function stripTail(s) {
+  // 끝 구두점 제거 후 마지막 어절(공백 기준) 떼기. 한 어절짜리면 그대로 둠.
+  const cleaned = (s || '').replace(/[.。!?]+\s*$/, '').trim();
+  const parts = cleaned.split(/\s+/);
+  if (parts.length <= 1) return cleaned;
+  return parts.slice(0, -1).join(' ');
+}
 function normalize(s) {
-  return (s || '')
+  const base = STRIP_TAIL ? stripTail(s) : (s || '');
+  return base
     .replace(/[\s.,·\-。．、!?()\[\]"'「」『』~∼…•:;]+/g, '')
     .toLowerCase();
 }

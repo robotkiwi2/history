@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-05-31T00:42:48.305Z",
+  "generated_at": "2026-05-31T01:11:29.231Z",
   "thresholds_applied": [
     0.7,
+    0.65,
     0.6
   ],
   "decisions": [
@@ -139,14 +140,20 @@
       "canonical_id": "66회_q39_3760",
       "canonical_source": "sample_exam",
       "canonical_description": "도쿄 유학생들을 중심으로 2·8 독립 선언서가 발표되었다.",
-      "frequency": 2,
+      "frequency": 3,
       "merged": [
         {
           "id": "70회_q34_2683",
           "source": "sample_exam",
           "description": "유학생들을 중심으로 2·8 독립 선언서가 발표되었다."
+        },
+        {
+          "id": "77회_q32_553",
+          "source": "sample_exam",
+          "description": "유학생을 중심으로 2·8 독립 선언서를 발표하였다."
         }
-      ]
+      ],
+      "updated_at": "2026-05-31T01:11:29.231Z"
     },
     {
       "cluster_id": 9,
@@ -1113,11 +1120,17 @@
           "id": "78회_q36_148",
           "source": "sample_exam",
           "description": "헌병 경찰제가 실시되었다."
+        },
+        {
+          "id": "69회_q40_2929",
+          "source": "sample_exam",
+          "description": "헌병 경찰 제도를 실시하였다."
         }
       ],
       "added_at": "2026-05-31T00:38:03.429Z",
       "cluster_id": 69,
-      "frequency": 2
+      "frequency": 3,
+      "updated_at": "2026-05-31T01:11:29.231Z"
     },
     {
       "canonical_id": "69회_q40_2929",
@@ -1992,11 +2005,22 @@
           "id": "74회_q43_1270",
           "source": "sample_exam",
           "description": "조선 태형령이 반포되었다."
+        },
+        {
+          "id": "69회_q40_2927",
+          "source": "sample_exam",
+          "description": "조선 태형령을 공포하였다."
+        },
+        {
+          "id": "70회_q36_2693",
+          "source": "sample_exam",
+          "description": "조선 태형령을 시행하였다."
         }
       ],
       "added_at": "2026-05-31T00:42:48.305Z",
       "cluster_id": 123,
-      "frequency": 2
+      "frequency": 4,
+      "updated_at": "2026-05-31T01:11:29.231Z"
     },
     {
       "canonical_id": "64회_q46_4140",
@@ -2008,11 +2032,17 @@
           "id": "75회_q48_1071",
           "source": "sample_exam",
           "description": "당시 대통령이 하야하는 결과를 가져왔다."
+        },
+        {
+          "id": "74회_q44_1275",
+          "source": "sample_exam",
+          "description": "대통령이 하야하는 결과를 이끌어냈다."
         }
       ],
       "added_at": "2026-05-31T00:42:48.305Z",
       "cluster_id": 124,
-      "frequency": 2
+      "frequency": 3,
+      "updated_at": "2026-05-31T01:11:29.231Z"
     },
     {
       "canonical_id": "75회_q47_1067",
@@ -2584,11 +2614,17 @@
           "id": "69회_q8_2789",
           "source": "sample_exam",
           "description": "백두산정계비를 건립하였다."
+        },
+        {
+          "id": "78회_q24_94",
+          "source": "sample_exam",
+          "description": "청과 국경을 정하는 백두산정계비를 세웠다."
         }
       ],
       "added_at": "2026-05-31T00:42:48.305Z",
       "cluster_id": 160,
-      "frequency": 2
+      "frequency": 3,
+      "updated_at": "2026-05-31T01:11:29.231Z"
     },
     {
       "canonical_id": "76회_q30_764",
@@ -2684,6 +2720,905 @@
       ],
       "added_at": "2026-05-31T00:42:48.305Z",
       "cluster_id": 166,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q4_1100",
+      "canonical_source": "sample_exam",
+      "canonical_description": "백제가 국호를 남부여로 고쳤다.",
+      "primary_keyword": "백제 성왕",
+      "merged": [
+        {
+          "id": "67회_q3_3181",
+          "source": "sample_exam",
+          "description": "국호를 남부여로 개정하였다."
+        },
+        {
+          "id": "77회_q50_642",
+          "source": "sample_exam",
+          "description": "국호를 남부여라 칭하였다."
+        },
+        {
+          "id": "77회_q4_233",
+          "source": "sample_exam",
+          "description": "국호를 남부여로 바꾸다"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 167,
+      "frequency": 4
+    },
+    {
+      "canonical_id": "64회_q44_4313",
+      "canonical_source": "sample_exam",
+      "canonical_description": "경부 고속 도로를 준공하였다.",
+      "primary_keyword": "박정희 정부",
+      "merged": [
+        {
+          "id": "67회_q46_3572",
+          "source": "sample_exam",
+          "description": "경부 고속 도로를 개통하였다."
+        },
+        {
+          "id": "75회_q46_1060",
+          "source": "sample_exam",
+          "description": "경부 고속 도로가 개통되었다."
+        },
+        {
+          "id": "77회_q46_391",
+          "source": "sample_exam",
+          "description": "경부 고속 도로가 준공되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 168,
+      "frequency": 4
+    },
+    {
+      "canonical_id": "65회_q42_3929",
+      "canonical_source": "sample_exam",
+      "canonical_description": "국가 총동원법이 시행되었다.",
+      "primary_keyword": "민족말살통치기",
+      "merged": [
+        {
+          "id": "71회_q35_2478",
+          "source": "sample_exam",
+          "description": "국가 총동원법이 제정되었다."
+        },
+        {
+          "id": "73회_q37_1480",
+          "source": "sample_exam",
+          "description": "국가 총동원법을 공포하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 169,
+      "frequency": 3
+    },
+    {
+      "canonical_id": "77회_q50_406",
+      "canonical_source": "sample_exam",
+      "canonical_description": "남북 조절 위원회를 구성하였다.",
+      "primary_keyword": "박정희 정부",
+      "merged": [
+        {
+          "id": "76회_q49_845",
+          "source": "sample_exam",
+          "description": "남북 조절위원회가 구성되었다."
+        },
+        {
+          "id": "63_q50_4741",
+          "source": "sample_exam",
+          "description": "남북 조절 위원회 구성"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 170,
+      "frequency": 3
+    },
+    {
+      "canonical_id": "75회_q10_896",
+      "canonical_source": "sample_exam",
+      "canonical_description": "안승이 보덕국의 왕으로 책봉되었다.",
+      "primary_keyword": "신라 문무왕",
+      "merged": [
+        {
+          "id": "74회_q10_1130",
+          "source": "sample_exam",
+          "description": "안승이 보덕국왕으로 임명되었다."
+        },
+        {
+          "id": "70회_q10_2571",
+          "source": "sample_exam",
+          "description": "안승 보덕국왕으로 책봉되다"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 171,
+      "frequency": 3
+    },
+    {
+      "canonical_id": "75회_q1_1545",
+      "canonical_source": "sample_exam",
+      "canonical_description": "철제 무기를 제작하였다.",
+      "primary_keyword": "철기 시대",
+      "merged": [
+        {
+          "id": "77회_q1_223",
+          "source": "sample_exam",
+          "description": "철제 무기를 사용하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 172,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "63회_q4_4351",
+      "canonical_source": "sample_exam",
+      "canonical_description": "진대법을 실시하였다.",
+      "primary_keyword": "고구려 고국천왕",
+      "merged": [
+        {
+          "id": "73회_q6_1755",
+          "source": "sample_exam",
+          "description": "진대법을 시행하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 173,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q11_259",
+      "canonical_source": "sample_exam",
+      "canonical_description": "녹읍을 폐지하였다.",
+      "primary_keyword": "신라 신문왕",
+      "merged": [
+        {
+          "id": "71회_q11_2383",
+          "source": "sample_exam",
+          "description": "녹읍을 폐지함"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 174,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q15_4200",
+      "canonical_source": "sample_exam",
+      "canonical_description": "흑창을 만들었다.",
+      "primary_keyword": "고려 태조",
+      "merged": [
+        {
+          "id": "67회_q11_3411",
+          "source": "sample_exam",
+          "description": "흑창을 두었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 175,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q12_1581",
+      "canonical_source": "sample_exam",
+      "canonical_description": "과거제를 도입하였다.",
+      "primary_keyword": "고려 광종",
+      "merged": [
+        {
+          "id": "77회_q11_260",
+          "source": "sample_exam",
+          "description": "과거제를 시행하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 176,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q11_262",
+      "canonical_source": "sample_exam",
+      "canonical_description": "쌍성총관부를 공격하였다.",
+      "primary_keyword": "고려 공민왕",
+      "merged": [
+        {
+          "id": "77회_q50_643",
+          "source": "sample_exam",
+          "description": "쌍성총관부를 수복하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 177,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "67회_q18_3442",
+      "canonical_source": "sample_exam",
+      "canonical_description": "농사직설을 간행하였다.",
+      "primary_keyword": "조선 세종",
+      "merged": [
+        {
+          "id": "75회_q12_1582",
+          "source": "sample_exam",
+          "description": "농사직설을 편찬하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 178,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q23_1623",
+      "canonical_source": "sample_exam",
+      "canonical_description": "경국대전이 반포되었다.",
+      "primary_keyword": "조선 성종",
+      "merged": [
+        {
+          "id": "77회_q20_293",
+          "source": "sample_exam",
+          "description": "경국대전이 완성되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 179,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q25_1632",
+      "canonical_source": "sample_exam",
+      "canonical_description": "초계문신제를 시행하였다.",
+      "primary_keyword": "조선 정조",
+      "merged": [
+        {
+          "id": "77회_q25_314",
+          "source": "sample_exam",
+          "description": "초계문신제를 실시하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 180,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "69회_q27_2873",
+      "canonical_source": "sample_exam",
+      "canonical_description": "비변사를 폐지하였다.",
+      "primary_keyword": "흥선대원군",
+      "merged": [
+        {
+          "id": "77회_q30_330",
+          "source": "sample_exam",
+          "description": "비변사를 혁파하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 181,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "69회_q35_2901",
+      "canonical_source": "sample_exam",
+      "canonical_description": "동양 평화론을 저술하였다.",
+      "primary_keyword": "안중근",
+      "merged": [
+        {
+          "id": "67회_q35_3518",
+          "source": "sample_exam",
+          "description": "동양 평화론을 집필하다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 182,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "71회_q38_2489",
+      "canonical_source": "sample_exam",
+      "canonical_description": "교육 입국 조서가 발표되었다.",
+      "primary_keyword": "갑오개혁",
+      "merged": [
+        {
+          "id": "73회_q39_1871",
+          "source": "sample_exam",
+          "description": "교육 입국 조서가 반포되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 183,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "70회_q36_2692",
+      "canonical_source": "sample_exam",
+      "canonical_description": "신문지법을 제정하였다.",
+      "primary_keyword": "대한제국",
+      "merged": [
+        {
+          "id": "71회_q32_2260",
+          "source": "sample_exam",
+          "description": "신문지법을 공포하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 184,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "67회_q36_3521",
+      "canonical_source": "sample_exam",
+      "canonical_description": "순종의 인산일에 전개되었다.",
+      "primary_keyword": "6·10 만세 운동",
+      "merged": [
+        {
+          "id": "75회_q37_1677",
+          "source": "sample_exam",
+          "description": "순종의 인산일에 일어났다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 185,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q45_1281",
+      "canonical_source": "sample_exam",
+      "canonical_description": "삼청 교육대가 설치되었다.",
+      "primary_keyword": "전두환 정부",
+      "merged": [
+        {
+          "id": "77회_q46_390",
+          "source": "sample_exam",
+          "description": "삼청 교육대가 운영되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 186,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "70회_q11_2576",
+      "canonical_source": "sample_exam",
+      "canonical_description": "특산품으로 솔빈부의 말이 유명하였다.",
+      "primary_keyword": "발해",
+      "merged": [
+        {
+          "id": "77회_q25_516",
+          "source": "sample_exam",
+          "description": "솔빈부의 말이 특산품으로 수출되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 187,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "66회_q5_3614",
+      "canonical_source": "sample_exam",
+      "canonical_description": "신라 - 이사부가 우산국을 정복하였다.",
+      "primary_keyword": "신라 지증왕",
+      "merged": [
+        {
+          "id": "78회_q7_29",
+          "source": "sample_exam",
+          "description": "이사부가 우산국을 복속시켰다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 188,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q43_1049",
+      "canonical_source": "sample_exam",
+      "canonical_description": "중국 관내(關內)에서 결성된 최초의 한인 무장 부대였다.",
+      "primary_keyword": "조선의용대",
+      "merged": [
+        {
+          "id": "75회_q43_1704",
+          "source": "sample_exam",
+          "description": "중국 관내에서 결성된 최초의 한인 무장 조직이었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 189,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q21_1616",
+      "canonical_source": "sample_exam",
+      "canonical_description": "양헌수가 정족산성에서 적군을 격퇴하였다.",
+      "primary_keyword": "병인양요",
+      "merged": [
+        {
+          "id": "73회_q15_1785",
+          "source": "sample_exam",
+          "description": "양헌수 정족산성에서 적군을 물리치다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 190,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q8_3835",
+      "canonical_source": "sample_exam",
+      "canonical_description": "공양에게 조언하는 내용의 화왕계를 집필하였다.",
+      "primary_keyword": "설총",
+      "merged": [
+        {
+          "id": "70회_q8_2570",
+          "source": "sample_exam",
+          "description": "국왕에게 조언하는 내용의 화왕계를 저술하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 191,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "71회_q19_2412",
+      "canonical_source": "sample_exam",
+      "canonical_description": "호패법이 시행되었다.",
+      "primary_keyword": "조선 태종",
+      "merged": [
+        {
+          "id": "63회_q17_4402",
+          "source": "sample_exam",
+          "description": "호패법이다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 192,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q46_3942",
+      "canonical_source": "sample_exam",
+      "canonical_description": "부산이 임시 수도로 정해졌다.",
+      "primary_keyword": "6·25 전쟁",
+      "merged": [
+        {
+          "id": "75회_q47_1717",
+          "source": "sample_exam",
+          "description": "부산이 임시 수도가 되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 193,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "73회_q50_1913",
+      "canonical_source": "sample_exam",
+      "canonical_description": "남북 기본 합의서를 교환하였어요.",
+      "primary_keyword": "노태우 정부",
+      "merged": [
+        {
+          "id": "68회_q43_3141",
+          "source": "sample_exam",
+          "description": "남북 기본 합의서에 서명하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 194,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "76회_q33_779",
+      "canonical_source": "sample_exam",
+      "canonical_description": "개혁의 방향을 제시한 홍범 14조를 반포하였다.",
+      "primary_keyword": "갑오개혁",
+      "merged": [
+        {
+          "id": "67회_q35_3312",
+          "source": "sample_exam",
+          "description": "개혁 방향을 제시한 홍범 14조 반포"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 195,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q39_587",
+      "canonical_source": "sample_exam",
+      "canonical_description": "귀속 재산 관리를 위해 신한 공사가 운영되었어요.",
+      "primary_keyword": "신한 공사",
+      "merged": [
+        {
+          "id": "66회_q46_3788",
+          "source": "sample_exam",
+          "description": "귀속 재산 처리를 위해 신한 공사가 설립되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 196,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q41_1038",
+      "canonical_source": "sample_exam",
+      "canonical_description": "조선말(우리말) 큰 사전 편찬을 추진하였다.",
+      "primary_keyword": "조선어학회",
+      "merged": [
+        {
+          "id": "67회_q38_3534",
+          "source": "sample_exam",
+          "description": "조선말 큰사전 편찬을 주도하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 197,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "78회_q45_195",
+      "canonical_source": "sample_exam",
+      "canonical_description": "여수 순천 10·10 사건이 발생하였다.",
+      "primary_keyword": "여수 순천 사건",
+      "merged": [
+        {
+          "id": "74회_q45_1283",
+          "source": "sample_exam",
+          "description": "여수·순천 10·19 사건이 일어났다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 198,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "72회_q1_1920",
+      "canonical_source": "sample_exam",
+      "canonical_description": "호미 쇠스랑 등의 철제 농기구를 제작하였다.",
+      "primary_keyword": "철기 시대",
+      "merged": [
+        {
+          "id": "78회_q1_3",
+          "source": "sample_exam",
+          "description": "쟁기 쇠스랑 등의 철제 농기구를 사용하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 199,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q2_864",
+      "canonical_source": "sample_exam",
+      "canonical_description": "미천왕이 서안평을 공격하여 영토를 넓혔다.",
+      "primary_keyword": "고구려 미천왕",
+      "merged": [
+        {
+          "id": "77회_q50_640",
+          "source": "sample_exam",
+          "description": "서안평을 공격하여 영토를 확대하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 200,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q10_4191",
+      "canonical_source": "sample_exam",
+      "canonical_description": "과거제를 처음으로 시행하였다.",
+      "primary_keyword": "고려 광종",
+      "merged": [
+        {
+          "id": "67회_q11_3413",
+          "source": "sample_exam",
+          "description": "과거제를 처음 실시하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 201,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q32_995",
+      "canonical_source": "sample_exam",
+      "canonical_description": "독립 협회 - 고종 강제 퇴위 반대 운동을 전개하였다.",
+      "primary_keyword": "대한자강회",
+      "merged": [
+        {
+          "id": "76회_q32_770",
+          "source": "sample_exam",
+          "description": "고종 강제 퇴위 반대 운동을 주도하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 202,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "66회_q34_3734",
+      "canonical_source": "sample_exam",
+      "canonical_description": "헤이그에 특사가 파견되었다.",
+      "primary_keyword": "헤이그 특사",
+      "merged": [
+        {
+          "id": "71회_q37_2486",
+          "source": "sample_exam",
+          "description": "헤이그에 특사로 파견됨"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 203,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "70회_q40_2709",
+      "canonical_source": "sample_exam",
+      "canonical_description": "경성 제국 대학을 설립하였다.",
+      "primary_keyword": "1920년대",
+      "merged": [
+        {
+          "id": "73회_q38_1868",
+          "source": "sample_exam",
+          "description": "경성 제국 대학이 설립되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 204,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "63회_q46_4514",
+      "canonical_source": "sample_exam",
+      "canonical_description": "미국과의 자유 무역 협정(FTA)이 체결되었다.",
+      "primary_keyword": "노무현 정부",
+      "merged": [
+        {
+          "id": "77회_q47_395",
+          "source": "sample_exam",
+          "description": "미국과 자유 무역 협정(FTA) 체결"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 205,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q9_448",
+      "canonical_source": "sample_exam",
+      "canonical_description": "김부를 경주의 사심관으로 임명하였다.",
+      "primary_keyword": "고려 태조",
+      "merged": [
+        {
+          "id": "73회_q10_1350",
+          "source": "sample_exam",
+          "description": "경주의 사심관으로 임명되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 206,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "76회_q2_651",
+      "canonical_source": "sample_exam",
+      "canonical_description": "10월에 동맹이라는 제천 행사를 열었다.",
+      "primary_keyword": "고구려",
+      "merged": [
+        {
+          "id": "74회_q2_1091",
+          "source": "sample_exam",
+          "description": "동맹이라는 제천 행사를 개최하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 207,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "69회_q17_2829",
+      "canonical_source": "sample_exam",
+      "canonical_description": "화랑도가 국가적인 조직으로 개편되었다.",
+      "primary_keyword": "신라 진흥왕",
+      "merged": [
+        {
+          "id": "76회_q6_662",
+          "source": "sample_exam",
+          "description": "화랑도를 국가적인 조직으로 개편하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 208,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q7_1116",
+      "canonical_source": "sample_exam",
+      "canonical_description": "9서당 10정의 군사 조직을 운영하였다.",
+      "primary_keyword": "통일신라",
+      "merged": [
+        {
+          "id": "65회_q7_3827",
+          "source": "sample_exam",
+          "description": "9서당 10정인 군사 조직을 갖추었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 209,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q39_4107",
+      "canonical_source": "sample_exam",
+      "canonical_description": "물자 착용을 권장하는 애국반 반장",
+      "primary_keyword": "민족말살통치기",
+      "merged": [
+        {
+          "id": "72회_q41_2087",
+          "source": "sample_exam",
+          "description": "몸뻬 착용을 권장하는 애국반 반장"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 210,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "78회_q46_201",
+      "canonical_source": "sample_exam",
+      "canonical_description": "야당 총재의 국회의원직 제명에 반대하였다.",
+      "primary_keyword": "부마민주항쟁",
+      "merged": [
+        {
+          "id": "63_q49_4738",
+          "source": "sample_exam",
+          "description": "야당 총재 국회의원직 제명 반대"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 211,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "70회_q49_2749",
+      "canonical_source": "sample_exam",
+      "canonical_description": "G20 정상 회의를 서울에서 개최하였다.",
+      "primary_keyword": "김영삼 정부",
+      "merged": [
+        {
+          "id": "71회_q48_2524",
+          "source": "sample_exam",
+          "description": "서울에서 G20 정상 회의가 열렸다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 212,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q5_3819",
+      "canonical_source": "sample_exam",
+      "canonical_description": "고국천왕이 을파소를 등용하고 진대법을 실시하였다.",
+      "primary_keyword": "고구려 고국천왕",
+      "merged": [
+        {
+          "id": "78회_q6_27",
+          "source": "sample_exam",
+          "description": "을파소를 등용하고 진대법을 시행하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 213,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "69회_q6_2777",
+      "canonical_source": "sample_exam",
+      "canonical_description": "계백이 이끄는 결사대가 황산벌에서 항전하였어요.",
+      "primary_keyword": "황산벌 전투",
+      "merged": [
+        {
+          "id": "74회_q4_1102",
+          "source": "sample_exam",
+          "description": "계백이 이끈 결사대가 황산벌에서 패배하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 214,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q24_514",
+      "canonical_source": "sample_exam",
+      "canonical_description": "붕당 정치의 폐해를 경계하기 위해 탕평비를 건립하였다.",
+      "primary_keyword": "조선 영조",
+      "merged": [
+        {
+          "id": "74회_q22_1174",
+          "source": "sample_exam",
+          "description": "붕당의 폐해를 경계하기 위해 탕평비가 건립되었다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 215,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q1_1088",
+      "canonical_source": "sample_exam",
+      "canonical_description": "지배층의 무덤으로 고인돌을 축조하였다.",
+      "primary_keyword": "청동기 시대",
+      "merged": [
+        {
+          "id": "63_q1_4533",
+          "source": "sample_exam",
+          "description": "지배층 무덤으로 고인돌 축조"
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 216,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "78회_q8_34",
+      "canonical_source": "sample_exam",
+      "canonical_description": "김흠돌이 반란을 꾀하다 처형되었다.",
+      "primary_keyword": "신라 신문왕",
+      "merged": [
+        {
+          "id": "77회_q12_263",
+          "source": "sample_exam",
+          "description": "김흠돌이 반란을 도모하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 217,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q40_3920",
+      "canonical_source": "sample_exam",
+      "canonical_description": "조선 민립 대학 설립 기성회가 창립되었다.",
+      "primary_keyword": "민립 대학 설립 운동",
+      "merged": [
+        {
+          "id": "77회_q39_585",
+          "source": "sample_exam",
+          "description": "조선 민립 대학 기성회가 조직되었어요."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 218,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q44_4312",
+      "canonical_source": "sample_exam",
+      "canonical_description": "농지 개혁법이 제정되었다.",
+      "primary_keyword": "이승만 정부",
+      "merged": [
+        {
+          "id": "67회_q46_3571",
+          "source": "sample_exam",
+          "description": "농지 개혁법을 제정하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 219,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "67회_q45_3358",
+      "canonical_source": "sample_exam",
+      "canonical_description": "대통령이 국회의원의 3분의 1을 추천하게 되었다.",
+      "primary_keyword": "유신헌법",
+      "merged": [
+        {
+          "id": "63회_q44_4506",
+          "source": "sample_exam",
+          "description": "국회의원의 3분의 1을 대통령이 추천하였다."
+        }
+      ],
+      "added_at": "2026-05-31T01:11:29.231Z",
+      "cluster_id": 220,
       "frequency": 2
     }
   ]
