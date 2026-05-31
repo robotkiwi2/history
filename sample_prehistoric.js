@@ -77,6 +77,7 @@ const PREHISTORIC_DETAILS = [
     startYear: -6000, endYear: -2000,
     difficulty: 2, era: '선사시대',
     tags: ['신석기 시대'],
+    frequency: 2
   },
   {
     id: '신석기_갈돌갈판',
@@ -311,7 +312,7 @@ const PREHISTORIC_DETAILS = [
     startYear: -200, endYear: 494,
     difficulty: 2, era: '선사시대',
     tags: ['부여'],
-    frequency: 2
+    frequency: 3
   },
   {
     id: '부여_1책12법',

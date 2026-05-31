@@ -1,6 +1,8 @@
 {
-  "generated_at": "2026-05-31T00:30:17.792Z",
-  "threshold": 0.8,
+  "generated_at": "2026-05-31T00:38:03.429Z",
+  "thresholds_applied": [
+    0.7
+  ],
   "decisions": [
     {
       "cluster_id": 1,
@@ -43,14 +45,20 @@
       "canonical_id": "부여_영고",
       "canonical_source": "sample_prehistoric",
       "canonical_description": "12월에 영고라는 제천행사를 열었다.",
-      "frequency": 2,
+      "frequency": 3,
       "merged": [
         {
           "id": "77회_q7_435",
           "source": "sample_exam",
           "description": "12월에 영고라는 제천 행사를 열었다."
+        },
+        {
+          "id": "73회_q4_1325",
+          "source": "sample_exam",
+          "description": "영고라는 제천 행사를 열었다."
         }
-      ]
+      ],
+      "updated_at": "2026-05-31T00:38:03.429Z"
     },
     {
       "cluster_id": 4,
@@ -636,6 +644,875 @@
           "description": "연간 수출액 100억 달러가 달성되었다."
         }
       ]
+    },
+    {
+      "canonical_id": "77회_q36_573",
+      "canonical_source": "sample_exam",
+      "canonical_description": "신채호가 쓴 조선 혁명 선언을 활동 지침으로 삼았다.",
+      "primary_keyword": "의열단",
+      "merged": [
+        {
+          "id": "75회_q37_1022",
+          "source": "sample_exam",
+          "description": "조선 혁명 선언을 활동 지침으로 삼았다."
+        },
+        {
+          "id": "65회_q33_3896",
+          "source": "sample_exam",
+          "description": "조선 혁명 선언을 지침으로 삼았다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 43,
+      "frequency": 3
+    },
+    {
+      "canonical_id": "64회_q35_4089",
+      "canonical_source": "sample_exam",
+      "canonical_description": "대한 제국이 기유각서를 통해 일제에 사법권을 박탈당하였다.",
+      "primary_keyword": "기유각서",
+      "merged": [
+        {
+          "id": "67회_q36_3318",
+          "source": "sample_exam",
+          "description": "기유각서를 통해 일제에 사법권을 박탈당하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 44,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q1_413",
+      "canonical_source": "sample_exam",
+      "canonical_description": "주먹도끼·찍개 등의 뗀석기를 처음 제작하였다.",
+      "primary_keyword": "구석기 시대",
+      "merged": [
+        {
+          "id": "77회_q1_226",
+          "source": "sample_exam",
+          "description": "주먹도끼 등의 뗀석기를 처음 제작하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 45,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q1_1089",
+      "canonical_source": "sample_exam",
+      "canonical_description": "거푸집을 이용하여 세형 동검을 제작하였다.",
+      "primary_keyword": "철기 시대",
+      "merged": [
+        {
+          "id": "78회_q1_2",
+          "source": "sample_exam",
+          "description": "거푸집을 사용하여 세형 동검을 제작하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 46,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q5_3817",
+      "canonical_source": "sample_exam",
+      "canonical_description": "미천왕이 낙랑군을 축출하여 영토를 확장하였다.",
+      "primary_keyword": "고구려 미천왕",
+      "merged": [
+        {
+          "id": "70회_q4_2547",
+          "source": "sample_exam",
+          "description": "낙랑군을 축출하여 영토를 확장하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 47,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q7_1117",
+      "canonical_source": "sample_exam",
+      "canonical_description": "광평성을 비롯한 각종 정치 기구를 마련하였다.",
+      "primary_keyword": "궁예",
+      "merged": [
+        {
+          "id": "72회_q9_1961",
+          "source": "sample_exam",
+          "description": "광평성을 비롯한 정치 기구를 마련하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 48,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "67회_q12_3224",
+      "canonical_source": "sample_exam",
+      "canonical_description": "공주 명학소에서 망이·망소이가 봉기하였다.",
+      "primary_keyword": "망이·망소이의 난",
+      "merged": [
+        {
+          "id": "75회_q16_1596",
+          "source": "sample_exam",
+          "description": "망이·망소이가 공주 명학소에서 봉기하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 49,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q20_491",
+      "canonical_source": "sample_exam",
+      "canonical_description": "세계 지도인 혼일강리역대국도지도가 제작되었다.",
+      "primary_keyword": "조선 태종",
+      "merged": [
+        {
+          "id": "74회_q20_1164",
+          "source": "sample_exam",
+          "description": "혼일강리역대국도지도가 제작되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 50,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "71회_q19_2194",
+      "canonical_source": "sample_exam",
+      "canonical_description": "조선의 기본 법전인 경국대전이 완성되었다.",
+      "primary_keyword": "조선 성종",
+      "merged": [
+        {
+          "id": "72회_q20_2003",
+          "source": "sample_exam",
+          "description": "국가의 기본 법전인 경국대전이 완성되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 51,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "71회_q34_2269",
+      "canonical_source": "sample_exam",
+      "canonical_description": "중추원 개편을 통한 의회 설립을 추진하였다.",
+      "primary_keyword": "독립협회",
+      "merged": [
+        {
+          "id": "77회_q38_581",
+          "source": "sample_exam",
+          "description": "중추원 개편을 통해 의회 설립을 추진하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 52,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "63회_q46_4513",
+      "canonical_source": "sample_exam",
+      "canonical_description": "저달러·저유가·저금리의 3저 호황이 있었다.",
+      "primary_keyword": "전두환 정부",
+      "merged": [
+        {
+          "id": "71회_q47_2522",
+          "source": "sample_exam",
+          "description": "저금리·저유가·저달러의 3저 호황이 있었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 53,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q32_997",
+      "canonical_source": "sample_exam",
+      "canonical_description": "헌정 연구회 - 일제가 조작한 105인 사건으로 와해되었다.",
+      "primary_keyword": "신민회",
+      "merged": [
+        {
+          "id": "73회_q42_1505",
+          "source": "sample_exam",
+          "description": "일제가 조작한 105인 사건으로 와해되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 54,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "73회_q9_1347",
+      "canonical_source": "sample_exam",
+      "canonical_description": "정사암 회의에서 국가 중대사를 결정하였다.",
+      "primary_keyword": "백제",
+      "merged": [
+        {
+          "id": "71회_q6_2369",
+          "source": "sample_exam",
+          "description": "정사암에서 국가 중대사를 결정하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 55,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q7_3829",
+      "canonical_source": "sample_exam",
+      "canonical_description": "인안, 태흥 등 독자적인 연호를 사용하였다.",
+      "primary_keyword": "발해",
+      "merged": [
+        {
+          "id": "73회_q8_1342",
+          "source": "sample_exam",
+          "description": "인안 대흥 등 독자적인 연호를 사용하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 56,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "63회_q3_4348",
+      "canonical_source": "sample_exam",
+      "canonical_description": "청해진을 설치하였다.",
+      "primary_keyword": "장보고",
+      "merged": [
+        {
+          "id": "64회_q8_4180",
+          "source": "sample_exam",
+          "description": "창해진을 설치하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 57,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "76회_q31_765",
+      "canonical_source": "sample_exam",
+      "canonical_description": "일본의 황무지 개간권 요구를 저지하였다.",
+      "primary_keyword": "보안회",
+      "merged": [
+        {
+          "id": "77회_q34_564",
+          "source": "sample_exam",
+          "description": "일제의 황무지 개간권 요구를 저지하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 58,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "73회_q33_1460",
+      "canonical_source": "sample_exam",
+      "canonical_description": "대한매일신보의 지원을 받아 확산되었다.",
+      "primary_keyword": "국채 보상 운동",
+      "merged": [
+        {
+          "id": "76회_q39_800",
+          "source": "sample_exam",
+          "description": "대한매일신보의 후원을 받아 확산되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 59,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "71회_q8_2150",
+      "canonical_source": "sample_exam",
+      "canonical_description": "의자왕이 윤충을 보내 대야성을 함락하였다.",
+      "primary_keyword": "백제",
+      "merged": [
+        {
+          "id": "73회_q5_1331",
+          "source": "sample_exam",
+          "description": "윤충을 보내 대야성을 함락하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 60,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "78회_q22_90",
+      "canonical_source": "sample_exam",
+      "canonical_description": "김종서가 두만강 일대에 6진을 개척하였다.",
+      "primary_keyword": "4군 6진",
+      "merged": [
+        {
+          "id": "70회_q18_2611",
+          "source": "sample_exam",
+          "description": "두만강 일대에 6진을 개척하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 61,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q23_3873",
+      "canonical_source": "sample_exam",
+      "canonical_description": "김준용이 광교산 전투에서 승리하였다.",
+      "primary_keyword": "병자호란",
+      "merged": [
+        {
+          "id": "78회_q22_89",
+          "source": "sample_exam",
+          "description": "김준룡이 광교산 전투에서 승리하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 62,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "71회_q33_2266",
+      "canonical_source": "sample_exam",
+      "canonical_description": "순한글판으로 발행된 최초의 신문이었다.",
+      "primary_keyword": "독립신문",
+      "merged": [
+        {
+          "id": "78회_q34_142",
+          "source": "sample_exam",
+          "description": "순한글로 발행된 최초의 신문이었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 63,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "76회_q41_810",
+      "canonical_source": "sample_exam",
+      "canonical_description": "한인 자치 기관인 경학사를 조직하였다.",
+      "primary_keyword": "신민회",
+      "merged": [
+        {
+          "id": "77회_q32_550",
+          "source": "sample_exam",
+          "description": "한인 자치 기구인 경학사를 조직하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 64,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q28_4064",
+      "canonical_source": "sample_exam",
+      "canonical_description": "외규장각 도서가 국외로 약탈되는 결과를 가져왔다.",
+      "primary_keyword": "병인양요",
+      "merged": [
+        {
+          "id": "78회_q29_114",
+          "source": "sample_exam",
+          "description": "외규장각 도서가 약탈되는 결과를 가져왔다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 65,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q36_357",
+      "canonical_source": "sample_exam",
+      "canonical_description": "신간회에서 진상 조사단을 파견하여 지원하였다.",
+      "primary_keyword": "광주학생항일운동",
+      "merged": [
+        {
+          "id": "76회_q39_803",
+          "source": "sample_exam",
+          "description": "신간회가 진상 조사단을 파견하여 지원하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 66,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "67회_q42_3344",
+      "canonical_source": "sample_exam",
+      "canonical_description": "최익현, 지부복궐척화의소를 올려 왜양일체론을 주장하다.",
+      "primary_keyword": "최익현",
+      "merged": [
+        {
+          "id": "77회_q26_524",
+          "source": "sample_exam",
+          "description": "지부복궐척화의소를 올려 왜양일체론을 주장하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 67,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "68회_q6_2991",
+      "canonical_source": "sample_exam",
+      "canonical_description": "원광이 세속 5계를 제시하였다.",
+      "primary_keyword": "원광",
+      "merged": [
+        {
+          "id": "76회_q7_666",
+          "source": "sample_exam",
+          "description": "세속 5계를 제시하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 68,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "67회_q40_3332",
+      "canonical_source": "sample_exam",
+      "canonical_description": "헌병 경찰 제도가 실시되었다.",
+      "primary_keyword": "1910년대",
+      "merged": [
+        {
+          "id": "78회_q36_148",
+          "source": "sample_exam",
+          "description": "헌병 경찰제가 실시되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 69,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "69회_q40_2929",
+      "canonical_source": "sample_exam",
+      "canonical_description": "헌병 경찰 제도를 실시하였다.",
+      "primary_keyword": "1910년대",
+      "merged": [
+        {
+          "id": "70회_q40_2708",
+          "source": "sample_exam",
+          "description": "헌병 경찰제를 실시하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 70,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q40_1259",
+      "canonical_source": "sample_exam",
+      "canonical_description": "새마을 운동 근면·자조·협동을 기치로 내세우다",
+      "primary_keyword": "새마을 운동",
+      "merged": [
+        {
+          "id": "71회_q42_2305",
+          "source": "sample_exam",
+          "description": "근면 자조 협동을 기치로 내세운 새마을 운동"
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 71,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q41_4300",
+      "canonical_source": "sample_exam",
+      "canonical_description": "유신 체제가 붕괴되는 계기가 되었다.",
+      "primary_keyword": "부마민주항쟁",
+      "merged": [
+        {
+          "id": "69회_q44_2941",
+          "source": "sample_exam",
+          "description": "유신 체제가 붕괴하는 계기가 되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 72,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q13_3848",
+      "canonical_source": "sample_exam",
+      "canonical_description": "신문명송집을 편찬하고 유불 일치설을 주장하였다.",
+      "primary_keyword": "혜심",
+      "merged": [
+        {
+          "id": "78회_q17_65",
+          "source": "sample_exam",
+          "description": "선문염송집을 편찬하고 유불 일치설을 주장하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 73,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "71회_q38_2291",
+      "canonical_source": "sample_exam",
+      "canonical_description": "경복궁에서 조선 물산 공진회가 최초로 개최되었다.",
+      "primary_keyword": "조선 물산 공진회",
+      "merged": [
+        {
+          "id": "78회_q37_157",
+          "source": "sample_exam",
+          "description": "경복궁에서 최초로 조선 물산 공진회가 개최되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 74,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q46_392",
+      "canonical_source": "sample_exam",
+      "canonical_description": "서울에서 올림픽 대회가 개최되었다.",
+      "primary_keyword": "노태우 정부",
+      "merged": [
+        {
+          "id": "72회_q49_2117",
+          "source": "sample_exam",
+          "description": "서울 올림픽 대회가 개최되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 75,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q5_870",
+      "canonical_source": "sample_exam",
+      "canonical_description": "수도에 동시전이 설치되었다.",
+      "primary_keyword": "신라 지증왕",
+      "merged": [
+        {
+          "id": "69회_q26_2866",
+          "source": "sample_exam",
+          "description": "동시전이 설치되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 76,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "73회_q7_1758",
+      "canonical_source": "sample_exam",
+      "canonical_description": "신라가 우산국을 복속하였다.",
+      "primary_keyword": "신라 지증왕",
+      "merged": [
+        {
+          "id": "69회_q10_2796",
+          "source": "sample_exam",
+          "description": "우산국을 복속하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 77,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "76회_q50_853",
+      "canonical_source": "sample_exam",
+      "canonical_description": "노비안검법을 시행하여 호족 세력을 견제하였다.",
+      "primary_keyword": "고려 광종",
+      "merged": [
+        {
+          "id": "78회_q11_41",
+          "source": "sample_exam",
+          "description": "노비안검법을 실시하여 호족 세력을 견제하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 78,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q10_4190",
+      "canonical_source": "sample_exam",
+      "canonical_description": "지방에 12목을 설치하였다.",
+      "primary_keyword": "고려 성종",
+      "merged": [
+        {
+          "id": "73회_q17_1793",
+          "source": "sample_exam",
+          "description": "12목을 설치하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 79,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "64회_q49_4333",
+      "canonical_source": "sample_exam",
+      "canonical_description": "(나) 해동 천태종을 창시하였다.",
+      "primary_keyword": "고려 의천",
+      "merged": [
+        {
+          "id": "77회_q17_279",
+          "source": "sample_exam",
+          "description": "천태종을 창시하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 80,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "78회_q35_147",
+      "canonical_source": "sample_exam",
+      "canonical_description": "헤이그에서 열린 만국 평화 회의에 특사로 파견되었다.",
+      "primary_keyword": "헤이그 특사",
+      "merged": [
+        {
+          "id": "69회_q31_2889",
+          "source": "sample_exam",
+          "description": "헤이그 만국 평화 회의에 특사로 파견되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 81,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "78회_q8_37",
+      "canonical_source": "sample_exam",
+      "canonical_description": "이차돈의 순교를 계기로 불교가 공인되었다.",
+      "primary_keyword": "신라 법흥왕",
+      "merged": [
+        {
+          "id": "68회_q6_2992",
+          "source": "sample_exam",
+          "description": "이차돈의 순교로 불교가 공인되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 82,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "72회_q30_2040",
+      "canonical_source": "sample_exam",
+      "canonical_description": "일본 군함 운요호가 영종도를 공격하였다.",
+      "primary_keyword": "강화도 조약",
+      "merged": [
+        {
+          "id": "65회_q29_3887",
+          "source": "sample_exam",
+          "description": "일본의 운요호가 영종도를 공격하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 83,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "78회_q46_202",
+      "canonical_source": "sample_exam",
+      "canonical_description": "5년 단임의 대통령 직선제 개헌을 이끌어 냈다.",
+      "primary_keyword": "6월 민주항쟁",
+      "merged": [
+        {
+          "id": "67회_q44_3562",
+          "source": "sample_exam",
+          "description": "대통령 직선제 개헌을 이끌어 냈다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 84,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "77회_q50_409",
+      "canonical_source": "sample_exam",
+      "canonical_description": "판문점에서 남북 정상 회담을 개최하였다.",
+      "primary_keyword": "문재인 정부",
+      "merged": [
+        {
+          "id": "78회_q49_214",
+          "source": "sample_exam",
+          "description": "평양에서 남북 정상 회담을 개최하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 85,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "67회_q10_3212",
+      "canonical_source": "sample_exam",
+      "canonical_description": "장문휴가 당의 등주를 공격하였다.",
+      "primary_keyword": "발해 무왕",
+      "merged": [
+        {
+          "id": "77회_q12_264",
+          "source": "sample_exam",
+          "description": "장문휴가 등주를 공격하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 86,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "75회_q16_924",
+      "canonical_source": "sample_exam",
+      "canonical_description": "예성강 하구의 벽란도가 국제 무역항으로 번성하였다.",
+      "primary_keyword": "고려",
+      "merged": [
+        {
+          "id": "74회_q27_1198",
+          "source": "sample_exam",
+          "description": "벽란도가 국제 무역항으로 번성하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 87,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "72회_q28_2034",
+      "canonical_source": "sample_exam",
+      "canonical_description": "통치 체제를 정비하기 위해 속대전을 편찬하였다.",
+      "primary_keyword": "조선 영조",
+      "merged": [
+        {
+          "id": "66회_q23_3683",
+          "source": "sample_exam",
+          "description": "속대전을 편찬하여 통치 체제를 정비하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 88,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "76회_q33_777",
+      "canonical_source": "sample_exam",
+      "canonical_description": "근대식 무기 제조 공장인 기기창을 설립하였다.",
+      "primary_keyword": "기기창",
+      "merged": [
+        {
+          "id": "77회_q30_541",
+          "source": "sample_exam",
+          "description": "근대식 무기 제조 시설인 기기창을 설립하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 89,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q49_1302",
+      "canonical_source": "sample_exam",
+      "canonical_description": "남북 이산가족의 고향 방문을 최초로 성사시켰다.",
+      "primary_keyword": "전두환 정부",
+      "merged": [
+        {
+          "id": "78회_q49_216",
+          "source": "sample_exam",
+          "description": "남북 이산가족 고향 방문을 최초 성사시켰다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 90,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "65회_q27_3885",
+      "canonical_source": "sample_exam",
+      "canonical_description": "금석과안록에서 북한산비가 진흥왕 순수비임을 고증하였다.",
+      "primary_keyword": "김정희",
+      "merged": [
+        {
+          "id": "71회_q25_2223",
+          "source": "sample_exam",
+          "description": "북한산비가 진흥왕 순수비임을 고증하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 91,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "76회_q50_850",
+      "canonical_source": "sample_exam",
+      "canonical_description": "군대를 보내 신라에 침입한 왜를 격퇴하였다.",
+      "primary_keyword": "광개토대왕",
+      "merged": [
+        {
+          "id": "67회_q3_3389",
+          "source": "sample_exam",
+          "description": "신라에 침입한 왜를 격퇴하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 92,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "66회_q39_3759",
+      "canonical_source": "sample_exam",
+      "canonical_description": "조선 노농 총동맹과 조선 농민 총동맹이 결성되었다.",
+      "primary_keyword": "1920년대",
+      "merged": [
+        {
+          "id": "74회_q43_1271",
+          "source": "sample_exam",
+          "description": "조선 노농 총동맹이 결성되었다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 93,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "신석기_빗살무늬토기",
+      "canonical_source": "sample_prehistoric",
+      "canonical_description": "빗살무늬토기를 만들어 음식을 저장하였다.",
+      "primary_keyword": "신석기 시대",
+      "merged": [
+        {
+          "id": "71회_q1_2126",
+          "source": "sample_exam",
+          "description": "빗살무늬 토기를 만들어 식량을 저장하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 94,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "72회_q31_2046",
+      "canonical_source": "sample_exam",
+      "canonical_description": "청의 요청으로 나선 정벌에 조총 부대를 파견하였다.",
+      "primary_keyword": "조선 효종",
+      "merged": [
+        {
+          "id": "76회_q25_745",
+          "source": "sample_exam",
+          "description": "나선 정벌에 조총 부대를 파견하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 95,
+      "frequency": 2
+    },
+    {
+      "canonical_id": "74회_q33_1228",
+      "canonical_source": "sample_exam",
+      "canonical_description": "신한 청년당이 파리 강화 회의에 대표를 파견하였다.",
+      "primary_keyword": "대한민국 임시정부",
+      "merged": [
+        {
+          "id": "75회_q36_1675",
+          "source": "sample_exam",
+          "description": "파리 강화 회의에 대표를 파견하였다."
+        }
+      ],
+      "added_at": "2026-05-31T00:38:03.429Z",
+      "cluster_id": 96,
+      "frequency": 2
     }
   ]
 }
